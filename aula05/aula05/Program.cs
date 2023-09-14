@@ -11,7 +11,7 @@ namespace aula05
         static void Main(string[] args)
         {
             string name = "";
-
+            //array----------------------------------------------
             string[] names =
                 {
                 "Yan",
@@ -40,6 +40,9 @@ namespace aula05
             // Esse recebe array
 
             Console.WriteLine(string.Join(" ", names));
+
+            //--------------------------------------------------------
+
 
             Console.ReadLine();
         }
