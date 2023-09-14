@@ -1,0 +1,10 @@
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\bin\Debug\MeuCadastro.exe.config
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\bin\Debug\MeuCadastro.exe
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\bin\Debug\MeuCadastro.pdb
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.Properties.Resources.resources
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.csproj.GenerateResource.cache
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.exe
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.pdb
+C:\Estudos\Projetos\C-\MeuCadastro\MeuCadastro\obj\Debug\MeuCadastro.Form1.resources

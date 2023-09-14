@@ -1,0 +1,7 @@
+C:\Estudos\Projetos\C-\alula02\alula02\bin\Debug\alula02.exe.config
+C:\Estudos\Projetos\C-\alula02\alula02\bin\Debug\alula02.exe
+C:\Estudos\Projetos\C-\alula02\alula02\bin\Debug\alula02.pdb
+C:\Estudos\Projetos\C-\alula02\alula02\obj\Debug\alula02.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\alula02\alula02\obj\Debug\alula02.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\C-\alula02\alula02\obj\Debug\alula02.exe
+C:\Estudos\Projetos\C-\alula02\alula02\obj\Debug\alula02.pdb
