@@ -1,0 +1,2 @@
+C:\Estudos\Projetos\C-\aula07\aula07\obj\Debug\aula07.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\aula07\aula07\obj\Debug\aula07.csproj.CoreCompileInputs.cache

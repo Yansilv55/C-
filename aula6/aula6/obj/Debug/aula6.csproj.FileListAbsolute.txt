@@ -1,0 +1,7 @@
+C:\Estudos\Projetos\C-\aula6\aula6\bin\Debug\aula6.exe.config
+C:\Estudos\Projetos\C-\aula6\aula6\bin\Debug\aula6.exe
+C:\Estudos\Projetos\C-\aula6\aula6\bin\Debug\aula6.pdb
+C:\Estudos\Projetos\C-\aula6\aula6\obj\Debug\aula6.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\aula6\aula6\obj\Debug\aula6.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\C-\aula6\aula6\obj\Debug\aula6.exe
+C:\Estudos\Projetos\C-\aula6\aula6\obj\Debug\aula6.pdb
