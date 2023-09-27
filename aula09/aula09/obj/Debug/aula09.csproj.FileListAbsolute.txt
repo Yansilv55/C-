@@ -1,0 +1,7 @@
+C:\Estudos\Projetos\C-\aula09\aula09\bin\Debug\aula09.exe.config
+C:\Estudos\Projetos\C-\aula09\aula09\bin\Debug\aula09.exe
+C:\Estudos\Projetos\C-\aula09\aula09\bin\Debug\aula09.pdb
+C:\Estudos\Projetos\C-\aula09\aula09\obj\Debug\aula09.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\aula09\aula09\obj\Debug\aula09.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\C-\aula09\aula09\obj\Debug\aula09.exe
+C:\Estudos\Projetos\C-\aula09\aula09\obj\Debug\aula09.pdb
