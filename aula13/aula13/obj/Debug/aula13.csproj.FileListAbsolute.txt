@@ -1,0 +1,7 @@
+C:\Estudos\Projetos\C-\aula13\aula13\bin\Debug\aula13.exe.config
+C:\Estudos\Projetos\C-\aula13\aula13\bin\Debug\aula13.exe
+C:\Estudos\Projetos\C-\aula13\aula13\bin\Debug\aula13.pdb
+C:\Estudos\Projetos\C-\aula13\aula13\obj\Debug\aula13.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\C-\aula13\aula13\obj\Debug\aula13.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\C-\aula13\aula13\obj\Debug\aula13.exe
+C:\Estudos\Projetos\C-\aula13\aula13\obj\Debug\aula13.pdb
