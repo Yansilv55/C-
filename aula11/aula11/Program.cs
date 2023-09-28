@@ -10,10 +10,16 @@ namespace aula11
     {
         static void Main(string[] args)
         {
-            int n1 = 10;
-            int n2 = n1;
+
+            float n1 = 10.5f;
+            int n2 = (int)n1;//type cast
 
             Console.WriteLine(n2);
+
+            int vInt = 10;
+            short vShort = (short)vInt;
+
+            Console.WriteLine(vShort);
 
             Console.ReadLine();
         }
