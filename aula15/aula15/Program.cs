@@ -9,8 +9,10 @@ namespace aula15
     internal class Program
     {
         static void Main(string[] args)
-        { 
-
+        {
+            for(int num = 0;num<10;num++){
+                Console.WriteLine("Yan é bonito!");
+            };
         }
     }
 }
