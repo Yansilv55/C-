@@ -1,0 +1,7 @@
+C:\Estudos\Projetos\Csharp\aula18\aula18\bin\Debug\aula18.exe.config
+C:\Estudos\Projetos\Csharp\aula18\aula18\bin\Debug\aula18.exe
+C:\Estudos\Projetos\Csharp\aula18\aula18\bin\Debug\aula18.pdb
+C:\Estudos\Projetos\Csharp\aula18\aula18\obj\Debug\aula18.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\aula18\aula18\obj\Debug\aula18.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\aula18\aula18\obj\Debug\aula18.exe
+C:\Estudos\Projetos\Csharp\aula18\aula18\obj\Debug\aula18.pdb
