@@ -1,0 +1,10 @@
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\bin\Debug\Calcmédia.exe.config
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\bin\Debug\Calcmédia.exe
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\bin\Debug\Calcmédia.pdb
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.Form1.resources
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.Properties.Resources.resources
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.csproj.GenerateResource.cache
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.exe
+C:\Estudos\Projetos\Csharp\Calcmédia\Calcmédia\obj\Debug\Calcmédia.pdb
