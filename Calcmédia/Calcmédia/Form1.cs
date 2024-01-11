@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,29 +43,51 @@ namespace Calcmedia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float soma, valor;
-            soma = 0;
+            if (TodosCamposPreenchidos())
+            {
+                float soma, valor;
+                soma = 0;
 
-            foreach (Control controle in this.tab_calculo.Controls)
-            {
-                if (controle is TextBox)
+                foreach (Control controle in this.tab_calculo.Controls)
                 {
-                    valor = Convert.ToSingle(((TextBox)controle).Text);
-                    soma += valor;
+                    if ((controle is TextBox) && (controle.Enabled == true))
+                    {
+                        valor = Convert.ToSingle(((TextBox)controle).Text);
+                        soma += valor;
+                    }
                 }
-                //this.tabPage1.Controls["label7"].Text = media.ToString;
-            }
-            media = soma / 4;
-            lbl_resultado_media.Text = media.ToString();
-            if (Grava_info() == true)
-            {
-                MessageBox.Show("Dados salvos com sucesso!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                media = soma / float.Parse(ctl_quant_notas.Text);
+                lbl_resultado_media.Text = media.ToString();
+
+                if (Grava_info() == true)
+                {
+                    MessageBox.Show("Dados salvos com sucesso!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Ocorreu um erro!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Preencha todos os campos antes de calcular a média.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
 
+        private bool TodosCamposPreenchidos()
+        {
+            foreach (Control controle in this.tab_calculo.Controls)
+            {
+                if ((controle is TextBox) && (controle.Enabled == true))
+                {
+                    if (string.IsNullOrEmpty(((TextBox)controle).Text))
+                    {
+                        return false; 
+                    }
+                }
+            }
+            return true; 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,7 +119,14 @@ namespace Calcmedia
         {
             if (e.KeyCode == Keys.Enter)
             {
+                if (ctl_nota_3.Enabled)
+                {
                 ctl_nota_3.Focus();
+                }
+                else
+                {
+                    btn_calcular.Focus();
+                }
             }
         }
 
@@ -104,7 +134,14 @@ namespace Calcmedia
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ctl_nota_4.Focus();
+                if(ctl_nota_4.Enabled)
+                {
+                    ctl_nota_4.Focus();
+                }
+                else
+                {
+                    btn_calcular.Focus();
+                }
             }
         }
 
@@ -113,8 +150,6 @@ namespace Calcmedia
             if (e.KeyCode == Keys.Enter)
             {
                 btn_calcular.Focus();
-                ctl_nota_1.Enabled = true;
-                ctl_nota_2.Enabled = false;
             }
         }
 
@@ -124,8 +159,8 @@ namespace Calcmedia
             medias.media = media;
             medias.nota_1 = float.Parse(ctl_nota_1.Text);
             medias.nota_2 = float.Parse(ctl_nota_2.Text);
-            medias.nota_3 = float.Parse(ctl_nota_3.Text);
-            medias.nota_4 = float.Parse(ctl_nota_4.Text);
+            medias.nota_3 = ctl_nota_3.Enabled ? float.Parse(ctl_nota_3.Text) : 0;
+            medias.nota_4 = ctl_nota_4.Enabled ? float.Parse(ctl_nota_4.Text) : 0;
             if(medias != null)
             {
                 Configura_grid(medias);
@@ -134,6 +169,75 @@ namespace Calcmedia
             else
             {
                 return false;
+            }
+        }
+
+        private void ctl_nota_1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ctl_nota_2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ctl_nota_3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ctl_nota_4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ctl_quant_notas_Leave(object sender, EventArgs e)
+        {
+            switch (ctl_quant_notas.Text)
+            {
+                case "2":
+                    ctl_nota_1.Enabled = true;
+                    ctl_nota_2.Enabled = true;
+                    ctl_nota_3.Enabled = false;
+                    ctl_nota_4.Enabled = false;
+                    break;
+                case "3":
+                    ctl_nota_1.Enabled = true;
+                    ctl_nota_2.Enabled = true;
+                    ctl_nota_3.Enabled = true;
+                    ctl_nota_4.Enabled = false;
+                    break;
+                case "4":
+                    ctl_nota_1.Enabled = true;
+                    ctl_nota_2.Enabled = true;
+                    ctl_nota_3.Enabled = true;
+                    ctl_nota_4.Enabled = true;
+                    break;
+
+                default:
+                    MessageBox.Show("Quantidade invalida. Favor informar números de 2 a 4.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
+        }
+
+        private void ctl_quant_notas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ctl_nota_1.Focus();
             }
         }
     }

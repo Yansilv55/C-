@@ -35,6 +35,7 @@
             this.lbl_resultado_media = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_calculo = new System.Windows.Forms.TabPage();
+            this.ctl_quant_notas = new System.Windows.Forms.ComboBox();
             this.ctl_nota_2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ctl_nota_4 = new System.Windows.Forms.TextBox();
@@ -112,6 +113,7 @@
             // 
             // tab_calculo
             // 
+            this.tab_calculo.Controls.Add(this.ctl_quant_notas);
             this.tab_calculo.Controls.Add(this.ctl_nota_2);
             this.tab_calculo.Controls.Add(this.lbl_resultado_media);
             this.tab_calculo.Controls.Add(this.label6);
@@ -133,6 +135,20 @@
             this.tab_calculo.Text = "Calculo";
             this.tab_calculo.UseVisualStyleBackColor = true;
             // 
+            // ctl_quant_notas
+            // 
+            this.ctl_quant_notas.FormattingEnabled = true;
+            this.ctl_quant_notas.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4"});
+            this.ctl_quant_notas.Location = new System.Drawing.Point(62, 52);
+            this.ctl_quant_notas.Name = "ctl_quant_notas";
+            this.ctl_quant_notas.Size = new System.Drawing.Size(45, 21);
+            this.ctl_quant_notas.TabIndex = 13;
+            this.ctl_quant_notas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctl_quant_notas_KeyDown);
+            this.ctl_quant_notas.Leave += new System.EventHandler(this.ctl_quant_notas_Leave);
+            // 
             // ctl_nota_2
             // 
             this.ctl_nota_2.Location = new System.Drawing.Point(62, 121);
@@ -140,6 +156,7 @@
             this.ctl_nota_2.Size = new System.Drawing.Size(100, 20);
             this.ctl_nota_2.TabIndex = 3;
             this.ctl_nota_2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctl_nota_2_KeyDown);
+            this.ctl_nota_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctl_nota_2_KeyPress);
             // 
             // label4
             // 
@@ -157,6 +174,7 @@
             this.ctl_nota_4.Size = new System.Drawing.Size(100, 20);
             this.ctl_nota_4.TabIndex = 5;
             this.ctl_nota_4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctl_nota_4_KeyDown);
+            this.ctl_nota_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctl_nota_4_KeyPress);
             // 
             // label5
             // 
@@ -183,6 +201,7 @@
             this.ctl_nota_3.Size = new System.Drawing.Size(100, 20);
             this.ctl_nota_3.TabIndex = 4;
             this.ctl_nota_3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctl_nota_3_KeyDown);
+            this.ctl_nota_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctl_nota_3_KeyPress);
             // 
             // label3
             // 
@@ -200,6 +219,7 @@
             this.ctl_nota_1.Size = new System.Drawing.Size(100, 20);
             this.ctl_nota_1.TabIndex = 2;
             this.ctl_nota_1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctl_nota_1_KeyDown);
+            this.ctl_nota_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctl_nota_1_KeyPress);
             // 
             // tab_historico
             // 
@@ -257,6 +277,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox ctl_quant_notas;
     }
 }
 

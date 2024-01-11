@@ -1,7 +1,0 @@
-C:\Estudos\Projetos\C-\aula03\aula03\bin\Debug\aula03.exe.config
-C:\Estudos\Projetos\C-\aula03\aula03\bin\Debug\aula03.exe
-C:\Estudos\Projetos\C-\aula03\aula03\bin\Debug\aula03.pdb
-C:\Estudos\Projetos\C-\aula03\aula03\obj\Debug\aula03.csproj.AssemblyReference.cache
-C:\Estudos\Projetos\C-\aula03\aula03\obj\Debug\aula03.csproj.CoreCompileInputs.cache
-C:\Estudos\Projetos\C-\aula03\aula03\obj\Debug\aula03.exe
-C:\Estudos\Projetos\C-\aula03\aula03\obj\Debug\aula03.pdb
