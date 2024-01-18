@@ -1,0 +1,11 @@
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.Frm_Principal.resources
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.Properties.Resources.resources
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.csproj.GenerateResource.cache
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\PDV\bin\Debug\PDV.exe.config
+C:\Estudos\Projetos\Csharp\PDV\bin\Debug\PDV.exe
+C:\Estudos\Projetos\Csharp\PDV\bin\Debug\PDV.pdb
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.exe
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.pdb
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.cadastro.Frm_funcionario.resources
