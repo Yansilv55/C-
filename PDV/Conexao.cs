@@ -10,7 +10,7 @@ namespace PDV
 {
     internal class Conexao
     {   
-        string connectionString = "Server=localhost;Database=pdv;User ID=root;Password=;";
+        public string connectionString = "Server=localhost;Database=pdv;User ID=root;Password=;PORT=;";
 
         public void Conectar()
         {

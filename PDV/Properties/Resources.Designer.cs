@@ -23,7 +23,7 @@ namespace PDV.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+        internal static object icon_person;
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -76,6 +76,16 @@ namespace PDV.Properties {
         internal static System.Drawing.Bitmap icons8_checked_baggage_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_checked_baggage_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_person_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_person_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

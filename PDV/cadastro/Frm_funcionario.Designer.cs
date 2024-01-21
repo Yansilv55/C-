@@ -33,19 +33,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.text_Nome = new System.Windows.Forms.TextBox();
-            this.text_Telefone = new System.Windows.Forms.TextBox();
-            this.text_Endereço = new System.Windows.Forms.TextBox();
-            this.Cb_Cargo = new System.Windows.Forms.ComboBox();
-            this.text_Cpf = new System.Windows.Forms.TextBox();
-            this.Pic_Foto = new System.Windows.Forms.PictureBox();
+            this.btn_Nome = new System.Windows.Forms.TextBox();
+            this.btn_Endereco = new System.Windows.Forms.TextBox();
+            this.cb_Cargo = new System.Windows.Forms.ComboBox();
+            this.image = new System.Windows.Forms.PictureBox();
             this.Grid = new System.Windows.Forms.DataGridView();
             this.btn_Novo = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_Foto)).BeginInit();
+            this.btn_foto = new System.Windows.Forms.Button();
+            this.btn_Cpf = new System.Windows.Forms.MaskedTextBox();
+            this.btn_Telefone = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,74 +94,52 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Cargo";
             // 
-            // label6
+            // btn_Nome
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(839, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Foto";
+            this.btn_Nome.Location = new System.Drawing.Point(54, 20);
+            this.btn_Nome.Name = "btn_Nome";
+            this.btn_Nome.Size = new System.Drawing.Size(422, 20);
+            this.btn_Nome.TabIndex = 6;
             // 
-            // text_Nome
+            // btn_Endereco
             // 
-            this.text_Nome.Location = new System.Drawing.Point(54, 20);
-            this.text_Nome.Name = "text_Nome";
-            this.text_Nome.Size = new System.Drawing.Size(422, 20);
-            this.text_Nome.TabIndex = 6;
+            this.btn_Endereco.Location = new System.Drawing.Point(67, 140);
+            this.btn_Endereco.Name = "btn_Endereco";
+            this.btn_Endereco.Size = new System.Drawing.Size(380, 20);
+            this.btn_Endereco.TabIndex = 8;
             // 
-            // text_Telefone
+            // cb_Cargo
             // 
-            this.text_Telefone.Location = new System.Drawing.Point(67, 84);
-            this.text_Telefone.Name = "text_Telefone";
-            this.text_Telefone.Size = new System.Drawing.Size(100, 20);
-            this.text_Telefone.TabIndex = 7;
-            this.text_Telefone.TextChanged += new System.EventHandler(this.text_Telefone_TextChanged);
-            // 
-            // text_Endereço
-            // 
-            this.text_Endereço.Location = new System.Drawing.Point(67, 140);
-            this.text_Endereço.Name = "text_Endereço";
-            this.text_Endereço.Size = new System.Drawing.Size(380, 20);
-            this.text_Endereço.TabIndex = 8;
-            // 
-            // Cb_Cargo
-            // 
-            this.Cb_Cargo.FormattingEnabled = true;
-            this.Cb_Cargo.Items.AddRange(new object[] {
+            this.cb_Cargo.FormattingEnabled = true;
+            this.cb_Cargo.Items.AddRange(new object[] {
             "Gerente",
             "Junior",
             "Pleno",
             "Senior"});
-            this.Cb_Cargo.Location = new System.Drawing.Point(547, 116);
-            this.Cb_Cargo.Name = "Cb_Cargo";
-            this.Cb_Cargo.Size = new System.Drawing.Size(219, 21);
-            this.Cb_Cargo.TabIndex = 9;
+            this.cb_Cargo.Location = new System.Drawing.Point(547, 116);
+            this.cb_Cargo.Name = "cb_Cargo";
+            this.cb_Cargo.Size = new System.Drawing.Size(219, 21);
+            this.cb_Cargo.TabIndex = 9;
             // 
-            // text_Cpf
+            // image
             // 
-            this.text_Cpf.Location = new System.Drawing.Point(539, 21);
-            this.text_Cpf.Name = "text_Cpf";
-            this.text_Cpf.Size = new System.Drawing.Size(284, 20);
-            this.text_Cpf.TabIndex = 10;
-            // 
-            // Pic_Foto
-            // 
-            this.Pic_Foto.Location = new System.Drawing.Point(890, 28);
-            this.Pic_Foto.Name = "Pic_Foto";
-            this.Pic_Foto.Size = new System.Drawing.Size(211, 175);
-            this.Pic_Foto.TabIndex = 11;
-            this.Pic_Foto.TabStop = false;
+            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.image.Location = new System.Drawing.Point(890, 28);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(243, 190);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image.TabIndex = 11;
+            this.image.TabStop = false;
             // 
             // Grid
             // 
             this.Grid.AllowUserToAddRows = false;
             this.Grid.AllowUserToDeleteRows = false;
             this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid.Location = new System.Drawing.Point(20, 209);
+            this.Grid.Location = new System.Drawing.Point(20, 243);
             this.Grid.Name = "Grid";
             this.Grid.ReadOnly = true;
-            this.Grid.Size = new System.Drawing.Size(1081, 305);
+            this.Grid.Size = new System.Drawing.Size(1113, 282);
             this.Grid.TabIndex = 12;
             // 
             // btn_Novo
@@ -193,7 +171,7 @@
             // 
             // btn_Salvar
             // 
-            this.btn_Salvar.Location = new System.Drawing.Point(997, 531);
+            this.btn_Salvar.Location = new System.Drawing.Point(1045, 531);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(88, 32);
             this.btn_Salvar.TabIndex = 16;
@@ -201,23 +179,49 @@
             this.btn_Salvar.UseVisualStyleBackColor = true;
             this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
             // 
+            // btn_foto
+            // 
+            this.btn_foto.Location = new System.Drawing.Point(838, 28);
+            this.btn_foto.Name = "btn_foto";
+            this.btn_foto.Size = new System.Drawing.Size(46, 26);
+            this.btn_foto.TabIndex = 17;
+            this.btn_foto.Text = "Foto";
+            this.btn_foto.UseVisualStyleBackColor = true;
+            this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
+            // 
+            // btn_Cpf
+            // 
+            this.btn_Cpf.Location = new System.Drawing.Point(547, 19);
+            this.btn_Cpf.Mask = "000.000.000-00";
+            this.btn_Cpf.Name = "btn_Cpf";
+            this.btn_Cpf.Size = new System.Drawing.Size(88, 20);
+            this.btn_Cpf.TabIndex = 18;
+            // 
+            // btn_Telefone
+            // 
+            this.btn_Telefone.Location = new System.Drawing.Point(78, 87);
+            this.btn_Telefone.Mask = "(99) 0 0000-0000";
+            this.btn_Telefone.Name = "btn_Telefone";
+            this.btn_Telefone.Size = new System.Drawing.Size(102, 20);
+            this.btn_Telefone.TabIndex = 19;
+            // 
             // Frm_funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 575);
+            this.ClientSize = new System.Drawing.Size(1145, 569);
+            this.Controls.Add(this.btn_Telefone);
+            this.Controls.Add(this.btn_Cpf);
+            this.Controls.Add(this.btn_foto);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.btn_Excluir);
             this.Controls.Add(this.btn_Editar);
             this.Controls.Add(this.btn_Novo);
             this.Controls.Add(this.Grid);
-            this.Controls.Add(this.Pic_Foto);
-            this.Controls.Add(this.text_Cpf);
-            this.Controls.Add(this.Cb_Cargo);
-            this.Controls.Add(this.text_Endereço);
-            this.Controls.Add(this.text_Telefone);
-            this.Controls.Add(this.text_Nome);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.image);
+            this.Controls.Add(this.cb_Cargo);
+            this.Controls.Add(this.btn_Endereco);
+            this.Controls.Add(this.btn_Nome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -226,7 +230,8 @@
             this.Name = "Frm_funcionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Funcionário";
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_Foto)).EndInit();
+            this.Load += new System.EventHandler(this.Frm_funcionario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,17 +245,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox text_Nome;
-        private System.Windows.Forms.TextBox text_Telefone;
-        private System.Windows.Forms.TextBox text_Endereço;
-        private System.Windows.Forms.ComboBox Cb_Cargo;
-        private System.Windows.Forms.TextBox text_Cpf;
-        private System.Windows.Forms.PictureBox Pic_Foto;
+        private System.Windows.Forms.TextBox btn_Nome;
+        private System.Windows.Forms.TextBox btn_Endereco;
+        private System.Windows.Forms.ComboBox cb_Cargo;
+        private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.DataGridView Grid;
         private System.Windows.Forms.Button btn_Novo;
         private System.Windows.Forms.Button btn_Editar;
         private System.Windows.Forms.Button btn_Excluir;
         private System.Windows.Forms.Button btn_Salvar;
+        private System.Windows.Forms.Button btn_foto;
+        private System.Windows.Forms.MaskedTextBox btn_Cpf;
+        private System.Windows.Forms.MaskedTextBox btn_Telefone;
     }
 }

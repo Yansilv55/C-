@@ -155,5 +155,8 @@
   <ItemGroup>
     <None Include="Img\icons8_airport_arrow_baggage_direction_luggage_move_62_64px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\icons8_person_32px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
