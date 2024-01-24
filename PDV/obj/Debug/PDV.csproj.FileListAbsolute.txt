@@ -41,3 +41,4 @@ C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.csproj.CoreCompileInputs.cache
 C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.csproj.CopyComplete
 C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.exe
 C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.pdb
+C:\Estudos\Projetos\Csharp\PDV\obj\Debug\PDV.cadastro.Frm_Cargo.resources

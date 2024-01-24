@@ -20,12 +20,22 @@ namespace PDV
 
         private void Menu_sair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            var res = MessageBox.Show("Realmente Deseja sair?", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(res == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void Menu_funcionarios_Click(object sender, EventArgs e)
         {
             cadastro.Frm_funcionario frm = new cadastro.Frm_funcionario();
+            frm.ShowDialog();
+        }
+
+        private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cadastro.Frm_Cargo frm = new cadastro.Frm_Cargo();
             frm.ShowDialog();
         }
     }
