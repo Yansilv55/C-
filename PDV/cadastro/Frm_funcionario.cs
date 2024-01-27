@@ -28,6 +28,8 @@ namespace PDV.cadastro
         public Frm_funcionario()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void text_Telefone_TextChanged(object sender, EventArgs e)

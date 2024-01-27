@@ -34,6 +34,7 @@
             this.Menu_clientes = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_fornecedor = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_funcionarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_produto = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_produtos = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_estoque = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@
             this.Img_04 = new System.Windows.Forms.PictureBox();
             this.Img_02 = new System.Windows.Forms.PictureBox();
             this.Img_01 = new System.Windows.Forms.PictureBox();
-            this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Img_03)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_04)).BeginInit();
@@ -96,6 +96,7 @@
             this.Menu_clientes.Name = "Menu_clientes";
             this.Menu_clientes.Size = new System.Drawing.Size(180, 22);
             this.Menu_clientes.Text = "Clientes";
+            this.Menu_clientes.Click += new System.EventHandler(this.Menu_clientes_Click);
             // 
             // Menu_fornecedor
             // 
@@ -109,6 +110,13 @@
             this.Menu_funcionarios.Size = new System.Drawing.Size(180, 22);
             this.Menu_funcionarios.Text = "Funcionários";
             this.Menu_funcionarios.Click += new System.EventHandler(this.Menu_funcionarios_Click);
+            // 
+            // cargoToolStripMenuItem
+            // 
+            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargoToolStripMenuItem.Text = "Cargo";
+            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // Menu_produto
             // 
@@ -233,13 +241,6 @@
             this.Img_01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Img_01.TabIndex = 1;
             this.Img_01.TabStop = false;
-            // 
-            // cargoToolStripMenuItem
-            // 
-            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargoToolStripMenuItem.Text = "Cargo";
-            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // Frm_Principal
             // 

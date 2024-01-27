@@ -38,5 +38,11 @@ namespace PDV
             cadastro.Frm_Cargo frm = new cadastro.Frm_Cargo();
             frm.ShowDialog();
         }
+
+        private void Menu_clientes_Click(object sender, EventArgs e)
+        {
+            cadastro.Frm_Cliente frm = new cadastro.Frm_Cliente();
+            frm.ShowDialog();
+        }
     }
 }

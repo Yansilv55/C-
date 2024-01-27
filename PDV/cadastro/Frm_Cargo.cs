@@ -22,6 +22,8 @@ namespace PDV.cadastro
         public Frm_Cargo()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Cargo_Load(object sender, EventArgs e)
@@ -71,37 +73,104 @@ namespace PDV.cadastro
             }
         }
 
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private bool ValidarCampos_Cargo()
         {
-            // Validações dos campos funcionários
-            if (lb_Nome.Text.ToString().Trim() == "")
+            if (lb_Nome.Text.Trim() == "")
             {
-                MessageBox.Show("Preencha o campo", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Nome.Text = "";
-                lb_Nome.Focus();
-                return;
+                return false;
             }
+            else
+            {
+                return true;
+            }
+        }
 
+        private void salvar_Registro()
+        {
+            try
+            {
+                if (ValidarCampos_Cargo())
+                {
+                    string nomecargo = lb_Nome.Text;
+                    if (buscar_Registro_Cargo(nomecargo))
+                    {
+                        MessageBox.Show("Cargo já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                    else
+                    {
+                        if (buscar_Registro_Cargo(nomecargo))
+                        {
+                            MessageBox.Show($"Cargo: {nomecargo} já existe!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            Inserir_Nome(nomecargo);
+                            Atualizar_Grade();
+                            MessageBox.Show("Registro inserido com sucesso!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o Cargo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    lb_Nome.Focus();
+                }
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+        }
+
+        private bool buscar_Registro_Cargo(string nome)
+        {
             con.AbrirConexao();
+            sql = "SELECT COUNT(*) FROM cargos WHERE cargo = @cargo";
+            MySqlCommand connVerificar;
+            connVerificar = new MySqlCommand(sql, con.con);
+            connVerificar.Parameters.AddWithValue("@cargo", nome);
 
-             sql = "SELECT * FROM `cargos`";
-             conn = new MySqlCommand(sql, con.con);
+            int count = Convert.ToInt32(connVerificar.ExecuteScalar());
 
+            if (count > 0)
+            {
+                con.FecharConexao();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool Inserir_Nome(string nome)
+        {
             sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
-
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cargo", lb_Nome.Text);
+            conn.Parameters.AddWithValue("@cargo", nome);
 
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
-            Listar();
-            MessageBox.Show("Registro Salvo com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
+                Listar();
 
-            btn_Novo.Enabled = true;
-            btn_Salvar.Enabled = false;
-            btn_Editar.Enabled = false;
-            btn_Excluir.Enabled = false;
+                btn_Novo.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Editar.Enabled = false;
+                btn_Excluir.Enabled = false;
+                lb_Nome.Text = "";
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
+        private void Atualizar_Grade()
+        {
             using (MySqlDataReader reader = conn.ExecuteReader())
             {
                 if (reader.HasRows)
@@ -129,6 +198,19 @@ namespace PDV.cadastro
             }
         }
 
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                salvar_Registro();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show($"Erro ao inserir o registro: {Ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lb_Nome.Focus();
+            }
+        }
+
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             btn_Editar.Enabled = false;
@@ -148,10 +230,10 @@ namespace PDV.cadastro
             }
             con.AbrirConexao();
 
-                sql = "UPDATE cargos SET cargo = @cargo WHERE id = @id";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
+            sql = "UPDATE cargos SET cargo = @cargo WHERE id = @id";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@id", id);
+            conn.Parameters.AddWithValue("@cargo", lb_Nome.Text);
 
             if (lb_Nome.Text != nomeAntigo)
             {
@@ -165,7 +247,7 @@ namespace PDV.cadastro
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("CPF já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("O Cargo " + lb_Nome.Text + " já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     lb_Nome.Text = "";
                     lb_Nome.Focus();
                     return;
@@ -194,6 +276,8 @@ namespace PDV.cadastro
         {
             lb_Nome.Enabled = true;
             btn_Salvar.Enabled = true;
+            lb_Nome.Text = "";
+            lb_Nome.Focus();    
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -210,6 +294,22 @@ namespace PDV.cadastro
 
                 id = grid.CurrentRow.Cells[0].Value.ToString();
                 lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+            }
+        }
+
+        private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    salvar_Registro();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show($"Erro ao inserir o registro: {Ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lb_Nome.Focus();
+                }
             }
         }
     }
