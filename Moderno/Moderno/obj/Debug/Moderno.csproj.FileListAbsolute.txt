@@ -1,0 +1,13 @@
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.exe.config
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.exe
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Form1.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Properties.Resources.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.GenerateResource.cache
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.exe
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Forms.Frm_Venda_PDV.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Forms.Frm_Movimentacoes.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Forms.Frm_Receber.resources
