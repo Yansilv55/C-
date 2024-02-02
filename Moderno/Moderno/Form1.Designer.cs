@@ -30,17 +30,21 @@
         {
             this.Panel_Menu = new System.Windows.Forms.Panel();
             this.Panel_Logo = new System.Windows.Forms.Panel();
+            this.lb_pdv = new System.Windows.Forms.Label();
+            this.Panel_Title = new System.Windows.Forms.Panel();
+            this.lb_Home = new System.Windows.Forms.Label();
+            this.eventLog1 = new System.Diagnostics.EventLog();
+            this.Panel_Desktop = new System.Windows.Forms.Panel();
+            this.btn_Sair = new System.Windows.Forms.Button();
             this.btn_Relatorio = new System.Windows.Forms.Button();
             this.btn_Fluxo_Caixa = new System.Windows.Forms.Button();
             this.btn_Lancar_Despesas = new System.Windows.Forms.Button();
             this.btn_Movimentacoes = new System.Windows.Forms.Button();
             this.button_Receber = new System.Windows.Forms.Button();
             this.btn_Venda_PDV = new System.Windows.Forms.Button();
-            this.Panel_Title = new System.Windows.Forms.Panel();
-            this.lb_Home = new System.Windows.Forms.Label();
-            this.lb_pdv = new System.Windows.Forms.Label();
-            this.eventLog1 = new System.Diagnostics.EventLog();
-            this.Panel_Desktop = new System.Windows.Forms.Panel();
+            this.btn_Fechar = new System.Windows.Forms.Button();
+            this.btn_Minimizar = new System.Windows.Forms.Button();
+            this.btn_Maxmizar = new System.Windows.Forms.Button();
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
@@ -49,7 +53,7 @@
             // 
             // Panel_Menu
             // 
-            this.Panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.Panel_Menu.Controls.Add(this.btn_Relatorio);
             this.Panel_Menu.Controls.Add(this.btn_Fluxo_Caixa);
             this.Panel_Menu.Controls.Add(this.btn_Lancar_Despesas);
@@ -61,7 +65,7 @@
             this.Panel_Menu.Location = new System.Drawing.Point(0, 0);
             this.Panel_Menu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Panel_Menu.Name = "Panel_Menu";
-            this.Panel_Menu.Size = new System.Drawing.Size(220, 577);
+            this.Panel_Menu.Size = new System.Drawing.Size(220, 515);
             this.Panel_Menu.TabIndex = 0;
             // 
             // Panel_Logo
@@ -76,6 +80,68 @@
             this.Panel_Logo.Size = new System.Drawing.Size(220, 80);
             this.Panel_Logo.TabIndex = 0;
             // 
+            // lb_pdv
+            // 
+            this.lb_pdv.AutoSize = true;
+            this.lb_pdv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_pdv.Location = new System.Drawing.Point(26, 27);
+            this.lb_pdv.Name = "lb_pdv";
+            this.lb_pdv.Size = new System.Drawing.Size(160, 26);
+            this.lb_pdv.TabIndex = 0;
+            this.lb_pdv.Text = "Ruby Sistemas";
+            // 
+            // Panel_Title
+            // 
+            this.Panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
+            this.Panel_Title.Controls.Add(this.btn_Maxmizar);
+            this.Panel_Title.Controls.Add(this.btn_Minimizar);
+            this.Panel_Title.Controls.Add(this.btn_Fechar);
+            this.Panel_Title.Controls.Add(this.btn_Sair);
+            this.Panel_Title.Controls.Add(this.lb_Home);
+            this.Panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_Title.Location = new System.Drawing.Point(220, 0);
+            this.Panel_Title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Panel_Title.Name = "Panel_Title";
+            this.Panel_Title.Size = new System.Drawing.Size(764, 80);
+            this.Panel_Title.TabIndex = 1;
+            this.Panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_Title_MouseDown);
+            // 
+            // lb_Home
+            // 
+            this.lb_Home.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Home.AutoSize = true;
+            this.lb_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Home.Location = new System.Drawing.Point(356, 27);
+            this.lb_Home.Name = "lb_Home";
+            this.lb_Home.Size = new System.Drawing.Size(71, 26);
+            this.lb_Home.TabIndex = 0;
+            this.lb_Home.Text = "Home";
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // Panel_Desktop
+            // 
+            this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Desktop.Location = new System.Drawing.Point(220, 80);
+            this.Panel_Desktop.Name = "Panel_Desktop";
+            this.Panel_Desktop.Size = new System.Drawing.Size(764, 435);
+            this.Panel_Desktop.TabIndex = 2;
+            // 
+            // btn_Sair
+            // 
+            this.btn_Sair.FlatAppearance.BorderSize = 0;
+            this.btn_Sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Sair.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
+            this.btn_Sair.Location = new System.Drawing.Point(0, 3);
+            this.btn_Sair.Name = "btn_Sair";
+            this.btn_Sair.Size = new System.Drawing.Size(75, 74);
+            this.btn_Sair.TabIndex = 1;
+            this.btn_Sair.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btn_Sair.UseVisualStyleBackColor = true;
+            this.btn_Sair.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btn_Relatorio
             // 
             this.btn_Relatorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -87,11 +153,11 @@
             this.btn_Relatorio.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Relatorio.Image = global::Moderno.Properties.Resources.icons8_Folder_Listing_32px;
             this.btn_Relatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Relatorio.Location = new System.Drawing.Point(0, 489);
+            this.btn_Relatorio.Location = new System.Drawing.Point(0, 430);
             this.btn_Relatorio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Relatorio.Name = "btn_Relatorio";
             this.btn_Relatorio.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Relatorio.Size = new System.Drawing.Size(220, 88);
+            this.btn_Relatorio.Size = new System.Drawing.Size(220, 76);
             this.btn_Relatorio.TabIndex = 6;
             this.btn_Relatorio.Text = "Relatório";
             this.btn_Relatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -109,11 +175,11 @@
             this.btn_Fluxo_Caixa.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Fluxo_Caixa.Image = global::Moderno.Properties.Resources.icons8_money_bill_wave_32px;
             this.btn_Fluxo_Caixa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Fluxo_Caixa.Location = new System.Drawing.Point(0, 408);
+            this.btn_Fluxo_Caixa.Location = new System.Drawing.Point(0, 357);
             this.btn_Fluxo_Caixa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Fluxo_Caixa.Name = "btn_Fluxo_Caixa";
             this.btn_Fluxo_Caixa.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Fluxo_Caixa.Size = new System.Drawing.Size(220, 81);
+            this.btn_Fluxo_Caixa.Size = new System.Drawing.Size(220, 73);
             this.btn_Fluxo_Caixa.TabIndex = 5;
             this.btn_Fluxo_Caixa.Text = "Fluxo de Caixa";
             this.btn_Fluxo_Caixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -131,11 +197,11 @@
             this.btn_Lancar_Despesas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Lancar_Despesas.Image = global::Moderno.Properties.Resources.icons8_Folder_Listing_32px;
             this.btn_Lancar_Despesas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Lancar_Despesas.Location = new System.Drawing.Point(0, 322);
+            this.btn_Lancar_Despesas.Location = new System.Drawing.Point(0, 287);
             this.btn_Lancar_Despesas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Lancar_Despesas.Name = "btn_Lancar_Despesas";
             this.btn_Lancar_Despesas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Lancar_Despesas.Size = new System.Drawing.Size(220, 86);
+            this.btn_Lancar_Despesas.Size = new System.Drawing.Size(220, 70);
             this.btn_Lancar_Despesas.TabIndex = 4;
             this.btn_Lancar_Despesas.Text = "Lançar Despesas";
             this.btn_Lancar_Despesas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -153,11 +219,11 @@
             this.btn_Movimentacoes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Movimentacoes.Image = global::Moderno.Properties.Resources.icons8_folded_booklet_24px;
             this.btn_Movimentacoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Movimentacoes.Location = new System.Drawing.Point(0, 236);
+            this.btn_Movimentacoes.Location = new System.Drawing.Point(0, 220);
             this.btn_Movimentacoes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Movimentacoes.Name = "btn_Movimentacoes";
             this.btn_Movimentacoes.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Movimentacoes.Size = new System.Drawing.Size(220, 86);
+            this.btn_Movimentacoes.Size = new System.Drawing.Size(220, 67);
             this.btn_Movimentacoes.TabIndex = 3;
             this.btn_Movimentacoes.Text = "Movimentações";
             this.btn_Movimentacoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -175,11 +241,11 @@
             this.button_Receber.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button_Receber.Image = global::Moderno.Properties.Resources.icons8_money_bill_wave_32px;
             this.button_Receber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Receber.Location = new System.Drawing.Point(0, 156);
+            this.button_Receber.Location = new System.Drawing.Point(0, 148);
             this.button_Receber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Receber.Name = "button_Receber";
             this.button_Receber.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button_Receber.Size = new System.Drawing.Size(220, 80);
+            this.button_Receber.Size = new System.Drawing.Size(220, 72);
             this.button_Receber.TabIndex = 2;
             this.button_Receber.Text = "Receber";
             this.button_Receber.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -201,71 +267,74 @@
             this.btn_Venda_PDV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Venda_PDV.Name = "btn_Venda_PDV";
             this.btn_Venda_PDV.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Venda_PDV.Size = new System.Drawing.Size(220, 76);
+            this.btn_Venda_PDV.Size = new System.Drawing.Size(220, 68);
             this.btn_Venda_PDV.TabIndex = 1;
             this.btn_Venda_PDV.Text = "Venda PDV";
             this.btn_Venda_PDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Venda_PDV.UseVisualStyleBackColor = false;
             this.btn_Venda_PDV.Click += new System.EventHandler(this.btn_Venda_PDV_Click);
             // 
-            // Panel_Title
+            // btn_Fechar
             // 
-            this.Panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
-            this.Panel_Title.Controls.Add(this.lb_Home);
-            this.Panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_Title.Location = new System.Drawing.Point(220, 0);
-            this.Panel_Title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Panel_Title.Name = "Panel_Title";
-            this.Panel_Title.Size = new System.Drawing.Size(1060, 80);
-            this.Panel_Title.TabIndex = 1;
+            this.btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Fechar.FlatAppearance.BorderSize = 0;
+            this.btn_Fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Fechar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Fechar.Location = new System.Drawing.Point(742, 3);
+            this.btn_Fechar.Name = "btn_Fechar";
+            this.btn_Fechar.Size = new System.Drawing.Size(19, 28);
+            this.btn_Fechar.TabIndex = 2;
+            this.btn_Fechar.Text = "x";
+            this.btn_Fechar.UseVisualStyleBackColor = true;
+            this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
             // 
-            // lb_Home
+            // btn_Minimizar
             // 
-            this.lb_Home.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Home.AutoSize = true;
-            this.lb_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Home.Location = new System.Drawing.Point(504, 27);
-            this.lb_Home.Name = "lb_Home";
-            this.lb_Home.Size = new System.Drawing.Size(71, 26);
-            this.lb_Home.TabIndex = 0;
-            this.lb_Home.Text = "Home";
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimizar.FlatAppearance.BorderSize = 0;
+            this.btn_Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Minimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Minimizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Minimizar.Location = new System.Drawing.Point(681, 3);
+            this.btn_Minimizar.Name = "btn_Minimizar";
+            this.btn_Minimizar.Size = new System.Drawing.Size(25, 28);
+            this.btn_Minimizar.TabIndex = 3;
+            this.btn_Minimizar.Text = "-";
+            this.btn_Minimizar.UseVisualStyleBackColor = true;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
             // 
-            // lb_pdv
+            // btn_Maxmizar
             // 
-            this.lb_pdv.AutoSize = true;
-            this.lb_pdv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_pdv.Location = new System.Drawing.Point(26, 27);
-            this.lb_pdv.Name = "lb_pdv";
-            this.lb_pdv.Size = new System.Drawing.Size(160, 26);
-            this.lb_pdv.TabIndex = 0;
-            this.lb_pdv.Text = "Ruby Sistemas";
-            // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
-            // Panel_Desktop
-            // 
-            this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Desktop.Location = new System.Drawing.Point(220, 80);
-            this.Panel_Desktop.Name = "Panel_Desktop";
-            this.Panel_Desktop.Size = new System.Drawing.Size(1060, 497);
-            this.Panel_Desktop.TabIndex = 2;
+            this.btn_Maxmizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Maxmizar.FlatAppearance.BorderSize = 0;
+            this.btn_Maxmizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Maxmizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Maxmizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Maxmizar.Location = new System.Drawing.Point(712, 3);
+            this.btn_Maxmizar.Name = "btn_Maxmizar";
+            this.btn_Maxmizar.Size = new System.Drawing.Size(24, 28);
+            this.btn_Maxmizar.TabIndex = 4;
+            this.btn_Maxmizar.Text = "=";
+            this.btn_Maxmizar.UseVisualStyleBackColor = true;
+            this.btn_Maxmizar.Click += new System.EventHandler(this.btn_Maxmizar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 577);
+            this.ClientSize = new System.Drawing.Size(984, 515);
             this.Controls.Add(this.Panel_Desktop);
             this.Controls.Add(this.Panel_Title);
             this.Controls.Add(this.Panel_Menu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(0, 420);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Panel_Menu.ResumeLayout(false);
             this.Panel_Logo.ResumeLayout(false);
@@ -292,6 +361,10 @@
         private System.Windows.Forms.Label lb_pdv;
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Panel Panel_Desktop;
+        private System.Windows.Forms.Button btn_Sair;
+        private System.Windows.Forms.Button btn_Maxmizar;
+        private System.Windows.Forms.Button btn_Minimizar;
+        private System.Windows.Forms.Button btn_Fechar;
     }
 }
 

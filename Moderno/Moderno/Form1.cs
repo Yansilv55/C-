@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,12 +22,20 @@ namespace Moderno
         {
             InitializeComponent();
             random = new Random();
+            btn_Sair.Visible = false;
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int Wmsg, int wParam, int lParam);
 
         private Color SelectThemeColor()
         {
@@ -54,6 +63,7 @@ namespace Moderno
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     Panel_Title.BackColor = color;
                     Panel_Logo.BackColor = color;
+                    btn_Sair.Visible = true;
                     /*Panel_Logo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimeiraColor = color;
                     ThemeColor.SegundaColor = ThemeColor.ChangeColorBrightness(color, -0.3); */
@@ -124,6 +134,58 @@ namespace Moderno
         private void btn_Relatorio_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (activiform != null)
+            {
+                activiform.Close();
+            }
+
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            lb_Home.Text = "Home";
+            Panel_Title.BackColor = Color.FromArgb(36, 37, 66);
+            Panel_Logo.BackColor = Color.FromArgb(36, 37, 66);
+            currentButton = null;
+            btn_Sair.Visible = false;
+        }
+
+        private void Panel_Title_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btn_Fechar_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Realmente Deseja sair?", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+            Application.Exit();
+            }
+        }
+
+        private void btn_Maxmizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btn_Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

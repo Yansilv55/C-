@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moderno", "Moderno.csproj", "{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDV", "..\..\PDV\PDV.csproj", "{4BB033A1-6AA9-4C64-9578-7471C7F2B29A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB033A1-6AA9-4C64-9578-7471C7F2B29A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB033A1-6AA9-4C64-9578-7471C7F2B29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB033A1-6AA9-4C64-9578-7471C7F2B29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB033A1-6AA9-4C64-9578-7471C7F2B29A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
