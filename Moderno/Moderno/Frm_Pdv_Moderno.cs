@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Moderno
 {
-    public partial class Form1 : Form
+    public partial class Frm_Pdv_Moderno : Form
     {
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activiform;
 
-        public Form1()
+        public Frm_Pdv_Moderno()
         {
             InitializeComponent();
             random = new Random();
@@ -106,19 +106,19 @@ namespace Moderno
         private void btn_Venda_PDV_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            AbrirFrmPrincipal(new Forms.Frm_Venda_PDV(), sender);
+           // AbrirFrmPrincipal(new Forms.Frm_Venda_PDV(), sender);
         }
 
         private void button_Receber_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            AbrirFrmPrincipal(new Forms.Frm_Receber(), sender);
+           // AbrirFrmPrincipal(new Forms.Frm_Receber(), sender);
         }
 
         private void btn_Movimentacoes_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            AbrirFrmPrincipal(new Forms.Frm_Movimentacoes(), sender);
+            //AbrirFrmPrincipal(new Forms.Frm_Movimentacoes(), sender);
         }
 
         private void btn_Lancar_Despesas_Click(object sender, EventArgs e)

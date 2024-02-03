@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace PDV.cadastro
 {
-    public partial class Frm_funcionario : Form
+    public partial class Frm_funcionarioss : Form
     {
         Conexao con = new Conexao();
         string sql = string.Empty;
@@ -25,7 +25,7 @@ namespace PDV.cadastro
         string alterouImagem = "nao";
         string cpfAntigo;
 
-        public Frm_funcionario()
+        public Frm_funcionarioss()
         {
             InitializeComponent();
 
@@ -117,7 +117,7 @@ namespace PDV.cadastro
              }
         }
          private void btn_foto_Click(object sender, EventArgs e)
-        {
+         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Imagens(*.jpg; *.png) | *.jpg;*.png";
 
@@ -127,7 +127,7 @@ namespace PDV.cadastro
                 image.ImageLocation = foto;
                 alterouImagem = "sim";
             }
-        }
+         }
 
         private byte[] img()
         {

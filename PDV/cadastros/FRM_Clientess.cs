@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -153,6 +154,18 @@ namespace PDV.cadastro
             radButton = grupoBox.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton =>  RadioButton.Checked).Text;
         }
 
+        private void btn_Novo_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+            LimparCampos();
+            LimparFotos();
+            btn_Salvar.Enabled = true;
+            btn_Novo.Enabled = false;
+            btn_Editar.Enabled = false;
+            btn_Excluir.Enabled = false;
+            btn_foto.Enabled = true;
+        }
+
         private void verificarEmail()
         {
             string email = lb_Email.Text;
@@ -191,6 +204,26 @@ namespace PDV.cadastro
                     codCliente = IdAnterior + 1;
                 }
             }
+        }
+
+        private byte[] img()
+        {
+            byte[] image_byte = null;
+            if (foto == "")
+            {
+                return null;
+            }
+
+            FileStream fs = new FileStream(foto, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            image_byte = br.ReadBytes((int)fs.Length);
+            return image_byte;
+        }
+
+        private void LimparFotos()
+        {
+            image.Image = Properties.Resources.icons8_person_32px;
+            foto = "img/icons8_person_32px.png";
         }
     }
 }

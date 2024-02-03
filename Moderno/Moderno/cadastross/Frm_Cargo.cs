@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,25 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace PDV.cadastro
+
+namespace Moderno.cadastross
 {
     public partial class Frm_Cargo : Form
     {
-
         Conexao con = new Conexao();
         string sql = string.Empty;
         MySqlCommand conn;
         string id;
         string nomeAntigo;
+
         public Frm_Cargo()
         {
             InitializeComponent();
+        }
+        private void Frm_Cargo_Load(object sender, EventArgs e)
+        {
 
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void Frm_Cargo_Load(object sender, EventArgs e)
+        private void FrmCargo_Load(object sender, EventArgs e)
         {
             Listar();
         }
@@ -73,18 +76,6 @@ namespace PDV.cadastro
             }
         }
 
-        private bool ValidarCampos_Cargo()
-        {
-            if (lb_Nome.Text.Trim() == "")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
         private void salvar_Registro()
         {
             try
@@ -122,7 +113,17 @@ namespace PDV.cadastro
                 throw Ex;
             }
         }
-
+        private bool ValidarCampos_Cargo()
+        {
+            if (lb_Nome.Text.Trim() == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         private bool buscar_Registro_Cargo(string nome)
         {
             con.AbrirConexao();
@@ -143,32 +144,6 @@ namespace PDV.cadastro
                 return false;
             }
         }
-
-        private bool Inserir_Nome(string nome)
-        {
-            sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cargo", nome);
-
-            try
-            {
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
-                Listar();
-
-                btn_Novo.Enabled = true;
-                btn_Salvar.Enabled = false;
-                btn_Editar.Enabled = false;
-                btn_Excluir.Enabled = false;
-                lb_Nome.Text = "";
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
         private void Atualizar_Grade()
         {
             using (MySqlDataReader reader = conn.ExecuteReader())
@@ -195,6 +170,31 @@ namespace PDV.cadastro
                         Console.WriteLine(linha);
                     }
                 }
+            }
+        }
+
+        private bool Inserir_Nome(string nome)
+        {
+            sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@cargo", nome);
+
+            try
+            {
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
+                Listar();
+
+                btn_Novo.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Editar.Enabled = false;
+                btn_Excluir.Enabled = false;
+                lb_Nome.Text = "";
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
@@ -277,12 +277,11 @@ namespace PDV.cadastro
             lb_Nome.Enabled = true;
             btn_Salvar.Enabled = true;
             lb_Nome.Text = "";
-            lb_Nome.Focus();    
+            lb_Nome.Focus();
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex > -1)
             {
                 btn_Editar.Enabled = true;
@@ -296,21 +295,6 @@ namespace PDV.cadastro
                 lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
             }
         }
-
-        private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    salvar_Registro();
-                }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show($"Erro ao inserir o registro: {Ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    lb_Nome.Focus();
-                }
-            }
-        }
     }
 }
+

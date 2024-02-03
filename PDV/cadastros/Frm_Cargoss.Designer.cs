@@ -1,6 +1,6 @@
 ﻿namespace PDV.cadastro
 {
-    partial class Frm_Cargo
+    partial class Frm_Cargoss
     {
         /// <summary>
         /// Required designer variable.
@@ -131,6 +131,7 @@
             this.grid.Size = new System.Drawing.Size(1113, 282);
             this.grid.TabIndex = 33;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
+            this.grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellContentClick);
             // 
             // lb_Nome
             // 
@@ -139,6 +140,7 @@
             this.lb_Nome.Name = "lb_Nome";
             this.lb_Nome.Size = new System.Drawing.Size(581, 20);
             this.lb_Nome.TabIndex = 26;
+            this.lb_Nome.TextChanged += new System.EventHandler(this.lb_Nome_TextChanged);
             this.lb_Nome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Nome_KeyDown);
             // 
             // label1
@@ -149,6 +151,7 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Nome";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Frm_Cargo
             // 

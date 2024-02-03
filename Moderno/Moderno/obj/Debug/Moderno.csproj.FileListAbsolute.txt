@@ -1,6 +1,14 @@
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.AssemblyReference.cache
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.FrmCargo.resources
-C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Form1.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Properties.Resources.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.GenerateResource.cache
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.exe.config
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.exe
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Moderno.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Frm_Pdv_Moderno.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.exe
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Cargo.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Clinte.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Funcionario.resources

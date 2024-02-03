@@ -98,23 +98,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cadastros\Frm_Cargo.cs">
+    <Compile Include="cadastros\Frm_Cargoss.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cadastros\Frm_Cargo.Designer.cs">
-      <DependentUpon>Frm_Cargo.cs</DependentUpon>
+    <Compile Include="cadastros\Frm_Cargoss.Designer.cs">
+      <DependentUpon>Frm_Cargoss.cs</DependentUpon>
     </Compile>
-    <Compile Include="cadastros\FRM_Cliente.cs">
+    <Compile Include="cadastros\FRM_Clientess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cadastros\FRM_Cliente.Designer.cs">
-      <DependentUpon>FRM_Cliente.cs</DependentUpon>
+    <Compile Include="cadastros\FRM_Clientess.Designer.cs">
+      <DependentUpon>FRM_Clientess.cs</DependentUpon>
     </Compile>
-    <Compile Include="cadastros\Frm_funcionario.cs">
+    <Compile Include="cadastros\Frm_funcionarioss.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cadastros\Frm_funcionario.Designer.cs">
-      <DependentUpon>Frm_funcionario.cs</DependentUpon>
+    <Compile Include="cadastros\Frm_funcionarioss.Designer.cs">
+      <DependentUpon>Frm_funcionarioss.cs</DependentUpon>
     </Compile>
     <Compile Include="cadastro\Frm_Cargo.cs">
       <SubType>Form</SubType>
@@ -144,14 +144,14 @@
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="cadastros\Frm_Cargo.resx">
-      <DependentUpon>Frm_Cargo.cs</DependentUpon>
+    <EmbeddedResource Include="cadastros\Frm_Cargoss.resx">
+      <DependentUpon>Frm_Cargoss.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cadastros\FRM_Cliente.resx">
-      <DependentUpon>FRM_Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="cadastros\FRM_Clientess.resx">
+      <DependentUpon>FRM_Clientess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cadastros\Frm_funcionario.resx">
-      <DependentUpon>Frm_funcionario.cs</DependentUpon>
+    <EmbeddedResource Include="cadastros\Frm_funcionarioss.resx">
+      <DependentUpon>Frm_funcionarioss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cadastro\Frm_Cargo.resx">
       <DependentUpon>Frm_Cargo.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Moderno
 {
-    partial class Form1
+    partial class Frm_Pdv_Moderno
     {
         /// <summary>
         /// Variável de designer necessária.

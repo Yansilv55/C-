@@ -29,13 +29,13 @@ namespace PDV
 
         private void Menu_funcionarios_Click(object sender, EventArgs e)
         {
-            cadastro.Frm_funcionario frm = new cadastro.Frm_funcionario();
+            cadastro.Frm_funcionarioss frm = new cadastro.Frm_funcionarioss();
             frm.ShowDialog();
         }
 
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cadastro.Frm_Cargo frm = new cadastro.Frm_Cargo();
+            cadastro.Frm_Cargoss frm = new cadastro.Frm_Cargoss();
             frm.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace PDV.cadastro
 {
-    partial class Frm_funcionario
+    partial class Frm_funcionarioss
     {
         /// <summary>
         /// Required designer variable.
