@@ -106,7 +106,7 @@ namespace Moderno
         private void btn_Venda_PDV_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-           // AbrirFrmPrincipal(new Forms.Frm_Venda_PDV(), sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Cargo(), sender);
         }
 
         private void button_Receber_Click(object sender, EventArgs e)

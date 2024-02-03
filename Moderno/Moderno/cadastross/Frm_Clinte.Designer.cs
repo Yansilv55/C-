@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Bucar_Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lb_Buscar_Cpf = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cb_Inadiplete = new System.Windows.Forms.ComboBox();
             this.btn_foto = new System.Windows.Forms.Button();
-            this.image = new System.Windows.Forms.PictureBox();
             this.lb_Email = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lb_Valor_Aberto = new System.Windows.Forms.TextBox();
@@ -59,8 +58,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            this.img_Email = new System.Windows.Forms.PictureBox();
+            this.image = new System.Windows.Forms.PictureBox();
+            this.grupo_Box = new System.Windows.Forms.GroupBox();
+            this.ck_Desbloqueado = new System.Windows.Forms.CheckBox();
+            this.ck_Bloqueado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            this.grupo_Box.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Bucar_Nome
@@ -117,17 +123,6 @@
             this.btn_foto.TabIndex = 76;
             this.btn_foto.Text = "Foto";
             this.btn_foto.UseVisualStyleBackColor = true;
-            // 
-            // image
-            // 
-            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.image.Enabled = false;
-            this.image.Location = new System.Drawing.Point(1329, 25);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(243, 190);
-            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.image.TabIndex = 75;
-            this.image.TabStop = false;
             // 
             // lb_Email
             // 
@@ -265,34 +260,34 @@
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid.Location = new System.Drawing.Point(17, 242);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid.Size = new System.Drawing.Size(1558, 273);
             this.grid.TabIndex = 62;
@@ -353,12 +348,68 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Nome";
             // 
+            // img_Email
+            // 
+            this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
+            this.img_Email.Location = new System.Drawing.Point(722, 97);
+            this.img_Email.Name = "img_Email";
+            this.img_Email.Size = new System.Drawing.Size(27, 31);
+            this.img_Email.TabIndex = 82;
+            this.img_Email.TabStop = false;
+            // 
+            // image
+            // 
+            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.image.Enabled = false;
+            this.image.Location = new System.Drawing.Point(1329, 25);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(243, 190);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image.TabIndex = 75;
+            this.image.TabStop = false;
+            // 
+            // grupo_Box
+            // 
+            this.grupo_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.grupo_Box.Controls.Add(this.ck_Bloqueado);
+            this.grupo_Box.Controls.Add(this.ck_Desbloqueado);
+            this.grupo_Box.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grupo_Box.ForeColor = System.Drawing.Color.White;
+            this.grupo_Box.Location = new System.Drawing.Point(994, 43);
+            this.grupo_Box.Name = "grupo_Box";
+            this.grupo_Box.Size = new System.Drawing.Size(169, 75);
+            this.grupo_Box.TabIndex = 173;
+            this.grupo_Box.TabStop = false;
+            this.grupo_Box.Text = "Status do cliente?";
+            // 
+            // ck_Desbloqueado
+            // 
+            this.ck_Desbloqueado.AutoSize = true;
+            this.ck_Desbloqueado.Location = new System.Drawing.Point(7, 20);
+            this.ck_Desbloqueado.Name = "ck_Desbloqueado";
+            this.ck_Desbloqueado.Size = new System.Drawing.Size(95, 17);
+            this.ck_Desbloqueado.TabIndex = 0;
+            this.ck_Desbloqueado.Text = "Desbloqueado";
+            this.ck_Desbloqueado.UseVisualStyleBackColor = true;
+            // 
+            // ck_Bloqueado
+            // 
+            this.ck_Bloqueado.AutoSize = true;
+            this.ck_Bloqueado.Location = new System.Drawing.Point(7, 44);
+            this.ck_Bloqueado.Name = "ck_Bloqueado";
+            this.ck_Bloqueado.Size = new System.Drawing.Size(77, 17);
+            this.ck_Bloqueado.TabIndex = 1;
+            this.ck_Bloqueado.Text = "Bloqueado";
+            this.ck_Bloqueado.UseVisualStyleBackColor = true;
+            // 
             // Frm_Clinte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(1587, 588);
+            this.Controls.Add(this.grupo_Box);
+            this.Controls.Add(this.img_Email);
             this.Controls.Add(this.lb_Bucar_Nome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lb_Buscar_Cpf);
@@ -387,11 +438,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.White;
+            this.Location = new System.Drawing.Point(803, 60);
             this.Name = "Frm_Clinte";
             this.Text = "Frm_Clinte";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Frm_Clinte_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            this.grupo_Box.ResumeLayout(false);
+            this.grupo_Box.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +484,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox img_Email;
+        private System.Windows.Forms.GroupBox grupo_Box;
+        private System.Windows.Forms.CheckBox ck_Bloqueado;
+        private System.Windows.Forms.CheckBox ck_Desbloqueado;
     }
 }

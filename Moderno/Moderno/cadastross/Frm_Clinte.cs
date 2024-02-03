@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -26,9 +27,9 @@ namespace Moderno.cadastross
         string alterouImagem = "nao";
         string radButton = "";
         String desbloqueado, inadiplente;
-        bool emailAddress = false;
+        bool emailAdress = false;
+
         int codCliente, IdAnterior;
-        float grupoBox;
         public Frm_Clinte()
         {
             InitializeComponent();
@@ -142,7 +143,7 @@ namespace Moderno.cadastross
 
         private void Status()
         {
-            radButton = grupoBox.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked)?.Text;
+            radButton = grupo_Box.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked)?.Text;
         }
 
         private void btn_Novo_Click(object sender, EventArgs e)
@@ -161,35 +162,34 @@ namespace Moderno.cadastross
         {
             string email = lb_Email.Text;
 
-            Regex rg = new Regex(@"");
+            Regex rg = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
 
             if (rg.IsMatch(email))
             {
-                emailAddress = true;
+                emailAdress = true;
                 btn_Salvar.Enabled = true;
-                imgEmail.Image = Properties.Resources.Ok;
+                img_Email.Image = Properties.Resources.icons8_ok_24px;
             }
             else
             {
-                emailAddress = false;
+                emailAdress = false;
                 btn_Salvar.Enabled = false;
-                imgEmail.Image = Properties.Resources.oculpado;
+                img_Email.Image = Properties.Resources.icons8_multiply_26px;
             }
         }
-
         private void ultimoIdCliente()
         {
             con.AbrirConexao();
             MySqlCommand connVerificar;
-            MySqlCommand reader;
+            MySqlDataReader reader;
             sql = "SELECT id FROM clientes ORDER BY id DESC LIMIT 1";
             connVerificar = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = connVerificar;
             reader = connVerificar.ExecuteReader();
-            if (reader.HasRows())
+            if (reader.HasRows)
             {
-                while (reader.Reade())
+                while (reader.Read())
                 {
                     IdAnterior = Convert.ToInt32(reader["id"]);
                     codCliente = IdAnterior + 1;

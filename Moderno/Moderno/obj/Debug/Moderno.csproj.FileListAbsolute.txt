@@ -1,5 +1,4 @@
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.AssemblyReference.cache
-C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.FrmCargo.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Properties.Resources.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.GenerateResource.cache
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.CoreCompileInputs.cache
@@ -12,3 +11,8 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.pdb
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Cargo.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Clinte.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Funcionario.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\MySql.Data.dll
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\Google.Protobuf.dll
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\BouncyCastle.Crypto.dll
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\MySql.Data.xml
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.CopyComplete

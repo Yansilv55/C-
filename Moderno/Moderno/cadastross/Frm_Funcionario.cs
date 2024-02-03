@@ -92,22 +92,17 @@ namespace Moderno.cadastross
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    {
-                        // Inicialize uma variável para armazenar a linha completa
+                    {                      
                         string linha = "";
 
-                        // Itere através de cada coluna e concatene os valores
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            linha += reader[i].ToString() + "       \t"; // Adiciona um tab entre os valores
+                            linha += reader[i].ToString() + "       \t"; 
                         }
-
-                        // Remova o último tab da string, se necessário
                         if (!string.IsNullOrEmpty(linha))
                         {
                             linha = linha.Substring(0, linha.Length - 1);
                         }
-
                         Console.WriteLine(linha);
                     }
                 }
