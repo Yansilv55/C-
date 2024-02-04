@@ -34,6 +34,7 @@ namespace Moderno.cadastross
             Listar_Cargos();
             alterouImagem = "nao";
             cb_Cargo.Text = "Selecione o Cargo";
+            lb_Celular.Text = "(00) 0 0000-0000";
         }
 
         private void btn_Salvar_Click(object sender, EventArgs e)
@@ -51,13 +52,25 @@ namespace Moderno.cadastross
                 lb_Cpf.Focus();
                 return;
             }
+            if (lb_Celular.Text == "(  )       -" || lb_Celular.Text.Length < 11)
+            {
+                MessageBox.Show("Por favor preencha o Campo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lb_Celular.Focus();
+                return;
+            }
             if (cb_Cargo.Text == "Selcionar cargo")
             {
                 MessageBox.Show("Por favor preencha o Campo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cb_Cargo.Focus();
                 return;
             }
-
+            if (lb_Endereco.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo Endereço.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lb_Endereco.Text = "";
+                lb_Endereco.Focus();
+                return;
+            }
             con.AbrirConexao();
             sql = "SELECT * FROM `funcionarios`";
             conn = new MySqlCommand(sql, con.con);
@@ -67,7 +80,7 @@ namespace Moderno.cadastross
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
             conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-            conn.Parameters.AddWithValue("@telefone", lb_Telefone.Text);
+            conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
             conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
             conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
             conn.Parameters.AddWithValue("@foto", img());
@@ -188,7 +201,7 @@ namespace Moderno.cadastross
             lb_Nome.Enabled = true;
             lb_Cpf.Enabled = true;
             lb_Endereco.Enabled = true;
-            lb_Telefone.Enabled = true;
+            lb_Celular.Enabled = true;
             btn_foto.Enabled = true;
             cb_Cargo.Enabled = true;
             btn_Novo.Enabled = false;
@@ -199,7 +212,7 @@ namespace Moderno.cadastross
             lb_Nome.Text = "";
             lb_Cpf.Text = "";
             lb_Endereco.Text = "";
-            lb_Telefone.Text = "";
+            lb_Celular.Text = "";
             cb_Cargo.Text = "";
             btn_foto.Text = "";
         }
@@ -208,45 +221,13 @@ namespace Moderno.cadastross
             lb_Nome.Enabled = false;
             lb_Cpf.Enabled = false;
             lb_Endereco.Enabled = false;
-            lb_Telefone.Enabled = false;
+            lb_Celular.Enabled = false;
             cb_Cargo.Enabled = false;
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
-            {
-                habilitarCampos();
-                btn_Editar.Enabled = true;
-                btn_Excluir.Enabled = true;
-                btn_Salvar.Enabled = false;
-                btn_Novo.Enabled = false;
 
-
-                id = grid.CurrentRow.Cells[0].Value.ToString();
-                lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                lb_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
-                lb_Telefone.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                cb_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
-                lb_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
-
-                if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
-                {
-                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[7].Value;
-                    MemoryStream ms = new MemoryStream(imagem);
-
-                    image.Image = Image.FromStream(ms);
-                }
-                else
-                {
-                    image.Image = Properties.Resources.icons8_person_32px;
-                }
-            }
-            else
-            {
-                return;
-            }
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
@@ -264,6 +245,25 @@ namespace Moderno.cadastross
                 lb_Cpf.Focus();
                 return;
             }
+            if (lb_Celular.Text == "(  )     -" || lb_Celular.Text.Length < 14)
+            {
+                MessageBox.Show("preencha o Campo Telefone.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lb_Celular.Focus();
+                return;
+            }
+            if (cb_Cargo.Text == "Selcionar cargo")
+            {
+                MessageBox.Show("Por favor preencha o cargo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cb_Cargo.Focus();
+                return;
+            }
+            if (lb_Endereco.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo Endereço.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lb_Endereco.Text = "";
+                lb_Endereco.Focus();
+                return;
+            }
 
             con.AbrirConexao();
 
@@ -273,7 +273,7 @@ namespace Moderno.cadastross
                 conn = new MySqlCommand(sql, con.con);
                 conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                 conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-                conn.Parameters.AddWithValue("@telefone", lb_Telefone.Text);
+                conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
                 conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
                 conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
                 conn.Parameters.AddWithValue("@foto", img());
@@ -285,7 +285,7 @@ namespace Moderno.cadastross
                 conn = new MySqlCommand(sql, con.con);
                 conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                 conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-                conn.Parameters.AddWithValue("@telefone", lb_Telefone.Text);
+                conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
                 conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
                 conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
                 conn.Parameters.AddWithValue("@id", id);
@@ -355,8 +355,8 @@ namespace Moderno.cadastross
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
 
-                Listar();
                 MessageBox.Show("Registro Excluído com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Listar();
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
@@ -378,6 +378,43 @@ namespace Moderno.cadastross
             cb_Cargo.DataSource = dt;
             cb_Cargo.DisplayMember = "cargo";
             con.FecharConexao();
+        }
+
+        private void grid_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                habilitarCampos();
+                btn_Editar.Enabled = true;
+                btn_Excluir.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Novo.Enabled = false;
+
+
+                id = grid.CurrentRow.Cells[0].Value.ToString();
+                lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+                lb_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
+                lb_Celular.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                cb_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                lb_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+
+                if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
+                {
+                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[7].Value;
+                    MemoryStream ms = new MemoryStream(imagem);
+
+                    image.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    image.Image = Properties.Resources.icons8_person_32px;
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-
 
 namespace Moderno.cadastross
 {
@@ -19,17 +18,12 @@ namespace Moderno.cadastross
         MySqlCommand conn;
         string id;
         string nomeAntigo;
-
         public Frm_Cargo()
         {
             InitializeComponent();
         }
+
         private void Frm_Cargo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCargo_Load(object sender, EventArgs e)
         {
             Listar();
         }
@@ -42,37 +36,28 @@ namespace Moderno.cadastross
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM cargos ORDER BY cargo asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
-            FormatarGD();
-        }
-
-        private void btn_Excluir_Click(object sender, EventArgs e)
-        {
-            var res = MessageBox.Show("Deseja realmente excluir o registro!.", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
-            {
                 con.AbrirConexao();
-                sql = "DELETE FROM cargos WHERE id = @id";
+                sql = "SELECT * FROM cargos ORDER BY cargo asc";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = conn;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                grid.DataSource = dt;
                 con.FecharConexao();
 
-                Listar();
-                MessageBox.Show("Registro Excluído com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btn_Novo.Enabled = true;
-                btn_Editar.Enabled = false;
-                btn_Excluir.Enabled = false;
-                btn_Salvar.Enabled = false;
+                FormatarGD();
+        }
+       
+        private bool ValidarCampos_Cargo()
+        {
+            if (lb_Nome.Text.Trim() == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
@@ -113,17 +98,7 @@ namespace Moderno.cadastross
                 throw Ex;
             }
         }
-        private bool ValidarCampos_Cargo()
-        {
-            if (lb_Nome.Text.Trim() == "")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+
         private bool buscar_Registro_Cargo(string nome)
         {
             con.AbrirConexao();
@@ -144,6 +119,32 @@ namespace Moderno.cadastross
                 return false;
             }
         }
+
+        private bool Inserir_Nome(string nome)
+        {
+            sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@cargo", nome);
+
+            try
+            {
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
+                Listar();
+
+                btn_Novo.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Editar.Enabled = false;
+                btn_Excluir.Enabled = false;
+                lb_Nome.Text = "";
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         private void Atualizar_Grade()
         {
             using (MySqlDataReader reader = conn.ExecuteReader())
@@ -173,28 +174,57 @@ namespace Moderno.cadastross
             }
         }
 
-        private bool Inserir_Nome(string nome)
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cargo", nome);
-
-            try
+            if (e.RowIndex > -1)
             {
+                btn_Editar.Enabled = true;
+                btn_Excluir.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Novo.Enabled = false;
+                lb_Nome.Enabled = true;
+
+
+                id = grid.CurrentRow.Cells[0].Value.ToString();
+                lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+            }
+        }
+
+        private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    salvar_Registro();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show($"Erro ao inserir o registro: {Ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lb_Nome.Focus();
+                }
+            }
+        }
+
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Deseja realmente excluir o registro!.", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                con.AbrirConexao();
+                sql = "DELETE FROM cargos WHERE id = @id";
+                conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@id", id);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
-                Listar();
 
+                Listar();
+                MessageBox.Show("Registro Excluído com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
-                btn_Salvar.Enabled = false;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
+                btn_Salvar.Enabled = false;
                 lb_Nome.Text = "";
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
 
@@ -203,6 +233,7 @@ namespace Moderno.cadastross
             try
             {
                 salvar_Registro();
+                Listar();
             }
             catch (Exception Ex)
             {
@@ -280,21 +311,9 @@ namespace Moderno.cadastross
             lb_Nome.Focus();
         }
 
-        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
-            {
-                btn_Editar.Enabled = true;
-                btn_Excluir.Enabled = true;
-                btn_Salvar.Enabled = false;
-                btn_Novo.Enabled = false;
-                lb_Nome.Enabled = true;
 
-
-                id = grid.CurrentRow.Cells[0].Value.ToString();
-                lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
-            }
         }
     }
 }
-

@@ -30,7 +30,8 @@ namespace Moderno
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -105,20 +106,19 @@ namespace Moderno
 
         private void btn_Venda_PDV_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
             AbrirFrmPrincipal(new cadastross.Frm_Cargo(), sender);
         }
 
         private void button_Receber_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-           // AbrirFrmPrincipal(new Forms.Frm_Receber(), sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Clinte(), sender);
         }
 
         private void btn_Movimentacoes_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            //AbrirFrmPrincipal(new Forms.Frm_Movimentacoes(), sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Funcionario(), sender);
         }
 
         private void btn_Lancar_Despesas_Click(object sender, EventArgs e)
@@ -186,6 +186,12 @@ namespace Moderno
         private void btn_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

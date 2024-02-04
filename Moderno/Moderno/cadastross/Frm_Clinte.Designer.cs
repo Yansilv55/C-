@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Bucar_Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lb_Buscar_Cpf = new System.Windows.Forms.MaskedTextBox();
@@ -58,15 +58,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.grupo_Box = new System.Windows.Forms.GroupBox();
+            this.ck_Bloqueado = new System.Windows.Forms.CheckBox();
+            this.ck_Desbloqueado = new System.Windows.Forms.CheckBox();
             this.img_Email = new System.Windows.Forms.PictureBox();
             this.image = new System.Windows.Forms.PictureBox();
-            this.grupo_Box = new System.Windows.Forms.GroupBox();
-            this.ck_Desbloqueado = new System.Windows.Forms.CheckBox();
-            this.ck_Bloqueado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.grupo_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
-            this.grupo_Box.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Bucar_Nome
@@ -117,6 +117,7 @@
             // btn_foto
             // 
             this.btn_foto.Enabled = false;
+            this.btn_foto.ForeColor = System.Drawing.Color.Black;
             this.btn_foto.Location = new System.Drawing.Point(1277, 189);
             this.btn_foto.Name = "btn_foto";
             this.btn_foto.Size = new System.Drawing.Size(46, 26);
@@ -190,6 +191,7 @@
             // 
             // btn_Cancelar
             // 
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
             this.btn_Cancelar.Location = new System.Drawing.Point(377, 539);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(86, 32);
@@ -218,6 +220,7 @@
             // btn_Salvar
             // 
             this.btn_Salvar.Enabled = false;
+            this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
             this.btn_Salvar.Location = new System.Drawing.Point(1484, 539);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(88, 32);
@@ -228,6 +231,7 @@
             // btn_Excluir
             // 
             this.btn_Excluir.Enabled = false;
+            this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
             this.btn_Excluir.Location = new System.Drawing.Point(30, 539);
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(91, 32);
@@ -238,6 +242,7 @@
             // btn_Editar
             // 
             this.btn_Editar.Enabled = false;
+            this.btn_Editar.ForeColor = System.Drawing.Color.Black;
             this.btn_Editar.Location = new System.Drawing.Point(259, 539);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(86, 32);
@@ -247,6 +252,7 @@
             // 
             // btn_Novo
             // 
+            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
             this.btn_Novo.Location = new System.Drawing.Point(143, 539);
             this.btn_Novo.Name = "btn_Novo";
             this.btn_Novo.Size = new System.Drawing.Size(85, 32);
@@ -260,34 +266,34 @@
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle5;
             this.grid.Location = new System.Drawing.Point(17, 242);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid.Size = new System.Drawing.Size(1558, 273);
             this.grid.TabIndex = 62;
@@ -348,26 +354,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Nome";
             // 
-            // img_Email
-            // 
-            this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
-            this.img_Email.Location = new System.Drawing.Point(722, 97);
-            this.img_Email.Name = "img_Email";
-            this.img_Email.Size = new System.Drawing.Size(27, 31);
-            this.img_Email.TabIndex = 82;
-            this.img_Email.TabStop = false;
-            // 
-            // image
-            // 
-            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.image.Enabled = false;
-            this.image.Location = new System.Drawing.Point(1329, 25);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(243, 190);
-            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.image.TabIndex = 75;
-            this.image.TabStop = false;
-            // 
             // grupo_Box
             // 
             this.grupo_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
@@ -382,6 +368,16 @@
             this.grupo_Box.TabStop = false;
             this.grupo_Box.Text = "Status do cliente?";
             // 
+            // ck_Bloqueado
+            // 
+            this.ck_Bloqueado.AutoSize = true;
+            this.ck_Bloqueado.Location = new System.Drawing.Point(7, 44);
+            this.ck_Bloqueado.Name = "ck_Bloqueado";
+            this.ck_Bloqueado.Size = new System.Drawing.Size(77, 17);
+            this.ck_Bloqueado.TabIndex = 1;
+            this.ck_Bloqueado.Text = "Bloqueado";
+            this.ck_Bloqueado.UseVisualStyleBackColor = true;
+            // 
             // ck_Desbloqueado
             // 
             this.ck_Desbloqueado.AutoSize = true;
@@ -392,15 +388,26 @@
             this.ck_Desbloqueado.Text = "Desbloqueado";
             this.ck_Desbloqueado.UseVisualStyleBackColor = true;
             // 
-            // ck_Bloqueado
+            // img_Email
             // 
-            this.ck_Bloqueado.AutoSize = true;
-            this.ck_Bloqueado.Location = new System.Drawing.Point(7, 44);
-            this.ck_Bloqueado.Name = "ck_Bloqueado";
-            this.ck_Bloqueado.Size = new System.Drawing.Size(77, 17);
-            this.ck_Bloqueado.TabIndex = 1;
-            this.ck_Bloqueado.Text = "Bloqueado";
-            this.ck_Bloqueado.UseVisualStyleBackColor = true;
+            this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
+            this.img_Email.Location = new System.Drawing.Point(722, 97);
+            this.img_Email.Name = "img_Email";
+            this.img_Email.Size = new System.Drawing.Size(27, 31);
+            this.img_Email.TabIndex = 82;
+            this.img_Email.TabStop = false;
+            // 
+            // image
+            // 
+            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.image.Enabled = false;
+            this.image.Image = global::Moderno.Properties.Resources.icons8_person_32px1;
+            this.image.Location = new System.Drawing.Point(1329, 25);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(243, 190);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image.TabIndex = 75;
+            this.image.TabStop = false;
             // 
             // Frm_Clinte
             // 
@@ -441,14 +448,14 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Location = new System.Drawing.Point(803, 60);
             this.Name = "Frm_Clinte";
-            this.Text = "Frm_Clinte";
+            this.Text = "Cadastro de Clinte";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Frm_Clinte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.grupo_Box.ResumeLayout(false);
             this.grupo_Box.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
