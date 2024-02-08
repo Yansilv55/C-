@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Moderno.cadastross
 {
@@ -22,6 +23,7 @@ namespace Moderno.cadastross
         string foto;
         string alterouImagem = "nao";
         string cpfAntigo;
+        string celAntigo;
         public Frm_Funcionario()
         {
             InitializeComponent();
@@ -39,34 +41,39 @@ namespace Moderno.cadastross
 
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
+            string cpf = lb_Cpf.Text;
+            string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
+            string celular = lb_Celular.Text;
+            string numerocel = new string(celular.Where(char.IsDigit).ToArray());
+
             if (lb_Nome.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("Preencha o campo nome.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Nome.Text = "";
                 lb_Nome.Focus();
                 return;
             }
-            if (lb_Cpf.Text == "   ,   ,   -" || lb_Cpf.Text.Length < 14)
+            if (!CPFValidator.ValidateCPF(numeroCpf))
             {
-                MessageBox.Show("Preencha o campo Cpf.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Cpf.Focus();
                 return;
             }
-            if (lb_Celular.Text == "(  )       -" || lb_Celular.Text.Length < 11)
+            if (numerocel.Length != 11)
             {
-                MessageBox.Show("Por favor preencha o Campo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lb_Celular.Focus();
                 return;
             }
             if (cb_Cargo.Text == "Selcionar cargo")
             {
-                MessageBox.Show("Por favor preencha o Campo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor preencha o Campo.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cb_Cargo.Focus();
                 return;
             }
             if (lb_Endereco.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("Preencha o campo Endereço.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Endereco.Text = "";
                 lb_Endereco.Focus();
                 return;
@@ -84,12 +91,29 @@ namespace Moderno.cadastross
             conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
             conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
             conn.Parameters.AddWithValue("@foto", img());
+
+            MySqlCommand connVerificar;
+            connVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE cpf = @cpf", con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = connVerificar;
+            connVerificar.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                lb_Cpf.Text = "";
+                lb_Cpf.Focus();
+                return;
+            }
+            try
+            {
             conn.ExecuteNonQuery();
             con.FecharConexao();
 
             LimparFoto();
 
-            MessageBox.Show("Registro Salvo com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro Salvo com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             btn_Novo.Enabled = true;
             btn_Salvar.Enabled = false;
@@ -97,9 +121,6 @@ namespace Moderno.cadastross
             btn_Excluir.Enabled = false;
             LimparCampos();
             Listar();
-
-            DesabilitarCamos();
-
             using (MySqlDataReader reader = conn.ExecuteReader())
             {
                 if (reader.HasRows)
@@ -120,6 +141,25 @@ namespace Moderno.cadastross
                     }
                 }
             }
+
+            DesabilitarCampos();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private bool CelularJaCadastrado(string celular)
+        {
+            con.AbrirConexao();
+            sql = "SELECT COUNT(*) FROM funcionarios WHERE telefone = @telefone";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@telefone", celular);
+            int count = Convert.ToInt32(conn.ExecuteScalar());
+            con.FecharConexao();
+
+            return count > 0;
         }
 
         private void btn_foto_Click(object sender, EventArgs e)
@@ -151,6 +191,7 @@ namespace Moderno.cadastross
 
             return image_byte;
         }
+      
 
         private void LimparFoto()
         {
@@ -173,7 +214,6 @@ namespace Moderno.cadastross
             grid.Columns[0].Visible = false;
             grid.Columns[7].Visible = false;
         }
-
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             habilitarCampos();
@@ -216,7 +256,7 @@ namespace Moderno.cadastross
             cb_Cargo.Text = "";
             btn_foto.Text = "";
         }
-        private void DesabilitarCamos()
+        private void DesabilitarCampos()
         {
             lb_Nome.Enabled = false;
             lb_Cpf.Enabled = false;
@@ -232,39 +272,43 @@ namespace Moderno.cadastross
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
+            string cpf = lb_Cpf.Text;
+            string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
+            string celular = lb_Celular.Text;
+            string numerocel = new string(celular.Where(char.IsDigit).ToArray());
+
             if (lb_Nome.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("Preencha o campo nome.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Nome.Text = "";
                 lb_Nome.Focus();
                 return;
             }
-            if (lb_Cpf.Text == "   ,   ,   -" || lb_Cpf.Text.Length < 14)
+            if (numeroCpf.Length != 11)
             {
-                MessageBox.Show("Preencha o campo Cpf.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Cpf.Focus();
                 return;
             }
-            if (lb_Celular.Text == "(  )     -" || lb_Celular.Text.Length < 14)
+            if (numerocel.Length != 11)
             {
-                MessageBox.Show("preencha o Campo Telefone.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lb_Celular.Focus();
                 return;
             }
             if (cb_Cargo.Text == "Selcionar cargo")
             {
-                MessageBox.Show("Por favor preencha o cargo.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor preencha o cargo.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cb_Cargo.Focus();
                 return;
             }
             if (lb_Endereco.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("Preencha o campo Endereço.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lb_Endereco.Text = "";
                 lb_Endereco.Focus();
                 return;
             }
-
             con.AbrirConexao();
 
             if (alterouImagem == "sim")
@@ -290,7 +334,6 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
                 conn.Parameters.AddWithValue("@id", id);
             }
-
             if (lb_Cpf.Text != cpfAntigo)
             {
                 sql = "SELECT * FROM funcionarios WHERE cpf = @cpf";
@@ -303,9 +346,27 @@ namespace Moderno.cadastross
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("CPF já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     lb_Cpf.Text = "";
                     lb_Cpf.Focus();
+                    return;
+                }
+            }
+            if (lb_Celular.Text != celAntigo)
+            {
+                sql = "SELECT * FROM funcionarios WHERE telefone = @telefone";
+                MySqlCommand connVerificar;
+                connVerificar = new MySqlCommand(sql, con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = connVerificar;
+                connVerificar.Parameters.AddWithValue("@telefone", lb_Celular.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    lb_Celular.Text = "";
+                    lb_Celular.Focus();
                     return;
                 }
             }
@@ -316,19 +377,19 @@ namespace Moderno.cadastross
                 con.FecharConexao();
                 Listar();
 
-                MessageBox.Show("Registro Editado com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro Editado com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
                 btn_Salvar.Enabled = false;
-                DesabilitarCamos();
+                DesabilitarCampos();
                 LimparCampos();
                 LimparFoto();
                 alterouImagem = "nao";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -339,13 +400,13 @@ namespace Moderno.cadastross
             btn_Salvar.Enabled = false;
             btn_Novo.Enabled = true;
 
-            DesabilitarCamos();
+            DesabilitarCampos();
             LimparCampos();
         }
 
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Deseja realmente excluir o registro!.", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var res = MessageBox.Show("Deseja realmente excluir o registro!.", "Cadastro Funciónario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 con.AbrirConexao();
@@ -355,13 +416,13 @@ namespace Moderno.cadastross
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
 
-                MessageBox.Show("Registro Excluído com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro Excluído com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Listar();
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
                 btn_Salvar.Enabled = false;
-                DesabilitarCamos();
+                DesabilitarCampos();
                 LimparCampos();
                 LimparFoto();
             }
@@ -389,6 +450,7 @@ namespace Moderno.cadastross
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
                 btn_Novo.Enabled = false;
+                lb_Nome.Focus();
 
 
                 id = grid.CurrentRow.Cells[0].Value.ToString();
@@ -416,5 +478,68 @@ namespace Moderno.cadastross
                 return;
             }
         }
+        private void Frm_Funcionario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Control proximoControl = GetNextControl(ActiveControl, true);    
+                while (proximoControl is Label)
+                {
+                    proximoControl = GetNextControl(proximoControl, true);
+                }
+                if (proximoControl != null && proximoControl != ActiveControl)
+                {
+                    proximoControl.Focus();
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void cb_Cargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cb_Cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+        public class CPFValidator
+        {
+            public static bool ValidateCPF(string cpf)
+            {
+                cpf = cpf.Trim().Replace(".", "").Replace("-", "");
+
+                if (cpf.Length != 11 || !cpf.All(char.IsDigit))
+                    return false;
+
+                // Obtém os dígitos verificadores
+                string digitosVerificadores = cpf.Substring(9, 2);
+
+                // Calcula o primeiro dígito verificador
+                int soma = 0;
+                for (int i = 0; i < 9; i++)
+                {
+                    soma += int.Parse(cpf[i].ToString()) * (10 - i);
+                }
+                int resto = soma % 11;
+                int primeiroDigito = resto < 2 ? 0 : 11 - resto;
+
+                // Verifica se o primeiro dígito verificador está correto
+                if (primeiroDigito != int.Parse(digitosVerificadores[0].ToString()))
+                    return false;
+
+                // Calcula o segundo dígito verificador
+                soma = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    soma += int.Parse(cpf[i].ToString()) * (11 - i);
+                }
+                resto = soma % 11;
+                int segundoDigito = resto < 2 ? 0 : 11 - resto;
+
+                // Verifica se o segundo dígito verificador está correto
+                if (segundoDigito != int.Parse(digitosVerificadores[1].ToString()))
+                    return false;
+
+                return true;
+            }
+        }
+
     }
 }

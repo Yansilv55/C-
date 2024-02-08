@@ -45,6 +45,13 @@
             this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_Home = new System.Windows.Forms.Label();
             this.Panel_Desktop = new System.Windows.Forms.Panel();
+            this.Barra_Status = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.Status_Data = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.Status_Hora = new System.Windows.Forms.ToolStripLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -58,24 +65,17 @@
             this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Bara_Status = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.Status_Data = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.Status_Hora = new System.Windows.Forms.ToolStripLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
             this.Panel_Desktop.SuspendLayout();
+            this.Barra_Status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu_Principal.SuspendLayout();
-            this.Bara_Status.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_Menu
@@ -337,7 +337,7 @@
             // Panel_Desktop
             // 
             this.Panel_Desktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Panel_Desktop.Controls.Add(this.Bara_Status);
+            this.Panel_Desktop.Controls.Add(this.Barra_Status);
             this.Panel_Desktop.Controls.Add(this.pictureBox4);
             this.Panel_Desktop.Controls.Add(this.pictureBox2);
             this.Panel_Desktop.Controls.Add(this.pictureBox3);
@@ -348,6 +348,62 @@
             this.Panel_Desktop.Name = "Panel_Desktop";
             this.Panel_Desktop.Size = new System.Drawing.Size(1258, 650);
             this.Panel_Desktop.TabIndex = 2;
+            // 
+            // Barra_Status
+            // 
+            this.Barra_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Barra_Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.Status_Data,
+            this.toolStripSeparator2,
+            this.toolStripLabel3,
+            this.Status_Hora});
+            this.Barra_Status.Location = new System.Drawing.Point(0, 625);
+            this.Barra_Status.Name = "Barra_Status";
+            this.Barra_Status.Size = new System.Drawing.Size(1258, 25);
+            this.Barra_Status.TabIndex = 7;
+            this.Barra_Status.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
+            this.toolStripLabel1.Text = "Data:";
+            // 
+            // Status_Data
+            // 
+            this.Status_Data.ForeColor = System.Drawing.Color.Black;
+            this.Status_Data.Name = "Status_Data";
+            this.Status_Data.Size = new System.Drawing.Size(65, 22);
+            this.Status_Data.Text = "00/00/0000";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.Black;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
+            this.toolStripLabel3.Text = "Hora:";
+            // 
+            // Status_Hora
+            // 
+            this.Status_Hora.ForeColor = System.Drawing.Color.Black;
+            this.Status_Hora.Name = "Status_Hora";
+            this.Status_Hora.Size = new System.Drawing.Size(49, 22);
+            this.Status_Hora.Text = "00:00:00";
             // 
             // pictureBox4
             // 
@@ -412,7 +468,7 @@
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             // 
             // cadastroToolStripMenuItem
@@ -429,25 +485,25 @@
             // funcionariosToolStripMenuItem
             // 
             this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.funcionariosToolStripMenuItem.Text = "Funcionários";
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.clienteToolStripMenuItem.Text = "Clientes";
             // 
             // cargoToolStripMenuItem
             // 
             this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cargoToolStripMenuItem.Text = "Cargos";
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // movimentaçõesToolStripMenuItem
@@ -455,62 +511,6 @@
             this.movimentaçõesToolStripMenuItem.Name = "movimentaçõesToolStripMenuItem";
             this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
-            // 
-            // Bara_Status
-            // 
-            this.Bara_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Bara_Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.Status_Data,
-            this.toolStripSeparator2,
-            this.toolStripLabel3,
-            this.Status_Hora});
-            this.Bara_Status.Location = new System.Drawing.Point(0, 625);
-            this.Bara_Status.Name = "Bara_Status";
-            this.Bara_Status.Size = new System.Drawing.Size(1258, 25);
-            this.Bara_Status.TabIndex = 7;
-            this.Bara_Status.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
-            this.toolStripLabel1.Text = "Data:";
-            // 
-            // Status_Data
-            // 
-            this.Status_Data.ForeColor = System.Drawing.Color.Black;
-            this.Status_Data.Name = "Status_Data";
-            this.Status_Data.Size = new System.Drawing.Size(65, 22);
-            this.Status_Data.Text = "00/00/0000";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.ForeColor = System.Drawing.Color.Black;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
-            this.toolStripLabel3.Text = "Hora:";
-            // 
-            // Status_Hora
-            // 
-            this.Status_Hora.ForeColor = System.Drawing.Color.Black;
-            this.Status_Hora.Name = "Status_Hora";
-            this.Status_Hora.Size = new System.Drawing.Size(49, 22);
-            this.Status_Hora.Text = "00:00:00";
             // 
             // timer
             // 
@@ -542,14 +542,14 @@
             this.Panel_Title.PerformLayout();
             this.Panel_Desktop.ResumeLayout(false);
             this.Panel_Desktop.PerformLayout();
+            this.Barra_Status.ResumeLayout(false);
+            this.Barra_Status.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Menu_Principal.ResumeLayout(false);
             this.Menu_Principal.PerformLayout();
-            this.Bara_Status.ResumeLayout(false);
-            this.Bara_Status.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -585,7 +585,7 @@
         private System.Windows.Forms.ToolStripMenuItem cargoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem movimentaçõesToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip Bara_Status;
+        private System.Windows.Forms.ToolStrip Barra_Status;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel Status_Data;
