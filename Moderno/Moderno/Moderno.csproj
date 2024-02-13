@@ -59,13 +59,37 @@
     <Compile Include="cadastross\Frm_Clinte.Designer.cs">
       <DependentUpon>Frm_Clinte.cs</DependentUpon>
     </Compile>
+    <Compile Include="cadastross\Frm_Fornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastross\Frm_Fornecedores.Designer.cs">
+      <DependentUpon>Frm_Fornecedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadastross\Frm_Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="cadastross\Frm_Funcionario.Designer.cs">
       <DependentUpon>Frm_Funcionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="cadastross\Frm_Servicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastross\Frm_Servicos.Designer.cs">
+      <DependentUpon>Frm_Servicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cadastross\Frm_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastross\Frm_Usuario.Designer.cs">
+      <DependentUpon>Frm_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexao.cs" />
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Pdv_Moderno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,14 +99,27 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="Verificar.cs" />
     <EmbeddedResource Include="cadastross\Frm_Cargo.resx">
       <DependentUpon>Frm_Cargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cadastross\Frm_Clinte.resx">
       <DependentUpon>Frm_Clinte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cadastross\Frm_Fornecedores.resx">
+      <DependentUpon>Frm_Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cadastross\Frm_Funcionario.resx">
       <DependentUpon>Frm_Funcionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadastross\Frm_Servicos.resx">
+      <DependentUpon>Frm_Servicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadastross\Frm_Usuario.resx">
+      <DependentUpon>Frm_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Pdv_Moderno.resx">
       <DependentUpon>Frm_Pdv_Moderno.cs</DependentUpon>

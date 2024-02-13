@@ -8,6 +8,7 @@ namespace Moderno
 {
     internal static class Program
     {
+        public static string NomeUsuario;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -16,6 +17,7 @@ namespace Moderno
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FrmLogin());
             Application.Run(new Frm_Pdv_Moderno());
         }
     }

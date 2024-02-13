@@ -28,11 +28,6 @@ namespace Moderno
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -123,17 +118,18 @@ namespace Moderno
 
         private void btn_Lancar_Despesas_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Usuario(), sender);
         }
 
         private void btn_Fluxo_Caixa_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Servicos(), sender);
         }
 
         private void btn_Relatorio_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
+            AbrirFrmPrincipal(new cadastross.Frm_Fornecedores(), sender);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -192,6 +188,15 @@ namespace Moderno
         {
             Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
+        {
+            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
+
+            lbl_Usuario.Text = Verificar.NomeUsuario;
+            lbl_Cargo.Text = Verificar.CargoUsuario;
         }
     }
 }

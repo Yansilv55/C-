@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lb_Bucar_Nome = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lb_BuscarNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb_Buscar_Cpf = new System.Windows.Forms.MaskedTextBox();
+            this.lb_BuscarCpf = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cb_Inadiplete = new System.Windows.Forms.ComboBox();
+            this.cb_Inadiplente = new System.Windows.Forms.ComboBox();
             this.btn_foto = new System.Windows.Forms.Button();
             this.lb_Email = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.lb_Valor_Aberto = new System.Windows.Forms.TextBox();
+            this.lb_ValorAberto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lb_codigo = new System.Windows.Forms.TextBox();
@@ -58,24 +58,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.grupo_Box = new System.Windows.Forms.GroupBox();
-            this.ck_Bloqueado = new System.Windows.Forms.CheckBox();
-            this.ck_Desbloqueado = new System.Windows.Forms.CheckBox();
             this.img_Email = new System.Windows.Forms.PictureBox();
             this.image = new System.Windows.Forms.PictureBox();
+            this.rbAtivado = new System.Windows.Forms.GroupBox();
+            this.rb_Inativado = new System.Windows.Forms.RadioButton();
+            this.rb_Ativado = new System.Windows.Forms.RadioButton();
+            this.rb_Cpf = new System.Windows.Forms.RadioButton();
+            this.rb_Nome = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
-            this.grupo_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            this.rbAtivado.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lb_Bucar_Nome
+            // lb_BuscarNome
             // 
-            this.lb_Bucar_Nome.Enabled = false;
-            this.lb_Bucar_Nome.Location = new System.Drawing.Point(110, 18);
-            this.lb_Bucar_Nome.Name = "lb_Bucar_Nome";
-            this.lb_Bucar_Nome.Size = new System.Drawing.Size(244, 20);
-            this.lb_Bucar_Nome.TabIndex = 81;
+            this.lb_BuscarNome.Enabled = false;
+            this.lb_BuscarNome.Location = new System.Drawing.Point(110, 18);
+            this.lb_BuscarNome.Name = "lb_BuscarNome";
+            this.lb_BuscarNome.Size = new System.Drawing.Size(244, 20);
+            this.lb_BuscarNome.TabIndex = 81;
+            this.lb_BuscarNome.TextChanged += new System.EventHandler(this.lb_BuscarNome_TextChanged);
             // 
             // label5
             // 
@@ -87,14 +92,15 @@
             this.label5.TabIndex = 80;
             this.label5.Text = "Buscar por Nome";
             // 
-            // lb_Buscar_Cpf
+            // lb_BuscarCpf
             // 
-            this.lb_Buscar_Cpf.Enabled = false;
-            this.lb_Buscar_Cpf.Location = new System.Drawing.Point(458, 18);
-            this.lb_Buscar_Cpf.Mask = "000.000.000-00";
-            this.lb_Buscar_Cpf.Name = "lb_Buscar_Cpf";
-            this.lb_Buscar_Cpf.Size = new System.Drawing.Size(88, 20);
-            this.lb_Buscar_Cpf.TabIndex = 79;
+            this.lb_BuscarCpf.Enabled = false;
+            this.lb_BuscarCpf.Location = new System.Drawing.Point(458, 18);
+            this.lb_BuscarCpf.Mask = "000.000.000-00";
+            this.lb_BuscarCpf.Name = "lb_BuscarCpf";
+            this.lb_BuscarCpf.Size = new System.Drawing.Size(88, 20);
+            this.lb_BuscarCpf.TabIndex = 79;
+            this.lb_BuscarCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.lb_BuscarCpf_MaskInputRejected);
             // 
             // label10
             // 
@@ -106,13 +112,17 @@
             this.label10.TabIndex = 78;
             this.label10.Text = "Buscar por CPF";
             // 
-            // cb_Inadiplete
+            // cb_Inadiplente
             // 
-            this.cb_Inadiplete.FormattingEnabled = true;
-            this.cb_Inadiplete.Location = new System.Drawing.Point(886, 97);
-            this.cb_Inadiplete.Name = "cb_Inadiplete";
-            this.cb_Inadiplete.Size = new System.Drawing.Size(102, 21);
-            this.cb_Inadiplete.TabIndex = 77;
+            this.cb_Inadiplente.FormattingEnabled = true;
+            this.cb_Inadiplente.Items.AddRange(new object[] {
+            "Sim",
+            "Não"});
+            this.cb_Inadiplente.Location = new System.Drawing.Point(886, 97);
+            this.cb_Inadiplente.Name = "cb_Inadiplente";
+            this.cb_Inadiplente.Size = new System.Drawing.Size(102, 21);
+            this.cb_Inadiplente.TabIndex = 77;
+            this.cb_Inadiplente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Inadiplente_KeyPress);
             // 
             // btn_foto
             // 
@@ -124,6 +134,7 @@
             this.btn_foto.TabIndex = 76;
             this.btn_foto.Text = "Foto";
             this.btn_foto.UseVisualStyleBackColor = true;
+            this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
             // 
             // lb_Email
             // 
@@ -132,6 +143,7 @@
             this.lb_Email.Name = "lb_Email";
             this.lb_Email.Size = new System.Drawing.Size(650, 20);
             this.lb_Email.TabIndex = 74;
+            this.lb_Email.TextChanged += new System.EventHandler(this.lb_Email_TextChanged);
             // 
             // label9
             // 
@@ -143,13 +155,14 @@
             this.label9.TabIndex = 73;
             this.label9.Text = "Email";
             // 
-            // lb_Valor_Aberto
+            // lb_ValorAberto
             // 
-            this.lb_Valor_Aberto.Enabled = false;
-            this.lb_Valor_Aberto.Location = new System.Drawing.Point(886, 71);
-            this.lb_Valor_Aberto.Name = "lb_Valor_Aberto";
-            this.lb_Valor_Aberto.Size = new System.Drawing.Size(102, 20);
-            this.lb_Valor_Aberto.TabIndex = 72;
+            this.lb_ValorAberto.Enabled = false;
+            this.lb_ValorAberto.Location = new System.Drawing.Point(886, 71);
+            this.lb_ValorAberto.Name = "lb_ValorAberto";
+            this.lb_ValorAberto.Size = new System.Drawing.Size(102, 20);
+            this.lb_ValorAberto.TabIndex = 72;
+            this.lb_ValorAberto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lb_ValorAberto_KeyPress);
             // 
             // label8
             // 
@@ -198,6 +211,7 @@
             this.btn_Cancelar.TabIndex = 67;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // lb_Telefone
             // 
@@ -227,6 +241,7 @@
             this.btn_Salvar.TabIndex = 63;
             this.btn_Salvar.Text = "Salvar";
             this.btn_Salvar.UseVisualStyleBackColor = true;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
             // 
             // btn_Excluir
             // 
@@ -238,6 +253,7 @@
             this.btn_Excluir.TabIndex = 66;
             this.btn_Excluir.Text = "Excluir";
             this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
             // btn_Editar
             // 
@@ -249,6 +265,7 @@
             this.btn_Editar.TabIndex = 65;
             this.btn_Editar.Text = "Editar";
             this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Novo
             // 
@@ -266,37 +283,38 @@
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle5;
-            this.grid.Location = new System.Drawing.Point(17, 242);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle23;
+            this.grid.Location = new System.Drawing.Point(17, 221);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid.Size = new System.Drawing.Size(1558, 273);
             this.grid.TabIndex = 62;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // lb_Endereco
             // 
@@ -354,40 +372,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Nome";
             // 
-            // grupo_Box
-            // 
-            this.grupo_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.grupo_Box.Controls.Add(this.ck_Bloqueado);
-            this.grupo_Box.Controls.Add(this.ck_Desbloqueado);
-            this.grupo_Box.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grupo_Box.ForeColor = System.Drawing.Color.White;
-            this.grupo_Box.Location = new System.Drawing.Point(994, 43);
-            this.grupo_Box.Name = "grupo_Box";
-            this.grupo_Box.Size = new System.Drawing.Size(169, 75);
-            this.grupo_Box.TabIndex = 173;
-            this.grupo_Box.TabStop = false;
-            this.grupo_Box.Text = "Status do cliente?";
-            // 
-            // ck_Bloqueado
-            // 
-            this.ck_Bloqueado.AutoSize = true;
-            this.ck_Bloqueado.Location = new System.Drawing.Point(7, 44);
-            this.ck_Bloqueado.Name = "ck_Bloqueado";
-            this.ck_Bloqueado.Size = new System.Drawing.Size(77, 17);
-            this.ck_Bloqueado.TabIndex = 1;
-            this.ck_Bloqueado.Text = "Bloqueado";
-            this.ck_Bloqueado.UseVisualStyleBackColor = true;
-            // 
-            // ck_Desbloqueado
-            // 
-            this.ck_Desbloqueado.AutoSize = true;
-            this.ck_Desbloqueado.Location = new System.Drawing.Point(7, 20);
-            this.ck_Desbloqueado.Name = "ck_Desbloqueado";
-            this.ck_Desbloqueado.Size = new System.Drawing.Size(95, 17);
-            this.ck_Desbloqueado.TabIndex = 0;
-            this.ck_Desbloqueado.Text = "Desbloqueado";
-            this.ck_Desbloqueado.UseVisualStyleBackColor = true;
-            // 
             // img_Email
             // 
             this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
@@ -409,24 +393,96 @@
             this.image.TabIndex = 75;
             this.image.TabStop = false;
             // 
+            // rbAtivado
+            // 
+            this.rbAtivado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.rbAtivado.Controls.Add(this.rb_Inativado);
+            this.rbAtivado.Controls.Add(this.rb_Ativado);
+            this.rbAtivado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbAtivado.ForeColor = System.Drawing.Color.White;
+            this.rbAtivado.Location = new System.Drawing.Point(994, 43);
+            this.rbAtivado.Name = "rbAtivado";
+            this.rbAtivado.Size = new System.Drawing.Size(169, 75);
+            this.rbAtivado.TabIndex = 173;
+            this.rbAtivado.TabStop = false;
+            this.rbAtivado.Text = "Status do cliente?";
+            // 
+            // rb_Inativado
+            // 
+            this.rb_Inativado.AutoSize = true;
+            this.rb_Inativado.Location = new System.Drawing.Point(6, 42);
+            this.rb_Inativado.Name = "rb_Inativado";
+            this.rb_Inativado.Size = new System.Drawing.Size(69, 17);
+            this.rb_Inativado.TabIndex = 175;
+            this.rb_Inativado.TabStop = true;
+            this.rb_Inativado.Text = "Inativado";
+            this.rb_Inativado.UseVisualStyleBackColor = true;
+            // 
+            // rb_Ativado
+            // 
+            this.rb_Ativado.AutoSize = true;
+            this.rb_Ativado.Location = new System.Drawing.Point(6, 19);
+            this.rb_Ativado.Name = "rb_Ativado";
+            this.rb_Ativado.Size = new System.Drawing.Size(61, 17);
+            this.rb_Ativado.TabIndex = 174;
+            this.rb_Ativado.TabStop = true;
+            this.rb_Ativado.Text = "Ativado";
+            this.rb_Ativado.UseVisualStyleBackColor = true;
+            // 
+            // rb_Cpf
+            // 
+            this.rb_Cpf.AutoSize = true;
+            this.rb_Cpf.Location = new System.Drawing.Point(6, 3);
+            this.rb_Cpf.Name = "rb_Cpf";
+            this.rb_Cpf.Size = new System.Drawing.Size(45, 17);
+            this.rb_Cpf.TabIndex = 174;
+            this.rb_Cpf.TabStop = true;
+            this.rb_Cpf.Text = "CPF";
+            this.rb_Cpf.UseVisualStyleBackColor = true;
+            this.rb_Cpf.CheckedChanged += new System.EventHandler(this.rb_Cpf_CheckedChanged);
+            this.rb_Cpf.Click += new System.EventHandler(this.rb_Cpf_Click);
+            // 
+            // rb_Nome
+            // 
+            this.rb_Nome.AutoSize = true;
+            this.rb_Nome.Location = new System.Drawing.Point(79, 3);
+            this.rb_Nome.Name = "rb_Nome";
+            this.rb_Nome.Size = new System.Drawing.Size(53, 17);
+            this.rb_Nome.TabIndex = 175;
+            this.rb_Nome.TabStop = true;
+            this.rb_Nome.Text = "Nome";
+            this.rb_Nome.UseVisualStyleBackColor = true;
+            this.rb_Nome.CheckedChanged += new System.EventHandler(this.rb_Nome_CheckedChanged);
+            this.rb_Nome.Click += new System.EventHandler(this.rb_Nome_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rb_Cpf);
+            this.panel1.Controls.Add(this.rb_Nome);
+            this.panel1.Location = new System.Drawing.Point(566, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(140, 26);
+            this.panel1.TabIndex = 176;
+            // 
             // Frm_Clinte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(1587, 588);
-            this.Controls.Add(this.grupo_Box);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.rbAtivado);
             this.Controls.Add(this.img_Email);
-            this.Controls.Add(this.lb_Bucar_Nome);
+            this.Controls.Add(this.lb_BuscarNome);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lb_Buscar_Cpf);
+            this.Controls.Add(this.lb_BuscarCpf);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cb_Inadiplete);
+            this.Controls.Add(this.cb_Inadiplente);
             this.Controls.Add(this.btn_foto);
             this.Controls.Add(this.image);
             this.Controls.Add(this.lb_Email);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lb_Valor_Aberto);
+            this.Controls.Add(this.lb_ValorAberto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lb_codigo);
@@ -452,10 +508,12 @@
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Frm_Clinte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
-            this.grupo_Box.ResumeLayout(false);
-            this.grupo_Box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            this.rbAtivado.ResumeLayout(false);
+            this.rbAtivado.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,16 +521,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox lb_Bucar_Nome;
+        private System.Windows.Forms.TextBox lb_BuscarNome;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox lb_Buscar_Cpf;
+        private System.Windows.Forms.MaskedTextBox lb_BuscarCpf;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cb_Inadiplete;
+        private System.Windows.Forms.ComboBox cb_Inadiplente;
         private System.Windows.Forms.Button btn_foto;
         private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.TextBox lb_Email;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox lb_Valor_Aberto;
+        private System.Windows.Forms.TextBox lb_ValorAberto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox lb_codigo;
@@ -492,8 +550,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox img_Email;
-        private System.Windows.Forms.GroupBox grupo_Box;
-        private System.Windows.Forms.CheckBox ck_Bloqueado;
-        private System.Windows.Forms.CheckBox ck_Desbloqueado;
+        private System.Windows.Forms.GroupBox rbAtivado;
+        private System.Windows.Forms.RadioButton rb_Inativado;
+        private System.Windows.Forms.RadioButton rb_Ativado;
+        private System.Windows.Forms.RadioButton rb_Cpf;
+        private System.Windows.Forms.RadioButton rb_Nome;
+        private System.Windows.Forms.Panel panel1;
     }
 }
