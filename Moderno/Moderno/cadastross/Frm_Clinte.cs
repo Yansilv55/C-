@@ -122,9 +122,10 @@ namespace Moderno.cadastross
             lb_Email.Enabled = true;
             cb_Inadiplente.Enabled = true;
             lb_ValorAberto.Enabled = true;
+            lb_codigo.Enabled = true;
             lb_Nome.Focus();
         }
-
+       
         private void DesabilitarCampos()
         {
             lb_Nome.Enabled = false;
@@ -230,7 +231,7 @@ namespace Moderno.cadastross
             {
                 //botao salvar
                 con.AbrirConexao();
-                sql = "INSERT INTO clientes(codigo, nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, funcionario, imagem, data) VALUES(@codigo, @nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @funcionario, @imagem, curDate())";
+                sql = "INSERT INTO clientes(codigo, nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, imagem, data) VALUES(@codigo, @nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @imagem, curDate())";
                 conn = new MySqlCommand(sql, con.con);
                 conn.Parameters.AddWithValue("@codigo", codCliente);
                 conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
@@ -241,14 +242,14 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@desbloqueado", "Sim");
                 conn.Parameters.AddWithValue("@Inadiplente", "Não");
                 conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+               // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                 conn.Parameters.AddWithValue("@imagem", img());            
             }
             else if (rb_Ativado.Checked == false)
             {
                 //botao salvar
                 con.AbrirConexao();
-                sql = "INSERT INTO clientes(codigo, nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, funcionario, imagem, data) VALUES(@codigo, @nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @funcionario, @imagem, curDate())";
+                sql = "INSERT INTO clientes(codigo, nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, imagem, data) VALUES(@codigo, @nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @imagem, curDate())";
                 conn = new MySqlCommand(sql, con.con);
                 conn.Parameters.AddWithValue("@codigo", codCliente);
                 conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
@@ -259,7 +260,7 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@desbloqueado", "Não");
                 conn.Parameters.AddWithValue("@Inadiplente", "Não");
                 conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                //conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                 conn.Parameters.AddWithValue("@imagem", img()); 
             }
             //Verificar se cpf ja existe  
@@ -352,9 +353,10 @@ namespace Moderno.cadastross
             {
                if (rb_Ativado.Checked == true)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id=@id";
+                    sql = "UPDATE clientes SET codigo=@codigo, nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id=@id";
                     conn = new MySqlCommand(sql, con.con);
                     conn.Parameters.AddWithValue("@id", id); //where
+                    conn.Parameters.AddWithValue("@codigo", lb_codigo.Text);
                     conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(lb_ValorAberto.Text));
@@ -369,9 +371,10 @@ namespace Moderno.cadastross
                 }
                 else if (rb_Ativado.Checked == false)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id=@id";
+                    sql = "UPDATE clientes SET codigo=@codigo, nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id=@id";
                     conn = new MySqlCommand(sql, con.con);
                     conn.Parameters.AddWithValue("@id", id); //where
+                    conn.Parameters.AddWithValue("@codigo", lb_codigo.Text);
                     conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(lb_ValorAberto.Text));
@@ -389,9 +392,10 @@ namespace Moderno.cadastross
             {
                 if (rb_Ativado.Checked == true)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id=@id";
+                    sql = "UPDATE clientes SET codigo=@codigo, nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id=@id";
                     conn = new MySqlCommand(sql, con.con);
                     conn.Parameters.AddWithValue("@id", id); //where
+                    conn.Parameters.AddWithValue("@codigo", lb_codigo.Text);
                     conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(lb_ValorAberto.Text));
@@ -405,9 +409,10 @@ namespace Moderno.cadastross
                 }
                 else if (rb_Ativado.Checked == false)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id=@id";
+                    sql = "UPDATE clientes SET codigo=@codigo, nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id=@id";
                     conn = new MySqlCommand(sql, con.con);
                     conn.Parameters.AddWithValue("@id", id); //where
+                    conn.Parameters.AddWithValue("@codigo", lb_codigo.Text);
                     conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(lb_ValorAberto.Text));
@@ -514,6 +519,7 @@ namespace Moderno.cadastross
                 desbloqueado = grid.CurrentRow.Cells[7].Value.ToString();
                 cb_Inadiplente.Text = grid.CurrentRow.Cells[8].Value.ToString();
                 lb_Endereco.Text = grid.CurrentRow.Cells[9].Value.ToString();
+
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
@@ -665,6 +671,8 @@ namespace Moderno.cadastross
         {
             lb_BuscarNome.Visible = false;
             lb_BuscarCpf.Visible = true;
+            lb_BuscarCpf.Focus();
+            lb_BuscarCpf.Enabled = true;
         }
 
         private void rb_Nome_CheckedChanged(object sender, EventArgs e)
@@ -673,6 +681,14 @@ namespace Moderno.cadastross
             lb_BuscarNome.Visible = true;
         }
 
+        private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SelectNextControl((Control)sender, true, true, true, true);
+                e.SuppressKeyPress = true;
+            }
+        }
         private byte[] img()
         {
             byte[] image_byte = null;
