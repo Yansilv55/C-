@@ -8,6 +8,7 @@ namespace Moderno
 {
     internal static class Program
     {
+        public static string CargoUsuario;
         public static string NomeUsuario;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.

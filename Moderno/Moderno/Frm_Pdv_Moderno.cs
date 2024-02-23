@@ -128,7 +128,7 @@ namespace Moderno
 
         private void btn_Relatorio_Click(object sender, EventArgs e)
         {
-            AbrirFrmPrincipal(new cadastross.Frm_Fornecedores(), sender);
+            AbrirFrmPrincipal(new Movimentacoes.Frm_Caixa(), sender);
 
         }
 
