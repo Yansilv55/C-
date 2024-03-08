@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Moderno.Movimentacoes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,8 @@ namespace Moderno
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //Program.NomeUsuario = "Pedro";
+            //Program.CargoUsuario = "Supervisor";
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -128,7 +131,7 @@ namespace Moderno
 
         private void btn_Relatorio_Click(object sender, EventArgs e)
         {
-            AbrirFrmPrincipal(new Movimentacoes.Frm_Caixa(), sender);
+            AbrirFrmPrincipal(new Movimentacoes.Frm_gastos(), sender);
 
         }
 
@@ -195,8 +198,15 @@ namespace Moderno
             Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
 
-            lbl_Usuario.Text = Verificar.NomeUsuario;
-            lbl_Cargo.Text = Verificar.CargoUsuario;
+            lbl_Usuario.Text = Program.NomeUsuario;
+            lbl_Cargo.Text = Program.CargoUsuario;
+
+        }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Movimentacoes.Frm_gastos frm = new Frm_gastos();
+            frm.ShowDialog();
         }
     }
 }

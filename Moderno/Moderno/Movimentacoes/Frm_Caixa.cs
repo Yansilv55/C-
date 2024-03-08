@@ -79,7 +79,6 @@ namespace Moderno.Movimentacoes
             grid.Columns[11].DefaultCellStyle.Format = "C2";
             grid.Columns[12].DefaultCellStyle.Format = "C2";
             grid.Columns[0].Visible = false;
-            //como os metodos Listar() e BuscarData() sempre chama o metodo FormatarGD(), ideal colocar o metodo Totalizando() aqui.
             Totalizando();
         }
         private void Listar()
@@ -292,7 +291,6 @@ namespace Moderno.Movimentacoes
             double totalSaida = 0;
             double transfD = 0;
             double transfC = 0;
-            //percorrendo cada linha da grid, p/ pegar e somar cada linha do array 'Valor'.
             foreach (DataGridViewRow row in grid.Rows)
             {
                 //pegando a celular e somando
@@ -311,8 +309,8 @@ namespace Moderno.Movimentacoes
             lbl_Pix.Text = Convert.ToDouble(totalP).ToString("C2");
             lbl_Cartao.Text = Convert.ToDouble(totalC).ToString("C2");
             lbl_Taxas.Text = Convert.ToDouble(taxa).ToString("C2");
-            lbl_EmContas.Text = string.Format("{0:c2}", (totalC - taxa) + totalP + transfC);// 
-            lbl_EmCaixa.Text = string.Format("{0:c2}", (totalD - totalSaida) + transfD);// 
+            lbl_EmContas.Text = string.Format("{0:c2}", (totalC - taxa) + totalP + transfC);
+            lbl_EmCaixa.Text = string.Format("{0:c2}", (totalD - totalSaida) + transfD);
             lbl_Saida.Text = string.Format("{0:c2}", totalSaida);
             lbl_Transferencias.Text = string.Format("{0:c2}", transfD + transfC);
             lbl_Saldo.Text = string.Format("{0:c2}", total - totalSaida);
@@ -350,7 +348,7 @@ namespace Moderno.Movimentacoes
         }
         public static void Moeda(ref TextBox txt)
         {
-            string n = string.Empty;
+            string n = string.Empty; 
             double v = 0;
 
             try
@@ -556,6 +554,16 @@ namespace Moderno.Movimentacoes
         private void dt_Final_ValueChanged(object sender, EventArgs e)
         {
             BuscarTipo();
+        }
+
+        private void panel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

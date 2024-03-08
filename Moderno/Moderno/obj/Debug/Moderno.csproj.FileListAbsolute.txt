@@ -21,3 +21,5 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Usua
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Servicos.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Fornecedores.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_Caixa.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_gastos.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Message.Frm_Bemvindo.resources
