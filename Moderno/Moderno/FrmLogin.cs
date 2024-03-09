@@ -26,6 +26,7 @@ namespace Moderno
         {
             InitializeComponent();
         }
+        
 
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -222,6 +223,15 @@ namespace Moderno
             }
         }
 
-
+        private void txt_Usuario_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+            if (e.KeyCode == Keys.Enter)
+            {
+               SelectNextControl((Control)sender, true, true, true, true);
+               e.SuppressKeyPress = true;
+            }
+            
+        }
     }
 }

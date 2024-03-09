@@ -39,6 +39,37 @@ namespace Moderno.cadastross
             lb_Celular.Text = "(00) 0 0000-0000";
         }
 
+        private void BuscarNome()
+        {
+            con.AbrirConexao();
+            sql = "SELECT * FROM funcionarios WHERE nome LIKE @nome ORDER BY nome asc"; 
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@nome", txt_BuscarNome.Text + "%");  
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = conn;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grid.DataSource = dt;
+            con.FecharConexao();
+
+            FormatarGD();
+        }
+        private void BuscarCpf()
+        {
+            con.AbrirConexao();
+            sql = "SELECT * FROM funcionarios WHERE cpf = @cpf ORDER BY nome asc";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@cpf", txt_BuscarCpf.Text);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = conn;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grid.DataSource = dt;
+            con.FecharConexao();
+
+            FormatarGD();
+        }
+
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
             string cpf = lb_Cpf.Text;
@@ -263,6 +294,21 @@ namespace Moderno.cadastross
             lb_Endereco.Enabled = false;
             lb_Celular.Enabled = false;
             cb_Cargo.Enabled = false;
+        }
+
+        private void CarregarCampos()
+        {
+            con.AbrirConexao();
+            sql = "SELECT * FROM cargos ORDER BY cargo asc";
+            conn = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = conn;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cb_Cargo.DataSource = dt;
+            //cbCargo.ValueMember = "id";
+            cb_Cargo.DisplayMember = "cargo";
+            con.FecharConexao();
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -541,5 +587,32 @@ namespace Moderno.cadastross
             }
         }
 
+        private void rbNome_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_BuscarNome.Visible = true;
+            txt_BuscarCpf.Visible = false;
+            txt_BuscarCpf.Text = "";
+            txt_BuscarNome.Text = "";
+            LimparFoto();
+        }
+
+        private void rb_Cpf_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_BuscarNome.Visible = false;
+            txt_BuscarCpf.Visible = true;
+            txt_BuscarCpf.Text = "";
+            txt_BuscarNome.Text = "";
+            txt_BuscarNome.Focus();
+            LimparFoto();
+        }
+
+        private void btnAddCargo_Click(object sender, EventArgs e)
+        {
+            cadastross.Frm_Cargo frm = new Frm_Cargo();
+            frm.ShowDialog();
+            CarregarCampos();
+        }
+
+        
     }
 }

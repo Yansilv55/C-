@@ -27,8 +27,7 @@ namespace Moderno
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            //Program.NomeUsuario = "Pedro";
-            //Program.CargoUsuario = "Supervisor";
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -73,6 +73,16 @@ namespace Moderno.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_text_file_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_edit_text_file_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_folded_booklet_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_folded_booklet_24px", resourceCulture);
@@ -183,9 +193,59 @@ namespace Moderno.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Plus_24px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Plus_24px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_save_26px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_save_26px1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_26px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_secure_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_secure_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trash_can_26px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_trash_can_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trash_can_26px1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_trash_can_26px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
