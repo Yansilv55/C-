@@ -31,74 +31,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.grid = new System.Windows.Forms.DataGridView();
+            this.lb_Nome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Novo = new System.Windows.Forms.Button();
-            this.grid = new System.Windows.Forms.DataGridView();
-            this.lb_Nome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Cancelar.Location = new System.Drawing.Point(396, 524);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(86, 32);
-            this.btn_Cancelar.TabIndex = 56;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
-            // btn_Salvar
-            // 
-            this.btn_Salvar.Enabled = false;
-            this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Salvar.Location = new System.Drawing.Point(1047, 524);
-            this.btn_Salvar.Name = "btn_Salvar";
-            this.btn_Salvar.Size = new System.Drawing.Size(88, 32);
-            this.btn_Salvar.TabIndex = 52;
-            this.btn_Salvar.Text = "Salvar";
-            this.btn_Salvar.UseVisualStyleBackColor = true;
-            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
-            // 
-            // btn_Excluir
-            // 
-            this.btn_Excluir.Enabled = false;
-            this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
-            this.btn_Excluir.Location = new System.Drawing.Point(70, 524);
-            this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(91, 32);
-            this.btn_Excluir.TabIndex = 55;
-            this.btn_Excluir.Text = "Excluir";
-            this.btn_Excluir.UseVisualStyleBackColor = true;
-            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
-            // 
-            // btn_Editar
-            // 
-            this.btn_Editar.Enabled = false;
-            this.btn_Editar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Editar.Location = new System.Drawing.Point(286, 524);
-            this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(86, 32);
-            this.btn_Editar.TabIndex = 54;
-            this.btn_Editar.Text = "Editar";
-            this.btn_Editar.UseVisualStyleBackColor = true;
-            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
-            // 
-            // btn_Novo
-            // 
-            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
-            this.btn_Novo.Location = new System.Drawing.Point(181, 524);
-            this.btn_Novo.Name = "btn_Novo";
-            this.btn_Novo.Size = new System.Drawing.Size(85, 32);
-            this.btn_Novo.TabIndex = 53;
-            this.btn_Novo.Text = "Novo";
-            this.btn_Novo.UseVisualStyleBackColor = true;
-            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
             // grid
             // 
@@ -164,12 +111,140 @@
             this.label1.TabIndex = 39;
             this.label1.Text = "Nome";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(108, 541);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 17);
+            this.label8.TabIndex = 169;
+            this.label8.Text = "Excluir";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(201, 541);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 17);
+            this.label11.TabIndex = 172;
+            this.label11.Text = "Novo";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(280, 541);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 173;
+            this.label9.Text = "Editar";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(360, 541);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 17);
+            this.label10.TabIndex = 174;
+            this.label10.Text = "Cancelar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(460, 543);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 17);
+            this.label7.TabIndex = 175;
+            this.label7.Text = "Salvar";
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Cancelar.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
+            this.btn_Cancelar.Location = new System.Drawing.Point(363, 498);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(47, 32);
+            this.btn_Cancelar.TabIndex = 56;
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // btn_Salvar
+            // 
+            this.btn_Salvar.Enabled = false;
+            this.btn_Salvar.FlatAppearance.BorderSize = 0;
+            this.btn_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Salvar.Image = global::Moderno.Properties.Resources.icons8_save_26px;
+            this.btn_Salvar.Location = new System.Drawing.Point(461, 498);
+            this.btn_Salvar.Name = "btn_Salvar";
+            this.btn_Salvar.Size = new System.Drawing.Size(47, 32);
+            this.btn_Salvar.TabIndex = 52;
+            this.btn_Salvar.UseVisualStyleBackColor = true;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
+            // 
+            // btn_Excluir
+            // 
+            this.btn_Excluir.Enabled = false;
+            this.btn_Excluir.FlatAppearance.BorderSize = 0;
+            this.btn_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
+            this.btn_Excluir.Image = global::Moderno.Properties.Resources.icons8_trash_can_26px;
+            this.btn_Excluir.Location = new System.Drawing.Point(111, 498);
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(45, 40);
+            this.btn_Excluir.TabIndex = 55;
+            this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.Enabled = false;
+            this.btn_Editar.FlatAppearance.BorderSize = 0;
+            this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Editar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Editar.Image = global::Moderno.Properties.Resources.icons8_edit_property_24px;
+            this.btn_Editar.Location = new System.Drawing.Point(281, 502);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(44, 32);
+            this.btn_Editar.TabIndex = 54;
+            this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // btn_Novo
+            // 
+            this.btn_Novo.FlatAppearance.BorderSize = 0;
+            this.btn_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
+            this.btn_Novo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
+            this.btn_Novo.Location = new System.Drawing.Point(198, 502);
+            this.btn_Novo.Name = "btn_Novo";
+            this.btn_Novo.Size = new System.Drawing.Size(44, 32);
+            this.btn_Novo.TabIndex = 53;
+            this.btn_Novo.UseVisualStyleBackColor = true;
+            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
+            // 
             // Frm_Cargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1145, 569);
+            this.ClientSize = new System.Drawing.Size(633, 569);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.btn_Excluir);
@@ -179,6 +254,7 @@
             this.Controls.Add(this.lb_Nome);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.DarkGray;
+            this.MinimumSize = new System.Drawing.Size(649, 608);
             this.Name = "Frm_Cargo";
             this.Text = "Cadastro de Cargo";
             this.Load += new System.EventHandler(this.Frm_Cargo_Load);
@@ -198,5 +274,10 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.TextBox lb_Nome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
     }
 }

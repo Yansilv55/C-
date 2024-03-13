@@ -107,28 +107,28 @@ namespace Moderno
             if (txt_Senha.Text == "")
             {
                 txt_Senha.Text = "SENHA";
-                txt_Senha.ForeColor = Color.DimGray;
+                txt_Senha.ForeColor = Color.Black;
                 txt_Senha.UseSystemPasswordChar = false;
             }
         }
         private void verificado()
         {
             txt_Usuario.Text = "USUÁRIO";
-            txt_Usuario.ForeColor = Color.DimGray;
+            txt_Usuario.ForeColor = Color.Black;
             txt_Senha.Text = "SENHA";
-            txt_Senha.ForeColor = Color.DimGray;
+            txt_Senha.ForeColor = Color.Black;
             txt_Senha.UseSystemPasswordChar = false;
         }
 
         private void chamarLogin()
         {
 
-            if (txt_Usuario.Text.ToString().Trim() == "" || txt_Usuario.Text == "USUÁRIO")
+            if (txt_Usuario.Text.ToString().Trim() == ""/* || txt_Usuario.Text == "USUÁRIO"*/)
             {
                 erroLogin("Usuário ou senha inválida !!!");
                 verificado();
             }
-            if (txt_Senha.Text.ToString().Trim() == "" || txt_Senha.Text == "SENHA")
+            if (txt_Senha.Text.ToString().Trim() == "" /*|| txt_Senha.Text == "SENHA"*/)
             {
                 erroLogin("Usuário ou senha inválida.");
                 verificado();
@@ -142,19 +142,13 @@ namespace Moderno
             {
                 con.AbrirConexao();
                 MySqlCommand connVerificar;
-                MySqlDataReader reader; //com o reader vou conseguir extrair dados da tabela e usar em outros form
-                string cSQL = @"SELECT 
-	                                u.nome,
-                                    c.cargo
-                                FROM 
-	                                usuarios as u 
-                                INNER join 
-	                                cargos as c 
-                                on 
-	                                u.cargo = c.id 
-                                WHERE 
-	                                usuario = @usuario AND  
-                                    senha = @senha";
+                MySqlDataReader reader; 
+                string cSQL = @"SELECT * 
+                                       FROM 
+                                         usuarios 
+                                          WHERE 
+                                            usuario = @usuario AND
+                                            senha = @senha";
                 connVerificar = new MySqlCommand(cSQL, con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = connVerificar;
@@ -193,6 +187,9 @@ namespace Moderno
             lbl_textoErro.Text = msn;
             lbl_textoErro.Visible = true;
             pictureErro.Visible = true;
+           /* txt_Usuario.Text = "";
+            txt_Senha.Text = "";
+            txt_Usuario.Focus();*/
 
         }
         private void encerraSecao(object sender, FormClosedEventArgs e)
@@ -231,7 +228,12 @@ namespace Moderno
                SelectNextControl((Control)sender, true, true, true, true);
                e.SuppressKeyPress = true;
             }
-            
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            txt_Usuario.Text = "";
+            txt_Senha.Text = "";
         }
     }
 }

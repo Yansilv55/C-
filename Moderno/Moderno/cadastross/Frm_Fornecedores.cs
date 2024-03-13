@@ -27,6 +27,7 @@ namespace Moderno.cadastross
         public Frm_Fornecedores()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Fornecedores_Load(object sender, EventArgs e)

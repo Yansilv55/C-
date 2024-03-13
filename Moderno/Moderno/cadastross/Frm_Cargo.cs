@@ -21,6 +21,7 @@ namespace Moderno.cadastross
         public Frm_Cargo()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Cargo_Load(object sender, EventArgs e)
@@ -315,5 +316,7 @@ namespace Moderno.cadastross
         {
 
         }
+
+        
     }
 }

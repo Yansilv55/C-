@@ -35,6 +35,7 @@ namespace Moderno.cadastross
         public Frm_Clinte()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Clinte_Load(object sender, EventArgs e)

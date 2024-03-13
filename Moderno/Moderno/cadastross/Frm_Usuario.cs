@@ -23,6 +23,7 @@ namespace Moderno.cadastross
         public Frm_Usuario()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Usuario_Load(object sender, EventArgs e)
@@ -35,11 +36,10 @@ namespace Moderno.cadastross
         {
             grid.Columns[0].HeaderText = "ID";
             grid.Columns[1].HeaderText = "Funcionário";
-            grid.Columns[2].HeaderText = "Cargo";
-            grid.Columns[3].HeaderText = "Usuário";
-            grid.Columns[4].HeaderText = "Senha";
+            grid.Columns[2].HeaderText = "Usuário";
+            grid.Columns[3].HeaderText = "Senha";
+            grid.Columns[4].HeaderText = "Cargo";
             grid.Columns[5].HeaderText = "Data";
-            //grid.Columns[6].Width = 50;
             grid.Columns[0].Visible = false;
 
         }
@@ -187,12 +187,12 @@ namespace Moderno.cadastross
 
             //botao salvar
             con.AbrirConexao();
-            sql = "INSERT INTO usuarios(nome, usuario, senha, cargo, data) VALUES(@nome, @cargo, @usuario, @senha, curDate())";
+            sql = "INSERT INTO usuarios(nome, usuario, senha, cargo, data) VALUES(@nome, @usuario, @senha, @cargo, curDate())";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", cb_Funcionario.Text);
-            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
             conn.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
             conn.Parameters.AddWithValue("@senha", txt_Senha.Text);
+            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
 
             //Verificar se usuario ja existe  
             MySqlCommand cmdVerificar;
@@ -251,13 +251,13 @@ namespace Moderno.cadastross
 
             //botao editar
             con.AbrirConexao();
-            sql = "UPDATE usuarios SET nome = @nome, cargo = @cargo, usuario = @usuario, senha = @senha  where id = @id";
+            sql = "UPDATE usuarios SET nome = @nome, usuario = @usuario, senha = @senha, cargo = @cargo  where id = @id";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@id", id);
             conn.Parameters.AddWithValue("@nome", cb_Funcionario.Text);
-            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
             conn.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
             conn.Parameters.AddWithValue("@senha", txt_Senha.Text);
+            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
 
             //Verificar se cpf ja existe
             if (txt_Usuario.Text != usuarioAntigo)
@@ -307,11 +307,11 @@ namespace Moderno.cadastross
 
                 id = grid.CurrentRow.Cells[0].Value.ToString();
                 cb_Funcionario.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                txt_Cargo.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                txt_Usuario.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                txt_Senha.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                txt_Usuario.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                txt_Senha.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                txt_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
 
-                usuarioAntigo = grid.CurrentRow.Cells[3].Value.ToString();
+                usuarioAntigo = grid.CurrentRow.Cells[2].Value.ToString();
             }
             else
             {
@@ -358,7 +358,7 @@ namespace Moderno.cadastross
             {
                 while (reader.Read())
                 {
-                    Cargo = Convert.ToString(reader["cargo"]);//                    
+                    Cargo = Convert.ToString(reader["cargo"]);           
                 }
                 txt_Cargo.Text = Cargo;
             }
@@ -384,6 +384,15 @@ namespace Moderno.cadastross
 
             DesabilitarCampos();
             LimparCampos();
+        }
+
+        private void Frm_Usuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SelectNextControl((Control)sender, true, true, true, true);
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

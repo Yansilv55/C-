@@ -20,7 +20,8 @@ namespace Moderno.cadastross
         string id;
         public Frm_Servicos()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_Servicos_Load(object sender, EventArgs e)

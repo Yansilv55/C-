@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Celular = new System.Windows.Forms.MaskedTextBox();
             this.lb_Cpf = new System.Windows.Forms.MaskedTextBox();
             this.btn_foto = new System.Windows.Forms.Button();
-            this.btn_Novo = new System.Windows.Forms.Button();
             this.cb_Cargo = new System.Windows.Forms.ComboBox();
             this.lb_Endereco = new System.Windows.Forms.TextBox();
             this.lb_Nome = new System.Windows.Forms.TextBox();
@@ -52,26 +50,21 @@
             this.rb_Nome = new System.Windows.Forms.RadioButton();
             this.rb_Cpf = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnAddCargo = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Novo = new System.Windows.Forms.Button();
             this.image = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panelBusca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Cancelar.Location = new System.Drawing.Point(482, 564);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(86, 32);
-            this.btn_Cancelar.TabIndex = 38;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // lb_Celular
             // 
@@ -101,7 +94,7 @@
             // 
             this.btn_foto.Enabled = false;
             this.btn_foto.ForeColor = System.Drawing.Color.Black;
-            this.btn_foto.Location = new System.Drawing.Point(952, 54);
+            this.btn_foto.Location = new System.Drawing.Point(873, 54);
             this.btn_foto.Name = "btn_foto";
             this.btn_foto.Size = new System.Drawing.Size(46, 26);
             this.btn_foto.TabIndex = 31;
@@ -109,17 +102,6 @@
             this.btn_foto.UseVisualStyleBackColor = true;
             this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
             this.btn_foto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
-            // 
-            // btn_Novo
-            // 
-            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
-            this.btn_Novo.Location = new System.Drawing.Point(154, 573);
-            this.btn_Novo.Name = "btn_Novo";
-            this.btn_Novo.Size = new System.Drawing.Size(85, 32);
-            this.btn_Novo.TabIndex = 35;
-            this.btn_Novo.Text = "Novo";
-            this.btn_Novo.UseVisualStyleBackColor = true;
-            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
             // cb_Cargo
             // 
@@ -215,34 +197,35 @@
             // 
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.grid.Location = new System.Drawing.Point(12, 217);
+            this.grid.Location = new System.Drawing.Point(15, 228);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(841, 267);
+            this.grid.Size = new System.Drawing.Size(740, 267);
             this.grid.TabIndex = 52;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick_1);
             // 
@@ -257,7 +240,7 @@
             this.panelBusca.Controls.Add(this.rb_Cpf);
             this.panelBusca.Location = new System.Drawing.Point(1, 1);
             this.panelBusca.Name = "panelBusca";
-            this.panelBusca.Size = new System.Drawing.Size(1246, 45);
+            this.panelBusca.Size = new System.Drawing.Size(1175, 45);
             this.panelBusca.TabIndex = 149;
             // 
             // txt_BuscarCpf
@@ -326,28 +309,79 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1165, 639);
+            this.label7.Location = new System.Drawing.Point(465, 659);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.Size = new System.Drawing.Size(48, 17);
             this.label7.TabIndex = 167;
             this.label7.Text = "Salvar";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(66, 659);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 17);
+            this.label8.TabIndex = 168;
+            this.label8.Text = "Excluir";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(268, 659);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 169;
+            this.label9.Text = "Editar";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(356, 659);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 17);
+            this.label10.TabIndex = 170;
+            this.label10.Text = "Cancelar";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // btnAddCargo
             // 
-            this.btnAddCargo.BackColor = System.Drawing.Color.Gray;
+            this.btnAddCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.btnAddCargo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddCargo.FlatAppearance.BorderSize = 0;
             this.btnAddCargo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
             this.btnAddCargo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnAddCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCargo.Image = global::Moderno.Properties.Resources.icons8_Plus_24px_1;
-            this.btnAddCargo.Location = new System.Drawing.Point(294, 151);
+            this.btnAddCargo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px;
+            this.btnAddCargo.Location = new System.Drawing.Point(306, 144);
             this.btnAddCargo.Name = "btnAddCargo";
-            this.btnAddCargo.Size = new System.Drawing.Size(32, 21);
+            this.btnAddCargo.Size = new System.Drawing.Size(32, 32);
             this.btnAddCargo.TabIndex = 166;
             this.btnAddCargo.UseVisualStyleBackColor = false;
             this.btnAddCargo.Click += new System.EventHandler(this.btnAddCargo_Click);
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Cancelar.Image = global::Moderno.Properties.Resources.icons8_cancel_30px;
+            this.btn_Cancelar.Location = new System.Drawing.Point(368, 614);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(43, 32);
+            this.btn_Cancelar.TabIndex = 38;
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Salvar
             // 
@@ -360,7 +394,7 @@
             this.btn_Salvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
             this.btn_Salvar.Image = global::Moderno.Properties.Resources.icons8_save_26px1;
-            this.btn_Salvar.Location = new System.Drawing.Point(1151, 564);
+            this.btn_Salvar.Location = new System.Drawing.Point(453, 599);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(60, 63);
             this.btn_Salvar.TabIndex = 34;
@@ -374,9 +408,9 @@
             this.btn_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
             this.btn_Excluir.Image = global::Moderno.Properties.Resources.icons8_trash_can_26px1;
-            this.btn_Excluir.Location = new System.Drawing.Point(47, 538);
+            this.btn_Excluir.Location = new System.Drawing.Point(58, 604);
             this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(67, 83);
+            this.btn_Excluir.Size = new System.Drawing.Size(67, 52);
             this.btn_Excluir.TabIndex = 37;
             this.btn_Excluir.UseVisualStyleBackColor = true;
             this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
@@ -387,32 +421,61 @@
             this.btn_Editar.FlatAppearance.BorderSize = 0;
             this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Editar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Editar.Image = global::Moderno.Properties.Resources.icons8_edit_text_file_50px;
-            this.btn_Editar.Location = new System.Drawing.Point(294, 556);
+            this.btn_Editar.Image = global::Moderno.Properties.Resources.icons8_edit_property_24px;
+            this.btn_Editar.Location = new System.Drawing.Point(261, 609);
             this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(64, 66);
+            this.btn_Editar.Size = new System.Drawing.Size(52, 42);
             this.btn_Editar.TabIndex = 36;
             this.btn_Editar.UseVisualStyleBackColor = true;
             this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // btn_Novo
+            // 
+            this.btn_Novo.FlatAppearance.BorderSize = 0;
+            this.btn_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
+            this.btn_Novo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
+            this.btn_Novo.Location = new System.Drawing.Point(161, 614);
+            this.btn_Novo.Name = "btn_Novo";
+            this.btn_Novo.Size = new System.Drawing.Size(67, 32);
+            this.btn_Novo.TabIndex = 35;
+            this.btn_Novo.UseVisualStyleBackColor = true;
+            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
             // image
             // 
             this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.image.Enabled = false;
             this.image.Image = global::Moderno.Properties.Resources.icons8_person_32px;
-            this.image.Location = new System.Drawing.Point(1004, 52);
+            this.image.Location = new System.Drawing.Point(925, 52);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(243, 190);
             this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image.TabIndex = 32;
             this.image.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(174, 659);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 17);
+            this.label11.TabIndex = 171;
+            this.label11.Text = "Novo";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // Frm_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1248, 692);
+            this.ClientSize = new System.Drawing.Size(1171, 732);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddCargo);
             this.Controls.Add(this.panelBusca);
@@ -438,7 +501,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frm_Funcionario";
-            this.Text = "Cadastro de Funcionario";
+            this.Text = "Cadastro de Funcionários";
             this.Load += new System.EventHandler(this.Frm_Funcionario_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
@@ -479,5 +542,9 @@
         private System.Windows.Forms.RadioButton rb_Cpf;
         private System.Windows.Forms.Button btnAddCargo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
