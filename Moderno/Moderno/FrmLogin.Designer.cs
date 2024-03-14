@@ -85,7 +85,7 @@
             this.txt_Senha.Size = new System.Drawing.Size(222, 20);
             this.txt_Senha.TabIndex = 3;
             this.txt_Senha.Enter += new System.EventHandler(this.txt_Senha_Enter);
-            this.txt_Senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Usuario_KeyDown);
+            this.txt_Senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Senha_KeyDown);
             this.txt_Senha.Leave += new System.EventHandler(this.txt_Senha_Leave);
             // 
             // btn_Entar
@@ -99,7 +99,6 @@
             this.btn_Entar.Text = "Entar";
             this.btn_Entar.UseVisualStyleBackColor = true;
             this.btn_Entar.Click += new System.EventHandler(this.btn_Entar_Click);
-            this.btn_Entar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Usuario_KeyDown);
             // 
             // btn_Cancelar
             // 

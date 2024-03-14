@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lb_Celular = new System.Windows.Forms.MaskedTextBox();
-            this.lb_Cpf = new System.Windows.Forms.MaskedTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txt_Celular = new System.Windows.Forms.MaskedTextBox();
+            this.txt_Cpf = new System.Windows.Forms.MaskedTextBox();
             this.btn_foto = new System.Windows.Forms.Button();
             this.cb_Cargo = new System.Windows.Forms.ComboBox();
-            this.lb_Endereco = new System.Windows.Forms.TextBox();
-            this.lb_Nome = new System.Windows.Forms.TextBox();
+            this.txt_Endereco = new System.Windows.Forms.TextBox();
+            this.txt_Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,29 +66,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
-            // lb_Celular
+            // txt_Celular
             // 
-            this.lb_Celular.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_Celular.Enabled = false;
-            this.lb_Celular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Celular.Location = new System.Drawing.Point(751, 65);
-            this.lb_Celular.Mask = "(99) 0 0000-0000";
-            this.lb_Celular.Name = "lb_Celular";
-            this.lb_Celular.Size = new System.Drawing.Size(102, 16);
-            this.lb_Celular.TabIndex = 28;
-            this.lb_Celular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.txt_Celular.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Celular.Enabled = false;
+            this.txt_Celular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Celular.Location = new System.Drawing.Point(751, 65);
+            this.txt_Celular.Mask = "(99) 0 0000-0000";
+            this.txt_Celular.Name = "txt_Celular";
+            this.txt_Celular.Size = new System.Drawing.Size(102, 16);
+            this.txt_Celular.TabIndex = 28;
+            this.txt_Celular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Celular_KeyDown);
             // 
-            // lb_Cpf
+            // txt_Cpf
             // 
-            this.lb_Cpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_Cpf.Enabled = false;
-            this.lb_Cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Cpf.Location = new System.Drawing.Point(592, 64);
-            this.lb_Cpf.Mask = "000.000.000-00";
-            this.lb_Cpf.Name = "lb_Cpf";
-            this.lb_Cpf.Size = new System.Drawing.Size(88, 16);
-            this.lb_Cpf.TabIndex = 27;
-            this.lb_Cpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.txt_Cpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Cpf.Enabled = false;
+            this.txt_Cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cpf.Location = new System.Drawing.Point(592, 64);
+            this.txt_Cpf.Mask = "000.000.000-00";
+            this.txt_Cpf.Name = "txt_Cpf";
+            this.txt_Cpf.Size = new System.Drawing.Size(88, 16);
+            this.txt_Cpf.TabIndex = 27;
+            this.txt_Cpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Cpf_KeyDown);
             // 
             // btn_foto
             // 
@@ -101,7 +101,7 @@
             this.btn_foto.Text = "Foto";
             this.btn_foto.UseVisualStyleBackColor = true;
             this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
-            this.btn_foto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.btn_foto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_foto_KeyDown);
             // 
             // cb_Cargo
             // 
@@ -117,31 +117,31 @@
             this.cb_Cargo.Size = new System.Drawing.Size(219, 21);
             this.cb_Cargo.TabIndex = 29;
             this.cb_Cargo.SelectedIndexChanged += new System.EventHandler(this.cb_Cargo_SelectedIndexChanged);
-            this.cb_Cargo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.cb_Cargo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_Cargo_KeyDown);
             // 
-            // lb_Endereco
+            // txt_Endereco
             // 
-            this.lb_Endereco.BackColor = System.Drawing.Color.White;
-            this.lb_Endereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_Endereco.Enabled = false;
-            this.lb_Endereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Endereco.Location = new System.Drawing.Point(69, 103);
-            this.lb_Endereco.Name = "lb_Endereco";
-            this.lb_Endereco.Size = new System.Drawing.Size(784, 16);
-            this.lb_Endereco.TabIndex = 30;
-            this.lb_Endereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.txt_Endereco.BackColor = System.Drawing.Color.White;
+            this.txt_Endereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Endereco.Enabled = false;
+            this.txt_Endereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Endereco.Location = new System.Drawing.Point(69, 103);
+            this.txt_Endereco.Name = "txt_Endereco";
+            this.txt_Endereco.Size = new System.Drawing.Size(784, 16);
+            this.txt_Endereco.TabIndex = 30;
+            this.txt_Endereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Endereco_KeyDown);
             // 
-            // lb_Nome
+            // txt_Nome
             // 
-            this.lb_Nome.BackColor = System.Drawing.Color.White;
-            this.lb_Nome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_Nome.Enabled = false;
-            this.lb_Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Nome.Location = new System.Drawing.Point(69, 64);
-            this.lb_Nome.Name = "lb_Nome";
-            this.lb_Nome.Size = new System.Drawing.Size(466, 16);
-            this.lb_Nome.TabIndex = 26;
-            this.lb_Nome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
+            this.txt_Nome.BackColor = System.Drawing.Color.White;
+            this.txt_Nome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Nome.Enabled = false;
+            this.txt_Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nome.Location = new System.Drawing.Point(69, 64);
+            this.txt_Nome.Name = "txt_Nome";
+            this.txt_Nome.Size = new System.Drawing.Size(466, 16);
+            this.txt_Nome.TabIndex = 26;
+            this.txt_Nome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Nome_KeyDown);
             // 
             // label5
             // 
@@ -199,24 +199,24 @@
             this.grid.AllowUserToDeleteRows = false;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle6;
             this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.grid.Location = new System.Drawing.Point(15, 228);
             this.grid.Name = "grid";
@@ -245,7 +245,7 @@
             // 
             // txt_BuscarCpf
             // 
-            this.txt_BuscarCpf.Location = new System.Drawing.Point(853, 15);
+            this.txt_BuscarCpf.Location = new System.Drawing.Point(857, 13);
             this.txt_BuscarCpf.Mask = "000,000,000-00";
             this.txt_BuscarCpf.Name = "txt_BuscarCpf";
             this.txt_BuscarCpf.Size = new System.Drawing.Size(86, 20);
@@ -316,7 +316,6 @@
             this.label7.Size = new System.Drawing.Size(48, 17);
             this.label7.TabIndex = 167;
             this.label7.Text = "Salvar";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -328,7 +327,6 @@
             this.label8.Size = new System.Drawing.Size(49, 17);
             this.label8.TabIndex = 168;
             this.label8.Text = "Excluir";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -340,7 +338,6 @@
             this.label9.Size = new System.Drawing.Size(45, 17);
             this.label9.TabIndex = 169;
             this.label9.Text = "Editar";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -352,7 +349,6 @@
             this.label10.Size = new System.Drawing.Size(64, 17);
             this.label10.TabIndex = 170;
             this.label10.Text = "Cancelar";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // btnAddCargo
             // 
@@ -464,7 +460,6 @@
             this.label11.Size = new System.Drawing.Size(41, 17);
             this.label11.TabIndex = 171;
             this.label11.Text = "Novo";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // Frm_Funcionario
             // 
@@ -481,8 +476,8 @@
             this.Controls.Add(this.panelBusca);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.lb_Celular);
-            this.Controls.Add(this.lb_Cpf);
+            this.Controls.Add(this.txt_Celular);
+            this.Controls.Add(this.txt_Cpf);
             this.Controls.Add(this.btn_foto);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.btn_Excluir);
@@ -490,8 +485,8 @@
             this.Controls.Add(this.btn_Novo);
             this.Controls.Add(this.image);
             this.Controls.Add(this.cb_Cargo);
-            this.Controls.Add(this.lb_Endereco);
-            this.Controls.Add(this.lb_Nome);
+            this.Controls.Add(this.txt_Endereco);
+            this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -503,7 +498,6 @@
             this.Name = "Frm_Funcionario";
             this.Text = "Cadastro de Funcionários";
             this.Load += new System.EventHandler(this.Frm_Funcionario_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Funcionario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
@@ -516,8 +510,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Cancelar;
-        private System.Windows.Forms.MaskedTextBox lb_Celular;
-        private System.Windows.Forms.MaskedTextBox lb_Cpf;
+        private System.Windows.Forms.MaskedTextBox txt_Celular;
+        private System.Windows.Forms.MaskedTextBox txt_Cpf;
         private System.Windows.Forms.Button btn_foto;
         private System.Windows.Forms.Button btn_Salvar;
         private System.Windows.Forms.Button btn_Excluir;
@@ -525,8 +519,8 @@
         private System.Windows.Forms.Button btn_Novo;
         private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.ComboBox cb_Cargo;
-        private System.Windows.Forms.TextBox lb_Endereco;
-        private System.Windows.Forms.TextBox lb_Nome;
+        private System.Windows.Forms.TextBox txt_Endereco;
+        private System.Windows.Forms.TextBox txt_Nome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

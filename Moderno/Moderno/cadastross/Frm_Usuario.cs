@@ -20,6 +20,7 @@ namespace Moderno.cadastross
         string id;
         string usuarioAntigo;
         string Cargo;
+        private bool campoClicado = false;
         public Frm_Usuario()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Moderno.cadastross
             Listar();
             LimparCampos();
             CarregarFuncionarios();
+            DesabilitarCampos();
         }
         private void FormatarGD()
         {
@@ -93,7 +95,7 @@ namespace Moderno.cadastross
             txt_Senha.Enabled = true;
             txt_Usuario.Enabled = true;
             cb_Funcionario.Enabled = true;
-            txt_Cargo.Enabled = true;
+            txt_Cargo.Enabled = false;
             txt_Usuario.Focus();
         }
         private void DesabilitarCampos()
@@ -114,6 +116,14 @@ namespace Moderno.cadastross
             cb_Funcionario.Focus();
         }
 
+        private void HabilitarNovo()
+        {
+            btn_Salvar.Enabled = true;
+            btn_Novo.Enabled = false;
+            btn_Editar.Enabled = false;
+            btn_Excluir.Enabled = false;
+        }
+
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             if (cb_Funcionario.Text == "")
@@ -124,10 +134,7 @@ namespace Moderno.cadastross
                     cadastross.Frm_Funcionario frm = new Frm_Funcionario();
                     frm.ShowDialog();
                     HabilitarCampos();
-                    btn_Salvar.Enabled = true;
-                    btn_Novo.Enabled = false;
-                    btn_Editar.Enabled = false;
-                    btn_Excluir.Enabled = false;
+                    HabilitarNovo();
                     CarregarFuncionarios();
                     Listar();
                 }
@@ -141,10 +148,7 @@ namespace Moderno.cadastross
                     cadastross.Frm_Cargo frm = new Frm_Cargo();
                     frm.ShowDialog();
                     HabilitarCampos();
-                    btn_Salvar.Enabled = true;
-                    btn_Novo.Enabled = false;
-                    btn_Editar.Enabled = false;
-                    btn_Excluir.Enabled = false;
+                    HabilitarNovo();
 
                     CarregarFuncionarios();
                     Listar();
@@ -152,13 +156,10 @@ namespace Moderno.cadastross
                 else { this.Close(); }
             }
 
-            btn_Salvar.Enabled = true;
-            btn_Novo.Enabled = false;
-            btn_Editar.Enabled = false;
-            btn_Excluir.Enabled = false;
 
-            HabilitarCampos();
             LimparCampos();
+            HabilitarCampos();
+            HabilitarNovo();
             Listar();
         }
 
@@ -298,8 +299,9 @@ namespace Moderno.cadastross
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex >= 0)
             {
+                campoClicado = true;
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
@@ -315,7 +317,7 @@ namespace Moderno.cadastross
             }
             else
             {
-                return;
+                campoClicado = false;
             }
 
         }
@@ -386,12 +388,34 @@ namespace Moderno.cadastross
             LimparCampos();
         }
 
-        private void Frm_Usuario_KeyDown(object sender, KeyEventArgs e)
+        private void txt_Usuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SelectNextControl((Control)sender, true, true, true, true);
-                e.SuppressKeyPress = true;
+                txt_Senha.Focus();
+            }
+        }
+
+        private void txt_Senha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cb_Funcionario.Focus();
+            }
+        }
+
+        private void cb_Funcionario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (campoClicado)
+                {
+                    btn_Editar.PerformClick();
+                }
+                else
+                {
+                    btn_Salvar.PerformClick();
+                }
             }
         }
     }

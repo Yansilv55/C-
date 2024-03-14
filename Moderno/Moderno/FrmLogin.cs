@@ -220,20 +220,28 @@ namespace Moderno
             }
         }
 
-        private void txt_Usuario_KeyDown(object sender, KeyEventArgs e)
-        {
-           
-            if (e.KeyCode == Keys.Enter)
-            {
-               SelectNextControl((Control)sender, true, true, true, true);
-               e.SuppressKeyPress = true;
-            }
-        }
+       
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             txt_Usuario.Text = "";
             txt_Senha.Text = "";
+        }
+
+        private void txt_Usuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txt_Senha.Focus();
+            }
+        }
+
+        private void txt_Senha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_Entar_Click(sender, e);
+            }
         }
     }
 }

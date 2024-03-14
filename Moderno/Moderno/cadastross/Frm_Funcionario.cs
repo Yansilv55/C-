@@ -24,6 +24,7 @@ namespace Moderno.cadastross
         string alterouImagem = "nao";
         string cpfAntigo;
         string celAntigo;
+        private bool campoClicado = false;
         public Frm_Funcionario()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace Moderno.cadastross
             Listar_Cargos();
             alterouImagem = "nao";
             cb_Cargo.Text = "Selecione o Cargo";
-            lb_Celular.Text = "(00) 0 0000-0000";
+            txt_Celular.Text = "(00) 0 0000-0000";
         }
 
         private void BuscarNome()
@@ -73,28 +74,28 @@ namespace Moderno.cadastross
 
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
-            string cpf = lb_Cpf.Text;
+            string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
-            string celular = lb_Celular.Text;
+            string celular = txt_Celular.Text;
             string numerocel = new string(celular.Where(char.IsDigit).ToArray());
 
-            if (lb_Nome.Text.ToString().Trim() == "")
+            if (txt_Nome.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Nome.Text = "";
-                lb_Nome.Focus();
+                txt_Nome.Text = "";
+                txt_Nome.Focus();
                 return;
             }
             if (!CPFValidator.ValidateCPF(numeroCpf))
             {
                 MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Cpf.Focus();
+                txt_Cpf.Focus();
                 return;
             }
             if (numerocel.Length != 11)
             {
                 MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lb_Celular.Focus();
+                txt_Celular.Focus();
                 return;
             }
             if (cb_Cargo.Text == "Selcionar cargo")
@@ -103,11 +104,11 @@ namespace Moderno.cadastross
                 cb_Cargo.Focus();
                 return;
             }
-            if (lb_Endereco.Text.ToString().Trim() == "")
+            if (txt_Endereco.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Endereco.Text = "";
-                lb_Endereco.Focus();
+                txt_Endereco.Text = "";
+                txt_Endereco.Focus();
                 return;
             }
             con.AbrirConexao();
@@ -117,25 +118,25 @@ namespace Moderno.cadastross
             sql = "INSERT INTO funcionarios (nome, cpf, telefone, cargo, endereco, data, foto) VALUES(@nome, @cpf, @telefone, @cargo, @endereco, curDate(), @foto)";
 
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
-            conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-            conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
+            conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
+            conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
+            conn.Parameters.AddWithValue("@telefone", txt_Celular.Text);
             conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
-            conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
+            conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
             conn.Parameters.AddWithValue("@foto", img());
 
             MySqlCommand connVerificar;
             connVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE cpf = @cpf", con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = connVerificar;
-            connVerificar.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
+            connVerificar.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
             DataTable dt = new DataTable();
             da.Fill(dt);
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                lb_Cpf.Text = "";
-                lb_Cpf.Focus();
+                txt_Cpf.Text = "";
+                txt_Cpf.Focus();
                 return;
             }
             try
@@ -205,6 +206,7 @@ namespace Moderno.cadastross
                 image.ImageLocation = foto;
                 alterouImagem = "sim";
             }
+            
         }
 
         private byte[] img()
@@ -250,7 +252,7 @@ namespace Moderno.cadastross
         {
             habilitarCampos();
             LimparCampos();
-            lb_Nome.Focus();
+            txt_Nome.Focus();
         }
 
         private void Listar()
@@ -270,10 +272,10 @@ namespace Moderno.cadastross
         private void habilitarCampos()
         {
             btn_Salvar.Enabled = true;
-            lb_Nome.Enabled = true;
-            lb_Cpf.Enabled = true;
-            lb_Endereco.Enabled = true;
-            lb_Celular.Enabled = true;
+            txt_Nome.Enabled = true;
+            txt_Cpf.Enabled = true;
+            txt_Endereco.Enabled = true;
+            txt_Celular.Enabled = true;
             btn_foto.Enabled = true;
             cb_Cargo.Enabled = true;
             btn_Novo.Enabled = false;
@@ -281,19 +283,19 @@ namespace Moderno.cadastross
 
         private void LimparCampos()
         {
-            lb_Nome.Text = "";
-            lb_Cpf.Text = "";
-            lb_Endereco.Text = "";
-            lb_Celular.Text = "";
+            txt_Nome.Text = "";
+            txt_Cpf.Text = "";
+            txt_Endereco.Text = "";
+            txt_Celular.Text = "";
             cb_Cargo.Text = "";
             btn_foto.Text = "";
         }
         private void DesabilitarCampos()
         {
-            lb_Nome.Enabled = false;
-            lb_Cpf.Enabled = false;
-            lb_Endereco.Enabled = false;
-            lb_Celular.Enabled = false;
+            txt_Nome.Enabled = false;
+            txt_Cpf.Enabled = false;
+            txt_Endereco.Enabled = false;
+            txt_Celular.Enabled = false;
             cb_Cargo.Enabled = false;
         }
 
@@ -319,28 +321,28 @@ namespace Moderno.cadastross
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            string cpf = lb_Cpf.Text;
+            string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
-            string celular = lb_Celular.Text;
+            string celular = txt_Celular.Text;
             string numerocel = new string(celular.Where(char.IsDigit).ToArray());
 
-            if (lb_Nome.Text.ToString().Trim() == "")
+            if (txt_Nome.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Nome.Text = "";
-                lb_Nome.Focus();
+                txt_Nome.Text = "";
+                txt_Nome.Focus();
                 return;
             }
-            if (numeroCpf.Length != 11)
+            if (!CPFValidator.ValidateCPF(numeroCpf))
             {
                 MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Cpf.Focus();
+                txt_Cpf.Focus();
                 return;
             }
             if (numerocel.Length != 11)
             {
                 MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lb_Celular.Focus();
+                txt_Celular.Focus();
                 return;
             }
             if (cb_Cargo.Text == "Selcionar cargo")
@@ -349,11 +351,11 @@ namespace Moderno.cadastross
                 cb_Cargo.Focus();
                 return;
             }
-            if (lb_Endereco.Text.ToString().Trim() == "")
+            if (txt_Endereco.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lb_Endereco.Text = "";
-                lb_Endereco.Focus();
+                txt_Endereco.Text = "";
+                txt_Endereco.Focus();
                 return;
             }
             con.AbrirConexao();
@@ -362,11 +364,11 @@ namespace Moderno.cadastross
             {
                 sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto WHERE id = @id";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
-                conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-                conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
+                conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
+                conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
+                conn.Parameters.AddWithValue("@telefone", txt_Celular.Text);
                 conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
-                conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
+                conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                 conn.Parameters.AddWithValue("@foto", img());
                 conn.Parameters.AddWithValue("@id", id);
             }
@@ -374,46 +376,46 @@ namespace Moderno.cadastross
             {
                 sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco WHERE id = @id";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", lb_Nome.Text);
-                conn.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
-                conn.Parameters.AddWithValue("@telefone", lb_Celular.Text);
+                conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
+                conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
+                conn.Parameters.AddWithValue("@telefone", txt_Celular.Text);
                 conn.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
-                conn.Parameters.AddWithValue("@endereco", lb_Endereco.Text);
+                conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                 conn.Parameters.AddWithValue("@id", id);
             }
-            if (lb_Cpf.Text != cpfAntigo)
+            if (txt_Cpf.Text != cpfAntigo)
             {
                 sql = "SELECT * FROM funcionarios WHERE cpf = @cpf";
                 MySqlCommand connVerificar;
                 connVerificar = new MySqlCommand(sql, con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = connVerificar;
-                connVerificar.Parameters.AddWithValue("@cpf", lb_Cpf.Text);
+                connVerificar.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
                     MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    lb_Cpf.Text = "";
-                    lb_Cpf.Focus();
+                    txt_Cpf.Text = "";
+                    txt_Cpf.Focus();
                     return;
                 }
             }
-            if (lb_Celular.Text != celAntigo)
+            if (txt_Celular.Text != celAntigo)
             {
                 sql = "SELECT * FROM funcionarios WHERE telefone = @telefone";
                 MySqlCommand connVerificar;
                 connVerificar = new MySqlCommand(sql, con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = connVerificar;
-                connVerificar.Parameters.AddWithValue("@telefone", lb_Celular.Text);
+                connVerificar.Parameters.AddWithValue("@telefone", txt_Celular.Text);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
                     MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    lb_Celular.Text = "";
-                    lb_Celular.Focus();
+                    txt_Celular.Text = "";
+                    txt_Celular.Focus();
                     return;
                 }
             }
@@ -490,23 +492,24 @@ namespace Moderno.cadastross
 
         private void grid_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex >= 0)
             {
+                campoClicado = true;
                 habilitarCampos();
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
                 btn_Novo.Enabled = false;
-                lb_Nome.Focus();
+                txt_Nome.Focus();
 
 
                 id = grid.CurrentRow.Cells[0].Value.ToString();
-                lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                lb_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+                txt_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
-                lb_Celular.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                txt_Celular.Text = grid.CurrentRow.Cells[3].Value.ToString();
                 cb_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
-                lb_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+                txt_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
 
                 if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
                 {
@@ -522,23 +525,7 @@ namespace Moderno.cadastross
             }
             else
             {
-                return;
-            }
-        }
-        private void Frm_Funcionario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Control proximoControl = GetNextControl(ActiveControl, true);    
-                while (proximoControl is Label)
-                {
-                    proximoControl = GetNextControl(proximoControl, true);
-                }
-                if (proximoControl != null && proximoControl != ActiveControl)
-                {
-                    proximoControl.Focus();
-                    e.Handled = true;
-                }
+                campoClicado = false;
             }
         }
 
@@ -615,29 +602,66 @@ namespace Moderno.cadastross
             CarregarCampos();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if(e.KeyCode == Keys.Enter)
+            {
+                txt_Cpf.Focus();
+            }
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void lb_Cpf_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Celular.Focus();
+            }
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void lb_Celular_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Endereco.Focus();
+            }
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void lb_Endereco_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+               cb_Cargo.Focus();
+            }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void cb_Cargo_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (campoClicado)
+                {
+                    btn_Editar.PerformClick();
+                }
+                else
+                {
+                    btn_Salvar.PerformClick();
+                }
+            }
+        }
 
+        private void btn_foto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (campoClicado)
+                {
+                    btn_Editar.PerformClick();
+                }
+                else
+                {
+                    btn_Salvar.PerformClick();
+                }
+            }
         }
     }
 }
