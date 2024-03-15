@@ -30,12 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Panel_Menu = new System.Windows.Forms.Panel();
+            this.btn_Relatorio = new System.Windows.Forms.Button();
+            this.btn_Fluxo_Caixa = new System.Windows.Forms.Button();
+            this.btn_Lancar_Despesas = new System.Windows.Forms.Button();
+            this.btn_Movimentacoes = new System.Windows.Forms.Button();
+            this.button_Receber = new System.Windows.Forms.Button();
+            this.btn_Venda_PDV = new System.Windows.Forms.Button();
             this.Panel_Logo = new System.Windows.Forms.Panel();
             this.lb_pdv = new System.Windows.Forms.Label();
             this.Panel_Title = new System.Windows.Forms.Panel();
             this.btn_Maxmizar = new System.Windows.Forms.Button();
             this.btn_Minimizar = new System.Windows.Forms.Button();
             this.btn_Fechar = new System.Windows.Forms.Button();
+            this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_Home = new System.Windows.Forms.Label();
             this.Panel_Desktop = new System.Windows.Forms.Panel();
             this.Barra_Status = new System.Windows.Forms.ToolStrip();
@@ -51,16 +58,13 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lbl_Cargo = new System.Windows.Forms.ToolStripLabel();
-            this.Menu_Principal = new System.Windows.Forms.MenuStrip();
-            this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Menu_Principal = new System.Windows.Forms.MenuStrip();
+            this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,23 +72,20 @@
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Sair = new System.Windows.Forms.Button();
-            this.btn_Relatorio = new System.Windows.Forms.Button();
-            this.btn_Fluxo_Caixa = new System.Windows.Forms.Button();
-            this.btn_Lancar_Despesas = new System.Windows.Forms.Button();
-            this.btn_Movimentacoes = new System.Windows.Forms.Button();
-            this.button_Receber = new System.Windows.Forms.Button();
-            this.btn_Venda_PDV = new System.Windows.Forms.Button();
+            this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
             this.Panel_Desktop.SuspendLayout();
             this.Barra_Status.SuspendLayout();
-            this.Menu_Principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Menu_Principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_Menu
@@ -103,385 +104,6 @@
             this.Panel_Menu.Name = "Panel_Menu";
             this.Panel_Menu.Size = new System.Drawing.Size(220, 851);
             this.Panel_Menu.TabIndex = 0;
-            // 
-            // Panel_Logo
-            // 
-            this.Panel_Logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
-            this.Panel_Logo.Controls.Add(this.lb_pdv);
-            this.Panel_Logo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_Logo.ForeColor = System.Drawing.Color.White;
-            this.Panel_Logo.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Logo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Panel_Logo.Name = "Panel_Logo";
-            this.Panel_Logo.Size = new System.Drawing.Size(220, 80);
-            this.Panel_Logo.TabIndex = 0;
-            // 
-            // lb_pdv
-            // 
-            this.lb_pdv.AutoSize = true;
-            this.lb_pdv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_pdv.Location = new System.Drawing.Point(26, 27);
-            this.lb_pdv.Name = "lb_pdv";
-            this.lb_pdv.Size = new System.Drawing.Size(160, 26);
-            this.lb_pdv.TabIndex = 0;
-            this.lb_pdv.Text = "Ruby Sistemas";
-            // 
-            // Panel_Title
-            // 
-            this.Panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
-            this.Panel_Title.Controls.Add(this.btn_Maxmizar);
-            this.Panel_Title.Controls.Add(this.btn_Minimizar);
-            this.Panel_Title.Controls.Add(this.btn_Fechar);
-            this.Panel_Title.Controls.Add(this.btn_Sair);
-            this.Panel_Title.Controls.Add(this.lb_Home);
-            this.Panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_Title.Location = new System.Drawing.Point(220, 0);
-            this.Panel_Title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Panel_Title.Name = "Panel_Title";
-            this.Panel_Title.Size = new System.Drawing.Size(1347, 80);
-            this.Panel_Title.TabIndex = 1;
-            this.Panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_Title_MouseDown);
-            // 
-            // btn_Maxmizar
-            // 
-            this.btn_Maxmizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Maxmizar.FlatAppearance.BorderSize = 0;
-            this.btn_Maxmizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Maxmizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Maxmizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Maxmizar.Location = new System.Drawing.Point(1295, 3);
-            this.btn_Maxmizar.Name = "btn_Maxmizar";
-            this.btn_Maxmizar.Size = new System.Drawing.Size(24, 28);
-            this.btn_Maxmizar.TabIndex = 4;
-            this.btn_Maxmizar.Text = "=";
-            this.btn_Maxmizar.UseVisualStyleBackColor = true;
-            this.btn_Maxmizar.Click += new System.EventHandler(this.btn_Maxmizar_Click);
-            // 
-            // btn_Minimizar
-            // 
-            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimizar.FlatAppearance.BorderSize = 0;
-            this.btn_Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Minimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Minimizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Minimizar.Location = new System.Drawing.Point(1264, 3);
-            this.btn_Minimizar.Name = "btn_Minimizar";
-            this.btn_Minimizar.Size = new System.Drawing.Size(25, 28);
-            this.btn_Minimizar.TabIndex = 3;
-            this.btn_Minimizar.Text = "-";
-            this.btn_Minimizar.UseVisualStyleBackColor = true;
-            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
-            // 
-            // btn_Fechar
-            // 
-            this.btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Fechar.FlatAppearance.BorderSize = 0;
-            this.btn_Fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Fechar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Fechar.Location = new System.Drawing.Point(1325, 3);
-            this.btn_Fechar.Name = "btn_Fechar";
-            this.btn_Fechar.Size = new System.Drawing.Size(19, 28);
-            this.btn_Fechar.TabIndex = 2;
-            this.btn_Fechar.Text = "x";
-            this.btn_Fechar.UseVisualStyleBackColor = true;
-            this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
-            // 
-            // lb_Home
-            // 
-            this.lb_Home.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Home.AutoSize = true;
-            this.lb_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Home.Location = new System.Drawing.Point(647, 27);
-            this.lb_Home.Name = "lb_Home";
-            this.lb_Home.Size = new System.Drawing.Size(71, 26);
-            this.lb_Home.TabIndex = 0;
-            this.lb_Home.Text = "Home";
-            // 
-            // Panel_Desktop
-            // 
-            this.Panel_Desktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Panel_Desktop.Controls.Add(this.Barra_Status);
-            this.Panel_Desktop.Controls.Add(this.pictureBox4);
-            this.Panel_Desktop.Controls.Add(this.pictureBox2);
-            this.Panel_Desktop.Controls.Add(this.pictureBox3);
-            this.Panel_Desktop.Controls.Add(this.pictureBox1);
-            this.Panel_Desktop.Controls.Add(this.Menu_Principal);
-            this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Desktop.Location = new System.Drawing.Point(220, 80);
-            this.Panel_Desktop.Name = "Panel_Desktop";
-            this.Panel_Desktop.Size = new System.Drawing.Size(1347, 771);
-            this.Panel_Desktop.TabIndex = 2;
-            // 
-            // Barra_Status
-            // 
-            this.Barra_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Barra_Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.Status_Data,
-            this.toolStripSeparator2,
-            this.toolStripLabel3,
-            this.Status_Hora,
-            this.toolStripSeparator3,
-            this.toolstrip,
-            this.lbl_Usuario,
-            this.toolStripSeparator4,
-            this.toolStripLabel2,
-            this.lbl_Cargo});
-            this.Barra_Status.Location = new System.Drawing.Point(0, 746);
-            this.Barra_Status.Name = "Barra_Status";
-            this.Barra_Status.Size = new System.Drawing.Size(1347, 25);
-            this.Barra_Status.TabIndex = 7;
-            this.Barra_Status.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
-            this.toolStripLabel1.Text = "Data:";
-            // 
-            // Status_Data
-            // 
-            this.Status_Data.ForeColor = System.Drawing.Color.Black;
-            this.Status_Data.Name = "Status_Data";
-            this.Status_Data.Size = new System.Drawing.Size(65, 22);
-            this.Status_Data.Text = "00/00/0000";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.ForeColor = System.Drawing.Color.Black;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
-            this.toolStripLabel3.Text = "Hora:";
-            // 
-            // Status_Hora
-            // 
-            this.Status_Hora.ForeColor = System.Drawing.Color.Black;
-            this.Status_Hora.Name = "Status_Hora";
-            this.Status_Hora.Size = new System.Drawing.Size(49, 22);
-            this.Status_Hora.Text = "00:00:00";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolstrip
-            // 
-            this.toolstrip.ForeColor = System.Drawing.Color.Black;
-            this.toolstrip.Name = "toolstrip";
-            this.toolstrip.Size = new System.Drawing.Size(50, 22);
-            this.toolstrip.Text = "Usuário:";
-            // 
-            // lbl_Usuario
-            // 
-            this.lbl_Usuario.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Usuario.Name = "lbl_Usuario";
-            this.lbl_Usuario.Size = new System.Drawing.Size(38, 22);
-            this.lbl_Usuario.Text = "nome";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel2.Text = "Cargo:";
-            // 
-            // lbl_Cargo
-            // 
-            this.lbl_Cargo.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Cargo.Name = "lbl_Cargo";
-            this.lbl_Cargo.Size = new System.Drawing.Size(37, 22);
-            this.lbl_Cargo.Text = "cargo";
-            // 
-            // Menu_Principal
-            // 
-            this.Menu_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.Menu_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivosToolStripMenuItem,
-            this.cadastroToolStripMenuItem,
-            this.movimentaçõesToolStripMenuItem});
-            this.Menu_Principal.Location = new System.Drawing.Point(0, 0);
-            this.Menu_Principal.Name = "Menu_Principal";
-            this.Menu_Principal.Size = new System.Drawing.Size(1347, 24);
-            this.Menu_Principal.TabIndex = 6;
-            this.Menu_Principal.Text = "menuStrip1";
-            // 
-            // arquivosToolStripMenuItem
-            // 
-            this.arquivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sairToolStripMenuItem});
-            this.arquivosToolStripMenuItem.Name = "arquivosToolStripMenuItem";
-            this.arquivosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.arquivosToolStripMenuItem.Text = "Arquivo";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            // 
-            // movimentaçõesToolStripMenuItem
-            // 
-            this.movimentaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gastosToolStripMenuItem});
-            this.movimentaçõesToolStripMenuItem.Name = "movimentaçõesToolStripMenuItem";
-            this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
-            // 
-            // gastosToolStripMenuItem
-            // 
-            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            this.gastosToolStripMenuItem.Text = "Gastos";
-            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Moderno.Properties.Resources.images1;
-            this.pictureBox4.Location = new System.Drawing.Point(729, 39);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Moderno.Properties.Resources.images;
-            this.pictureBox2.Location = new System.Drawing.Point(729, 341);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Moderno.Properties.Resources.images1;
-            this.pictureBox3.Location = new System.Drawing.Point(122, 341);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Moderno.Properties.Resources.images;
-            this.pictureBox1.Location = new System.Drawing.Point(122, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cadastroToolStripMenuItem
-            // 
-            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funcionariosToolStripMenuItem,
-            this.clienteToolStripMenuItem,
-            this.cargoToolStripMenuItem,
-            this.fornecedoresToolStripMenuItem,
-            this.usuárioToolStripMenuItem,
-            this.serviçosToolStripMenuItem});
-            this.cadastroToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.cadastroToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_Plus_30px;
-            this.cadastroToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
-            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.cadastroToolStripMenuItem.Text = "Cadastrar";
-            // 
-            // funcionariosToolStripMenuItem
-            // 
-            this.funcionariosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.funcionariosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_management_16px;
-            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.funcionariosToolStripMenuItem.Text = "Funcionários";
-            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
-            // 
-            // clienteToolStripMenuItem
-            // 
-            this.clienteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.clienteToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_conference_24px;
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clienteToolStripMenuItem.Text = "Clientes";
-            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
-            // 
-            // cargoToolStripMenuItem
-            // 
-            this.cargoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.cargoToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_office_16px;
-            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargoToolStripMenuItem.Text = "Cargos";
-            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
-            // 
-            // fornecedoresToolStripMenuItem
-            // 
-            this.fornecedoresToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.fornecedoresToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_supplier_16px;
-            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
-            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
-            // 
-            // usuárioToolStripMenuItem
-            // 
-            this.usuárioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.usuárioToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_user_16px;
-            this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.usuárioToolStripMenuItem.Text = "Usuário";
-            this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
-            // 
-            // serviçosToolStripMenuItem
-            // 
-            this.serviçosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.serviçosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_service_16px;
-            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.serviçosToolStripMenuItem.Text = "Serviços";
-            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
-            // 
-            // btn_Sair
-            // 
-            this.btn_Sair.FlatAppearance.BorderSize = 0;
-            this.btn_Sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Sair.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
-            this.btn_Sair.Location = new System.Drawing.Point(0, 3);
-            this.btn_Sair.Name = "btn_Sair";
-            this.btn_Sair.Size = new System.Drawing.Size(75, 74);
-            this.btn_Sair.TabIndex = 1;
-            this.btn_Sair.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btn_Sair.UseVisualStyleBackColor = true;
-            this.btn_Sair.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Relatorio
             // 
@@ -615,6 +237,396 @@
             this.btn_Venda_PDV.UseVisualStyleBackColor = false;
             this.btn_Venda_PDV.Click += new System.EventHandler(this.btn_Venda_PDV_Click);
             // 
+            // Panel_Logo
+            // 
+            this.Panel_Logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
+            this.Panel_Logo.Controls.Add(this.lb_pdv);
+            this.Panel_Logo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_Logo.ForeColor = System.Drawing.Color.White;
+            this.Panel_Logo.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Logo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Panel_Logo.Name = "Panel_Logo";
+            this.Panel_Logo.Size = new System.Drawing.Size(220, 80);
+            this.Panel_Logo.TabIndex = 0;
+            // 
+            // lb_pdv
+            // 
+            this.lb_pdv.AutoSize = true;
+            this.lb_pdv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_pdv.Location = new System.Drawing.Point(26, 27);
+            this.lb_pdv.Name = "lb_pdv";
+            this.lb_pdv.Size = new System.Drawing.Size(160, 26);
+            this.lb_pdv.TabIndex = 0;
+            this.lb_pdv.Text = "Ruby Sistemas";
+            // 
+            // Panel_Title
+            // 
+            this.Panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
+            this.Panel_Title.Controls.Add(this.btn_Maxmizar);
+            this.Panel_Title.Controls.Add(this.btn_Minimizar);
+            this.Panel_Title.Controls.Add(this.btn_Fechar);
+            this.Panel_Title.Controls.Add(this.btn_Sair);
+            this.Panel_Title.Controls.Add(this.lb_Home);
+            this.Panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_Title.Location = new System.Drawing.Point(220, 0);
+            this.Panel_Title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Panel_Title.Name = "Panel_Title";
+            this.Panel_Title.Size = new System.Drawing.Size(1347, 80);
+            this.Panel_Title.TabIndex = 1;
+            this.Panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_Title_MouseDown);
+            // 
+            // btn_Maxmizar
+            // 
+            this.btn_Maxmizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Maxmizar.FlatAppearance.BorderSize = 0;
+            this.btn_Maxmizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Maxmizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Maxmizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Maxmizar.Location = new System.Drawing.Point(1295, 3);
+            this.btn_Maxmizar.Name = "btn_Maxmizar";
+            this.btn_Maxmizar.Size = new System.Drawing.Size(24, 28);
+            this.btn_Maxmizar.TabIndex = 4;
+            this.btn_Maxmizar.Text = "=";
+            this.btn_Maxmizar.UseVisualStyleBackColor = true;
+            this.btn_Maxmizar.Click += new System.EventHandler(this.btn_Maxmizar_Click);
+            // 
+            // btn_Minimizar
+            // 
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimizar.FlatAppearance.BorderSize = 0;
+            this.btn_Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Minimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Minimizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Minimizar.Location = new System.Drawing.Point(1264, 3);
+            this.btn_Minimizar.Name = "btn_Minimizar";
+            this.btn_Minimizar.Size = new System.Drawing.Size(25, 28);
+            this.btn_Minimizar.TabIndex = 3;
+            this.btn_Minimizar.Text = "-";
+            this.btn_Minimizar.UseVisualStyleBackColor = true;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
+            // 
+            // btn_Fechar
+            // 
+            this.btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Fechar.FlatAppearance.BorderSize = 0;
+            this.btn_Fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Fechar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Fechar.Location = new System.Drawing.Point(1325, 3);
+            this.btn_Fechar.Name = "btn_Fechar";
+            this.btn_Fechar.Size = new System.Drawing.Size(19, 28);
+            this.btn_Fechar.TabIndex = 2;
+            this.btn_Fechar.Text = "x";
+            this.btn_Fechar.UseVisualStyleBackColor = true;
+            this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
+            // 
+            // btn_Sair
+            // 
+            this.btn_Sair.FlatAppearance.BorderSize = 0;
+            this.btn_Sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Sair.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
+            this.btn_Sair.Location = new System.Drawing.Point(0, 3);
+            this.btn_Sair.Name = "btn_Sair";
+            this.btn_Sair.Size = new System.Drawing.Size(75, 74);
+            this.btn_Sair.TabIndex = 1;
+            this.btn_Sair.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btn_Sair.UseVisualStyleBackColor = true;
+            this.btn_Sair.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lb_Home
+            // 
+            this.lb_Home.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Home.AutoSize = true;
+            this.lb_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Home.Location = new System.Drawing.Point(647, 27);
+            this.lb_Home.Name = "lb_Home";
+            this.lb_Home.Size = new System.Drawing.Size(71, 26);
+            this.lb_Home.TabIndex = 0;
+            this.lb_Home.Text = "Home";
+            // 
+            // Panel_Desktop
+            // 
+            this.Panel_Desktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Panel_Desktop.Controls.Add(this.Barra_Status);
+            this.Panel_Desktop.Controls.Add(this.pictureBox4);
+            this.Panel_Desktop.Controls.Add(this.pictureBox2);
+            this.Panel_Desktop.Controls.Add(this.pictureBox3);
+            this.Panel_Desktop.Controls.Add(this.pictureBox1);
+            this.Panel_Desktop.Controls.Add(this.Menu_Principal);
+            this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Desktop.Location = new System.Drawing.Point(220, 80);
+            this.Panel_Desktop.Name = "Panel_Desktop";
+            this.Panel_Desktop.Size = new System.Drawing.Size(1347, 771);
+            this.Panel_Desktop.TabIndex = 2;
+            // 
+            // Barra_Status
+            // 
+            this.Barra_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Barra_Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.Status_Data,
+            this.toolStripSeparator2,
+            this.toolStripLabel3,
+            this.Status_Hora,
+            this.toolStripSeparator3,
+            this.toolstrip,
+            this.lbl_Usuario,
+            this.toolStripSeparator4,
+            this.toolStripLabel2,
+            this.lbl_Cargo});
+            this.Barra_Status.Location = new System.Drawing.Point(0, 746);
+            this.Barra_Status.Name = "Barra_Status";
+            this.Barra_Status.Size = new System.Drawing.Size(1347, 25);
+            this.Barra_Status.TabIndex = 7;
+            this.Barra_Status.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
+            this.toolStripLabel1.Text = "Data:";
+            // 
+            // Status_Data
+            // 
+            this.Status_Data.ForeColor = System.Drawing.Color.Black;
+            this.Status_Data.Name = "Status_Data";
+            this.Status_Data.Size = new System.Drawing.Size(65, 22);
+            this.Status_Data.Text = "00/00/0000";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.Black;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
+            this.toolStripLabel3.Text = "Hora:";
+            // 
+            // Status_Hora
+            // 
+            this.Status_Hora.ForeColor = System.Drawing.Color.Black;
+            this.Status_Hora.Name = "Status_Hora";
+            this.Status_Hora.Size = new System.Drawing.Size(49, 22);
+            this.Status_Hora.Text = "00:00:00";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolstrip
+            // 
+            this.toolstrip.ForeColor = System.Drawing.Color.Black;
+            this.toolstrip.Name = "toolstrip";
+            this.toolstrip.Size = new System.Drawing.Size(50, 22);
+            this.toolstrip.Text = "Usuário:";
+            // 
+            // lbl_Usuario
+            // 
+            this.lbl_Usuario.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Usuario.Name = "lbl_Usuario";
+            this.lbl_Usuario.Size = new System.Drawing.Size(38, 22);
+            this.lbl_Usuario.Text = "nome";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel2.Text = "Cargo:";
+            // 
+            // lbl_Cargo
+            // 
+            this.lbl_Cargo.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Cargo.Name = "lbl_Cargo";
+            this.lbl_Cargo.Size = new System.Drawing.Size(37, 22);
+            this.lbl_Cargo.Text = "cargo";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Moderno.Properties.Resources.images1;
+            this.pictureBox4.Location = new System.Drawing.Point(729, 39);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(404, 255);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Moderno.Properties.Resources.images;
+            this.pictureBox2.Location = new System.Drawing.Point(729, 341);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(404, 255);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Moderno.Properties.Resources.images1;
+            this.pictureBox3.Location = new System.Drawing.Point(122, 341);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(404, 255);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Moderno.Properties.Resources.images;
+            this.pictureBox1.Location = new System.Drawing.Point(122, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(404, 255);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Menu_Principal
+            // 
+            this.Menu_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.Menu_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivosToolStripMenuItem,
+            this.cadastroToolStripMenuItem,
+            this.movimentaçõesToolStripMenuItem});
+            this.Menu_Principal.Location = new System.Drawing.Point(0, 0);
+            this.Menu_Principal.Name = "Menu_Principal";
+            this.Menu_Principal.Size = new System.Drawing.Size(1347, 24);
+            this.Menu_Principal.TabIndex = 6;
+            this.Menu_Principal.Text = "menuStrip1";
+            // 
+            // arquivosToolStripMenuItem
+            // 
+            this.arquivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
+            this.arquivosToolStripMenuItem.Name = "arquivosToolStripMenuItem";
+            this.arquivosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.arquivosToolStripMenuItem.Text = "Arquivo";
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.funcionariosToolStripMenuItem,
+            this.clienteToolStripMenuItem,
+            this.cargoToolStripMenuItem,
+            this.fornecedoresToolStripMenuItem,
+            this.usuárioToolStripMenuItem,
+            this.serviçosToolStripMenuItem});
+            this.cadastroToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.cadastroToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_Plus_30px;
+            this.cadastroToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.cadastroToolStripMenuItem.Text = "Cadastrar";
+            // 
+            // funcionariosToolStripMenuItem
+            // 
+            this.funcionariosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.funcionariosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_management_16px;
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.funcionariosToolStripMenuItem.Text = "Funcionários";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.clienteToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_conference_24px;
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.clienteToolStripMenuItem.Text = "Clientes";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // cargoToolStripMenuItem
+            // 
+            this.cargoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.cargoToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_office_16px;
+            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.cargoToolStripMenuItem.Text = "Cargos";
+            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
+            // 
+            // fornecedoresToolStripMenuItem
+            // 
+            this.fornecedoresToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.fornecedoresToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_supplier_16px;
+            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
+            // 
+            // usuárioToolStripMenuItem
+            // 
+            this.usuárioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.usuárioToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_user_16px;
+            this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.usuárioToolStripMenuItem.Text = "Usuário";
+            this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
+            // 
+            // serviçosToolStripMenuItem
+            // 
+            this.serviçosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.serviçosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_service_16px;
+            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.serviçosToolStripMenuItem.Text = "Serviços";
+            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
+            // 
+            // movimentaçõesToolStripMenuItem
+            // 
+            this.movimentaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gastosToolStripMenuItem,
+            this.caixaToolStripMenuItem});
+            this.movimentaçõesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkBlue;
+            this.movimentaçõesToolStripMenuItem.Name = "movimentaçõesToolStripMenuItem";
+            this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
+            // 
+            // gastosToolStripMenuItem
+            // 
+            this.gastosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gastosToolStripMenuItem.Text = "Gastos";
+            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // caixaToolStripMenuItem
+            // 
+            this.caixaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.caixaToolStripMenuItem.Text = "Caixa";
+            this.caixaToolStripMenuItem.Click += new System.EventHandler(this.caixaToolStripMenuItem_Click);
+            // 
             // Frm_Pdv_Moderno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,12 +653,12 @@
             this.Panel_Desktop.PerformLayout();
             this.Barra_Status.ResumeLayout(false);
             this.Barra_Status.PerformLayout();
-            this.Menu_Principal.ResumeLayout(false);
-            this.Menu_Principal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Menu_Principal.ResumeLayout(false);
+            this.Menu_Principal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -699,6 +711,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
     }
 }
 

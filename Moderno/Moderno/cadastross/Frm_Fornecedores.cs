@@ -24,6 +24,7 @@ namespace Moderno.cadastross
         string id;
         string cnpjAntigo;
         bool cnpj = false;
+        private bool campoClicado = false;
         public Frm_Fornecedores()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace Moderno.cadastross
         {
             rb_Nome.Checked = true;
             Listar();
+            DesabilitarCampos();
         }
         private void FormatarGD()
         {
@@ -41,11 +43,8 @@ namespace Moderno.cadastross
             grid.Columns[1].HeaderText = "Nome";
             grid.Columns[2].HeaderText = "CNPJ";
             grid.Columns[3].HeaderText = "Endereço";
-            grid.Columns[4].HeaderText = "Email";
-            grid.Columns[5].HeaderText = "celular";
-            grid.Columns[6].HeaderText = "Código";
-            grid.Columns[7].HeaderText = "Vendedor";
-            grid.Columns[8].HeaderText = "Valor Aberto";
+            grid.Columns[4].HeaderText = "celular";
+            grid.Columns[5].HeaderText = "Vendedor";
 
 
             grid.Columns[0].Visible = false;
@@ -120,16 +119,12 @@ namespace Moderno.cadastross
             txt_Endereco.Text = "";
             txt_Celular.Text = "";
             txt_Vendedor.Text = "";
-            txt_Email.Text = "";
-            txt_ValorAberto.Text = "";
-            txt_Codigo.Text = "";
         }
 
         private void rb_Nome_CheckedChanged(object sender, EventArgs e)
         {
             txt_BuscarNome.Visible = true;
             txt_BuscarCnpj.Visible = false;
-            txt_BuscarCpf.Visible = false;
             txt_BuscarCnpj.Text = "";
             txt_BuscarNome.Text = "";
             txt_BuscarNome.Focus();
@@ -138,7 +133,6 @@ namespace Moderno.cadastross
         private void rb_Cnpj_CheckedChanged(object sender, EventArgs e)
         {
             txt_BuscarNome.Visible = false;
-            txt_BuscarCpf.Visible = false;
             txt_BuscarCnpj.Visible = true;
             txt_BuscarCnpj.Text = "";
             txt_BuscarNome.Text = "";
@@ -173,16 +167,13 @@ namespace Moderno.cadastross
                 return;
             }
             con.AbrirConexao();
-            sql = "INSERT INTO fornecedores(nome, cnpj, endereco, email, celular, codigo, vendedor, valor) VALUES(@nome, @cnpj, @endereco, @email, @celular, @codigo, @vendedor, @valor)";
+            sql = "INSERT INTO fornecedores(nome, cnpj, endereco, celular, vendedor) VALUES(@nome, @cnpj, @endereco, @celular, @vendedor)";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
             conn.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
             conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-            conn.Parameters.AddWithValue("@email", txt_Email.Text);
             conn.Parameters.AddWithValue("@celular", txt_Celular.Text);
-            conn.Parameters.AddWithValue("@codigo", txt_Codigo.Text);
             conn.Parameters.AddWithValue("@vendedor", txt_Vendedor.Text);
-            conn.Parameters.AddWithValue("@valor", txt_ValorAberto.Text);
             Verificar();
 
             conn.ExecuteNonQuery();
@@ -217,8 +208,9 @@ namespace Moderno.cadastross
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex >= 0)
             {
+                campoClicado = true;
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Cancelar.Enabled = true;
@@ -230,15 +222,12 @@ namespace Moderno.cadastross
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txt_Cnpj.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 txt_Endereco.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                txt_Email.Text = grid.CurrentRow.Cells[4].Value.ToString();
-                txt_Celular.Text = grid.CurrentRow.Cells[5].Value.ToString();
-                txt_Codigo.Text = grid.CurrentRow.Cells[6].Value.ToString();
-                txt_Vendedor.Text = grid.CurrentRow.Cells[7].Value.ToString();
-                txt_ValorAberto.Text = grid.CurrentRow.Cells[8].Value.ToString();
+                txt_Celular.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                txt_Vendedor.Text = grid.CurrentRow.Cells[5].Value.ToString();
             }
             else
             {
-                return;
+                campoClicado = false;
             }
         }
 
@@ -251,24 +240,15 @@ namespace Moderno.cadastross
                 txt_Nome.Focus();
                 return;
             }
-            /*if (txt_Cnpj.Text == "  .   .   /    -" || txt_Cnpj.Text.Length < 18)
-            {
-                MessageBox.Show("Preencha o campo CNPJ", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Cnpj.Focus();
-                return;
-            }*/
             con.AbrirConexao();
-            sql = "UPDATE fornecedores SET nome = @nome, cnpj = @cnpj, endereco = @endereco, email = @email, celular = @celular, codigo = @codigo, vendedor = @vendedor, valor = @valor  where id = @id";
+            sql = "UPDATE fornecedores SET nome = @nome, cnpj = @cnpj, endereco = @endereco, celular = @celular, vendedor = @vendedor where id = @id";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@id", id);
             conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
             conn.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
             conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-            conn.Parameters.AddWithValue("@email", txt_Email.Text);
             conn.Parameters.AddWithValue("@celular", txt_Celular.Text);
-            conn.Parameters.AddWithValue("@codigo", txt_Codigo.Text);
             conn.Parameters.AddWithValue("@vendedor", txt_Vendedor.Text);
-            conn.Parameters.AddWithValue("@valor", txt_ValorAberto.Text);
             /*try
             {*/
 
@@ -349,15 +329,6 @@ namespace Moderno.cadastross
                 Verificar();
             }
         }
-        private void rb_Cpf_CheckedChanged(object sender, EventArgs e)
-        {
-            txt_BuscarNome.Visible = false;
-            txt_BuscarCnpj.Visible = false;
-            txt_BuscarCpf.Visible = true;
-            txt_BuscarCnpj.Text = "";
-            txt_BuscarNome.Text = "";
-            txt_BuscarCpf.Focus();
-        }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
@@ -370,14 +341,51 @@ namespace Moderno.cadastross
             LimparCampos();
         }
 
-        private void Frm_Fornecedores_KeyDown(object sender, KeyEventArgs e)
+        private void txt_Nome_KeyDown(object sender, KeyEventArgs e)
         {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    SelectNextControl((Control)sender, true, true, true, true);
-                    e.SuppressKeyPress = true;
-                }
+            if(e.KeyCode == Keys.Enter)
+            {
+                txt_Cnpj.Focus();
+            }
+        }
 
+        private void txt_Cnpj_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Vendedor.Focus();
+            }
+        }
+
+        private void txt_Vendedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Celular.Focus();
+            }
+        }
+
+        private void txt_Celular_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Endereco.Focus();
+            }
+        }
+
+        private void txt_Endereco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (campoClicado)
+                {
+                    btn_Editar.PerformClick();
+                }
+                else
+                {
+                    btn_Salvar.PerformClick();
+                }
+            }
         }
     }
 }

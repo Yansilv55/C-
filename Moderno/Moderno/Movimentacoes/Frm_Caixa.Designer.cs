@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cb_Tipo = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -92,13 +92,13 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -106,24 +106,24 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.txtParaCaixa = new System.Windows.Forms.TextBox();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.txt_Desconto = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtParaCaixa = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.txt_Desconto = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panel2.SuspendLayout();
@@ -133,17 +133,17 @@
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_Tipo
@@ -154,7 +154,7 @@
             "Entrada",
             "Saída",
             "Transferência"});
-            this.cb_Tipo.Location = new System.Drawing.Point(403, 9);
+            this.cb_Tipo.Location = new System.Drawing.Point(381, 14);
             this.cb_Tipo.Name = "cb_Tipo";
             this.cb_Tipo.Size = new System.Drawing.Size(121, 21);
             this.cb_Tipo.TabIndex = 0;
@@ -162,6 +162,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -171,16 +172,16 @@
             this.panel1.Controls.Add(this.lb_Rel);
             this.panel1.Controls.Add(this.dt_Final);
             this.panel1.Controls.Add(this.dt_Inicial);
-            this.panel1.Location = new System.Drawing.Point(12, 3);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1312, 43);
+            this.panel1.Size = new System.Drawing.Size(1187, 46);
             this.panel1.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 13);
+            this.label4.Location = new System.Drawing.Point(247, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 17);
             this.label4.TabIndex = 9;
@@ -190,7 +191,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(543, 13);
+            this.label3.Location = new System.Drawing.Point(519, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 8;
@@ -200,7 +201,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(868, 14);
+            this.label2.Location = new System.Drawing.Point(757, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 7;
@@ -218,7 +219,7 @@
             // 
             // bnt_Rel
             // 
-            this.bnt_Rel.Location = new System.Drawing.Point(164, 13);
+            this.bnt_Rel.Location = new System.Drawing.Point(150, 12);
             this.bnt_Rel.Name = "bnt_Rel";
             this.bnt_Rel.Size = new System.Drawing.Size(75, 23);
             this.bnt_Rel.TabIndex = 2;
@@ -229,7 +230,7 @@
             // 
             this.lb_Rel.AutoSize = true;
             this.lb_Rel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Rel.Location = new System.Drawing.Point(1231, 7);
+            this.lb_Rel.Location = new System.Drawing.Point(1100, 16);
             this.lb_Rel.Name = "lb_Rel";
             this.lb_Rel.Size = new System.Drawing.Size(73, 20);
             this.lb_Rel.TabIndex = 3;
@@ -237,17 +238,17 @@
             // 
             // dt_Final
             // 
-            this.dt_Final.Location = new System.Drawing.Point(953, 9);
+            this.dt_Final.Location = new System.Drawing.Point(842, 15);
             this.dt_Final.Name = "dt_Final";
-            this.dt_Final.Size = new System.Drawing.Size(236, 20);
+            this.dt_Final.Size = new System.Drawing.Size(156, 20);
             this.dt_Final.TabIndex = 4;
             this.dt_Final.ValueChanged += new System.EventHandler(this.dt_Final_ValueChanged);
             // 
             // dt_Inicial
             // 
-            this.dt_Inicial.Location = new System.Drawing.Point(626, 10);
+            this.dt_Inicial.Location = new System.Drawing.Point(602, 15);
             this.dt_Inicial.Name = "dt_Inicial";
-            this.dt_Inicial.Size = new System.Drawing.Size(229, 20);
+            this.dt_Inicial.Size = new System.Drawing.Size(149, 20);
             this.dt_Inicial.TabIndex = 5;
             this.dt_Inicial.ValueChanged += new System.EventHandler(this.dt_Inicial_ValueChanged);
             // 
@@ -255,21 +256,23 @@
             // 
             this.txt_Entrada.Location = new System.Drawing.Point(96, 6);
             this.txt_Entrada.Name = "txt_Entrada";
-            this.txt_Entrada.Size = new System.Drawing.Size(112, 20);
+            this.txt_Entrada.Size = new System.Drawing.Size(95, 20);
             this.txt_Entrada.TabIndex = 6;
             this.txt_Entrada.TextChanged += new System.EventHandler(this.txt_Entrada_TextChanged);
             this.txt_Entrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Entrada_KeyPress);
             // 
             // grid
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(12, 123);
+            this.grid.Location = new System.Drawing.Point(12, 160);
             this.grid.Name = "grid";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.grid.Size = new System.Drawing.Size(1437, 150);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.grid.Size = new System.Drawing.Size(1174, 150);
             this.grid.TabIndex = 7;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
@@ -282,12 +285,12 @@
             // 
             this.txt_Descricao.Location = new System.Drawing.Point(96, 34);
             this.txt_Descricao.Name = "txt_Descricao";
-            this.txt_Descricao.Size = new System.Drawing.Size(577, 20);
+            this.txt_Descricao.Size = new System.Drawing.Size(524, 20);
             this.txt_Descricao.TabIndex = 9;
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(677, 8);
+            this.btn_Add.Location = new System.Drawing.Point(626, 6);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(53, 46);
             this.btn_Add.TabIndex = 10;
@@ -311,15 +314,15 @@
             "Dinheiro",
             "Pix",
             "Cartão"});
-            this.cb_FormaPagto.Location = new System.Drawing.Point(328, 6);
+            this.cb_FormaPagto.Location = new System.Drawing.Point(283, 6);
             this.cb_FormaPagto.Name = "cb_FormaPagto";
-            this.cb_FormaPagto.Size = new System.Drawing.Size(121, 21);
+            this.cb_FormaPagto.Size = new System.Drawing.Size(114, 21);
             this.cb_FormaPagto.TabIndex = 12;
             this.cb_FormaPagto.SelectedIndexChanged += new System.EventHandler(this.cb_FormaPagto_SelectedIndexChanged);
             // 
             // txt_Taxa
             // 
-            this.txt_Taxa.Location = new System.Drawing.Point(573, 8);
+            this.txt_Taxa.Location = new System.Drawing.Point(520, 8);
             this.txt_Taxa.Name = "txt_Taxa";
             this.txt_Taxa.Size = new System.Drawing.Size(100, 20);
             this.txt_Taxa.TabIndex = 13;
@@ -337,12 +340,12 @@
             // 
             this.text_Descricao.Location = new System.Drawing.Point(87, 30);
             this.text_Descricao.Name = "text_Descricao";
-            this.text_Descricao.Size = new System.Drawing.Size(406, 20);
+            this.text_Descricao.Size = new System.Drawing.Size(323, 20);
             this.text_Descricao.TabIndex = 15;
             // 
             // btn_Sub
             // 
-            this.btn_Sub.Location = new System.Drawing.Point(499, 5);
+            this.btn_Sub.Location = new System.Drawing.Point(417, 8);
             this.btn_Sub.Name = "btn_Sub";
             this.btn_Sub.Size = new System.Drawing.Size(53, 46);
             this.btn_Sub.TabIndex = 16;
@@ -490,7 +493,7 @@
             // 
             // btn_Limpar
             // 
-            this.btn_Limpar.Location = new System.Drawing.Point(1249, 634);
+            this.btn_Limpar.Location = new System.Drawing.Point(1111, 634);
             this.btn_Limpar.Name = "btn_Limpar";
             this.btn_Limpar.Size = new System.Drawing.Size(75, 23);
             this.btn_Limpar.TabIndex = 32;
@@ -593,7 +596,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(403, 22);
+            this.label11.Size = new System.Drawing.Size(329, 22);
             this.label11.TabIndex = 0;
             this.label11.Text = "Conferência";
             // 
@@ -610,14 +613,14 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(12, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(740, 60);
+            this.panel5.Size = new System.Drawing.Size(685, 60);
             this.panel5.TabIndex = 42;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(231, 10);
+            this.label14.Location = new System.Drawing.Point(197, 8);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 17);
             this.label14.TabIndex = 15;
@@ -627,7 +630,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(466, 10);
+            this.label13.Location = new System.Drawing.Point(413, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 17);
             this.label13.TabIndex = 14;
@@ -640,9 +643,9 @@
             this.panel6.Controls.Add(this.txt_Saida);
             this.panel6.Controls.Add(this.text_Descricao);
             this.panel6.Controls.Add(this.btn_Sub);
-            this.panel6.Location = new System.Drawing.Point(769, 57);
+            this.panel6.Location = new System.Drawing.Point(703, 57);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(555, 60);
+            this.panel6.Size = new System.Drawing.Size(483, 60);
             this.panel6.TabIndex = 43;
             // 
             // label15
@@ -699,7 +702,7 @@
             this.panel8.Controls.Add(this.lbl_Entrada);
             this.panel8.Location = new System.Drawing.Point(0, 21);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(403, 52);
+            this.panel8.Size = new System.Drawing.Size(329, 52);
             this.panel8.TabIndex = 45;
             // 
             // label18
@@ -745,91 +748,70 @@
             this.panel10.Controls.Add(this.panel18);
             this.panel10.Controls.Add(this.panel17);
             this.panel10.Controls.Add(this.panel7);
-            this.panel10.Location = new System.Drawing.Point(41, 466);
+            this.panel10.Location = new System.Drawing.Point(12, 466);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(420, 183);
             this.panel10.TabIndex = 48;
             // 
-            // label20
+            // panel16
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 133);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(34, 13);
-            this.label20.TabIndex = 47;
-            this.label20.Text = "Saldo";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
+            this.panel16.Controls.Add(this.lbl_Cartao);
+            this.panel16.Location = new System.Drawing.Point(210, 94);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(210, 25);
+            this.panel16.TabIndex = 55;
             // 
-            // panel11
+            // panel19
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel11.Controls.Add(this.label21);
-            this.panel11.Controls.Add(this.lbl_Transferencias);
-            this.panel11.Location = new System.Drawing.Point(499, 541);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(403, 47);
-            this.panel11.TabIndex = 48;
+            this.panel19.Controls.Add(this.label31);
+            this.panel19.Location = new System.Drawing.Point(0, 21);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(204, 24);
+            this.panel19.TabIndex = 58;
             // 
-            // label21
+            // label31
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 15);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(96, 17);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "Transferência";
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(5, 4);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(121, 13);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Transferência Recebida";
             // 
-            // label23
+            // panel21
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(0, 28);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(297, 17);
-            this.label23.TabIndex = 50;
-            this.label23.Text = "Transferir DINHEIRO do caixa para a CONTA.";
+            this.panel21.Controls.Add(this.label32);
+            this.panel21.Controls.Add(this.lbl_Saida);
+            this.panel21.Location = new System.Drawing.Point(0, 123);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(420, 28);
+            this.panel21.TabIndex = 60;
             // 
-            // panel12
+            // label32
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel12.Controls.Add(this.txtParaCaixa);
-            this.panel12.Controls.Add(this.label29);
-            this.panel12.Controls.Add(this.lbl_SaldoEmConta);
-            this.panel12.Controls.Add(this.label30);
-            this.panel12.Controls.Add(this.label38);
-            this.panel12.Controls.Add(this.label37);
-            this.panel12.Controls.Add(this.label28);
-            this.panel12.Controls.Add(this.label25);
-            this.panel12.Controls.Add(this.label23);
-            this.panel12.Controls.Add(this.label24);
-            this.panel12.Controls.Add(this.btn_Conta);
-            this.panel12.Controls.Add(this.lbl_SaldoEmCaixa);
-            this.panel12.Controls.Add(this.txt_ParaConta);
-            this.panel12.Controls.Add(this.btn_OKCaixa);
-            this.panel12.Location = new System.Drawing.Point(936, 466);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(388, 162);
-            this.panel12.TabIndex = 51;
-            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(0, 10);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(52, 13);
+            this.label32.TabIndex = 61;
+            this.label32.Text = "Gastos (-)";
             // 
-            // label25
+            // panel14
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(4, 60);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(82, 13);
-            this.label25.TabIndex = 27;
-            this.label25.Text = "Saldo em caixa:";
+            this.panel14.Controls.Add(this.lbl_Dinheiro);
+            this.panel14.Location = new System.Drawing.Point(208, 45);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(212, 25);
+            this.panel14.TabIndex = 53;
             // 
-            // label24
+            // panel20
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(164, 139);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 13);
-            this.label24.TabIndex = 26;
-            this.label24.Text = "P/ conta:";
+            this.panel20.Controls.Add(this.lbl_TransRecebidaNaConta);
+            this.panel20.Controls.Add(this.lbl_TransRecebidaNoCaixa);
+            this.panel20.Location = new System.Drawing.Point(208, 21);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(212, 24);
+            this.panel20.TabIndex = 59;
             // 
             // panel13
             // 
@@ -898,80 +880,6 @@
             this.label33.TabIndex = 6;
             this.label33.Text = "Caixa do Dia";
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.lbl_Dinheiro);
-            this.panel14.Location = new System.Drawing.Point(208, 45);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(212, 25);
-            this.panel14.TabIndex = 53;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel15.Controls.Add(this.label20);
-            this.panel15.Controls.Add(this.lbl_Saldo);
-            this.panel15.Controls.Add(this.label11);
-            this.panel15.Controls.Add(this.panel8);
-            this.panel15.Location = new System.Drawing.Point(499, 466);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(403, 159);
-            this.panel15.TabIndex = 54;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(12, 139);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(84, 13);
-            this.label30.TabIndex = 59;
-            this.label30.Text = "Saldo em conta:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(157, 60);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(59, 13);
-            this.label29.TabIndex = 58;
-            this.label29.Text = "P/ o caixa:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 96);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(234, 17);
-            this.label28.TabIndex = 58;
-            this.label28.Text = "Transferir da CONTA para o CAIXA.";
-            // 
-            // txtParaCaixa
-            // 
-            this.txtParaCaixa.Location = new System.Drawing.Point(222, 57);
-            this.txtParaCaixa.Name = "txtParaCaixa";
-            this.txtParaCaixa.Size = new System.Drawing.Size(100, 20);
-            this.txtParaCaixa.TabIndex = 30;
-            this.txtParaCaixa.Click += new System.EventHandler(this.txtParaCaixa_Click);
-            this.txtParaCaixa.TextChanged += new System.EventHandler(this.txtParaCaixa_TextChanged);
-            this.txtParaCaixa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParaCaixa_KeyPress);
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.lbl_Cartao);
-            this.panel16.Location = new System.Drawing.Point(210, 94);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(210, 25);
-            this.panel16.TabIndex = 55;
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.lbl_Pix);
-            this.panel17.Location = new System.Drawing.Point(208, 72);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(212, 21);
-            this.panel17.TabIndex = 56;
-            // 
             // panel18
             // 
             this.panel18.Controls.Add(this.label27);
@@ -989,66 +897,104 @@
             this.label27.TabIndex = 58;
             this.label27.Text = "Entrada (PIX)";
             // 
-            // panel19
+            // panel17
             // 
-            this.panel19.Controls.Add(this.label31);
-            this.panel19.Location = new System.Drawing.Point(0, 21);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(204, 24);
-            this.panel19.TabIndex = 58;
+            this.panel17.Controls.Add(this.lbl_Pix);
+            this.panel17.Location = new System.Drawing.Point(208, 72);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(212, 21);
+            this.panel17.TabIndex = 56;
             // 
-            // label31
+            // label20
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(5, 4);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(121, 13);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Transferência Recebida";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 133);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(34, 13);
+            this.label20.TabIndex = 47;
+            this.label20.Text = "Saldo";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
-            // panel20
+            // panel11
             // 
-            this.panel20.Controls.Add(this.lbl_TransRecebidaNaConta);
-            this.panel20.Controls.Add(this.lbl_TransRecebidaNoCaixa);
-            this.panel20.Location = new System.Drawing.Point(208, 21);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(212, 24);
-            this.panel20.TabIndex = 59;
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel11.Controls.Add(this.label21);
+            this.panel11.Controls.Add(this.lbl_Transferencias);
+            this.panel11.Location = new System.Drawing.Point(438, 541);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(329, 47);
+            this.panel11.TabIndex = 48;
             // 
-            // panel21
+            // label21
             // 
-            this.panel21.Controls.Add(this.label32);
-            this.panel21.Controls.Add(this.lbl_Saida);
-            this.panel21.Location = new System.Drawing.Point(0, 123);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(420, 28);
-            this.panel21.TabIndex = 60;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 15);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(96, 17);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Transferência";
             // 
-            // label32
+            // label23
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(0, 10);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(52, 13);
-            this.label32.TabIndex = 61;
-            this.label32.Text = "Gastos (-)";
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(0, 28);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(297, 17);
+            this.label23.TabIndex = 50;
+            this.label23.Text = "Transferir DINHEIRO do caixa para a CONTA.";
             // 
-            // txt_Desconto
+            // panel12
             // 
-            this.txt_Desconto.Location = new System.Drawing.Point(579, 392);
-            this.txt_Desconto.Name = "txt_Desconto";
-            this.txt_Desconto.Size = new System.Drawing.Size(100, 20);
-            this.txt_Desconto.TabIndex = 61;
-            this.txt_Desconto.TextChanged += new System.EventHandler(this.txt_Desconto_TextChanged);
-            this.txt_Desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Desconto_KeyPress);
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel12.Controls.Add(this.txtParaCaixa);
+            this.panel12.Controls.Add(this.label29);
+            this.panel12.Controls.Add(this.lbl_SaldoEmConta);
+            this.panel12.Controls.Add(this.label30);
+            this.panel12.Controls.Add(this.label38);
+            this.panel12.Controls.Add(this.label37);
+            this.panel12.Controls.Add(this.label28);
+            this.panel12.Controls.Add(this.label25);
+            this.panel12.Controls.Add(this.label23);
+            this.panel12.Controls.Add(this.label24);
+            this.panel12.Controls.Add(this.btn_Conta);
+            this.panel12.Controls.Add(this.lbl_SaldoEmCaixa);
+            this.panel12.Controls.Add(this.txt_ParaConta);
+            this.panel12.Controls.Add(this.btn_OKCaixa);
+            this.panel12.Location = new System.Drawing.Point(798, 466);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(388, 162);
+            this.panel12.TabIndex = 51;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
-            // label37
+            // txtParaCaixa
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(4, 8);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(0, 13);
-            this.label37.TabIndex = 51;
+            this.txtParaCaixa.Location = new System.Drawing.Point(222, 57);
+            this.txtParaCaixa.Name = "txtParaCaixa";
+            this.txtParaCaixa.Size = new System.Drawing.Size(100, 20);
+            this.txtParaCaixa.TabIndex = 30;
+            this.txtParaCaixa.Click += new System.EventHandler(this.txtParaCaixa_Click);
+            this.txtParaCaixa.TextChanged += new System.EventHandler(this.txtParaCaixa_TextChanged);
+            this.txtParaCaixa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParaCaixa_KeyPress);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(157, 60);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(59, 13);
+            this.label29.TabIndex = 58;
+            this.label29.Text = "P/ o caixa:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(12, 139);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(84, 13);
+            this.label30.TabIndex = 59;
+            this.label30.Text = "Saldo em conta:";
             // 
             // label38
             // 
@@ -1063,12 +1009,69 @@
             this.label38.TabIndex = 52;
             this.label38.Text = "Transferência";
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(4, 8);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(0, 13);
+            this.label37.TabIndex = 51;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(3, 96);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(234, 17);
+            this.label28.TabIndex = 58;
+            this.label28.Text = "Transferir da CONTA para o CAIXA.";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(4, 60);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(82, 13);
+            this.label25.TabIndex = 27;
+            this.label25.Text = "Saldo em caixa:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(164, 139);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 13);
+            this.label24.TabIndex = 26;
+            this.label24.Text = "P/ conta:";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel15.Controls.Add(this.label20);
+            this.panel15.Controls.Add(this.lbl_Saldo);
+            this.panel15.Controls.Add(this.label11);
+            this.panel15.Controls.Add(this.panel8);
+            this.panel15.Location = new System.Drawing.Point(438, 468);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(329, 159);
+            this.panel15.TabIndex = 54;
+            // 
+            // txt_Desconto
+            // 
+            this.txt_Desconto.Location = new System.Drawing.Point(579, 392);
+            this.txt_Desconto.Name = "txt_Desconto";
+            this.txt_Desconto.Size = new System.Drawing.Size(100, 20);
+            this.txt_Desconto.TabIndex = 61;
+            this.txt_Desconto.TextChanged += new System.EventHandler(this.txt_Desconto_TextChanged);
+            this.txt_Desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Desconto_KeyPress);
+            // 
             // Frm_Caixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(1461, 661);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.ClientSize = new System.Drawing.Size(1186, 661);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.lbl_TransRRRecebidaNaConta);
             this.Controls.Add(this.panel11);
@@ -1100,28 +1103,28 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -196,9 +196,13 @@ namespace Moderno
 
             lbl_Usuario.Text = Program.NomeUsuario;
             lbl_Cargo.Text = Program.CargoUsuario;
-
         }
 
+        private void caixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Movimentacoes.Frm_Caixa frm = new Frm_Caixa();
+            frm.ShowDialog();
+        }
         private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Movimentacoes.Frm_gastos frm = new Frm_gastos();
@@ -240,5 +244,6 @@ namespace Moderno
             cadastross.Frm_Servicos frm = new cadastross.Frm_Servicos();
             frm.ShowDialog();
         }
+
     }
 }

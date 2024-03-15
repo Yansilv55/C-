@@ -18,6 +18,7 @@ namespace Moderno.cadastross
         MySqlCommand conn;
         string id;
         string nomeAntigo;
+        private bool campoClicado = false;
         public Frm_Cargo()
         {
             InitializeComponent();
@@ -177,8 +178,9 @@ namespace Moderno.cadastross
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex >= 0)
             {
+                campoClicado = true;
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
@@ -189,6 +191,10 @@ namespace Moderno.cadastross
                 id = grid.CurrentRow.Cells[0].Value.ToString();
                 lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
             }
+            else
+            {
+                campoClicado = false;
+            }
         }
 
         private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
@@ -197,7 +203,18 @@ namespace Moderno.cadastross
             {
                 try
                 {
-                    salvar_Registro();
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        if (campoClicado)
+                        {
+                            btn_Editar.PerformClick();
+                        }
+                        else
+                        {
+                            //btn_Salvar.PerformClick();
+                            salvar_Registro();
+                        }
+                    }
                 }
                 catch (Exception Ex)
                 {

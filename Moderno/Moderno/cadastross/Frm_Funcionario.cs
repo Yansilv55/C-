@@ -651,17 +651,7 @@ namespace Moderno.cadastross
 
         private void btn_foto_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (campoClicado)
-                {
-                    btn_Editar.PerformClick();
-                }
-                else
-                {
-                    btn_Salvar.PerformClick();
-                }
-            }
+
         }
     }
 }

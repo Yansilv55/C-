@@ -16,6 +16,7 @@ namespace Moderno.cadastross
         Conexao con = new Conexao();
         string sql;
         MySqlCommand conn;
+        private bool campoClicado = false;
 
         string id;
         public Frm_Servicos()
@@ -174,8 +175,9 @@ namespace Moderno.cadastross
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex >= 0)
             {
+                campoClicado = true;
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 cb_Ativo.Enabled = true;
@@ -192,6 +194,7 @@ namespace Moderno.cadastross
                 else
                 {
                     cb_Ativo.Checked = false;
+                    campoClicado = false;
                 }
             }
             else
@@ -324,6 +327,29 @@ namespace Moderno.cadastross
 
             DesabilitarCampos();
             LimparCampos();
+        }
+
+        private void txt_Nome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txt_Valor.Focus();
+            }
+        }
+
+        private void txt_Valor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (campoClicado)
+                {
+                    btn_Editar.PerformClick();
+                }
+                else
+                {
+                    btn_Salvar.PerformClick();
+                }
+            }
         }
     }
 }
