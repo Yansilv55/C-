@@ -23,3 +23,5 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Forn
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_Caixa.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_gastos.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Message.Frm_Bemvindo.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\DAO.dll
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\DAO.pdb

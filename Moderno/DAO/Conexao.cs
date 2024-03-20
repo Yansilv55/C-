@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moderno
+namespace DAO
 {
-    internal class Conexao
+    public class Conexao
     {
         public string connectionString = "Server=localhost;Database=pdv;User ID=root;Password=;PORT=;";
 

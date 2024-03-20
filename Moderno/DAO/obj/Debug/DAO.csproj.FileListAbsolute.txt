@@ -1,0 +1,11 @@
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\DAO.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\DAO.pdb
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\MySql.Data.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\Google.Protobuf.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\BouncyCastle.Crypto.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\MySql.Data.xml
+C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.pdb

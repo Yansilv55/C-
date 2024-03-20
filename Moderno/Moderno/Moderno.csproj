@@ -83,7 +83,6 @@
     <Compile Include="cadastross\Frm_Usuario.Designer.cs">
       <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Conexao.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +268,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Plus_30px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{5D934615-06A0-4212-91EB-668D223FF1C6}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DAO;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace Moderno.cadastross
         string id;
         string nomeAntigo;
         private bool campoClicado = false;
+
         public Frm_Cargo()
         {
             InitializeComponent();
@@ -31,26 +33,22 @@ namespace Moderno.cadastross
         }
         private void FormatarGD()
         {
-            grid.Columns[0].HeaderText = "ID";
+            grid.Columns[0].HeaderText = "ID_Cargo";
             grid.Columns[1].HeaderText = "Cargo";
             grid.Columns[2].HeaderText = "Data";
             grid.Columns[0].Visible = false;
         }
         private void Listar()
         {
-                con.AbrirConexao();
-                sql = "SELECT * FROM cargos ORDER BY cargo asc";
-                conn = new MySqlCommand(sql, con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = conn;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                grid.DataSource = dt;
-                con.FecharConexao();
+            DataTable dt = new DataTable();
+            CargoDAO cargoDAO = new CargoDAO();
+            MySqlDataAdapter my = cargoDAO.Listar_Grid();
+            my.Fill(dt);
+            grid.DataSource = dt;
 
-                FormatarGD();
+            FormatarGD();
         }
-       
+
         private bool ValidarCampos_Cargo()
         {
             if (lb_Nome.Text.Trim() == "")
@@ -70,13 +68,15 @@ namespace Moderno.cadastross
                 if (ValidarCampos_Cargo())
                 {
                     string nomecargo = lb_Nome.Text;
-                    if (buscar_Registro_Cargo(nomecargo))
+                    CargoDAO cargoDAO = new CargoDAO();
+
+                    if (cargoDAO.buscar_Registro_Cargo(nomecargo))
                     {
                         MessageBox.Show("Cargo já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                     else
                     {
-                        if (buscar_Registro_Cargo(nomecargo))
+                        if (cargoDAO.buscar_Registro_Cargo(nomecargo))
                         {
                             MessageBox.Show($"Cargo: {nomecargo} já existe!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -95,43 +95,21 @@ namespace Moderno.cadastross
                     lb_Nome.Focus();
                 }
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                throw Ex;
+                throw new Exception("Erro ao salvar registro", ex);
             }
         }
 
-        private bool buscar_Registro_Cargo(string nome)
-        {
-            con.AbrirConexao();
-            sql = "SELECT COUNT(*) FROM cargos WHERE cargo = @cargo";
-            MySqlCommand connVerificar;
-            connVerificar = new MySqlCommand(sql, con.con);
-            connVerificar.Parameters.AddWithValue("@cargo", nome);
 
-            int count = Convert.ToInt32(connVerificar.ExecuteScalar());
-
-            if (count > 0)
-            {
-                con.FecharConexao();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private bool Inserir_Nome(string nome)
         {
-            sql = "INSERT INTO cargos (cargo, data) VALUES (@cargo, curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cargo", nome);
-
             try
             {
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                CargoDAO cargoDAO = new CargoDAO();
+                cargoDAO.Inserir_Nome_Cargo(nome);
+
                 Listar();
 
                 btn_Novo.Enabled = true;
@@ -186,8 +164,6 @@ namespace Moderno.cadastross
                 btn_Salvar.Enabled = false;
                 btn_Novo.Enabled = false;
                 lb_Nome.Enabled = true;
-
-
                 id = grid.CurrentRow.Cells[0].Value.ToString();
                 lb_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
             }
@@ -211,7 +187,6 @@ namespace Moderno.cadastross
                         }
                         else
                         {
-                            //btn_Salvar.PerformClick();
                             salvar_Registro();
                         }
                     }
@@ -229,12 +204,9 @@ namespace Moderno.cadastross
             var res = MessageBox.Show("Deseja realmente excluir o registro!.", "A T E N Ç Ã O ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                con.AbrirConexao();
-                sql = "DELETE FROM cargos WHERE id = @id";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                CargoDAO cargoDAO = new CargoDAO();
+
+                cargoDAO.Excluir_Cargo();
 
                 Listar();
                 MessageBox.Show("Registro Excluído com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -277,24 +249,14 @@ namespace Moderno.cadastross
                 lb_Nome.Focus();
                 return;
             }
-            con.AbrirConexao();
+            CargoDAO cargoDAO = new CargoDAO();
 
-            sql = "UPDATE cargos SET cargo = @cargo WHERE id = @id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@id", id);
-            conn.Parameters.AddWithValue("@cargo", lb_Nome.Text);
+            cargoDAO.Editar_Cargo(lb_Nome.Text);
 
             if (lb_Nome.Text != nomeAntigo)
             {
-                sql = "SELECT * FROM cargos WHERE cargo = @cargo";
-                MySqlCommand connVerificar;
-                connVerificar = new MySqlCommand(sql, con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = connVerificar;
-                connVerificar.Parameters.AddWithValue("@cargo", lb_Nome.Text);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                bool existeRegistro = cargoDAO.buscar_Registro_Cargo(lb_Nome.Text);
+                if (existeRegistro == true)
                 {
                     MessageBox.Show("O Cargo " + lb_Nome.Text + " já registrado.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     lb_Nome.Text = "";
@@ -305,9 +267,8 @@ namespace Moderno.cadastross
 
             try
             {
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
                 Listar();
+                FormatarGD();
 
                 MessageBox.Show("Registro Editado com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
@@ -334,6 +295,6 @@ namespace Moderno.cadastross
 
         }
 
-        
+
     }
 }

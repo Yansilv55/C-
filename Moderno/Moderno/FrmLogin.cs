@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,7 @@ namespace Moderno
             InitializeComponent();
         }
         
-
+        // Implementar o MD5
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
