@@ -83,6 +83,7 @@
     <Compile Include="cadastross\Frm_Usuario.Designer.cs">
       <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinalizarVendas.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +117,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="Vendas\Frm_Vendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendas\Frm_Vendas.Designer.cs">
+      <DependentUpon>Frm_Vendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Verificar.cs" />
     <EmbeddedResource Include="cadastross\Frm_Cargo.resx">
       <DependentUpon>Frm_Cargo.cs</DependentUpon>
@@ -160,6 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vendas\Frm_Vendas.resx">
+      <DependentUpon>Frm_Vendas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

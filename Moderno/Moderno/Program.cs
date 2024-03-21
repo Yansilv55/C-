@@ -10,6 +10,17 @@ namespace Moderno
     {
         public static string CargoUsuario;
         public static string NomeUsuario;
+
+        public static string ChamadaProdutos;
+        public static string NomeProduto;
+        public static string EstoqueProduto;
+        public static string EstoqueMinimo;
+        public static string ValorProduto;
+        public static string modLucro;
+        public static bool DesabilitarTxt;
+
+        public static string IdProduto;
+        public static string idVenda;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>

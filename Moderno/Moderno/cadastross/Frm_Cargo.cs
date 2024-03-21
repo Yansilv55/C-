@@ -40,9 +40,9 @@ namespace Moderno.cadastross
         }
         private void Listar()
         {
-            DataTable dt = new DataTable();
             CargoDAO cargoDAO = new CargoDAO();
             MySqlDataAdapter my = cargoDAO.Listar_Grid();
+            DataTable dt = new DataTable();
             my.Fill(dt);
             grid.DataSource = dt;
 
@@ -269,6 +269,7 @@ namespace Moderno.cadastross
             {
                 Listar();
                 FormatarGD();
+ 
 
                 MessageBox.Show("Registro Editado com sucesso!.", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
