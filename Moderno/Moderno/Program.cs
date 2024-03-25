@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Moderno
 {
-    internal static class Program
+    public class Program
     {
         public static string CargoUsuario;
         public static string NomeUsuario;

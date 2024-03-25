@@ -25,3 +25,9 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_g
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Message.Frm_Bemvindo.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\DAO.dll
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\DAO.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Produtos.Frm_Produtos.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Vendas.Frm_Desconto.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Vendas.Frm_Vendas.resources
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\MODEL.dll
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\MODEL.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Vendas.Frm_fechar_venda.resources

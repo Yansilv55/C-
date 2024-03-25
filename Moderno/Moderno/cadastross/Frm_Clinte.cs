@@ -376,7 +376,7 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Sim");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                 //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                     conn.Parameters.AddWithValue("@imagem", img());
 
                 }
@@ -393,7 +393,7 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Não");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                   // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                     conn.Parameters.AddWithValue("@imagem", img());
 
                 }
@@ -413,7 +413,7 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Sim");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                 //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
 
                 }
                 else if (rb_Ativado.Checked == false)
@@ -429,7 +429,7 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Não");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+               //     conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                 }
             }
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moderno", "Moderno.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "..\DAO\DAO.csproj", "{5D934615-06A0-4212-91EB-668D223FF1C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MODEL", "..\MODEL\MODEL.csproj", "{DCB94880-B711-4906-B1F6-8DE4BA0650D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5D934615-06A0-4212-91EB-668D223FF1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D934615-06A0-4212-91EB-668D223FF1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D934615-06A0-4212-91EB-668D223FF1C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB94880-B711-4906-B1F6-8DE4BA0650D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB94880-B711-4906-B1F6-8DE4BA0650D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB94880-B711-4906-B1F6-8DE4BA0650D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB94880-B711-4906-B1F6-8DE4BA0650D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

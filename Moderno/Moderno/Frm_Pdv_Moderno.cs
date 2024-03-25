@@ -1,4 +1,5 @@
 ﻿using Moderno.Movimentacoes;
+using Moderno.Vendas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -100,7 +101,7 @@ namespace Moderno
 
         private void btn_Venda_PDV_Click(object sender, EventArgs e)
         {
-            AbrirFrmPrincipal(new cadastross.Frm_Cargo(), sender);
+            AbrirFrmPrincipal(new Vendas.Frm_Vendas(), sender);
         }
 
         private void button_Receber_Click(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace Moderno
 
         private void btn_Fluxo_Caixa_Click(object sender, EventArgs e)
         {
-            AbrirFrmPrincipal(new cadastross.Frm_Servicos(), sender);
+            AbrirFrmPrincipal(new Movimentacoes.Frm_Caixa(), sender);
         }
 
         private void btn_Relatorio_Click(object sender, EventArgs e)
@@ -189,7 +190,7 @@ namespace Moderno
             Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
+        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e, Program Program)
         {
             Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -245,5 +246,9 @@ namespace Moderno
             frm.ShowDialog();
         }
 
+        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -74,8 +74,8 @@
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
@@ -610,22 +610,22 @@
             // 
             this.gastosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.gastosToolStripMenuItem.Text = "Gastos";
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // caixaToolStripMenuItem
             // 
             this.caixaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.caixaToolStripMenuItem.Text = "Caixa";
             this.caixaToolStripMenuItem.Click += new System.EventHandler(this.caixaToolStripMenuItem_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Frm_Pdv_Moderno
             // 

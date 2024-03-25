@@ -9,3 +9,5 @@ C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.ca
 C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.csproj.CopyComplete
 C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.dll
 C:\Estudos\Projetos\Csharp\Moderno\DAO\obj\Debug\DAO.pdb
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\MODEL.dll
+C:\Estudos\Projetos\Csharp\Moderno\DAO\bin\Debug\MODEL.pdb

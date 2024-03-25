@@ -114,9 +114,33 @@
     <Compile Include="Movimentacoes\Frm_gastos.Designer.cs">
       <DependentUpon>Frm_gastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Produtos\Frm_Estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\Frm_Estoque.Designer.cs">
+      <DependentUpon>Frm_Estoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\Frm_Produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\Frm_Produtos.Designer.cs">
+      <DependentUpon>Frm_Produtos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="Vendas\Frm_Desconto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendas\Frm_Desconto.Designer.cs">
+      <DependentUpon>Frm_Desconto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendas\Frm_fechar_venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendas\Frm_fechar_venda.Designer.cs">
+      <DependentUpon>Frm_fechar_venda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vendas\Frm_Vendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +181,9 @@
     <EmbeddedResource Include="Movimentacoes\Frm_gastos.resx">
       <DependentUpon>Frm_gastos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\Frm_Produtos.resx">
+      <DependentUpon>Frm_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -167,6 +194,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vendas\Frm_Desconto.resx">
+      <DependentUpon>Frm_Desconto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendas\Frm_fechar_venda.resx">
+      <DependentUpon>Frm_fechar_venda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vendas\Frm_Vendas.resx">
       <DependentUpon>Frm_Vendas.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +317,13 @@
       <Project>{5D934615-06A0-4212-91EB-668D223FF1C6}</Project>
       <Name>DAO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MODEL\MODEL.csproj">
+      <Project>{DCB94880-B711-4906-B1F6-8DE4BA0650D9}</Project>
+      <Name>MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_jewel_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
