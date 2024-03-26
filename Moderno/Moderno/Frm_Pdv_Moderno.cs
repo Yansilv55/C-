@@ -250,5 +250,11 @@ namespace Moderno
         {
 
         }
+
+        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Produtos.Frm_Produtos frm = new Produtos.Frm_Produtos();
+            frm.ShowDialog();
+        }
     }
 }

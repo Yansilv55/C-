@@ -42,10 +42,5 @@ namespace MODEL
         public string numeroNota { get; set; }
         public string idDetalheVenda { get; set; }
         public string status { get; set; }
-
-
-
-
-        //int item = 0; //conta o numero do lancamento do item      
     }
 }

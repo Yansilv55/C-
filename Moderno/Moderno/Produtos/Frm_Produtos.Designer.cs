@@ -166,6 +166,7 @@
             this.txtCodBarra.Name = "txtCodBarra";
             this.txtCodBarra.Size = new System.Drawing.Size(203, 20);
             this.txtCodBarra.TabIndex = 149;
+            this.txtCodBarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodBarra_KeyDown);
             // 
             // label5
             // 
@@ -184,6 +185,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(387, 20);
             this.txtNome.TabIndex = 151;
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown);
             // 
             // label2
             // 
@@ -215,6 +217,7 @@
             this.cbFornecedor.Size = new System.Drawing.Size(203, 21);
             this.cbFornecedor.TabIndex = 154;
             this.cbFornecedor.SelectedIndexChanged += new System.EventHandler(this.cbFornecedor_SelectedIndexChanged);
+            this.cbFornecedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbFornecedor_KeyDown);
             // 
             // txtNota
             // 
@@ -223,6 +226,7 @@
             this.txtNota.Size = new System.Drawing.Size(69, 20);
             this.txtNota.TabIndex = 155;
             this.txtNota.Text = "0";
+            this.txtNota.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNota_KeyDown);
             // 
             // label18
             // 
@@ -241,6 +245,7 @@
             this.txtMinimo.Size = new System.Drawing.Size(69, 20);
             this.txtMinimo.TabIndex = 157;
             this.txtMinimo.Text = "0";
+            this.txtMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMinimo_KeyDown);
             // 
             // label10
             // 
@@ -260,6 +265,7 @@
             this.txtEstoque.Size = new System.Drawing.Size(80, 20);
             this.txtEstoque.TabIndex = 159;
             this.txtEstoque.Text = "0";
+            this.txtEstoque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEstoque_KeyDown);
             // 
             // label3
             // 
@@ -277,6 +283,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(80, 20);
             this.txtDescricao.TabIndex = 161;
+            this.txtDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescricao_KeyDown);
             // 
             // label4
             // 
@@ -295,6 +302,7 @@
             this.txtEntrada.Size = new System.Drawing.Size(68, 20);
             this.txtEntrada.TabIndex = 163;
             this.txtEntrada.Text = "0";
+            this.txtEntrada.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEntrada_KeyDown);
             // 
             // txtCompra
             // 
@@ -303,6 +311,7 @@
             this.txtCompra.Size = new System.Drawing.Size(80, 20);
             this.txtCompra.TabIndex = 164;
             this.txtCompra.Text = "0";
+            this.txtCompra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompra_KeyDown);
             // 
             // txtUnitario
             // 
@@ -312,6 +321,7 @@
             this.txtUnitario.Size = new System.Drawing.Size(80, 20);
             this.txtUnitario.TabIndex = 165;
             this.txtUnitario.Text = "0";
+            this.txtUnitario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnitario_KeyDown);
             // 
             // txtValorVenda
             // 
@@ -320,6 +330,7 @@
             this.txtValorVenda.Size = new System.Drawing.Size(80, 20);
             this.txtValorVenda.TabIndex = 166;
             this.txtValorVenda.Text = "0";
+            this.txtValorVenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValorVenda_KeyDown);
             // 
             // txtLucro
             // 
@@ -549,7 +560,7 @@
             // data
             // 
             this.data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.data.Location = new System.Drawing.Point(875, 293);
+            this.data.Location = new System.Drawing.Point(784, 293);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(121, 20);
             this.data.TabIndex = 187;
@@ -592,6 +603,7 @@
             this.btnExcluir.Size = new System.Drawing.Size(35, 35);
             this.btnExcluir.TabIndex = 197;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCancelar
             // 
@@ -608,10 +620,11 @@
             // grid
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(-1, 331);
+            this.grid.Location = new System.Drawing.Point(10, 315);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(523, 150);
+            this.grid.Size = new System.Drawing.Size(523, 222);
             this.grid.TabIndex = 198;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // Frm_Produtos
             // 

@@ -76,6 +76,8 @@
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
@@ -505,7 +507,8 @@
             this.Menu_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivosToolStripMenuItem,
             this.cadastroToolStripMenuItem,
-            this.movimentaçõesToolStripMenuItem});
+            this.movimentaçõesToolStripMenuItem,
+            this.produtosToolStripMenuItem});
             this.Menu_Principal.Location = new System.Drawing.Point(0, 0);
             this.Menu_Principal.Name = "Menu_Principal";
             this.Menu_Principal.Size = new System.Drawing.Size(1347, 24);
@@ -627,6 +630,21 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // produtosToolStripMenuItem
+            // 
+            this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarProdutoToolStripMenuItem});
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.produtosToolStripMenuItem.Text = "Produtos";
+            // 
+            // cadastrarProdutoToolStripMenuItem
+            // 
+            this.cadastrarProdutoToolStripMenuItem.Name = "cadastrarProdutoToolStripMenuItem";
+            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarProdutoToolStripMenuItem.Text = "Cadastrar Produto";
+            this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click);
+            // 
             // Frm_Pdv_Moderno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,6 +730,8 @@
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarProdutoToolStripMenuItem;
     }
 }
 

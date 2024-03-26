@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Moderno.Vendas.Frm_Vendas;
 
 namespace Moderno.Vendas
 {
@@ -15,6 +16,10 @@ namespace Moderno.Vendas
         public Frm_fechar_venda()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            txt_SubTotal.Text = new Venda().sub_total.ToString();
+            txt_TotalVenda.Text = new Venda().valor_total.ToString();
         }
 
         private void Frm_fechar_venda_Load(object sender, EventArgs e)
@@ -29,5 +34,7 @@ namespace Moderno.Vendas
                 MessageBox.Show("Pagamento no Dinheiro", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
     }
 }

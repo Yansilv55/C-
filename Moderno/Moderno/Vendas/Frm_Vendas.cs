@@ -58,6 +58,12 @@ namespace Moderno.Vendas
             InitializeComponent();
         }
 
+        public class Venda
+        {
+            public decimal sub_total { get; set; }
+            public decimal valor_total { get; set; }
+        }
+
         private void Frm_Vendas_Load(object sender, EventArgs e)
         {
             DesabilitarCampo();
@@ -66,11 +72,6 @@ namespace Moderno.Vendas
 
         private void Frm_Vendas_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                Vendas.Frm_fechar_venda frm = new Frm_fechar_venda();
-                frm.ShowDialog();
-            }
         }
 
         private void txt_TotalVenda_KeyDown(object sender, KeyEventArgs e)
@@ -81,7 +82,7 @@ namespace Moderno.Vendas
         {
             if (e.KeyCode == Keys.Space)
             {
-                Vendas.Frm_fechar_venda frm = new Frm_fechar_venda();
+               Vendas.Frm_fechar_venda frm = new Frm_fechar_venda();
                 frm.ShowDialog();
             }
         }
