@@ -110,6 +110,7 @@
             this.txt_troco.Size = new System.Drawing.Size(185, 38);
             this.txt_troco.TabIndex = 315;
             this.txt_troco.Text = "0,00";
+            this.txt_troco.TextChanged += new System.EventHandler(this.txt_troco_TextChanged);
             // 
             // label4
             // 
@@ -132,6 +133,7 @@
             this.txt_valorRecebido.Size = new System.Drawing.Size(188, 38);
             this.txt_valorRecebido.TabIndex = 314;
             this.txt_valorRecebido.Text = "0,00";
+            this.txt_valorRecebido.TextChanged += new System.EventHandler(this.txt_valorRecebido_TextChanged);
             // 
             // label5
             // 
@@ -154,6 +156,7 @@
             this.txt_totalapagar.Size = new System.Drawing.Size(188, 38);
             this.txt_totalapagar.TabIndex = 312;
             this.txt_totalapagar.Text = "0,00";
+            this.txt_totalapagar.TextChanged += new System.EventHandler(this.txt_totalapagar_TextChanged);
             // 
             // txt_desconto
             // 
@@ -165,6 +168,7 @@
             this.txt_desconto.Size = new System.Drawing.Size(188, 38);
             this.txt_desconto.TabIndex = 311;
             this.txt_desconto.Text = "0,00";
+            this.txt_desconto.TextChanged += new System.EventHandler(this.txt_desconto_TextChanged);
             // 
             // label2
             // 
@@ -231,6 +235,7 @@
             this.txt_SubTotal.Size = new System.Drawing.Size(185, 38);
             this.txt_SubTotal.TabIndex = 7;
             this.txt_SubTotal.Text = "0,00";
+            this.txt_SubTotal.TextChanged += new System.EventHandler(this.txt_SubTotal_TextChanged);
             // 
             // label12
             // 

@@ -63,6 +63,16 @@ namespace Moderno.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0_7asj1rKS8d2mead_ {
+            get {
+                object obj = ResourceManager.GetObject("0_7asj1rKS8d2mead_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cart_64px {
             get {
                 object obj = ResourceManager.GetObject("Cart_64px", resourceCulture);

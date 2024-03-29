@@ -35,6 +35,53 @@ namespace Moderno.Vendas
             }
         }
 
+        public static void Moeda(ref TextBox txt)
+        {
+            string n = string.Empty;
+            double v = 0;
 
+            try
+            {
+                n = txt.Text.Replace(",", "").Replace(".", "");
+                if (n.Equals(""))
+                    n = "";
+                n = n.PadLeft(2, '0');
+
+                if (n.Length > 3 & n.Substring(0, 1) == "0")
+                    n = n.Substring(1, n.Length - 1);
+
+                v = Convert.ToDouble(n) / 100;
+
+                txt.Text = string.Format("{0:N}", v);
+                txt.SelectionStart = txt.Text.Length;
+            }
+            catch (Exception)
+            {
+            }
+        }
+        private void txt_SubTotal_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_SubTotal);
+        }
+
+        private void txt_desconto_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_desconto);
+        }
+
+        private void txt_totalapagar_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_totalapagar);
+        }
+
+        private void txt_valorRecebido_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_valorRecebido);
+        }
+
+        private void txt_troco_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_troco);
+        }
     }
 }

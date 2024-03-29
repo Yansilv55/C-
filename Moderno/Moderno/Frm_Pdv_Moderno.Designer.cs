@@ -58,9 +58,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lbl_Cargo = new System.Windows.Forms.ToolStripLabel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Menu_Principal = new System.Windows.Forms.MenuStrip();
             this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,17 +72,15 @@
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
             this.Panel_Desktop.SuspendLayout();
             this.Barra_Status.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu_Principal.SuspendLayout();
             this.SuspendLayout();
@@ -349,10 +344,8 @@
             // Panel_Desktop
             // 
             this.Panel_Desktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Panel_Desktop.Controls.Add(this.label2);
             this.Panel_Desktop.Controls.Add(this.Barra_Status);
-            this.Panel_Desktop.Controls.Add(this.pictureBox4);
-            this.Panel_Desktop.Controls.Add(this.pictureBox2);
-            this.Panel_Desktop.Controls.Add(this.pictureBox3);
             this.Panel_Desktop.Controls.Add(this.pictureBox1);
             this.Panel_Desktop.Controls.Add(this.Menu_Principal);
             this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -461,40 +454,10 @@
             this.lbl_Cargo.Size = new System.Drawing.Size(37, 22);
             this.lbl_Cargo.Text = "cargo";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Moderno.Properties.Resources.images1;
-            this.pictureBox4.Location = new System.Drawing.Point(729, 39);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Moderno.Properties.Resources.images;
-            this.pictureBox2.Location = new System.Drawing.Point(729, 341);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Moderno.Properties.Resources.images1;
-            this.pictureBox3.Location = new System.Drawing.Point(122, 341);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(404, 255);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Moderno.Properties.Resources.images;
-            this.pictureBox1.Location = new System.Drawing.Point(122, 39);
+            this.pictureBox1.Image = global::Moderno.Properties.Resources._0_7asj1rKS8d2mead_;
+            this.pictureBox1.Location = new System.Drawing.Point(209, 159);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(404, 255);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -625,11 +588,6 @@
             this.caixaToolStripMenuItem.Text = "Caixa";
             this.caixaToolStripMenuItem.Click += new System.EventHandler(this.caixaToolStripMenuItem_Click);
             // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -641,9 +599,24 @@
             // cadastrarProdutoToolStripMenuItem
             // 
             this.cadastrarProdutoToolStripMenuItem.Name = "cadastrarProdutoToolStripMenuItem";
-            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.cadastrarProdutoToolStripMenuItem.Text = "Cadastrar Produto";
             this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(632, 277);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(390, 63);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Ruby Sistemas";
             // 
             // Frm_Pdv_Moderno
             // 
@@ -671,9 +644,6 @@
             this.Panel_Desktop.PerformLayout();
             this.Barra_Status.ResumeLayout(false);
             this.Barra_Status.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Menu_Principal.ResumeLayout(false);
             this.Menu_Principal.PerformLayout();
@@ -699,10 +669,7 @@
         private System.Windows.Forms.Button btn_Maxmizar;
         private System.Windows.Forms.Button btn_Minimizar;
         private System.Windows.Forms.Button btn_Fechar;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MenuStrip Menu_Principal;
         private System.Windows.Forms.ToolStripMenuItem arquivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
@@ -732,6 +699,7 @@
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarProdutoToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -94,5 +94,49 @@ namespace Moderno.Vendas
             txt_TotalVenda.Enabled = false;
             txt_ValorUnitario.Enabled = false;
         }
+
+        private void txt_ValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txt_ValorUnitario_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_ValorUnitario);
+        }
+        public static void Moeda(ref TextBox txt)
+        {
+            string n = string.Empty;
+            double v = 0;
+
+            try
+            {
+                n = txt.Text.Replace(",", "").Replace(".", "");
+                if (n.Equals(""))
+                    n = "";
+                n = n.PadLeft(2, '0');
+
+                if (n.Length > 3 & n.Substring(0, 1) == "0")
+                    n = n.Substring(1, n.Length - 1);
+
+                v = Convert.ToDouble(n) / 100;
+
+                txt.Text = string.Format("{0:N}", v);
+                txt.SelectionStart = txt.Text.Length;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void txt_SubTotal_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_SubTotal);
+        }
+
+        private void txt_TotalVenda_TextChanged(object sender, EventArgs e)
+        {
+            Moeda(ref txt_TotalVenda);
+        }
     }
 }

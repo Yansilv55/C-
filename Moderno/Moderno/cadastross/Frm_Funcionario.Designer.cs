@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Celular = new System.Windows.Forms.MaskedTextBox();
             this.txt_Cpf = new System.Windows.Forms.MaskedTextBox();
-            this.btn_foto = new System.Windows.Forms.Button();
             this.cb_Cargo = new System.Windows.Forms.ComboBox();
             this.txt_Endereco = new System.Windows.Forms.TextBox();
             this.txt_Nome = new System.Windows.Forms.TextBox();
@@ -59,11 +58,9 @@
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Novo = new System.Windows.Forms.Button();
-            this.image = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panelBusca.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_Celular
@@ -89,19 +86,6 @@
             this.txt_Cpf.Size = new System.Drawing.Size(88, 16);
             this.txt_Cpf.TabIndex = 27;
             this.txt_Cpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Cpf_KeyDown);
-            // 
-            // btn_foto
-            // 
-            this.btn_foto.Enabled = false;
-            this.btn_foto.ForeColor = System.Drawing.Color.Black;
-            this.btn_foto.Location = new System.Drawing.Point(873, 54);
-            this.btn_foto.Name = "btn_foto";
-            this.btn_foto.Size = new System.Drawing.Size(46, 26);
-            this.btn_foto.TabIndex = 31;
-            this.btn_foto.Text = "Foto";
-            this.btn_foto.UseVisualStyleBackColor = true;
-            this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
-            this.btn_foto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_foto_KeyDown);
             // 
             // cb_Cargo
             // 
@@ -199,24 +183,24 @@
             this.grid.AllowUserToDeleteRows = false;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle4;
             this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.grid.Location = new System.Drawing.Point(15, 228);
             this.grid.Name = "grid";
@@ -438,18 +422,6 @@
             this.btn_Novo.UseVisualStyleBackColor = true;
             this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
-            // image
-            // 
-            this.image.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.image.Enabled = false;
-            this.image.Image = global::Moderno.Properties.Resources.icons8_person_32px;
-            this.image.Location = new System.Drawing.Point(925, 52);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(243, 190);
-            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.image.TabIndex = 32;
-            this.image.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -466,7 +438,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1171, 732);
+            this.ClientSize = new System.Drawing.Size(956, 732);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -478,12 +450,10 @@
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.txt_Celular);
             this.Controls.Add(this.txt_Cpf);
-            this.Controls.Add(this.btn_foto);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.btn_Excluir);
             this.Controls.Add(this.btn_Editar);
             this.Controls.Add(this.btn_Novo);
-            this.Controls.Add(this.image);
             this.Controls.Add(this.cb_Cargo);
             this.Controls.Add(this.txt_Endereco);
             this.Controls.Add(this.txt_Nome);
@@ -501,7 +471,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,12 +481,10 @@
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.MaskedTextBox txt_Celular;
         private System.Windows.Forms.MaskedTextBox txt_Cpf;
-        private System.Windows.Forms.Button btn_foto;
         private System.Windows.Forms.Button btn_Salvar;
         private System.Windows.Forms.Button btn_Excluir;
         private System.Windows.Forms.Button btn_Editar;
         private System.Windows.Forms.Button btn_Novo;
-        private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.ComboBox cb_Cargo;
         private System.Windows.Forms.TextBox txt_Endereco;
         private System.Windows.Forms.TextBox txt_Nome;

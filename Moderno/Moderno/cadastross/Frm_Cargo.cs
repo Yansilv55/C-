@@ -14,9 +14,6 @@ namespace Moderno.cadastross
 {
     public partial class Frm_Cargo : Form
     {
-        Conexao con = new Conexao();
-        string sql = string.Empty;
-        MySqlCommand conn;
         string id;
         string nomeAntigo;
         private bool campoClicado = false;
@@ -83,7 +80,7 @@ namespace Moderno.cadastross
                         else
                         {
                             Inserir_Nome(nomecargo);
-                            Atualizar_Grade();
+                           // Atualizar_Grade();
                             MessageBox.Show("Registro inserido com sucesso!", "A T E N Ç Ã O ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         }
@@ -125,7 +122,7 @@ namespace Moderno.cadastross
             }
         }
 
-        private void Atualizar_Grade()
+       /* private void Atualizar_Grade()
         {
             using (MySqlDataReader reader = conn.ExecuteReader())
             {
@@ -133,26 +130,20 @@ namespace Moderno.cadastross
                 {
                     while (reader.Read())
                     {
-                        // Inicialize uma variável para armazenar a linha completa
                         string linha = "";
-
-                        // Itere através de cada coluna e concatene os valores
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            linha += reader[i].ToString() + "       \t"; // Adiciona um tab entre os valores
+                            linha += reader[i].ToString() + "       \t";
                         }
-
-                        // Remova o último tab da string, se necessário
                         if (!string.IsNullOrEmpty(linha))
                         {
                             linha = linha.Substring(0, linha.Length - 1);
                         }
-
                         Console.WriteLine(linha);
                     }
                 }
             }
-        }
+        }*/
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {

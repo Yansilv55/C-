@@ -28,57 +28,79 @@ namespace DAO
         }
         public void SalvarProduto(ProdutosModel produto)
         {
+            //  try
+            //  {
             con.AbrirConexao();
             sql = @"INSERT INTO 
-                    produtos(
-                            cod,
+                        produtos(
+                            produto_id,
                             nome,
                             descricao,
                             estoque,
                             fornecedor,
                             entrada,
                             total_compra,
+                            valor_unitario,
                             valor_venda,
-                            valor_compra,
                             data,
                             minimo,
                             nota,
                             lucro) 
-                    VALUES(
-                            @cod, 
+                         VALUES(
+                            @produto_id, 
                             @nome, 
                             @descricao, 
                             @estoque, 
                             @fornecedor, 
                             @entrada, 
                             @total_compra, 
+                            @valor_unitario, 
                             @valor_venda, 
-                            @valor_compra, 
-                            curDate(), 
+                            curdate(), -- Corrigido para curdate()
                             @minimo, 
                             @nota, 
                             @lucro)";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cod", produto.produto_id);
+            conn.Parameters.AddWithValue("@produto_id", produto.produto_id); 
             conn.Parameters.AddWithValue("@nome", produto.Nome);
             conn.Parameters.AddWithValue("@descricao", produto.Descricao);
             conn.Parameters.AddWithValue("@estoque", produto.Entrada_estoque);
-            conn.Parameters.AddWithValue("@fornecedor", produto.Fornecedor); 
+            conn.Parameters.AddWithValue("@fornecedor", produto.Fornecedor);
             conn.Parameters.AddWithValue("@entrada", produto.Entrada);
-            conn.Parameters.AddWithValue("@total_compra", Convert.ToDouble(produto.valor_venda));
-            conn.Parameters.AddWithValue("@valor_compra", Convert.ToDouble(produto.valor_compra));
+            conn.Parameters.AddWithValue("@total_compra", Convert.ToDouble(produto.total_compra));
+            conn.Parameters.AddWithValue("@valor_unitario", Convert.ToDouble(produto.Unitario));
             conn.Parameters.AddWithValue("@valor_venda", Convert.ToDouble(produto.valor_venda));
             conn.Parameters.AddWithValue("@minimo", Convert.ToInt32(produto.Minimo));
             conn.Parameters.AddWithValue("@nota", Convert.ToInt32(produto.Nota));
             conn.Parameters.AddWithValue("@lucro", Convert.ToDouble(produto.valor_venda) - Convert.ToDouble(produto.Unitario));
             conn.ExecuteNonQuery();
             con.FecharConexao();
+
+            // }
+            //catch (Exception ex)
+            // {
+            //    throw new Exception("Erro ao Salvar ao banco", ex);
+            // }
         }
         public void EditaProduto(ProdutosModel produto)
         {
             con.AbrirConexao();
-            sql = "UPDATE produtos SET (cod = @cod, nome = @nome, descricao = @descricao, estoque = @estoque, fornecedor = @fornecedor, entrada =" +
-                " @entrada, total_compra = @total_compra, valor_venda = @valor_venda, valor_compra = @valor_compra, data, minimo = @minimo, nota = @nota, lucro = @lucro WHERE produto_id = @produto_id)";
+            sql = @"UPDATE 
+                       produtos SET (
+                                cod = @cod,
+                                nome = @nome,
+                                descricao = @descricao,
+                                estoque = @estoque,
+                                fornecedor = @fornecedor,
+                                entrada = @entrada,
+                                total_compra = @total_compra,
+                                valor_venda = @valor_venda,
+                                valor_compra = @valor_compra,data = @data,
+                                minimo = @minimo,
+                                nota = @nota,
+                                lucro = @lucro
+                        WHERE
+                                produto_id = @produto_id)";
                 
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@produtos", produto.produto_id);
