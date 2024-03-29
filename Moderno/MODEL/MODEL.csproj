@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FornecedorMODEL.cs" />
     <Compile Include="FuncionarioMODEL.cs" />
     <Compile Include="PessoaModel.cs" />
     <Compile Include="ProdutosModel.cs" />
+    <Compile Include="ServicoMODAL.cs" />
+    <Compile Include="UsuarioMODEL.cs" />
     <Compile Include="VendaItensModel.cs" />
     <Compile Include="VendaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

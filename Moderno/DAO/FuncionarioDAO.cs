@@ -168,8 +168,8 @@ namespace DAO
                 da.SelectCommand = conn;
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                funcionario.Cargo.DataSource = dt;
-                funcionario.Cargo.DisplayMember = "cargo";
+               // funcionario.Cargo.DataSource = dt;
+               //uncionario.Cargo.DisplayMember = "cargo";
                 con.FecharConexao();
             }
             catch (Exception ex )

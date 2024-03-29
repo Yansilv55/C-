@@ -63,7 +63,6 @@ namespace Moderno.Produtos
         private void Listar_grid()
         {
             ProdutoDAO produtoDAO = new ProdutoDAO();
-
             grid.DataSource = produtoDAO.ListarProdutos();
         }
         private void Verificar_campo()

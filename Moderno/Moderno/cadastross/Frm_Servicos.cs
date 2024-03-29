@@ -9,17 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MODEL;
 
 namespace Moderno.cadastross
 {
     public partial class Frm_Servicos : Form
     {
-        Conexao con = new Conexao();
-        string sql;
-        MySqlCommand conn;
         private bool campoClicado = false;
 
-        string id;
+        string servico_id;
         public Frm_Servicos()
         {
             InitializeComponent(); 
@@ -36,26 +34,17 @@ namespace Moderno.cadastross
         }
         private void FormatarGD()
         {
-            grid.Columns[0].HeaderText = "ID";
+            grid.Columns[0].HeaderText = "Serviço_ID";
             grid.Columns[1].HeaderText = "Serviço";
             grid.Columns[2].HeaderText = "Valor";
-            grid.Columns[3].HeaderText = "Ativado";
             grid.Columns[2].DefaultCellStyle.Format = "C2";
             //grid.Columns[6].Width = 50;
             grid.Columns[0].Visible = false;
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM servicos ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-            FormatarGD();
+            ServicoDAO servicoDAO = new ServicoDAO();
+            grid.DataSource = servicoDAO.ListarServicos();
         }
         private void HabilitarCampos()
         {
@@ -67,7 +56,6 @@ namespace Moderno.cadastross
         {
             txt_Nome.Enabled = false;
             txt_Valor.Enabled = false;
-            cb_Ativo.Enabled = false;
         }
         private void LimparCampos()
         {
@@ -82,13 +70,17 @@ namespace Moderno.cadastross
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             btn_Salvar.Enabled = true;
-            cb_Ativo.Enabled = true;
             btn_Novo.Enabled = false;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
             HabilitarCampos();
             LimparCampos();
             Listar();
+        }
+        private void SalvarRigistro(ServicoMODAL servico)
+        {
+            ServicoDAO servicoDAO = new ServicoDAO();
+            servicoDAO.Salvar_servico(servico);
         }
 
         private void btn_Salvar_Click(object sender, EventArgs e)
@@ -104,29 +96,23 @@ namespace Moderno.cadastross
                 return;
             }
 
-            //botao salvar
-            con.AbrirConexao();
-            sql = "INSERT INTO servicos(nome, valor, ativo) VALUES(@nome, @valor, @ativo)";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-            conn.Parameters.AddWithValue("@valor", txt_Valor.Text.Replace(",", "."));
-            if (cb_Ativo.Checked == true)
-            {
-                conn.Parameters.AddWithValue("@ativo", "Sim");
-            }
-            if (cb_Ativo.Checked == false)
-            {
-                conn.Parameters.AddWithValue("@ativo", "Não");
-            }
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            ServicoMODAL servicoMODAL = new ServicoMODAL();
+            SalvarRigistro(servicoMODAL);
+            servicoMODAL.Nome = txt_Nome.Text;
+            servicoMODAL.Valor = decimal.Parse(txt_Valor.Text);
+
+            
             btn_Novo.Enabled = true;
-            cb_Ativo.Enabled = false;
             btn_Salvar.Enabled = false;
             DesabilitarCampos();
             LimparCampos();
             Listar();
             MessageBox.Show("Registro Salvo com sucesso!", "Cadastro Serviço", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void EditarRegistro(ServicoMODAL servico)
+        {
+            ServicoDAO servicoDAO = new ServicoDAO();
+            servicoDAO.Editar_servico(servico);
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
@@ -147,25 +133,11 @@ namespace Moderno.cadastross
             }
 
             //botao editar
-            con.AbrirConexao();
-            sql = "UPDATE servicos SET nome = @nome, valor = @valor, ativo = @ativo WHERE id = @id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@id", id);
-            conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-            conn.Parameters.AddWithValue("@valor", txt_Valor.Text.Replace(",", "."));
-            if (cb_Ativo.Checked == true)
-            {
-                conn.Parameters.AddWithValue("@ativo", "Sim");
-            }
-            if (cb_Ativo.Checked == false)
-            {
-                conn.Parameters.AddWithValue("@ativo", "Não");
-            }
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
-
+            ServicoMODAL servicoMODAL = new ServicoMODAL();
+            EditarRegistro(servicoMODAL);
+            servicoMODAL.Nome = txt_Nome.Text;
+            servicoMODAL.Valor = decimal.Parse(txt_Valor.Text);
             btn_Novo.Enabled = true;
-            cb_Ativo.Enabled = false;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
             DesabilitarCampos();
@@ -181,41 +153,32 @@ namespace Moderno.cadastross
                 campoClicado = true;
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
-                cb_Ativo.Enabled = true;
                 btn_Salvar.Enabled = false;
                 HabilitarCampos();
 
-                id = grid.CurrentRow.Cells[0].Value.ToString();
+                servico_id = grid.CurrentRow.Cells[0].Value.ToString();
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txt_Valor.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                if (grid.CurrentRow.Cells[3].Value.ToString() == "Sim")
-                {
-                    cb_Ativo.Checked = true;
-                }
-                else
-                {
-                    cb_Ativo.Checked = false;
-                    campoClicado = false;
-                }
             }
             else
             {
                 return;
             }
         }
-
+        private void ExcluirRegistro(ServicoMODAL servico)
+        {
+            ServicoDAO servicoDAO = new ServicoDAO();
+            servicoDAO.Excluir_servico(servico);
+        }
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro serviço", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 //botao excluir
-                con.AbrirConexao();
-                sql = "DELETE FROM servicos WHERE id = @id";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                ServicoMODAL servicoMODAL = new ServicoMODAL();
+                ExcluirRegistro(servicoMODAL);
+                servicoMODAL.servico_id = int.Parse(servico_id);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
@@ -281,22 +244,6 @@ namespace Moderno.cadastross
 
             }
         }
-        private void Buscartipo()
-        {
-            con.AbrirConexao();
-            sql = "SELECT * FROM servicos WHERE ativo = @ativo ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@ativo", cb_Tipo.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
-            FormatarGD();
-
-        }
         private void txt_Valor_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_Valor);
@@ -306,19 +253,6 @@ namespace Moderno.cadastross
         {
             formatarTextNumero(sender, e);
         }
-
-        private void cb_Tipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_Tipo.SelectedIndex == 0)
-            {
-                Listar();
-            }
-            else
-            {
-                Buscartipo();
-            }
-        }
-
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             btn_Editar.Enabled = false;

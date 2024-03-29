@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using DAO;
+using MODEL;
 using MySql.Data.MySqlClient;
 
 
@@ -9,13 +10,9 @@ namespace Moderno.cadastross
 {
     public partial class Frm_Fornecedores : Form
     {
-        Conexao con = new Conexao();
-        string sql;
-        MySqlCommand conn;
-
-        string id;
-        string cnpjAntigo;
-        bool cnpj = false;
+        private string fornecedor_id;
+        private string cnpjAntigo;
+        private bool cnpj = false;
         private bool campoClicado = false;
         public Frm_Fornecedores()
         {
@@ -44,46 +41,22 @@ namespace Moderno.cadastross
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM fornecedores ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
+            FornecedorDAO FornecedorDAO = new FornecedorDAO();
+            grid.DataSource = FornecedorDAO.ListarFornecedores();
             FormatarGD();
         }
-        private void BuscarNome()
+        private void BuscarNome(FornecedorMODEL fornecedor)
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM fornecedores WHERE nome LIKE @nome ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", txt_BuscarNome.Text + "%");
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
-            FormatarGD();
+           FornecedorDAO fornecedorDAO = new FornecedorDAO();
+           fornecedorDAO.Buscar_nome(fornecedor);
+           fornecedor.BuscarNome = txt_BuscarNome.Text;
+           FormatarGD();
         }
-        private void BuscarCnpj()
+        private void BuscarCnpj(FornecedorMODEL fornecedor)
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM fornecedores WHERE cnpj = @cnpj ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cnpj", txt_BuscarCnpj.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
+            FornecedorDAO fornecedordao = new FornecedorDAO();
+            fornecedordao.Buscar_cnpj(fornecedor);
+            fornecedor.BuscarCnpj = int.Parse(txt_BuscarCnpj.Text);
             FormatarGD();
         }
         private void HabilitarCampos()
@@ -142,8 +115,7 @@ namespace Moderno.cadastross
             btn_Excluir.Enabled = false;
             Listar();
         }
-
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private void VerificarCampo()
         {
             if (txt_Nome.Text.ToString().Trim() == "")
             {
@@ -158,21 +130,24 @@ namespace Moderno.cadastross
                 txt_Cnpj.Focus();
                 return;
             }
-            con.AbrirConexao();
-            sql = "INSERT INTO fornecedores(nome, cnpj, endereco, celular, vendedor) VALUES(@nome, @cnpj, @endereco, @celular, @vendedor)";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-            conn.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
-            conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-            conn.Parameters.AddWithValue("@celular", txt_Celular.Text);
-            conn.Parameters.AddWithValue("@vendedor", txt_Vendedor.Text);
-            Verificar();
-
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
-
+        }
+        private void SalvarRegistro(FornecedorMODEL fornecedor)
+        {
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
+            fornecedorDAO.Salvar_fornecedor(fornecedor);
+        }
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+            VerificarCampo();
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
+            SalvarRegistro(fornecedorMODEL);
+            fornecedorMODEL.Nome = txt_Nome.Text;
+            fornecedorMODEL.Cnpj = int.Parse(txt_Cnpj.Text);
+            fornecedorMODEL.Endereco = txt_Endereco.Text;
+            fornecedorMODEL.Celular = int.Parse(txt_Celular.Text);
+            fornecedorMODEL.Vendedor = txt_Vendedor.Text;
+            Verificar(fornecedorMODEL);
             Listar();
-
             MessageBox.Show("Registro Salvo com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btn_Novo.Enabled = true;
             btn_Salvar.Enabled = false;
@@ -180,15 +155,10 @@ namespace Moderno.cadastross
             LimparCampos();
             cnpj = false;
         }
-        private void Verificar()
+        private void Verificar(FornecedorMODEL fornecedor)
         {
-            MySqlCommand connVerificar;
-            connVerificar = new MySqlCommand("SELECT * FROM fornecedores WHERE cnpj = @cnpj", con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = connVerificar;
-            connVerificar.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
+            fornecedorDAO.Verificar_fornecedor(fornecedor);
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("CPF já registrado", "Cadastro de fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -210,7 +180,7 @@ namespace Moderno.cadastross
                 HabilitarCampos();
 
                 cnpjAntigo = grid.CurrentRow.Cells[2].Value.ToString();
-                id = grid.CurrentRow.Cells[0].Value.ToString();
+                fornecedor_id = grid.CurrentRow.Cells[0].Value.ToString();
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txt_Cnpj.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 txt_Endereco.Text = grid.CurrentRow.Cells[3].Value.ToString();
@@ -222,37 +192,26 @@ namespace Moderno.cadastross
                 campoClicado = false;
             }
         }
+        private void EditarRegistro(FornecedorMODEL fornecedor)
+        {
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
+            fornecedorDAO.Editar_fornecedor(fornecedor);
+        }
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            if (txt_Nome.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Nome.Text = "";
-                txt_Nome.Focus();
-                return;
-            }
-            con.AbrirConexao();
-            sql = "UPDATE fornecedores SET nome = @nome, cnpj = @cnpj, endereco = @endereco, celular = @celular, vendedor = @vendedor where id = @id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@id", id);
-            conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-            conn.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
-            conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-            conn.Parameters.AddWithValue("@celular", txt_Celular.Text);
-            conn.Parameters.AddWithValue("@vendedor", txt_Vendedor.Text);
-            /*try
-            {*/
-
+            VerificarCampo();
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
+            EditarRegistro(fornecedorMODEL);
+            fornecedorMODEL.Fornecedor_id = int.Parse(fornecedor_id);
+            fornecedorMODEL.Nome = txt_Nome.Text;
+            fornecedorMODEL.Cnpj = int.Parse(txt_Cnpj.Text);
+            fornecedorMODEL.Endereco = txt_Endereco.Text;
+            fornecedorMODEL.Celular = int.Parse(txt_Celular.Text);
+            fornecedorMODEL.Vendedor = txt_Vendedor.Text;
             if (txt_Cnpj.Text != cnpjAntigo)
             {
-                MySqlCommand connVerificar;
-                connVerificar = new MySqlCommand("SELECT * FROM fornecedores WHERE cnpj = @cnpj", con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = connVerificar;
-                connVerificar.Parameters.AddWithValue("@cnpj", txt_Cnpj.Text);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+               Verificar(fornecedorMODEL);
                 if (dt.Rows.Count > 0)
                 {
                     MessageBox.Show("CPF já registrado", "Cadastro de fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -263,8 +222,7 @@ namespace Moderno.cadastross
 
             }
 
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            
             Listar();
 
             MessageBox.Show("Registro Editado com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -273,24 +231,20 @@ namespace Moderno.cadastross
             btn_Excluir.Enabled = false;
             DesabilitarCampos();
             LimparCampos();
-          /*  }
-            catch (Exception)
-            {
-                MessageBox.Show("Error", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
         }
-
+        private void ExcluirRegistro(FornecedorMODEL fornecedor)
+        {
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
+            fornecedorDAO.Ecluir_fornecedor(fornecedor);
+        }
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro fornecedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                con.AbrirConexao();
-                sql = "DELETE FROM fornecedores WHERE id = @id";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                ExcluirRegistro(fornecedorMODEL);
+                fornecedorMODEL.Fornecedor_id = int.Parse(fornecedor_id);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
@@ -304,21 +258,24 @@ namespace Moderno.cadastross
 
         private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
         {
-            BuscarNome();
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
+            BuscarNome(fornecedorMODEL);
         }
         private void txt_BuscarCnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             if (txt_BuscarCnpj.Text == "  .   .   /    -")
             {
                 Listar();
             }
-            else { BuscarCnpj(); }
+            else { BuscarCnpj(fornecedorMODEL); }
         }
         private void txt_Cnpj_Leave(object sender, EventArgs e)
         {
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             if (cnpj == true)
             {
-                Verificar();
+                Verificar(fornecedorMODEL);
             }
         }
 

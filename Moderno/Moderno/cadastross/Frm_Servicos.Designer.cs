@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grid = new System.Windows.Forms.DataGridView();
             this.llll = new System.Windows.Forms.Label();
             this.txt_Nome = new System.Windows.Forms.TextBox();
@@ -42,7 +42,6 @@
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
-            this.cb_Ativo = new System.Windows.Forms.CheckBox();
             this.panelBusca = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -57,24 +56,24 @@
             // 
             // grid
             // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(43, 190);
             this.grid.Name = "grid";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.grid.Size = new System.Drawing.Size(707, 265);
             this.grid.TabIndex = 0;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
@@ -122,7 +121,6 @@
             this.cb_Tipo.Name = "cb_Tipo";
             this.cb_Tipo.Size = new System.Drawing.Size(146, 21);
             this.cb_Tipo.TabIndex = 7;
-            this.cb_Tipo.SelectedIndexChanged += new System.EventHandler(this.cb_Tipo_SelectedIndexChanged);
             // 
             // btn_Excluir
             // 
@@ -191,16 +189,6 @@
             this.btn_Salvar.TabIndex = 47;
             this.btn_Salvar.UseVisualStyleBackColor = true;
             this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
-            // 
-            // cb_Ativo
-            // 
-            this.cb_Ativo.AutoSize = true;
-            this.cb_Ativo.Location = new System.Drawing.Point(667, 64);
-            this.cb_Ativo.Name = "cb_Ativo";
-            this.cb_Ativo.Size = new System.Drawing.Size(67, 17);
-            this.cb_Ativo.TabIndex = 48;
-            this.cb_Ativo.Text = "Liberado";
-            this.cb_Ativo.UseVisualStyleBackColor = true;
             // 
             // panelBusca
             // 
@@ -300,7 +288,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.cb_Ativo);
             this.Controls.Add(this.panelBusca);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.btn_Cancelar);
@@ -336,7 +323,6 @@
         private System.Windows.Forms.Button btn_Editar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Salvar;
-        private System.Windows.Forms.CheckBox cb_Ativo;
         private System.Windows.Forms.Panel panelBusca;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTitulo;
