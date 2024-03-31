@@ -119,7 +119,6 @@ namespace Moderno.cadastross
                 MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_Cpf.Text = "";
                 txt_Cpf.Focus();
-                return;
             }
             try
             {

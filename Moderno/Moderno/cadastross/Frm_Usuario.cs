@@ -9,11 +9,7 @@ namespace Moderno.cadastross
 {
     public partial class Frm_Usuario : Form
     {
-        Conexao con = new Conexao();
-        string sql;
-        MySqlCommand conn;
-
-        string id;
+        string cargo_id;
         string usuarioAntigo;
         string Cargo;
         private bool campoClicado = false;
@@ -43,47 +39,22 @@ namespace Moderno.cadastross
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM usuarios ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            grid.DataSource = usuarioDAO.ListarServicos();
 
             FormatarGD();
         }
-        private void BuscarNome()
+        private void BuscarNome(UsuarioMODEL usuarioMODEL)
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM usuarios WHERE nome LIKE @nome ORDER BY nome asc"; 
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", txt_BuscarNome.Text + "%");
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Buscar_nome(usuarioMODEL);
             FormatarGD();
         }
 
         private void CarregarFuncionarios()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM funcionarios ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            cb_Funcionario.DataSource = dt;
-            //cbCargo.ValueMember = "id";
-            cb_Funcionario.DisplayMember = "nome";
-            con.FecharConexao();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Carregar_funcionario();
         }
 
         private void HabilitarCampos()
@@ -158,8 +129,12 @@ namespace Moderno.cadastross
             HabilitarNovo();
             Listar();
         }
-
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private void SalvarRegistro(UsuarioMODEL usuarioMODEL)
+        {
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Salvar_usuario(usuarioMODEL);
+        }
+        private void VerificarCampo()
         {
             if (txt_Usuario.Text.Trim() == "")
             {
@@ -181,24 +156,22 @@ namespace Moderno.cadastross
                 MessageBox.Show("Preencher selecionar um Cargo !!", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+        }
 
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+            
+            VerificarCampo();
             //botao salvar
-            con.AbrirConexao();
-            sql = "INSERT INTO usuarios(nome, usuario, senha, cargo, data) VALUES(@nome, @usuario, @senha, @cargo, curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", cb_Funcionario.Text);
-            conn.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
-            conn.Parameters.AddWithValue("@senha", txt_Senha.Text);
-            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
-
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            SalvarRegistro(usuarioMODEL);
+            usuarioMODEL.Nome = cb_Funcionario.Text;
+            usuarioMODEL.Usuario = txt_Usuario.Text;
+            usuarioMODEL.Senha = int.Parse(txt_Senha.Text);
+            usuarioMODEL.Cargo = txt_Cargo.Text;
             //Verificar se usuario ja existe  
-            MySqlCommand cmdVerificar;
-            cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario", con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = cmdVerificar;
-            cmdVerificar.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Verificar_usuario(usuarioMODEL);
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("Usuário já cadastrado", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -206,10 +179,6 @@ namespace Moderno.cadastross
                 txt_Usuario.Focus();
                 return;
             }
-
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
-
             LimparCampos();
             Listar();
 
@@ -218,66 +187,31 @@ namespace Moderno.cadastross
             btn_Salvar.Enabled = false;
             DesabilitarCampos();
         }
+        private void EditarRegistro(UsuarioMODEL usuarioMODEL)
+        {
+            UsuarioDAO usuarioDAO= new UsuarioDAO();
+            usuarioDAO.Editar_usuario(usuarioMODEL);
+        }
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            if (cb_Funcionario.Text == "Selecione" || cb_Funcionario.Text.Trim() == "")
-            {
-                MessageBox.Show("Preencher selecionar um Funcionário !!", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (txt_Cargo.Text.Trim() == "" || txt_Cargo.Text == "Selecione")
-            {
-                MessageBox.Show("Preencher selecionar um Cargo !!", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (txt_Usuario.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo Usuário", "Cadastro usuários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Usuario.Text = "";
-                txt_Usuario.Focus();
-                return;
-            }
-            if (txt_Senha.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo senha", "Cadastro usuários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Senha.Text = "";
-                txt_Senha.Focus();
-                return;
-            }
+            VerificarCampo();
 
             //botao editar
-            con.AbrirConexao();
-            sql = "UPDATE usuarios SET nome = @nome, usuario = @usuario, senha = @senha, cargo = @cargo  where id = @id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@id", id);
-            conn.Parameters.AddWithValue("@nome", cb_Funcionario.Text);
-            conn.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
-            conn.Parameters.AddWithValue("@senha", txt_Senha.Text);
-            conn.Parameters.AddWithValue("@cargo", txt_Cargo.Text);
-
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            EditarRegistro(usuarioMODEL);
+            usuarioMODEL.cargo_id = cargo_id;
+            usuarioMODEL.Nome = cb_Funcionario.Text;
+            usuarioMODEL.Usuario = txt_Usuario.Text;
+            usuarioMODEL.Senha = int.Parse(txt_Senha.Text);
+            usuarioMODEL.Cargo = txt_Cargo.Text;
             //Verificar se cpf ja existe
             if (txt_Usuario.Text != usuarioAntigo)
             {
-                MySqlCommand cmdVerificar;
-                cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario", con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = cmdVerificar;
-                cmdVerificar.Parameters.AddWithValue("@usuario", txt_Usuario.Text);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    MessageBox.Show("Usuário já registrado", "Cadastro de usuários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    txt_Usuario.Text = "";
-                    txt_Usuario.Focus();
-                    return;
-                }
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                usuarioDAO.Verificar_usuario(usuarioMODEL);
+
             }
-
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
-
             LimparCampos();
             Listar();
 
@@ -290,7 +224,8 @@ namespace Moderno.cadastross
 
         private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
         {
-            BuscarNome();
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            BuscarNome(usuarioMODEL);
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -303,7 +238,7 @@ namespace Moderno.cadastross
                 btn_Salvar.Enabled = false;
                 HabilitarCampos();
 
-                id = grid.CurrentRow.Cells[0].Value.ToString();
+                cargo_id = grid.CurrentRow.Cells[0].Value.ToString();
                 cb_Funcionario.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txt_Usuario.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 txt_Senha.Text = grid.CurrentRow.Cells[3].Value.ToString();
@@ -317,6 +252,11 @@ namespace Moderno.cadastross
             }
 
         }
+        private void ExcluirRegistro(UsuarioMODEL usuarioMODEL)
+        {
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Excluir_usuario(usuarioMODEL);
+        }
 
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
@@ -324,12 +264,9 @@ namespace Moderno.cadastross
             if (res == DialogResult.Yes)
             {
                 //botao excluir
-                con.AbrirConexao();
-                sql = "DELETE FROM usuarios WHERE id = @id";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id", id);
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+                ExcluirRegistro(usuarioMODEL);
+                usuarioMODEL.cargo_id = cargo_id;
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
@@ -341,26 +278,16 @@ namespace Moderno.cadastross
                 Listar();
             }
         }
+        private void BuscarCargo(UsuarioMODEL usuarioMODEL)
+        {
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Buscar_cargo(usuarioMODEL);
+        }
 
         private void cb_Funcionario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlCommand connVerificar;
-            MySqlDataReader reader;
-            con.AbrirConexao();
-            connVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE nome = @nome", con.con);
-            connVerificar.Parameters.AddWithValue("@nome", cb_Funcionario.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = connVerificar;
-            reader = connVerificar.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    Cargo = Convert.ToString(reader["cargo"]);           
-                }
-                txt_Cargo.Text = Cargo;
-            }
-            con.FecharConexao();
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            BuscarNome(usuarioMODEL);
         }
 
         private void cb_Funcionario_KeyPress(object sender, KeyPressEventArgs e)

@@ -65,12 +65,10 @@
             this.lbl_Dinheiro = new System.Windows.Forms.Label();
             this.lbl_Pix = new System.Windows.Forms.Label();
             this.lbl_SaldoEmConta = new System.Windows.Forms.Label();
-            this.txt_ParaCaixa = new System.Windows.Forms.Label();
             this.btn_Conta = new System.Windows.Forms.Button();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.lbl_TransRecebidaNoCaixa = new System.Windows.Forms.Label();
             this.lbl_TransRecebidaNaConta = new System.Windows.Forms.Label();
-            this.lbl_TransRRRecebidaNaConta = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -123,7 +121,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.txt_Desconto = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panel2.SuspendLayout();
@@ -472,15 +469,6 @@
             this.lbl_SaldoEmConta.TabIndex = 29;
             this.lbl_SaldoEmConta.Text = "label1";
             // 
-            // txt_ParaCaixa
-            // 
-            this.txt_ParaCaixa.AutoSize = true;
-            this.txt_ParaCaixa.Location = new System.Drawing.Point(146, 334);
-            this.txt_ParaCaixa.Name = "txt_ParaCaixa";
-            this.txt_ParaCaixa.Size = new System.Drawing.Size(35, 13);
-            this.txt_ParaCaixa.TabIndex = 30;
-            this.txt_ParaCaixa.Text = "label1";
-            // 
             // btn_Conta
             // 
             this.btn_Conta.Location = new System.Drawing.Point(328, 133);
@@ -518,15 +506,6 @@
             this.lbl_TransRecebidaNaConta.Size = new System.Drawing.Size(35, 13);
             this.lbl_TransRecebidaNaConta.TabIndex = 34;
             this.lbl_TransRecebidaNaConta.Text = "label1";
-            // 
-            // lbl_TransRRRecebidaNaConta
-            // 
-            this.lbl_TransRRRecebidaNaConta.AutoSize = true;
-            this.lbl_TransRRRecebidaNaConta.Location = new System.Drawing.Point(38, 387);
-            this.lbl_TransRRRecebidaNaConta.Name = "lbl_TransRRRecebidaNaConta";
-            this.lbl_TransRRRecebidaNaConta.Size = new System.Drawing.Size(35, 13);
-            this.lbl_TransRRRecebidaNaConta.TabIndex = 35;
-            this.lbl_TransRRRecebidaNaConta.Text = "label1";
             // 
             // label5
             // 
@@ -913,7 +892,6 @@
             this.label20.Size = new System.Drawing.Size(34, 13);
             this.label20.TabIndex = 47;
             this.label20.Text = "Saldo";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // panel11
             // 
@@ -966,7 +944,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(388, 162);
             this.panel12.TabIndex = 51;
-            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
             // txtParaCaixa
             // 
@@ -1057,15 +1034,6 @@
             this.panel15.Size = new System.Drawing.Size(329, 159);
             this.panel15.TabIndex = 54;
             // 
-            // txt_Desconto
-            // 
-            this.txt_Desconto.Location = new System.Drawing.Point(579, 392);
-            this.txt_Desconto.Name = "txt_Desconto";
-            this.txt_Desconto.Size = new System.Drawing.Size(100, 20);
-            this.txt_Desconto.TabIndex = 61;
-            this.txt_Desconto.TextChanged += new System.EventHandler(this.txt_Desconto_TextChanged);
-            this.txt_Desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Desconto_KeyPress);
-            // 
             // Frm_Caixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1073,15 +1041,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(1186, 661);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.lbl_TransRRRecebidaNaConta);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.txt_Desconto);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.btn_Limpar);
-            this.Controls.Add(this.txt_ParaCaixa);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Caixa";
@@ -1126,7 +1091,6 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1162,12 +1126,10 @@
         private System.Windows.Forms.Label lbl_Dinheiro;
         private System.Windows.Forms.Label lbl_Pix;
         private System.Windows.Forms.Label lbl_SaldoEmConta;
-        private System.Windows.Forms.Label txt_ParaCaixa;
         private System.Windows.Forms.Button btn_Conta;
         private System.Windows.Forms.Button btn_Limpar;
         private System.Windows.Forms.Label lbl_TransRecebidaNoCaixa;
         private System.Windows.Forms.Label lbl_TransRecebidaNaConta;
-        private System.Windows.Forms.Label lbl_TransRRRecebidaNaConta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1217,7 +1179,6 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txt_Desconto;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label22;

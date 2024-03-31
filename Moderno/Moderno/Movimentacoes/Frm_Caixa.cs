@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MODEL;
 
 namespace Moderno.Movimentacoes
 {
@@ -84,16 +85,8 @@ namespace Moderno.Movimentacoes
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM caixa ORDER BY data desc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
-            FormatarGD();
+            CaixaDAO caixaDAO = new CaixaDAO();
+            grid.DataSource = caixaDAO.ListarCaixa(); 
         }
         private void LimparCampos()
         {
@@ -105,20 +98,12 @@ namespace Moderno.Movimentacoes
             txt_Taxa.Enabled = false;
             cb_FormaPagto.SelectedIndex = 0;
         }
-        private void BuscarData()
+        private void BuscarData(CaixaMODEL caixaMODEL)
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM caixa WHERE data>=@dataInicial AND data<=@dataFinal AND tipo=@tipo ORDER BY data DESC ";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@dataInicial", Convert.ToDateTime(dt_Inicial.Text));
-            conn.Parameters.AddWithValue("@dataFinal", Convert.ToDateTime(dt_Final.Text));
-            conn.Parameters.AddWithValue("@tipo", cb_Tipo.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
+            CaixaDAO caixaDAO = new CaixaDAO();
+            caixaDAO.Buscar_data(caixaMODEL);
+            caixaMODEL.Data_inicial = DateTime.Parse(dt_Inicial);
+            caixaMODEL.Data_inicial = DateTime.Parse(dt_Final);
             FormatarGD();
         }
         private void BuscarTipo()
@@ -422,7 +407,6 @@ namespace Moderno.Movimentacoes
 
         private void btn_Limpar_Click(object sender, EventArgs e)
         {
-            txt_ParaCaixa.Text = "0";
             txt_ParaConta.Text = "0";
         }
 
@@ -555,16 +539,6 @@ namespace Moderno.Movimentacoes
         private void dt_Final_ValueChanged(object sender, EventArgs e)
         {
             BuscarTipo();
-        }
-
-        private void panel12_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
