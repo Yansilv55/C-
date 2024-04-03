@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MODEL;
 using MySql.Data.MySqlClient;
 
@@ -58,24 +59,43 @@ namespace DAO
 
                 throw new Exception("Erro a Salvar arquivo", ex);            }
         }
-        public void Verificar_cpf(FuncionarioMODEL funcionario)
+        public bool Verificar_cpf(FuncionarioMODEL funcionario)
         {
             try
             {
-            con.AbrirConexao();
-            sql = @"SELECT * FROM funcionario WHERE cpf = @cpf";
-            MySqlCommand connVerificar;
-            connVerificar = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = connVerificar;
-            connVerificar.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.FecharConexao();
+                con.AbrirConexao();
+                sql = @"SELECT * FROM funcionario WHERE cpf = @cpf";
+                MySqlCommand connVerificar;
+                connVerificar = new MySqlCommand(sql, con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = connVerificar;
+                connVerificar.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                con.FecharConexao();
+
+                return dt.Rows.Count > 0; 
             }
             catch (Exception ex)
             {
-
+                throw new Exception("Erro ao verificar", ex);
+            }
+        }
+        public bool Verificar_celular(FuncionarioMODEL funcionario)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = "SELECT COUNT(*) FROM funcionario WHERE telefone = @telefone";
+                conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@telefone", funcionario.Celular);
+                int count = Convert.ToInt32(conn.ExecuteScalar());
+                con.FecharConexao();
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
                 throw new Exception("Erro ao verificar", ex);
             }
         }
@@ -119,22 +139,6 @@ namespace DAO
             {
 
                 throw new Exception("Erro ao Buscar", ex);
-            }
-        }
-        public void Verificar_celular(FuncionarioMODEL funcionario)
-        {
-            try
-            {
-                con.AbrirConexao();
-                sql = "SELECT COUNT(*) FROM funcionario WHERE telefone = @telefone";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@telefone", funcionario.Celular);
-                int count = Convert.ToInt32(conn.ExecuteScalar());
-                con.FecharConexao();
-            }
-            catch (Exception ex )
-            {
-                throw new Exception("Erro ao verificar", ex);
             }
         }
         public List<FuncionarioMODEL> ListarFuncionario()

@@ -107,36 +107,37 @@ namespace Moderno.cadastross
         {
             VerificarCampo();
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
-            SalvarRegistro(funcionario);
             funcionario.Nome = txt_Nome.Text;
             funcionario.Cpf = int.Parse(txt_Cpf.Text);
             funcionario.Celular = int.Parse(txt_Celular.Text);
             funcionario.Cargo = cb_Cargo.Text;
             funcionario.Endereco = txt_Endereco.Text;
-            VerificarRegistro(funcionario);
-            if (dt.Rows.Count > 0)
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            if (funcionarioDAO.Verificar_cpf(funcionario))
             {
                 MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_Cpf.Text = "";
                 txt_Cpf.Focus();
+                return;
             }
             try
             {
-            MessageBox.Show("Registro Salvo com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SalvarRegistro(funcionario);
+                MessageBox.Show("Registro Salvo com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            btn_Novo.Enabled = true;
-            btn_Salvar.Enabled = false;
-            btn_Editar.Enabled = false;
-            btn_Excluir.Enabled = false;
-            LimparCampos();
-            Listar();
-           
-            FuncionarioDAO funcionariodao = new FuncionarioDAO();
-            funcionariodao.AtualizarLinhas();
+                btn_Novo.Enabled = true;
+                btn_Salvar.Enabled = false;
+                btn_Editar.Enabled = false;
+                btn_Excluir.Enabled = false;
+                LimparCampos();
+                Listar();
 
-            DesabilitarCampos();
+                FuncionarioDAO funcionariodao = new FuncionarioDAO();
+                funcionariodao.AtualizarLinhas();
+
+                DesabilitarCampos();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -225,12 +226,12 @@ namespace Moderno.cadastross
             funcionario.Cargo = cb_Cargo.Text;
             funcionario.Endereco = txt_Endereco.Text;
             funcionario.funcionario_id = int.Parse(funcionario_id);
-            
-            
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+
             if (txt_Cpf.Text != cpfAntigo)
             {
                 VerificarRegistro(funcionario);
-                if (dt.Rows.Count > 0)
+                if (funcionarioDAO.Verificar_cpf(funcionario))
                 {
                     MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Cpf.Text = "";
@@ -241,7 +242,7 @@ namespace Moderno.cadastross
             if (txt_Celular.Text != celAntigo)
             {
                 CelularJaCadastrado(funcionario);
-                if (dt.Rows.Count > 0)
+                if (funcionarioDAO.Verificar_celular(funcionario))
                 {
                     MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Celular.Text = "";

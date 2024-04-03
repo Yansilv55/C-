@@ -102,8 +102,8 @@ namespace Moderno.Movimentacoes
         {
             CaixaDAO caixaDAO = new CaixaDAO();
             caixaDAO.Buscar_data(caixaMODEL);
-            caixaMODEL.Data_inicial = DateTime.Parse(dt_Inicial);
-            caixaMODEL.Data_inicial = DateTime.Parse(dt_Final);
+            caixaMODEL.Data_inicial = dt_Inicial;
+            caixaMODEL.Data_inicial = dt_Final;
             FormatarGD();
         }
         private void BuscarTipo()
@@ -149,8 +149,7 @@ namespace Moderno.Movimentacoes
                 return;
             }
         }
-
-        private void btn_Add_Click(object sender, EventArgs e)
+        private void Verificarcampo()
         {
             if (txt_Entrada.Text.ToString().Trim() == "" || txt_Entrada.Text == "0" || txt_Entrada.Text == "0,00")
             {
@@ -164,7 +163,9 @@ namespace Moderno.Movimentacoes
                 txt_Descricao.Focus();
                 return;
             }
-
+        }
+        private void VerificarForPagamento()
+        {
             if (cb_FormaPagto.Text == "Dinheiro")
             {
                 pagtoD = Convert.ToDouble(txt_Entrada.Text);
@@ -183,6 +184,11 @@ namespace Moderno.Movimentacoes
                 pagtoD = 0;
                 pagtoP = 0;
             }
+        }
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            Verificarcampo();
+            VerificarForPagamento();
             try
             {
                 con.AbrirConexao();
