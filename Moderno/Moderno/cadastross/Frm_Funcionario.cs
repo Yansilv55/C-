@@ -39,17 +39,18 @@ namespace Moderno.cadastross
             cb_Cargo.Text = "Selecione o Cargo";
             txt_Celular.Text = "(00) 0 0000-0000";
         }
-
-        private void BuscarNome(FuncionarioMODEL Funcionario)
+        //------------------------------------------------------------------------------
+        private void BuscarNome(FuncionarioMODEL Funcionario, DataGridView grid)
         {
             FuncionarioDAO funcionario = new FuncionarioDAO();
-            funcionario.Buscar_nome(Funcionario);
+            funcionario.Buscar_nome(Funcionario, grid);
             FormatarGD();
         }
-        private void BuscarCpf(FuncionarioMODEL Funcionario)
+        //------------------------------------------------------------------------------
+        private void BuscarCpf(FuncionarioMODEL Funcionario, DataGridView grid)
         {
             FuncionarioDAO funcionario = new FuncionarioDAO();
-            funcionario.Buscar_cpf(Funcionario);
+            funcionario.Buscar_cpf(Funcionario, grid);
             FormatarGD();
         }
 
@@ -101,7 +102,7 @@ namespace Moderno.cadastross
         private void VerificarRegistro(FuncionarioMODEL funcionario)
         {
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            funcionarioDAO.Verificar_cpf(funcionario);
+            funcionarioDAO.VerificarDuplicidadeCPF(funcionario);
         }
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
@@ -113,14 +114,14 @@ namespace Moderno.cadastross
             funcionario.Cargo = cb_Cargo.Text;
             funcionario.Endereco = txt_Endereco.Text;
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            if (funcionarioDAO.Verificar_cpf(funcionario))
+            if (funcionarioDAO.VerificarDuplicidadeCPF(funcionario))
             {
                 MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_Cpf.Text = "";
                 txt_Cpf.Focus();
                 return;
             }
-            try
+            try 
             {
                 SalvarRegistro(funcionario);
                 MessageBox.Show("Registro Salvo com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -146,7 +147,7 @@ namespace Moderno.cadastross
         private void CelularJaCadastrado(FuncionarioMODEL Funcionario)
         {
             FuncionarioDAO funcionario = new FuncionarioDAO();
-            funcionario.Verificar_celular(Funcionario);
+            funcionario.VerificarDuplicidadeCelular(Funcionario);
         }
         private void FormatarGD()
         {
@@ -204,7 +205,7 @@ namespace Moderno.cadastross
             cb_Cargo.Enabled = false;
         }
 
-        private void Carregar_Campos(FuncionarioMODEL Funcionario)
+        private void Carregar_Campo(FuncionarioMODEL Funcionario)
         {
            FuncionarioDAO funcionario = new FuncionarioDAO();
            funcionario.Carregar_campo(Funcionario);
@@ -231,7 +232,7 @@ namespace Moderno.cadastross
             if (txt_Cpf.Text != cpfAntigo)
             {
                 VerificarRegistro(funcionario);
-                if (funcionarioDAO.Verificar_cpf(funcionario))
+                if (funcionarioDAO.VerificarDuplicidadeCPF(funcionario))
                 {
                     MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Cpf.Text = "";
@@ -242,7 +243,7 @@ namespace Moderno.cadastross
             if (txt_Celular.Text != celAntigo)
             {
                 CelularJaCadastrado(funcionario);
-                if (funcionarioDAO.Verificar_celular(funcionario))
+                if (funcionarioDAO.VerificarDuplicidadeCelular(funcionario))
                 {
                     MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Celular.Text = "";
@@ -406,7 +407,7 @@ namespace Moderno.cadastross
             FuncionarioMODEL model = new FuncionarioMODEL();
             this.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
-            Carregar_Campos(model);
+            Carregar_Campo(model);
         }
 
         private void lb_Nome_KeyDown(object sender, KeyEventArgs e)

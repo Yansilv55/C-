@@ -16,7 +16,6 @@ namespace DAO
         string sql = string.Empty;
         MySqlCommand conn;
         string funcionario_id;
-        private object grid;
 
         public void Salvar_funcionario(FuncionarioMODEL funcionario)
         {
@@ -59,7 +58,7 @@ namespace DAO
 
                 throw new Exception("Erro a Salvar arquivo", ex);            }
         }
-        public bool Verificar_cpf(FuncionarioMODEL funcionario)
+       /* public void Verificar_cpf(FuncionarioMODEL funcionario)
         {
             try
             {
@@ -74,24 +73,42 @@ namespace DAO
                 da.Fill(dt);
 
                 con.FecharConexao();
-
-                return dt.Rows.Count > 0; 
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao verificar", ex);
             }
-        }
-        public bool Verificar_celular(FuncionarioMODEL funcionario)
+        }*/
+        public bool VerificarDuplicidadeCPF(FuncionarioMODEL funcionario)
         {
             try
             {
                 con.AbrirConexao();
-                sql = "SELECT COUNT(*) FROM funcionario WHERE telefone = @telefone";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@telefone", funcionario.Celular);
-                int count = Convert.ToInt32(conn.ExecuteScalar());
-                con.FecharConexao();
+                string sql = @"SELECT COUNT(*) FROM funcionario WHERE cpf = @cpf";
+                MySqlCommand connVerificar = new MySqlCommand(sql, con.con);
+                connVerificar.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+
+                int count = Convert.ToInt32(connVerificar.ExecuteScalar());
+
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Erro ao verificar", ex);
+            }
+        }
+        public bool VerificarDuplicidadeCelular(FuncionarioMODEL funcionario)
+        {
+            try
+            {
+                con.AbrirConexao();
+                string sql = @"SELECT COUNT(*) FROM funcionario WHERE telefone = @telefone";
+                MySqlCommand command = new MySqlCommand(sql, con.con);
+                command.Parameters.AddWithValue("@telefone", funcionario.Celular);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
                 return count > 0;
             }
             catch (Exception ex)
@@ -99,7 +116,8 @@ namespace DAO
                 throw new Exception("Erro ao verificar", ex);
             }
         }
-        public void Buscar_nome(FuncionarioMODEL funcionario)
+        //----------------------------------------------------------------------------------------
+        public void Buscar_nome(FuncionarioMODEL funcionario, DataGridView grid)
         {
             try
             {
@@ -120,7 +138,8 @@ namespace DAO
                 throw new Exception("Erro ao Buscar", ex);
             }
         }
-        public void Buscar_cpf(FuncionarioMODEL funcionario)
+        //------------------------------------------------------------------------------------------
+        public void Buscar_cpf(FuncionarioMODEL funcionario, DataGridView grid)
         {
             try
             {
@@ -172,8 +191,9 @@ namespace DAO
                 da.SelectCommand = conn;
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-               // funcionario.Cargo.DataSource = dt;
-               //uncionario.Cargo.DisplayMember = "cargo";
+                //------------------------------------------------------------------------
+                //txt_Cargo.DataSource = dt;
+                //txt_Cargo.DisplayMember = "cargo";
                 con.FecharConexao();
             }
             catch (Exception ex )

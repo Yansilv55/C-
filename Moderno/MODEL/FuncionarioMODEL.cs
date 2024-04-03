@@ -16,6 +16,5 @@ namespace MODEL
         public string BuscarNome { get; set; }
         public int BuscarCpf { get; set; }
         public int Celular { get; set; }
-        public string img { get; set; }
     }
 }
