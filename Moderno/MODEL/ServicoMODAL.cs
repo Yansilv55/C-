@@ -8,8 +8,8 @@ namespace MODEL
 {
     public class ServicoMODAL
     {
-        public string Nome {  get; set; }
         public int servico_id {  get; set; }
-        public decimal Valor {  get; set; }
+        public string nome {  get; set; }
+        public decimal valor {  get; set; }
     }
 }

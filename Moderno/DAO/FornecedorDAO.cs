@@ -14,6 +14,7 @@ namespace DAO
         Conexao con = new Conexao();
         string sql;
         MySqlCommand conn;
+
         public List<FornecedorMODEL> ListarFornecedores()
         {
             List<FornecedorMODEL> fornecedores = new List<FornecedorMODEL>();
@@ -26,8 +27,13 @@ namespace DAO
                 while (reader.Read())
                 {
                     FornecedorMODEL fornecedor = new FornecedorMODEL();
-                    fornecedor.Fornecedor_id = reader.GetInt32("fornecedor_id");
-                    fornecedor.Nome = reader.GetString("nome");
+                    fornecedor.fornecedor_id = reader.GetInt32("fornecedor_id");
+                    fornecedor.nome = reader.GetString("nome");
+                    fornecedor.cnpj = reader.GetString("cnpj");
+                    fornecedor.endereco = reader.GetString("endereco");
+                    fornecedor.celular = reader.GetString("celular");
+                    fornecedor.vendedor = reader.GetString("vendedor");
+                    //fornecedor.data = reader.GetString("data");
 
                     fornecedores.Add(fornecedor);
                 }
@@ -36,42 +42,56 @@ namespace DAO
             con.FecharConexao();
             return fornecedores;
         }
-        public void Buscar_nome(FornecedorMODEL fornecedor)
+        public List<FornecedorMODEL> Buscar_nome()
         {
+            List<FornecedorMODEL> Fornecedores = new List<FornecedorMODEL>();
+
             con.AbrirConexao();
-            sql = "SELECT * FROM fornecedore WHERE nome LIKE @nome ORDER BY nome asc";
+            sql = "SELECT * FROM fornecedor WHERE nome LIKE @nome ORDER BY nome asc";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", fornecedor.BuscarNome + "%");
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
+
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    FornecedorMODEL Fornecedor = new FornecedorMODEL();
+                    Fornecedor.buscarNome = reader.GetString("nome");
+
+                    Fornecedores.Add(Fornecedor);
+                }
+            }
+            return Fornecedores;
         }
-        public void Buscar_cnpj(FornecedorMODEL fornecedor)
+        public List<FornecedorMODEL> Buscar_cnpj()
         {
+            List<FornecedorMODEL> Fornecedores = new List<FornecedorMODEL>();
+
             con.AbrirConexao();
-            sql = "SELECT * FROM fornecedore WHERE cnpj = @cnpj ORDER BY nome asc";
+            sql = "SELECT * FROM fornecedor WHERE cnpj = @cnpj ORDER BY nome asc";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cnpj", fornecedor.BuscarCnpj);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
+
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    FornecedorMODEL Fornecedor = new FornecedorMODEL();
+                    Fornecedor.buscarCnpj = reader.GetInt32("cnpj");
+
+                    Fornecedores.Add(Fornecedor);
+                }
+            }
+            return Fornecedores;
         }
         public void Salvar_fornecedor(FornecedorMODEL fornecedor)
         {
             con.AbrirConexao();
-            sql = "INSERT INTO fornecedore(nome, cnpj, endereco, celular, vendedor) VALUES(@nome, @cnpj, @endereco, @celular, @vendedor)";
+            sql = "INSERT INTO fornecedor(nome, cnpj, endereco, celular, vendedor) VALUES(@nome, @cnpj, @endereco, @celular, @vendedor)";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", fornecedor.Nome);
-            conn.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
-            conn.Parameters.AddWithValue("@endereco", fornecedor.Endereco);
-            conn.Parameters.AddWithValue("@celular", fornecedor.Celular);
-            conn.Parameters.AddWithValue("@vendedor", fornecedor.Vendedor);
+            conn.Parameters.AddWithValue("@nome", fornecedor.nome);
+            conn.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
+            conn.Parameters.AddWithValue("@endereco", fornecedor.endereco);
+            conn.Parameters.AddWithValue("@celular", fornecedor.celular);
+            conn.Parameters.AddWithValue("@vendedor", fornecedor.vendedor);
             conn.ExecuteNonQuery();
             con.FecharConexao();
         }
@@ -79,10 +99,10 @@ namespace DAO
         {
             con.AbrirConexao();
             MySqlCommand connVerificar;
-            connVerificar = new MySqlCommand("SELECT * FROM fornecedore WHERE cnpj = @cnpj", con.con);
+            connVerificar = new MySqlCommand("SELECT * FROM fornecedor WHERE cnpj = @cnpj", con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = connVerificar;
-            connVerificar.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
+            connVerificar.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
             DataTable dt = new DataTable();
             da.Fill(dt);
             con.FecharConexao();
@@ -90,23 +110,23 @@ namespace DAO
         public void Editar_fornecedor(FornecedorMODEL fornecedor)
         {
             con.AbrirConexao();
-            sql = "UPDATE fornecedore SET nome = @nome, cnpj = @cnpj, endereco = @endereco, celular = @celular, vendedor = @vendedor where id = @id";
+            sql = "UPDATE fornecedor SET nome = @nome, cnpj = @cnpj, endereco = @endereco, celular = @celular, vendedor = @vendedor where fornecedor_id = @fornecedor_id";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@fornecedor_id", fornecedor.Fornecedor_id);
-            conn.Parameters.AddWithValue("@nome", fornecedor.Nome);
-            conn.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
-            conn.Parameters.AddWithValue("@endereco", fornecedor.Endereco);
-            conn.Parameters.AddWithValue("@celular", fornecedor.Celular);
-            conn.Parameters.AddWithValue("@vendedor", fornecedor.Vendedor);
+            conn.Parameters.AddWithValue("@fornecedor_id", fornecedor.fornecedor_id);
+            conn.Parameters.AddWithValue("@nome", fornecedor.nome);
+            conn.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
+            conn.Parameters.AddWithValue("@endereco", fornecedor.endereco);
+            conn.Parameters.AddWithValue("@celular", fornecedor.celular);
+            conn.Parameters.AddWithValue("@vendedor", fornecedor.vendedor);
             conn.ExecuteNonQuery();
             con.FecharConexao();
         }
         public void Ecluir_fornecedor(FornecedorMODEL fornecedor)
         {
             con.AbrirConexao();
-            sql = "DELETE FROM fornecedore WHERE fornecedor_id = @fornecedor_id";
+            sql = "DELETE FROM fornecedor WHERE fornecedor_id = @fornecedor_id";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@fornecedor_id", fornecedor.Fornecedor_id);
+            conn.Parameters.AddWithValue("@fornecedor_id", fornecedor.fornecedor_id);
             conn.ExecuteNonQuery();
             con.FecharConexao();
         }

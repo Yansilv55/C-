@@ -16,8 +16,7 @@ namespace Moderno.cadastross
     public partial class Frm_Servicos : Form
     {
         private bool campoClicado = false;
-
-        string servico_id;
+        private string servico_id;
         public Frm_Servicos()
         {
             InitializeComponent(); 
@@ -27,24 +26,20 @@ namespace Moderno.cadastross
         private void Frm_Servicos_Load(object sender, EventArgs e)
         {
             Listar();
-            if (cb_Tipo.Items.Count > 0)
-            {
-                cb_Tipo.SelectedIndex = 0;
-            }
         }
         private void FormatarGD()
         {
             grid.Columns[0].HeaderText = "Serviço_ID";
-            grid.Columns[1].HeaderText = "Serviço";
+            grid.Columns[1].HeaderText = "Nome";
             grid.Columns[2].HeaderText = "Valor";
             grid.Columns[2].DefaultCellStyle.Format = "C2";
-            //grid.Columns[6].Width = 50;
             grid.Columns[0].Visible = false;
         }
         private void Listar()
         {
             ServicoDAO servicoDAO = new ServicoDAO();
             grid.DataSource = servicoDAO.ListarServicos();
+            FormatarGD();
         }
         private void HabilitarCampos()
         {
@@ -61,10 +56,6 @@ namespace Moderno.cadastross
         {
             txt_Nome.Text = "";
             txt_Valor.Text = "";
-            if (cb_Tipo.Items.Count > 0)
-            {
-                cb_Tipo.SelectedIndex = 0;
-            }
         }
 
         private void btn_Novo_Click(object sender, EventArgs e)
@@ -77,13 +68,7 @@ namespace Moderno.cadastross
             LimparCampos();
             Listar();
         }
-        private void SalvarRigistro(ServicoMODAL servico)
-        {
-            ServicoDAO servicoDAO = new ServicoDAO();
-            servicoDAO.Salvar_servico(servico);
-        }
-
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private void VerificarCampo()
         {
             if (txt_Nome.Text.ToString().Trim() == "")
             {
@@ -95,13 +80,15 @@ namespace Moderno.cadastross
                 MessageBox.Show("Preencher campo valor !!", "Cadastro de Serviço", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            ServicoMODAL servicoMODAL = new ServicoMODAL();
-            SalvarRigistro(servicoMODAL);
-            servicoMODAL.Nome = txt_Nome.Text;
-            servicoMODAL.Valor = decimal.Parse(txt_Valor.Text);
-
+        }
+        private void SalvarRigistro(ServicoMODAL servico)
+        {
+            ServicoDAO servicoDAO = new ServicoDAO();
+            VerificarCampo();
             
+            servico.nome = txt_Nome.Text;
+            servico.valor = decimal.Parse(txt_Valor.Text);
+            servicoDAO.Salvar_servico(servico);
             btn_Novo.Enabled = true;
             btn_Salvar.Enabled = false;
             DesabilitarCampos();
@@ -109,34 +96,21 @@ namespace Moderno.cadastross
             Listar();
             MessageBox.Show("Registro Salvo com sucesso!", "Cadastro Serviço", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+            ServicoMODAL servicoMODAL = new ServicoMODAL();
+            SalvarRigistro(servicoMODAL);
+        }
         private void EditarRegistro(ServicoMODAL servico)
         {
             ServicoDAO servicoDAO = new ServicoDAO();
-            servicoDAO.Editar_servico(servico);
-        }
-
-        private void btn_Editar_Click(object sender, EventArgs e)
-        {
-            if (txt_Nome.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo nome do serviço", "Cadastro serviço", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Nome.Text = "";
-                txt_Nome.Focus();
-                return;
-            }
-            if (txt_Valor.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo valor do serviço", "Cadastro serviço", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Valor.Text = "";
-                txt_Valor.Focus();
-                return;
-            }
-
+            VerificarCampo();
             //botao editar
-            ServicoMODAL servicoMODAL = new ServicoMODAL();
-            EditarRegistro(servicoMODAL);
-            servicoMODAL.Nome = txt_Nome.Text;
-            servicoMODAL.Valor = decimal.Parse(txt_Valor.Text);
+           
+            servico.nome = txt_Nome.Text;
+            servico.valor = decimal.Parse(txt_Valor.Text);
+            servicoDAO.Editar_servico(servico);
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
@@ -144,6 +118,12 @@ namespace Moderno.cadastross
             LimparCampos();
             Listar();
             MessageBox.Show("Registro Editado com sucesso!", "Cadastro serviço", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            ServicoMODAL servicoMODAL = new ServicoMODAL();
+            EditarRegistro(servicoMODAL);
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -168,17 +148,13 @@ namespace Moderno.cadastross
         private void ExcluirRegistro(ServicoMODAL servico)
         {
             ServicoDAO servicoDAO = new ServicoDAO();
-            servicoDAO.Excluir_servico(servico);
-        }
-        private void btn_Excluir_Click(object sender, EventArgs e)
-        {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro serviço", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 //botao excluir
-                ServicoMODAL servicoMODAL = new ServicoMODAL();
-                ExcluirRegistro(servicoMODAL);
-                servicoMODAL.servico_id = int.Parse(servico_id);
+                
+                servico.servico_id = int.Parse(servico_id);
+                servicoDAO.Excluir_servico(servico);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
@@ -190,7 +166,11 @@ namespace Moderno.cadastross
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro serviço", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-          
+        }
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            ServicoMODAL servicoMODAL = new ServicoMODAL();
+            ExcluirRegistro(servicoMODAL);
         }
         public static void Moeda(ref TextBox txt)
         {

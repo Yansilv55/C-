@@ -8,10 +8,10 @@ namespace MODEL
 {
     public class CaixaMODEL
     {
-        public string Nome { get; set; }
-        public string Tipo { get; set; }
-        public int Data_inicial { get; set; }
-        public int Data_final { get; set; }
+        public string nome { get; set; }
+        public string tipo { get; set; }
+        public int data_inicial { get; set; }
+        public int data_final { get; set; }
         public int caixa_id { get; set; }
     }
 }

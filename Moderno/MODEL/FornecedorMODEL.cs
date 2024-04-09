@@ -8,13 +8,14 @@ namespace MODEL
 {
     public class FornecedorMODEL
     {
-        public string Nome { get; set; }
-        public string BuscarNome { get; set; }
-        public string Vendedor { get; set; }
-        public string Endereco { get; set; }
-        public int Fornecedor_id { get; set; }
-        public int BuscarCnpj { get; set; }
-        public int Celular { get; set; }
-        public int Cnpj { get; set; }
+        public int fornecedor_id { get; set; }
+        public string nome { get; set; }
+        public string cnpj { get; set; }
+        public string endereco { get; set; }
+        public string celular { get; set; }
+        public string vendedor { get; set; }
+        public string data { get; set; }
+        public string buscarNome { get; set; }
+        public int buscarCnpj { get; set; }
     }
 }

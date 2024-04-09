@@ -22,7 +22,6 @@ namespace Moderno.cadastross
 
         private void Frm_Fornecedores_Load(object sender, EventArgs e)
         {
-            rb_Nome.Checked = true;
             Listar();
             DesabilitarCampos();
         }
@@ -34,9 +33,12 @@ namespace Moderno.cadastross
             grid.Columns[3].HeaderText = "Endereço";
             grid.Columns[4].HeaderText = "celular";
             grid.Columns[5].HeaderText = "Vendedor";
-
+            //grid.Columns[6].HeaderText = "Data";
 
             grid.Columns[0].Visible = false;
+            grid.Columns[6].Visible = false;
+            grid.Columns[7].Visible = false;
+            grid.Columns[8].Visible = false;
 
         }
         private void Listar()
@@ -48,15 +50,16 @@ namespace Moderno.cadastross
         private void BuscarNome(FornecedorMODEL fornecedor)
         {
            FornecedorDAO fornecedorDAO = new FornecedorDAO();
-           fornecedorDAO.Buscar_nome(fornecedor);
-           fornecedor.BuscarNome = txt_BuscarNome.Text;
+           fornecedorDAO.Buscar_nome();
+           grid.DataSource = fornecedorDAO.Buscar_nome();
            FormatarGD();
         }
         private void BuscarCnpj(FornecedorMODEL fornecedor)
         {
             FornecedorDAO fornecedordao = new FornecedorDAO();
-            fornecedordao.Buscar_cnpj(fornecedor);
-            fornecedor.BuscarCnpj = int.Parse(txt_BuscarCnpj.Text);
+            fornecedordao.Buscar_cnpj();
+            grid.DataSource = fornecedordao.Buscar_cnpj();
+            fornecedor.buscarCnpj = int.Parse(txt_BuscarCnpj.Text);
             FormatarGD();
         }
         private void HabilitarCampos()
@@ -140,13 +143,13 @@ namespace Moderno.cadastross
         {
             VerificarCampo();
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
-            SalvarRegistro(fornecedorMODEL);
-            fornecedorMODEL.Nome = txt_Nome.Text;
-            fornecedorMODEL.Cnpj = int.Parse(txt_Cnpj.Text);
-            fornecedorMODEL.Endereco = txt_Endereco.Text;
-            fornecedorMODEL.Celular = int.Parse(txt_Celular.Text);
-            fornecedorMODEL.Vendedor = txt_Vendedor.Text;
+            fornecedorMODEL.nome = txt_Nome.Text;
+            fornecedorMODEL.cnpj = txt_Cnpj.Text;
+            fornecedorMODEL.endereco = txt_Endereco.Text;
+            fornecedorMODEL.celular = txt_Celular.Text;
+            fornecedorMODEL.vendedor = txt_Vendedor.Text;
             Verificar(fornecedorMODEL);
+            SalvarRegistro(fornecedorMODEL);
             Listar();
             MessageBox.Show("Registro Salvo com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btn_Novo.Enabled = true;
@@ -159,13 +162,6 @@ namespace Moderno.cadastross
         {
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
             fornecedorDAO.Verificar_fornecedor(fornecedor);
-            if (dt.Rows.Count > 0)
-            {
-                MessageBox.Show("CPF já registrado", "Cadastro de fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                txt_Cnpj.Text = "";
-                txt_Cnpj.Focus();
-                return;
-            }
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -194,37 +190,23 @@ namespace Moderno.cadastross
         }
         private void EditarRegistro(FornecedorMODEL fornecedor)
         {
-            FornecedorDAO fornecedorDAO = new FornecedorDAO();
-            fornecedorDAO.Editar_fornecedor(fornecedor);
-        }
-
-        private void btn_Editar_Click(object sender, EventArgs e)
-        {
             VerificarCampo();
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
-            EditarRegistro(fornecedorMODEL);
-            fornecedorMODEL.Fornecedor_id = int.Parse(fornecedor_id);
-            fornecedorMODEL.Nome = txt_Nome.Text;
-            fornecedorMODEL.Cnpj = int.Parse(txt_Cnpj.Text);
-            fornecedorMODEL.Endereco = txt_Endereco.Text;
-            fornecedorMODEL.Celular = int.Parse(txt_Celular.Text);
-            fornecedorMODEL.Vendedor = txt_Vendedor.Text;
+            fornecedorMODEL.fornecedor_id = int.Parse(fornecedor_id);
+            fornecedorMODEL.nome = txt_Nome.Text;
+            fornecedorMODEL.cnpj = txt_Cnpj.Text;
+            fornecedorMODEL.endereco = txt_Endereco.Text;
+            fornecedorMODEL.celular = txt_Celular.Text;
+            fornecedorMODEL.vendedor = txt_Vendedor.Text;
             if (txt_Cnpj.Text != cnpjAntigo)
             {
-               Verificar(fornecedorMODEL);
-                if (dt.Rows.Count > 0)
-                {
-                    MessageBox.Show("CPF já registrado", "Cadastro de fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    txt_Cnpj.Text = "";
-                    txt_Cnpj.Focus();
-                    return;
-                }
+                Verificar(fornecedorMODEL);
+               
 
             }
-
-            
+            fornecedorDAO.Editar_fornecedor(fornecedor);
             Listar();
-
             MessageBox.Show("Registro Editado com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
@@ -232,28 +214,36 @@ namespace Moderno.cadastross
             DesabilitarCampos();
             LimparCampos();
         }
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
+            EditarRegistro(fornecedorMODEL);
+        }
         private void ExcluirRegistro(FornecedorMODEL fornecedor)
         {
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
-            fornecedorDAO.Ecluir_fornecedor(fornecedor);
-        }
-        private void btn_Excluir_Click(object sender, EventArgs e)
-        {
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro fornecedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                ExcluirRegistro(fornecedorMODEL);
-                fornecedorMODEL.Fornecedor_id = int.Parse(fornecedor_id);
-                btn_Novo.Enabled = true;
-                btn_Editar.Enabled = false;
-                btn_Excluir.Enabled = false;
-                DesabilitarCampos();
-                LimparCampos();
-                Listar();
-                MessageBox.Show("Registro Excluído com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fornecedorMODEL.fornecedor_id = int.Parse(fornecedor_id);
+                    fornecedorDAO.Ecluir_fornecedor(fornecedor);  
+                    btn_Novo.Enabled = true;
+                    btn_Editar.Enabled = false;
+                    btn_Excluir.Enabled = false;
+                    DesabilitarCampos();
+                
+                    LimparCampos();
+                    Listar();
+                    MessageBox.Show("Registro Excluído com sucesso!", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+        }
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
+            ExcluirRegistro(fornecedorMODEL);
         }
 
         private void txt_BuscarNome_TextChanged(object sender, EventArgs e)

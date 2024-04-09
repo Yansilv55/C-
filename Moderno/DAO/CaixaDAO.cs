@@ -27,7 +27,7 @@ namespace DAO
                 {
                     CaixaMODEL caixa = new CaixaMODEL(); 
                     caixa.caixa_id = reader.GetInt32("caixa_id");
-                    caixa.Nome = reader.GetString("nome");
+                    caixa.nome = reader.GetString("nome");
 
                     caixas.Add(caixa); 
                 }
@@ -35,20 +35,27 @@ namespace DAO
             con.FecharConexao();
             return caixas; 
         }
-        public void Buscar_data(CaixaMODEL caixaMODEL)
+        public List<CaixaMODEL> Buscar_data()
         {
+            List<CaixaMODEL> caixas = new List<CaixaMODEL>();
+
             con.AbrirConexao();
-            sql = "SELECT * FROM caixa WHERE data>=@dataInicial AND data<=@dataFinal AND tipo=@tipo ORDER BY data DESC ";
+            sql = @"SELECT * FROM caixa WHERE data>=@dataInicial AND data<=@dataFinal AND tipo=@tipo ORDER BY data DESC ";
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@dataInicial", Convert.ToDateTime(caixaMODEL.Data_inicial));
-            conn.Parameters.AddWithValue("@dataFinal", Convert.ToDateTime(caixaMODEL.Data_final));
-            conn.Parameters.AddWithValue("@tipo", caixaMODEL.Tipo);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.FecharConexao();
+
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CaixaMODEL caixa = new CaixaMODEL();
+                    caixa.data_inicial = reader.GetInt32("dataInicial");
+                    caixa.data_final = reader.GetInt32("dataFinal");
+                    caixa.tipo = reader.GetString("tipo");
+
+                    caixas.Add(caixa);
+                }
+            }
+            return caixas;
         }
     }
 }

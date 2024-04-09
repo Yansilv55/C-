@@ -61,9 +61,9 @@
             // 
             this.cb_Funcionario.FormattingEnabled = true;
             this.cb_Funcionario.ItemHeight = 13;
-            this.cb_Funcionario.Location = new System.Drawing.Point(78, 136);
+            this.cb_Funcionario.Location = new System.Drawing.Point(78, 69);
             this.cb_Funcionario.Name = "cb_Funcionario";
-            this.cb_Funcionario.Size = new System.Drawing.Size(169, 21);
+            this.cb_Funcionario.Size = new System.Drawing.Size(309, 21);
             this.cb_Funcionario.TabIndex = 3;
             this.cb_Funcionario.SelectedIndexChanged += new System.EventHandler(this.cb_Funcionario_SelectedIndexChanged);
             this.cb_Funcionario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_Funcionario_KeyDown);
@@ -94,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 103);
+            this.label1.Location = new System.Drawing.Point(31, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             // txt_Senha
             // 
-            this.txt_Senha.Location = new System.Drawing.Point(78, 103);
+            this.txt_Senha.Location = new System.Drawing.Point(80, 135);
             this.txt_Senha.Name = "txt_Senha";
             this.txt_Senha.Size = new System.Drawing.Size(118, 20);
             this.txt_Senha.TabIndex = 2;
@@ -110,7 +110,7 @@
             // 
             // txt_Cargo
             // 
-            this.txt_Cargo.Location = new System.Drawing.Point(252, 103);
+            this.txt_Cargo.Location = new System.Drawing.Point(254, 135);
             this.txt_Cargo.Name = "txt_Cargo";
             this.txt_Cargo.Size = new System.Drawing.Size(133, 20);
             this.txt_Cargo.TabIndex = 20;
@@ -120,7 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(211, 110);
+            this.label2.Location = new System.Drawing.Point(213, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 4;
@@ -148,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(29, 76);
+            this.label4.Location = new System.Drawing.Point(31, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 8;
@@ -156,7 +156,7 @@
             // 
             // txt_Usuario
             // 
-            this.txt_Usuario.Location = new System.Drawing.Point(78, 69);
+            this.txt_Usuario.Location = new System.Drawing.Point(80, 101);
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(307, 20);
             this.txt_Usuario.TabIndex = 1;
@@ -234,7 +234,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(12, 136);
+            this.label5.Location = new System.Drawing.Point(12, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 44;

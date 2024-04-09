@@ -18,7 +18,7 @@ namespace Moderno.cadastross
 {
     public partial class Frm_Funcionario : Form
 
-    { 
+    {
         private string funcionario_id;
         private string cpfAntigo;
         private string celAntigo;
@@ -30,7 +30,6 @@ namespace Moderno.cadastross
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-
         private void Frm_Funcionario_Load(object sender, EventArgs e)
         {
             FuncionarioMODEL model = new FuncionarioMODEL();
@@ -54,7 +53,7 @@ namespace Moderno.cadastross
             FormatarGD();
         }
 
-        private void VerificarCampo() 
+        private void VerificarCampo()
         {
             string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
@@ -94,36 +93,32 @@ namespace Moderno.cadastross
                 return;
             }
         }
-        private void SalvarRegistro(FuncionarioMODEL funcionario)
-        {
-            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            funcionarioDAO.Salvar_funcionario(funcionario);
-        }
-        private void VerificarRegistro(FuncionarioMODEL funcionario)
-        {
-            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            funcionarioDAO.VerificarDuplicidadeCPF(funcionario);
-        }
+
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
             VerificarCampo();
+         
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
-            funcionario.Nome = txt_Nome.Text;
-            funcionario.Cpf = int.Parse(txt_Cpf.Text);
-            funcionario.Celular = int.Parse(txt_Celular.Text);
-            funcionario.Cargo = cb_Cargo.Text;
-            funcionario.Endereco = txt_Endereco.Text;
+            funcionario.nome = txt_Nome.Text;
+            funcionario.cpf = txt_Cpf.Text;
+            funcionario.celular = txt_Celular.Text;
+            funcionario.cargo = cb_Cargo.Text;
+            funcionario.endereco = txt_Endereco.Text;
+
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            if (funcionarioDAO.VerificarDuplicidadeCPF(funcionario))
+            
+            if (funcionarioDAO.VerificarDuplicidadeFuncionario(funcionario.funcionario_id, "cpf", funcionario.cpf.ToString()))
             {
                 MessageBox.Show("CPF já registrado", "Cadastro de Funiconários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_Cpf.Text = "";
                 txt_Cpf.Focus();
                 return;
             }
-            try 
+
+            try
             {
-                SalvarRegistro(funcionario);
+                funcionarioDAO.Salvar_funcionario(funcionario);
+
                 MessageBox.Show("Registro Salvo com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 btn_Novo.Enabled = true;
@@ -207,32 +202,27 @@ namespace Moderno.cadastross
 
         private void Carregar_Campo(FuncionarioMODEL Funcionario)
         {
-           FuncionarioDAO funcionario = new FuncionarioDAO();
-           funcionario.Carregar_campo(Funcionario);
+            FuncionarioDAO funcionario = new FuncionarioDAO();
+            funcionario.Carregar_campo(Funcionario);
 
         }
-        private void EditarRegistro(FuncionarioMODEL funcionario)
-        {
-            FuncionarioDAO funcionariodao = new FuncionarioDAO();
-            funcionariodao.Editar_funcionario(funcionario);
-        }
-        private void btn_Editar_Click(object sender, EventArgs e)
+        private void EditarRegistro()
         {
             VerificarCampo();
+
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
-            EditarRegistro(funcionario);
-            funcionario.Nome = txt_Nome.Text;
-            funcionario.Cpf = int.Parse(txt_Cpf.Text);
-            funcionario.Celular = int.Parse(txt_Celular.Text);
-            funcionario.Cargo = cb_Cargo.Text;
-            funcionario.Endereco = txt_Endereco.Text;
+            funcionario.nome = txt_Nome.Text;
+            funcionario.cpf = txt_Cpf.Text;
+            funcionario.celular = txt_Celular.Text;
+            funcionario.cargo = cb_Cargo.Text;
+            funcionario.endereco = txt_Endereco.Text;
             funcionario.funcionario_id = int.Parse(funcionario_id);
+
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
             if (txt_Cpf.Text != cpfAntigo)
             {
-                VerificarRegistro(funcionario);
-                if (funcionarioDAO.VerificarDuplicidadeCPF(funcionario))
+                if (funcionarioDAO.VerificarDuplicidadeFuncionario(funcionario.funcionario_id, "cpf", funcionario.cpf.ToString()))
                 {
                     MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Cpf.Text = "";
@@ -242,8 +232,7 @@ namespace Moderno.cadastross
             }
             if (txt_Celular.Text != celAntigo)
             {
-                CelularJaCadastrado(funcionario);
-                if (funcionarioDAO.VerificarDuplicidadeCelular(funcionario))
+                if (funcionarioDAO.VerificarDuplicidadeFuncionario(funcionario.funcionario_id, "telefone", funcionario.celular.ToString()))
                 {
                     MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txt_Celular.Text = "";
@@ -254,9 +243,11 @@ namespace Moderno.cadastross
 
             try
             {
+                funcionarioDAO.Editar_funcionario(funcionario);
+
                 Listar();
 
-                MessageBox.Show("Registro Editado com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro Editado com sucesso!", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
@@ -266,7 +257,19 @@ namespace Moderno.cadastross
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EditarRegistro();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show($"Erro ao editar o registro: {Ex.Message}", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -283,18 +286,13 @@ namespace Moderno.cadastross
         private void ExcluirRegistro(FuncionarioMODEL funcionario)
         {
             FuncionarioDAO funcionariodao = new FuncionarioDAO();
-            funcionariodao.Excluir_Registro(funcionario);
-        }
-
-        private void btn_Excluir_Click(object sender, EventArgs e)
-        {
             var res = MessageBox.Show("Deseja realmente excluir o registro!.", "Cadastro Funciónario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                FuncionarioMODEL funcionario = new FuncionarioMODEL();
-                ExcluirRegistro(funcionario);
-                funcionario.funcionario_id = int.Parse(funcionario_id);
+               
 
+                funcionariodao.Excluir_Registro(funcionario);
+                funcionario.funcionario_id = int.Parse(funcionario_id);
                 MessageBox.Show("Registro Excluído com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Listar();
                 btn_Novo.Enabled = true;
@@ -304,6 +302,12 @@ namespace Moderno.cadastross
                 DesabilitarCampos();
                 LimparCampos();
             }
+        }
+
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            FuncionarioMODEL funcionario = new FuncionarioMODEL();
+            ExcluirRegistro(funcionario);
         }
         private void ListarCargos(FuncionarioMODEL funcionario)
         {
@@ -324,13 +328,31 @@ namespace Moderno.cadastross
                 txt_Nome.Focus();
 
 
-                funcionario_id = grid.CurrentRow.Cells[0].Value.ToString();
-                txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                txt_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
-                txt_Celular.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                cb_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
-                txt_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+                if (grid.CurrentRow.Cells[0].Value != null)
+                {
+                    funcionario_id = grid.CurrentRow.Cells[0].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[1].Value != null)
+                {
+                    txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[2].Value != null)
+                {
+                    txt_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                    cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[3].Value != null)
+                {
+                    txt_Celular.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[4].Value != null)
+                {
+                    cb_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[5].Value != null)
+                {
+                    txt_Endereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+                }
             }
             else
             {
@@ -412,7 +434,7 @@ namespace Moderno.cadastross
 
         private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txt_Cpf.Focus();
             }
@@ -438,7 +460,7 @@ namespace Moderno.cadastross
         {
             if (e.KeyCode == Keys.Enter)
             {
-               cb_Cargo.Focus();
+                cb_Cargo.Focus();
             }
         }
 
@@ -457,6 +479,6 @@ namespace Moderno.cadastross
             }
         }
 
-       
+
     }
 }

@@ -37,7 +37,6 @@ namespace Moderno.cadastross
             Listar();
             rb_Nome.Checked = true;
             cb_Inadiplente.SelectedItem = 0;
-            LimparFoto();
         }
         private void FormatarGD()
         {
@@ -284,8 +283,6 @@ namespace Moderno.cadastross
             conn.Connection = con.con;
             conn.ExecuteNonQuery();
             con.FecharConexao();
-
-            LimparFoto();
             Status();
             MessageBox.Show("Clientes " + txt_Nome.Text + " estar " + radButton + " e salvo com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Listar();
@@ -300,11 +297,6 @@ namespace Moderno.cadastross
             btn_foto.Enabled = false;
 
         }
-        private void LimparFoto()
-        {
-            image.Image = Properties.Resources.icons8_person_32px;
-            foto = "img/icons8_person_32px.png";
-        }
         private void rbCpf_CheckedChanged(object sender, EventArgs e)
         {
             lb_BuscarNome.Visible = false;
@@ -317,7 +309,6 @@ namespace Moderno.cadastross
         {
             HabilitarCampos();
             LimparCampos();
-            LimparFoto();
             btn_Salvar.Enabled = true;
             btn_Novo.Enabled = false;
             btn_Editar.Enabled = false;
@@ -462,7 +453,6 @@ namespace Moderno.cadastross
             Listar();
             DesabilitarCampos();
             LimparCampos();
-            LimparFoto();
             btn_Salvar.Enabled = false;
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
@@ -491,7 +481,6 @@ namespace Moderno.cadastross
 
                 DesabilitarCampos();
                 LimparCampos();
-                LimparFoto();
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -499,7 +488,6 @@ namespace Moderno.cadastross
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             LimparCampos();
-            LimparFoto();
             DesabilitarCampos();
             grid.ClearSelection();
             btn_Salvar.Enabled = false;
@@ -602,14 +590,12 @@ namespace Moderno.cadastross
         private void rb_Nome_Click(object sender, EventArgs e)
         {
             rb_Nome.Focus();
-            LimparFoto();
             LimparCampos();
         }
 
         private void rb_Cpf_Click(object sender, EventArgs e)
         {
             rb_Cpf.Focus();
-            LimparFoto();
             LimparCampos();
         }
 

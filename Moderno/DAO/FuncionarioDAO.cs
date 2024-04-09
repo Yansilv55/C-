@@ -44,12 +44,11 @@ namespace DAO
                                 @foto)";
 
             conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", funcionario.Nome);
-            conn.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-            conn.Parameters.AddWithValue("@telefone", funcionario.Celular);
-            conn.Parameters.AddWithValue("@cargo", funcionario.Cargo);
-            conn.Parameters.AddWithValue("@endereco", funcionario.Endereco);
-            conn.Parameters.AddWithValue("@foto", funcionario.img);
+            conn.Parameters.AddWithValue("@nome", funcionario.nome);
+            conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
+            conn.Parameters.AddWithValue("@telefone", funcionario.celular);
+            conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
+            conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
             conn.ExecuteNonQuery();
             con.FecharConexao();
             }
@@ -79,14 +78,23 @@ namespace DAO
                 throw new Exception("Erro ao verificar", ex);
             }
         }*/
-        public bool VerificarDuplicidadeCPF(FuncionarioMODEL funcionario)
+        public bool VerificarDuplicidadeFuncionario(int funcionario_id, string nomeCampo, string valorCampo)
         {
             try
             {
                 con.AbrirConexao();
-                string sql = @"SELECT COUNT(*) FROM funcionario WHERE cpf = @cpf";
+                string sql = $@"SELECT 
+                                    COUNT(*) 
+                                FROM 
+                                    funcionario 
+                                WHERE 
+                                    {nomeCampo} = @campo
+                                AND 
+                                    funcionario_id != @funcionario_id";
+
                 MySqlCommand connVerificar = new MySqlCommand(sql, con.con);
-                connVerificar.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                connVerificar.Parameters.AddWithValue("@campo", valorCampo);
+                connVerificar.Parameters.AddWithValue("@funcionario_id", funcionario_id);
 
                 int count = Convert.ToInt32(connVerificar.ExecuteScalar());
 
@@ -105,7 +113,7 @@ namespace DAO
                 con.AbrirConexao();
                 string sql = @"SELECT COUNT(*) FROM funcionario WHERE telefone = @telefone";
                 MySqlCommand command = new MySqlCommand(sql, con.con);
-                command.Parameters.AddWithValue("@telefone", funcionario.Celular);
+                command.Parameters.AddWithValue("@telefone", funcionario.celular);
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
 
@@ -124,7 +132,7 @@ namespace DAO
                 con.AbrirConexao();
                 sql = "SELECT * FROM funcionario WHERE nome LIKE @nome ORDER BY nome asc";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", funcionario.BuscarNome  + "%");
+                conn.Parameters.AddWithValue("@nome", funcionario.buscarNome  + "%");
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = conn;
                 DataTable dt = new DataTable();
@@ -146,7 +154,7 @@ namespace DAO
                 con.AbrirConexao();
                 sql = "SELECT * FROM funcionario WHERE cpf = @cpf ORDER BY nome asc";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@cpf", funcionario.BuscarCpf);
+                conn.Parameters.AddWithValue("@cpf", funcionario.buscarCpf);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = conn;
                 DataTable dt = new DataTable();
@@ -171,8 +179,11 @@ namespace DAO
                 while (reader.Read())
                 {
                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
-                    funcionario.funcionario_id = reader.GetInt32("funcionario_id");
-                    funcionario.Nome = reader.GetString("nome");
+                    funcionario.nome = reader.GetString("nome");
+                    funcionario.cpf = reader.GetString("cpf");
+                    funcionario.celular = reader.GetString("telefone");
+                    funcionario.cargo = reader.GetString("cargo");
+                    funcionario.endereco = reader.GetString("endereco");
 
                     funcionarios.Add(funcionario); 
                 }
@@ -208,11 +219,11 @@ namespace DAO
                 con.AbrirConexao();
                 sql = "UPDATE funcionario SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto WHERE id = @id";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", funcionario.Nome);
-                conn.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                conn.Parameters.AddWithValue("@telefone", funcionario.Celular);
-                conn.Parameters.AddWithValue("@cargo", funcionario.Cargo);
-                conn.Parameters.AddWithValue("@endereco", funcionario.Endereco);
+                conn.Parameters.AddWithValue("@nome", funcionario.nome);
+                conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
+                conn.Parameters.AddWithValue("@telefone", funcionario.celular);
+                conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
+                conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
                 conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
                 con.FecharConexao();
             }

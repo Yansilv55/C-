@@ -21,9 +21,9 @@ namespace Moderno.cadastross
 
         private void Frm_Usuario_Load(object sender, EventArgs e)
         {
+            CarregarFuncionarios();
             Listar();
             LimparCampos();
-            CarregarFuncionarios();
             DesabilitarCampos();
         }
         private void FormatarGD()
@@ -35,26 +35,30 @@ namespace Moderno.cadastross
             grid.Columns[4].HeaderText = "Cargo";
             grid.Columns[5].HeaderText = "Data";
             grid.Columns[0].Visible = false;
-
+            grid.Columns[6].Visible = false;
+            grid.Columns[7].Visible = false;
+            
         }
         private void Listar()
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            grid.DataSource = usuarioDAO.ListarServicos();
-
+            grid.DataSource = usuarioDAO.ListarUsuario();
             FormatarGD();
         }
-        private void BuscarNome(UsuarioMODEL usuarioMODEL)
+        private void BuscarNome(String txtNome)
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Buscar_nome(usuarioMODEL);
+            grid.DataSource = usuarioDAO.BuscarNome(txtNome);
             FormatarGD();
         }
 
         private void CarregarFuncionarios()
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Carregar_funcionario();
+            FuncionarioMODEL funcionario = new FuncionarioMODEL();
+            cb_Funcionario.DataSource = usuarioDAO.CarregarFuncionario();
+            cb_Funcionario.DisplayMember = "nome";
+            funcionario.cargo = txt_Cargo.Text;
         }
 
         private void HabilitarCampos()
@@ -62,7 +66,7 @@ namespace Moderno.cadastross
             txt_Senha.Enabled = true;
             txt_Usuario.Enabled = true;
             cb_Funcionario.Enabled = true;
-            txt_Cargo.Enabled = false;
+            txt_Cargo.Enabled = true;
             txt_Usuario.Focus();
         }
         private void DesabilitarCampos()
@@ -93,7 +97,7 @@ namespace Moderno.cadastross
 
         private void btn_Novo_Click(object sender, EventArgs e)
         {
-            if (cb_Funcionario.Text == "")
+            /*if (cb_Funcionario.Text == "")
             {
                 var res = MessageBox.Show("Não há funcionário cadastrado!!! Deseja cadastrar?", "Cadastro de Usuários", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
@@ -102,7 +106,6 @@ namespace Moderno.cadastross
                     frm.ShowDialog();
                     HabilitarCampos();
                     HabilitarNovo();
-                    CarregarFuncionarios();
                     Listar();
                 }
                 else { this.Close(); }
@@ -117,28 +120,20 @@ namespace Moderno.cadastross
                     HabilitarCampos();
                     HabilitarNovo();
 
-                    CarregarFuncionarios();
                     Listar();
                 }
                 else { this.Close(); }
-            }
-
-
+            }*/
             LimparCampos();
             HabilitarCampos();
             HabilitarNovo();
             Listar();
         }
-        private void SalvarRegistro(UsuarioMODEL usuarioMODEL)
-        {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Salvar_usuario(usuarioMODEL);
-        }
         private void VerificarCampo()
         {
             if (txt_Usuario.Text.Trim() == "")
             {
-                MessageBox.Show("Preencher campo Usuário !!", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"Preencher campo Usuário !!", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (txt_Senha.Text.Trim() == "")
@@ -157,28 +152,23 @@ namespace Moderno.cadastross
                 return;
             }
         }
-
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private void SalvarRegistro(UsuarioMODEL usuarioMODEL)
         {
-            
-            VerificarCampo();
-            //botao salvar
-            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-            SalvarRegistro(usuarioMODEL);
-            usuarioMODEL.Nome = cb_Funcionario.Text;
-            usuarioMODEL.Usuario = txt_Usuario.Text;
-            usuarioMODEL.Senha = int.Parse(txt_Senha.Text);
-            usuarioMODEL.Cargo = txt_Cargo.Text;
-            //Verificar se usuario ja existe  
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Verificar_usuario(usuarioMODEL);
-            if (dt.Rows.Count > 0)
+            //Verificar se usuario ja existe  
+            if (usuarioDAO.VerificarUsuario(usuarioMODEL) == true)
             {
+                usuarioMODEL.Usuario = txt_Usuario.Text;
                 MessageBox.Show("Usuário já cadastrado", "Cadastro de Usuários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_Usuario.Text = "";
                 txt_Usuario.Focus();
                 return;
             }
+            usuarioDAO.Salvar_usuario(usuarioMODEL);
+            usuarioMODEL.nome = cb_Funcionario.Text;
+            usuarioMODEL.Usuario = txt_Usuario.Text;
+            usuarioMODEL.senha = txt_Senha.Text;
+            usuarioMODEL.cargo = txt_Cargo.Text;
             LimparCampos();
             Listar();
 
@@ -187,31 +177,29 @@ namespace Moderno.cadastross
             btn_Salvar.Enabled = false;
             DesabilitarCampos();
         }
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+            VerificarCampo();
+            //botao salvar
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            SalvarRegistro(usuarioMODEL);
+        }
         private void EditarRegistro(UsuarioMODEL usuarioMODEL)
         {
             UsuarioDAO usuarioDAO= new UsuarioDAO();
-            usuarioDAO.Editar_usuario(usuarioMODEL);
-        }
-
-        private void btn_Editar_Click(object sender, EventArgs e)
-        {
             VerificarCampo();
 
             //botao editar
-            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-            EditarRegistro(usuarioMODEL);
-            usuarioMODEL.cargo_id = cargo_id;
-            usuarioMODEL.Nome = cb_Funcionario.Text;
+            usuarioMODEL.nome = cb_Funcionario.Text;
             usuarioMODEL.Usuario = txt_Usuario.Text;
-            usuarioMODEL.Senha = int.Parse(txt_Senha.Text);
-            usuarioMODEL.Cargo = txt_Cargo.Text;
+            usuarioMODEL.senha = txt_Senha.Text;
+            usuarioMODEL.cargo = txt_Cargo.Text;
             //Verificar se cpf ja existe
             if (txt_Usuario.Text != usuarioAntigo)
             {
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
-                usuarioDAO.Verificar_usuario(usuarioMODEL);
-
+                usuarioDAO.VerificarUsuario(usuarioMODEL);
             }
+            usuarioDAO.Editar_usuario(usuarioMODEL);
             LimparCampos();
             Listar();
 
@@ -222,15 +210,20 @@ namespace Moderno.cadastross
             DesabilitarCampos();
         }
 
-        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
+        private void btn_Editar_Click(object sender, EventArgs e)
         {
             UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-            BuscarNome(usuarioMODEL);
+            EditarRegistro(usuarioMODEL);
+        }
+
+        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
+        {
+            BuscarNome(txt_BuscarNome.Text);
         }
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && grid.CurrentRow != null)
             {
                 campoClicado = true;
                 btn_Editar.Enabled = true;
@@ -238,13 +231,26 @@ namespace Moderno.cadastross
                 btn_Salvar.Enabled = false;
                 HabilitarCampos();
 
-                cargo_id = grid.CurrentRow.Cells[0].Value.ToString();
-                cb_Funcionario.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                txt_Usuario.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                txt_Senha.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                txt_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
-
-                usuarioAntigo = grid.CurrentRow.Cells[2].Value.ToString();
+                if (grid.CurrentRow.Cells[0].Value != null)
+                {
+                    cargo_id = grid.CurrentRow.Cells[0].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[1].Value != null)
+                {
+                    cb_Funcionario.Text = grid.CurrentRow.Cells[1].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[2].Value != null)
+                {
+                    txt_Usuario.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[3].Value != null)
+                {
+                    txt_Senha.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                }
+                if (grid.CurrentRow.Cells[4].Value != null)
+                {
+                    txt_Cargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                }
             }
             else
             {
@@ -255,18 +261,11 @@ namespace Moderno.cadastross
         private void ExcluirRegistro(UsuarioMODEL usuarioMODEL)
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Excluir_usuario(usuarioMODEL);
-        }
-
-        private void btn_Excluir_Click(object sender, EventArgs e)
-        {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro usuários", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 //botao excluir
-                UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-                ExcluirRegistro(usuarioMODEL);
-                usuarioMODEL.cargo_id = cargo_id;
+                usuarioDAO.ExcluirUsuario(usuarioMODEL);
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro usuários", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
@@ -278,6 +277,12 @@ namespace Moderno.cadastross
                 Listar();
             }
         }
+
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
+            ExcluirRegistro(usuarioMODEL);
+        }
         private void BuscarCargo(UsuarioMODEL usuarioMODEL)
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -286,8 +291,9 @@ namespace Moderno.cadastross
 
         private void cb_Funcionario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
             UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-            BuscarNome(usuarioMODEL);
+            usuarioDAO.CarregarFuncionario();
         }
 
         private void cb_Funcionario_KeyPress(object sender, KeyPressEventArgs e)
@@ -297,7 +303,7 @@ namespace Moderno.cadastross
 
         private void txt_Cargo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+           // e.Handled = true;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)

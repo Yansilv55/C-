@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rb_Nome = new System.Windows.Forms.RadioButton();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
@@ -145,22 +145,23 @@
             // 
             // grid
             // 
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(85, 216);
+            this.grid.Location = new System.Drawing.Point(12, 199);
             this.grid.Name = "grid";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.grid.Size = new System.Drawing.Size(879, 238);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.grid.Size = new System.Drawing.Size(790, 238);
             this.grid.TabIndex = 48;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // Nome
             // 
             this.Nome.AutoSize = true;
+            this.Nome.ForeColor = System.Drawing.Color.White;
             this.Nome.Location = new System.Drawing.Point(9, 64);
             this.Nome.Name = "Nome";
             this.Nome.Size = new System.Drawing.Size(35, 13);
@@ -171,14 +172,15 @@
             // 
             this.txt_Nome.Location = new System.Drawing.Point(74, 60);
             this.txt_Nome.Name = "txt_Nome";
-            this.txt_Nome.Size = new System.Drawing.Size(351, 20);
+            this.txt_Nome.Size = new System.Drawing.Size(286, 20);
             this.txt_Nome.TabIndex = 1;
             this.txt_Nome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Nome_KeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(861, 63);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(272, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 51;
@@ -186,16 +188,17 @@
             // 
             // txt_Endereco
             // 
-            this.txt_Endereco.Location = new System.Drawing.Point(74, 103);
+            this.txt_Endereco.Location = new System.Drawing.Point(74, 143);
             this.txt_Endereco.Name = "txt_Endereco";
-            this.txt_Endereco.Size = new System.Drawing.Size(921, 20);
+            this.txt_Endereco.Size = new System.Drawing.Size(445, 20);
             this.txt_Endereco.TabIndex = 8;
             this.txt_Endereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Endereco_KeyDown);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(9, 103);
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(9, 146);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(53, 13);
             this.label19.TabIndex = 53;
@@ -225,7 +228,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(444, 64);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(366, 67);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 67;
@@ -242,7 +246,8 @@
             // txt
             // 
             this.txt.AutoSize = true;
-            this.txt.Location = new System.Drawing.Point(613, 64);
+            this.txt.ForeColor = System.Drawing.Color.White;
+            this.txt.Location = new System.Drawing.Point(7, 100);
             this.txt.Name = "txt";
             this.txt.Size = new System.Drawing.Size(53, 13);
             this.txt.TabIndex = 71;
@@ -250,7 +255,7 @@
             // 
             // txt_Vendedor
             // 
-            this.txt_Vendedor.Location = new System.Drawing.Point(672, 57);
+            this.txt_Vendedor.Location = new System.Drawing.Point(74, 100);
             this.txt_Vendedor.Name = "txt_Vendedor";
             this.txt_Vendedor.Size = new System.Drawing.Size(165, 20);
             this.txt_Vendedor.TabIndex = 4;
@@ -345,7 +350,7 @@
             // txt_Cnpj
             // 
             this.txt_Cnpj.Enabled = false;
-            this.txt_Cnpj.Location = new System.Drawing.Point(484, 60);
+            this.txt_Cnpj.Location = new System.Drawing.Point(406, 61);
             this.txt_Cnpj.Mask = "00,000,000/0000-00";
             this.txt_Cnpj.Name = "txt_Cnpj";
             this.txt_Cnpj.Size = new System.Drawing.Size(113, 20);
@@ -357,7 +362,7 @@
             this.txt_Celular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Celular.Enabled = false;
             this.txt_Celular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Celular.Location = new System.Drawing.Point(893, 57);
+            this.txt_Celular.Location = new System.Drawing.Point(316, 100);
             this.txt_Celular.Mask = "(99) 0 0000-0000";
             this.txt_Celular.Name = "txt_Celular";
             this.txt_Celular.Size = new System.Drawing.Size(102, 23);
@@ -369,7 +374,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1145, 569);
+            this.ClientSize = new System.Drawing.Size(832, 569);
             this.Controls.Add(this.txt_Celular);
             this.Controls.Add(this.txt_Cnpj);
             this.Controls.Add(this.panelBusca);

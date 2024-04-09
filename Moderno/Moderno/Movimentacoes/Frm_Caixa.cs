@@ -19,9 +19,9 @@ namespace Moderno.Movimentacoes
         string sql;
         MySqlCommand conn;
 
-        double pagtoD = 0;
-        double pagtoC = 0;
-        double pagtoP = 0;
+        private double pagtoD = 0;
+        private double pagtoC = 0;
+        private double pagtoP = 0;
 
         public Frm_Caixa()
         {
@@ -98,12 +98,13 @@ namespace Moderno.Movimentacoes
             txt_Taxa.Enabled = false;
             cb_FormaPagto.SelectedIndex = 0;
         }
-        private void BuscarData(CaixaMODEL caixaMODEL)
+        private void Buscar_data(CaixaMODEL caixaMODEL)
         {
             CaixaDAO caixaDAO = new CaixaDAO();
-            caixaDAO.Buscar_data(caixaMODEL);
-            caixaMODEL.Data_inicial = dt_Inicial;
-            caixaMODEL.Data_inicial = dt_Final;
+            caixaDAO.Buscar_data();
+            grid.DataSource = caixaDAO.Buscar_data();
+            caixaMODEL.data_inicial = int.Parse(dt_Inicial.Text);
+            caixaMODEL.data_inicial = int.Parse(dt_Final.Text);
             FormatarGD();
         }
         private void BuscarTipo()

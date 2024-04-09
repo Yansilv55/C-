@@ -8,13 +8,13 @@ namespace MODEL
 {
     public class FuncionarioMODEL
     {
-        public string Nome { get; set; }
+        public string nome { get; set; }
         public int funcionario_id { get; set; }
-        public string Cargo { get; set; }
-        public string Endereco { get; set; }
-        public int Cpf { get; set; }
-        public string BuscarNome { get; set; }
-        public int BuscarCpf { get; set; }
-        public int Celular { get; set; }
+        public string cargo { get; set; }
+        public string endereco { get; set; }
+        public string cpf { get; set; }
+        public string buscarNome { get; set; }
+        public int buscarCpf { get; set; }
+        public string celular { get; set; }
     }
 }

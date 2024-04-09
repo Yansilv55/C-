@@ -8,12 +8,13 @@ namespace MODEL
 {
     public class UsuarioMODEL
     {
-        public string BuscarNome {  get; set; }
+        public int cargo_id {  get; set; }
         public string Funcionario {  get; set; }
         public string Usuario {  get; set; }
-        public string cargo_id {  get; set; }
-        public int Senha {  get; set; }
-        public string Cargo {  get; set; }
-        public string Nome {  get; set; }
+        public string cargo {  get; set; }
+        public string senha {  get; set; }
+        public string data {  get; set; }
+        public string nome {  get; set; }
+        public string buscarNome {  get; set; }
     }
 }
