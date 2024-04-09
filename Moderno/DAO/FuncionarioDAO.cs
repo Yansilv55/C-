@@ -22,8 +22,8 @@ namespace DAO
             try
             {
             con.AbrirConexao();
-            sql = "SELECT * FROM `funcionario`";
-            conn = new MySqlCommand(sql, con.con);
+           // sql = "SELECT * FROM `funcionario`";
+           // conn = new MySqlCommand(sql, con.con);
 
             sql =@"INSERT INTO
                       funcionario (
@@ -32,16 +32,14 @@ namespace DAO
                                 telefone, 
                                 cargo, 
                                 endereco, 
-                                data, 
-                                foto) 
+                                data) 
                         VALUES(
                                 @nome,
                                 @cpf, 
                                 @telefone,
                                 @cargo, 
                                 @endereco, 
-                                curDate(),
-                                @foto)";
+                                curDate())";
 
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", funcionario.nome);
@@ -54,30 +52,9 @@ namespace DAO
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Erro a Salvar arquivo", ex);            }
+                throw new Exception("Erro a Salvar arquivo", ex);          
+            }
         }
-       /* public void Verificar_cpf(FuncionarioMODEL funcionario)
-        {
-            try
-            {
-                con.AbrirConexao();
-                sql = @"SELECT * FROM funcionario WHERE cpf = @cpf";
-                MySqlCommand connVerificar;
-                connVerificar = new MySqlCommand(sql, con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = connVerificar;
-                connVerificar.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                con.FecharConexao();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao verificar", ex);
-            }
-        }*/
         public bool VerificarDuplicidadeFuncionario(int funcionario_id, string nomeCampo, string valorCampo)
         {
             try
@@ -179,11 +156,13 @@ namespace DAO
                 while (reader.Read())
                 {
                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                    funcionario.funcionario_id = reader.GetInt32("funcionario_id");
                     funcionario.nome = reader.GetString("nome");
                     funcionario.cpf = reader.GetString("cpf");
                     funcionario.celular = reader.GetString("telefone");
                     funcionario.cargo = reader.GetString("cargo");
                     funcionario.endereco = reader.GetString("endereco");
+                    funcionario.data = reader.GetString("data");
 
                     funcionarios.Add(funcionario); 
                 }
@@ -191,26 +170,44 @@ namespace DAO
             con.FecharConexao();
             return funcionarios;
         }
-        public void Carregar_campo(FuncionarioMODEL funcionario)
+        /* public void Carregar_campo(FuncionarioMODEL funcionario)
+         {
+             try
+             {
+                 con.AbrirConexao();
+                 sql = "SELECT * FROM cargos ORDER BY cargo asc";
+                 conn = new MySqlCommand(sql, con.con);
+                 MySqlDataAdapter da = new MySqlDataAdapter();
+                 da.SelectCommand = conn;
+                 DataTable dt = new DataTable();
+                 da.Fill(dt);
+                 txt_Cargo.DataSource = dt;
+                 txt_Cargo.DisplayMember = "cargo";
+                 con.FecharConexao();
+             }
+             catch (Exception ex )
+             {
+                 throw new Exception("Erro ao editar", ex);
+             }
+         }*/
+        public List<FuncionarioMODEL> Carregar_campo()
         {
-            try
+            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+            con.AbrirConexao();
+            sql = "SELECT * FROM cargos ORDER BY cargo asc";
+            conn = new MySqlCommand(sql, con.con);
+            using (MySqlDataReader reader = conn.ExecuteReader())
             {
-                con.AbrirConexao();
-                sql = "SELECT * FROM cargos ORDER BY cargo asc";
-                conn = new MySqlCommand(sql, con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = conn;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                //------------------------------------------------------------------------
-                //txt_Cargo.DataSource = dt;
-                //txt_Cargo.DisplayMember = "cargo";
-                con.FecharConexao();
+                while (reader.Read())
+                {
+                    FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                    funcionario.cargo = reader.GetString("cargo");
+
+                    funcionarios.Add(funcionario);
+                }
             }
-            catch (Exception ex )
-            {
-                throw new Exception("Erro ao editar", ex);
-            }
+            con.FecharConexao();
+            return funcionarios;
         }
         public void Editar_funcionario(FuncionarioMODEL funcionario)
         {
@@ -219,12 +216,12 @@ namespace DAO
                 con.AbrirConexao();
                 sql = "UPDATE funcionario SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto WHERE id = @id";
                 conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
                 conn.Parameters.AddWithValue("@nome", funcionario.nome);
                 conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
                 conn.Parameters.AddWithValue("@telefone", funcionario.celular);
                 conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
                 conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
-                conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
                 con.FecharConexao();
             }
             catch (Exception ex)
@@ -234,12 +231,19 @@ namespace DAO
         }
         public void Excluir_Registro(FuncionarioMODEL funcionario)
         {
-            con.AbrirConexao();
-            sql = "DELETE FROM funcionario WHERE funcionario_id = @funcionario_id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            try
+            {
+                con.AbrirConexao();
+                sql = "DELETE FROM funcionario WHERE funcionario_id = @funcionario_id";
+                conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public void AtualizarLinhas()
         {
