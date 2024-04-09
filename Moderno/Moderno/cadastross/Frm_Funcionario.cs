@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using DAO;
 using MODEL;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Moderno.cadastross
 {

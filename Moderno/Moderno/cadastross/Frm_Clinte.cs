@@ -18,7 +18,6 @@ namespace Moderno.cadastross
         string id_cliente;
         string cpfAntigo;
         string cliente;
-        string foto;
         string alterouImagem = "nao";
         string radButton = "";
         String desbloqueado, inadiplente;
@@ -52,14 +51,11 @@ namespace Moderno.cadastross
             grid.Columns[9].HeaderText = "Fucionário";
             grid.Columns[10].HeaderText = "igm";
             grid.Columns[11].HeaderText = "Data";
-            //grid.Columns[0].Width = 50;
             grid.Columns[10].Visible = false;
             grid.Columns[4].DefaultCellStyle.Format = "c2";
         }
-
         private void Listar()
         {
-
             con.AbrirConexao();
             sql = "SELECT * FROM clientes ORDER BY nome asc";
             conn = new MySqlCommand(sql, con.con);
@@ -127,7 +123,6 @@ namespace Moderno.cadastross
             cb_Inadiplente.Enabled = false;
             txt_ValorAberto.Enabled = false;
         }
-
         private void LimparCampos()
         {
             txt_Nome.Text = "";
@@ -140,22 +135,18 @@ namespace Moderno.cadastross
                 cb_Inadiplente.SelectedIndex = 0;
             }
         }
-
         private void Status()
         {
             radButton = rbAtivado.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked)?.Text;
         }
-
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             HabilitarCampos();
             LimparCampos();
-            LimparFotos();
             btn_Salvar.Enabled = true;
             btn_Novo.Enabled = false;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
-            btn_foto.Enabled = true;
         }
 
         private void verificarEmail()
@@ -243,8 +234,7 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@desbloqueado", "Sim");
                 conn.Parameters.AddWithValue("@Inadiplente", "Não");
                 conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-               // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                conn.Parameters.AddWithValue("@imagem", img());            
+               // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);          
             }
             else if (rb_Ativado.Checked == false)
             {
@@ -261,7 +251,6 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@Inadiplente", "Não");
                 conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                 //conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                conn.Parameters.AddWithValue("@imagem", img()); 
             }
             //Verificar se cpf ja existe  
 
@@ -294,8 +283,6 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
-            btn_foto.Enabled = false;
-
         }
         private void rbCpf_CheckedChanged(object sender, EventArgs e)
         {
@@ -313,7 +300,6 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = false;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
-            btn_foto.Enabled = true;
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
@@ -348,10 +334,8 @@ namespace Moderno.cadastross
                 txt_Email.Focus();
                 return;
             }
-
             //botao editar
             con.AbrirConexao();
-
             if (alterouImagem == "sim")
             {
                if (rb_Ativado.Checked == true)
@@ -368,8 +352,6 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                  //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                    conn.Parameters.AddWithValue("@imagem", img());
-
                 }
                 else if (rb_Ativado.Checked == false)
                 {
@@ -385,8 +367,6 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                    // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                    conn.Parameters.AddWithValue("@imagem", img());
-
                 }
             }
             else if (alterouImagem == "nao")
@@ -405,7 +385,6 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
                  //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-
                 }
                 else if (rb_Ativado.Checked == false)
                 {
@@ -423,7 +402,6 @@ namespace Moderno.cadastross
                //     conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
                 }
             }
-
             //Verificar se cpf ja existe
             if (txt_Cpf.Text != cpfAntigo)
             {
@@ -441,7 +419,6 @@ namespace Moderno.cadastross
                     txt_Cpf.Focus();
                     return;
                 }
-
             }
             conn.ExecuteNonQuery();
             con.FecharConexao();
@@ -457,9 +434,7 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
-            btn_foto.Enabled = false;
         }
-
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -472,19 +447,15 @@ namespace Moderno.cadastross
                 conn.Parameters.AddWithValue("@id_cliente", id_cliente);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
-
                 btn_Salvar.Enabled = false;
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;
-                btn_foto.Enabled = false;
-
                 DesabilitarCampos();
                 LimparCampos();
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             LimparCampos();
@@ -494,16 +465,12 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
-            btn_foto.Enabled = false;
-
         }
-
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 campoClicado = true;
-                // LimparFoto();
                 HabilitarCampos();
                 id_cliente = grid.CurrentRow.Cells[0].Value.ToString();
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
@@ -519,30 +486,7 @@ namespace Moderno.cadastross
                 btn_Editar.Enabled = true;
                 btn_Excluir.Enabled = true;
                 btn_Salvar.Enabled = false;
-                btn_foto.Enabled = true;
                 btn_Novo.Enabled = false;
-                if (desbloqueado == "Sim")
-                {
-                    rb_Ativado.Checked = true;
-                    rb_Inativado.Checked = false;
-                }
-                else if (desbloqueado == "Não")
-                {
-                    rb_Ativado.Checked = false;
-                    rb_Inativado.Checked = true;
-                }
-                if (grid.CurrentRow.Cells[11].Value != DBNull.Value) 
-                {
-                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[11].Value; 
-                    MemoryStream ms = new MemoryStream(imagem); 
-
-                    
-                    image.Image = System.Drawing.Image.FromStream(ms); 
-                }
-                else
-                {
-                    image.Image = Properties.Resources.icons8_person_32px;
-                }
             }
             else
             {
@@ -574,19 +518,6 @@ namespace Moderno.cadastross
                 BuscarCpf();
             }
         }
-
-        private void btn_foto_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Imagens(*.jpg; *.png) | *.jpg;*.png"; 
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                foto = dialog.FileName.ToString(); 
-                image.ImageLocation = foto; 
-                alterouImagem = "sim";
-            }
-        }
-
         private void rb_Nome_Click(object sender, EventArgs e)
         {
             rb_Nome.Focus();
@@ -759,7 +690,6 @@ namespace Moderno.cadastross
                 txt_Email.Focus();
             }
         }
-
         private void lb_Email_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -774,28 +704,5 @@ namespace Moderno.cadastross
                 }
             }
         }
-
-        private byte[] img()
-        {
-            byte[] image_byte = null;
-            if (foto == "")
-            {
-                return null;
-            }
-
-            FileStream fs = new FileStream(foto, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            image_byte = br.ReadBytes((int)fs.Length);
-            return image_byte;
-        }
-
-        private void LimparFotos()
-        {
-            image.Image = Properties.Resources.icons8_person_32px;
-            foto = "img/icons8_person_32px.png";
-        }
-
-        
-
     }
  };
