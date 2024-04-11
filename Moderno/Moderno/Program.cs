@@ -8,9 +8,6 @@ namespace Moderno
 {
     public class Program
     {
-        public static string CargoUsuario;
-        public static string NomeUsuario;
-
         public static string ChamadaProdutos;
         public static string NomeProduto;
         public static string EstoqueProduto;

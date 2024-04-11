@@ -42,12 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.grid = new System.Windows.Forms.DataGridView();
             this.panelBusca = new System.Windows.Forms.Panel();
-            this.txt_BuscarCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txt_BuscarNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rb_Nome = new System.Windows.Forms.RadioButton();
-            this.rb_Cpf = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -209,32 +207,21 @@
             this.grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(740, 267);
+            this.grid.Size = new System.Drawing.Size(665, 267);
             this.grid.TabIndex = 52;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick_1);
             // 
             // panelBusca
             // 
             this.panelBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.panelBusca.Controls.Add(this.txt_BuscarCpf);
             this.panelBusca.Controls.Add(this.lblTitulo);
             this.panelBusca.Controls.Add(this.txt_BuscarNome);
             this.panelBusca.Controls.Add(this.label6);
             this.panelBusca.Controls.Add(this.rb_Nome);
-            this.panelBusca.Controls.Add(this.rb_Cpf);
             this.panelBusca.Location = new System.Drawing.Point(1, 1);
             this.panelBusca.Name = "panelBusca";
             this.panelBusca.Size = new System.Drawing.Size(1175, 45);
             this.panelBusca.TabIndex = 149;
-            // 
-            // txt_BuscarCpf
-            // 
-            this.txt_BuscarCpf.Location = new System.Drawing.Point(767, 16);
-            this.txt_BuscarCpf.Mask = "000,000,000-00";
-            this.txt_BuscarCpf.Name = "txt_BuscarCpf";
-            this.txt_BuscarCpf.Size = new System.Drawing.Size(86, 20);
-            this.txt_BuscarCpf.TabIndex = 30;
-            this.txt_BuscarCpf.Visible = false;
             // 
             // lblTitulo
             // 
@@ -253,6 +240,7 @@
             this.txt_BuscarNome.Name = "txt_BuscarNome";
             this.txt_BuscarNome.Size = new System.Drawing.Size(119, 20);
             this.txt_BuscarNome.TabIndex = 20;
+            this.txt_BuscarNome.TextChanged += new System.EventHandler(this.txt_BuscarNome_TextChanged);
             // 
             // label6
             // 
@@ -275,20 +263,6 @@
             this.rb_Nome.TabStop = true;
             this.rb_Nome.Text = "Nome";
             this.rb_Nome.UseVisualStyleBackColor = true;
-            this.rb_Nome.CheckedChanged += new System.EventHandler(this.rbNome_CheckedChanged);
-            // 
-            // rb_Cpf
-            // 
-            this.rb_Cpf.AutoSize = true;
-            this.rb_Cpf.ForeColor = System.Drawing.Color.White;
-            this.rb_Cpf.Location = new System.Drawing.Point(540, 16);
-            this.rb_Cpf.Name = "rb_Cpf";
-            this.rb_Cpf.Size = new System.Drawing.Size(45, 17);
-            this.rb_Cpf.TabIndex = 32;
-            this.rb_Cpf.TabStop = true;
-            this.rb_Cpf.Text = "CPF";
-            this.rb_Cpf.UseVisualStyleBackColor = true;
-            this.rb_Cpf.CheckedChanged += new System.EventHandler(this.rb_Cpf_CheckedChanged);
             // 
             // label7
             // 
@@ -495,12 +469,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.Panel panelBusca;
-        private System.Windows.Forms.MaskedTextBox txt_BuscarCpf;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txt_BuscarNome;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton rb_Nome;
-        private System.Windows.Forms.RadioButton rb_Cpf;
         private System.Windows.Forms.Button btnAddCargo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

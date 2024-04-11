@@ -45,6 +45,7 @@
             this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_Home = new System.Windows.Forms.Label();
             this.Panel_Desktop = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.Barra_Status = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -60,8 +61,6 @@
             this.lbl_Cargo = new System.Windows.Forms.ToolStripLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Menu_Principal = new System.Windows.Forms.MenuStrip();
-            this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +74,6 @@
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.Panel_Menu.SuspendLayout();
             this.Panel_Logo.SuspendLayout();
             this.Panel_Title.SuspendLayout();
@@ -354,6 +352,16 @@
             this.Panel_Desktop.Size = new System.Drawing.Size(1347, 771);
             this.Panel_Desktop.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(632, 277);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(390, 63);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Ruby Sistemas";
+            // 
             // Barra_Status
             // 
             this.Barra_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -457,9 +465,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Moderno.Properties.Resources._0_7asj1rKS8d2mead_;
-            this.pictureBox1.Location = new System.Drawing.Point(209, 159);
+            this.pictureBox1.Location = new System.Drawing.Point(195, 157);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(404, 255);
+            this.pictureBox1.Size = new System.Drawing.Size(418, 257);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -468,7 +476,6 @@
             // 
             this.Menu_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.Menu_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivosToolStripMenuItem,
             this.cadastroToolStripMenuItem,
             this.movimentaçõesToolStripMenuItem,
             this.produtosToolStripMenuItem});
@@ -477,20 +484,6 @@
             this.Menu_Principal.Size = new System.Drawing.Size(1347, 24);
             this.Menu_Principal.TabIndex = 6;
             this.Menu_Principal.Text = "menuStrip1";
-            // 
-            // arquivosToolStripMenuItem
-            // 
-            this.arquivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sairToolStripMenuItem});
-            this.arquivosToolStripMenuItem.Name = "arquivosToolStripMenuItem";
-            this.arquivosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.arquivosToolStripMenuItem.Text = "Arquivo";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
             // 
             // cadastroToolStripMenuItem
             // 
@@ -608,16 +601,6 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(632, 277);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(390, 63);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Ruby Sistemas";
-            // 
             // Frm_Pdv_Moderno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -671,8 +654,6 @@
         private System.Windows.Forms.Button btn_Fechar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip Menu_Principal;
-        private System.Windows.Forms.ToolStripMenuItem arquivosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;

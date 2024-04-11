@@ -49,6 +49,7 @@
     <Compile Include="ServicoMODAL.cs" />
     <Compile Include="UsuarioMODEL.cs" />
     <Compile Include="VendaItensModel.cs" />
+    <Compile Include="UTEIS.cs" />
     <Compile Include="VendaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

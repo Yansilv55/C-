@@ -171,7 +171,7 @@
             this.panel1.Controls.Add(this.dt_Inicial);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1187, 46);
+            this.panel1.Size = new System.Drawing.Size(1374, 46);
             this.panel1.TabIndex = 1;
             // 
             // label4
@@ -269,7 +269,7 @@
             this.grid.Name = "grid";
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.grid.Size = new System.Drawing.Size(1174, 150);
+            this.grid.Size = new System.Drawing.Size(1341, 150);
             this.grid.TabIndex = 7;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
@@ -287,7 +287,7 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(626, 6);
+            this.btn_Add.Location = new System.Drawing.Point(653, 5);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(53, 46);
             this.btn_Add.TabIndex = 10;
@@ -342,7 +342,7 @@
             // 
             // btn_Sub
             // 
-            this.btn_Sub.Location = new System.Drawing.Point(417, 8);
+            this.btn_Sub.Location = new System.Drawing.Point(474, 8);
             this.btn_Sub.Name = "btn_Sub";
             this.btn_Sub.Size = new System.Drawing.Size(53, 46);
             this.btn_Sub.TabIndex = 16;
@@ -592,7 +592,7 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(12, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(685, 60);
+            this.panel5.Size = new System.Drawing.Size(709, 60);
             this.panel5.TabIndex = 42;
             // 
             // label14
@@ -622,9 +622,9 @@
             this.panel6.Controls.Add(this.txt_Saida);
             this.panel6.Controls.Add(this.text_Descricao);
             this.panel6.Controls.Add(this.btn_Sub);
-            this.panel6.Location = new System.Drawing.Point(703, 57);
+            this.panel6.Location = new System.Drawing.Point(813, 57);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(483, 60);
+            this.panel6.Size = new System.Drawing.Size(540, 60);
             this.panel6.TabIndex = 43;
             // 
             // label15
@@ -1039,7 +1039,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1186, 661);
+            this.ClientSize = new System.Drawing.Size(1372, 661);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);

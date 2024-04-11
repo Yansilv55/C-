@@ -1,4 +1,5 @@
-﻿using Moderno.Movimentacoes;
+﻿using MODEL;
+using Moderno.Movimentacoes;
 using Moderno.Vendas;
 using System;
 using System.Collections.Generic;
@@ -192,11 +193,7 @@ namespace Moderno
 
         private void Frm_Pdv_Moderno_Load(object sender, EventArgs e, Program Program)
         {
-            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
 
-            lbl_Usuario.Text = Program.NomeUsuario;
-            lbl_Cargo.Text = Program.CargoUsuario;
         }
 
         private void caixaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -245,18 +242,19 @@ namespace Moderno
             cadastross.Frm_Servicos frm = new cadastross.Frm_Servicos();
             frm.ShowDialog();
         }
-
-        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Produtos.Frm_Produtos frm = new Produtos.Frm_Produtos();
             frm.ShowDialog();
         }
 
-        
+        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
+        {
+            Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
+
+            lbl_Usuario.Text = UTEIS.NomeUsuario;
+            lbl_Cargo.Text = UTEIS.CargoUsuario;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace Moderno.Movimentacoes
             cb_Tipo.SelectedIndex = 0;
 
             BuscarTipo();
-            if (Program.CargoUsuario == "Gerente" || Program.CargoUsuario == "Supervisor")
+            if (UTEIS.CargoUsuario == "Gerente" || UTEIS.CargoUsuario == "Supervisor")
             {
                 grid.Enabled = true;
                 btn_Add.Enabled = true;
@@ -207,7 +207,7 @@ namespace Moderno.Movimentacoes
                 conn.Parameters.AddWithValue("@dinheiro", pagtoD);
                 conn.Parameters.AddWithValue("@pix", pagtoP);
                 conn.Parameters.AddWithValue("@cartao", pagtoC);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
 
@@ -220,7 +220,7 @@ namespace Moderno.Movimentacoes
 
             LimparCampos();
             BuscarTipo();
-            if (Program.CargoUsuario == "Gerente" || Program.CargoUsuario == "Supervisor")
+            if (UTEIS.CargoUsuario == "Gerente" || UTEIS.CargoUsuario == "Supervisor")
             {
                 Listar();
             }
@@ -258,7 +258,7 @@ namespace Moderno.Movimentacoes
                 conn.Parameters.AddWithValue("@dinheiro", 0);
                 conn.Parameters.AddWithValue("@pix", 0);
                 conn.Parameters.AddWithValue("@cartao", 0);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
             }
@@ -268,7 +268,7 @@ namespace Moderno.Movimentacoes
             }
             LimparCampos();
             BuscarTipo();
-            if (Program.CargoUsuario == "Gerente" || Program.CargoUsuario == "Supervisor")
+            if (UTEIS.CargoUsuario == "Gerente" || UTEIS.CargoUsuario == "Supervisor")
             {
                 Listar();
             }
@@ -442,7 +442,7 @@ namespace Moderno.Movimentacoes
                 conn.Parameters.AddWithValue("@dinheiro", Convert.ToDouble(txt_ParaConta.Text) * -1);
                 conn.Parameters.AddWithValue("@pix", 0);
                 conn.Parameters.AddWithValue("@cartao", 0);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
             }
@@ -453,7 +453,7 @@ namespace Moderno.Movimentacoes
             txt_ParaConta.Text = "0";
             LimparCampos();
             BuscarTipo();
-            if (Program.CargoUsuario == "Gerente" || Program.CargoUsuario == "Supervisor")
+            if (UTEIS.CargoUsuario == "Gerente" || UTEIS.CargoUsuario == "Supervisor")
             {
                 Listar();
             }
@@ -485,7 +485,7 @@ namespace Moderno.Movimentacoes
                 conn.Parameters.AddWithValue("@dinheiro", 0);
                 conn.Parameters.AddWithValue("@pix", Convert.ToDouble(txtParaCaixa.Text) * -1);
                 conn.Parameters.AddWithValue("@cartao", 0);
-                conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 conn.ExecuteNonQuery();
                 con.FecharConexao();
             }
@@ -496,7 +496,7 @@ namespace Moderno.Movimentacoes
             txtParaCaixa.Text = "0";
             LimparCampos();
             BuscarTipo();
-            if (Program.CargoUsuario == "Gerente" || Program.CargoUsuario == "Supervisor")
+            if (UTEIS.NomeUsuario == "Gerente" || UTEIS.CargoUsuario == "Supervisor")
             {
                 Listar();
             }

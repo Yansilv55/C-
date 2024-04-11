@@ -67,7 +67,7 @@ namespace Moderno.cadastross
             txt_Usuario.Enabled = true;
             cb_Funcionario.Enabled = true;
             txt_Cargo.Enabled = true;
-            txt_Usuario.Focus();
+            cb_Funcionario.Focus();
         }
         private void DesabilitarCampos()
         {
@@ -317,6 +317,13 @@ namespace Moderno.cadastross
             LimparCampos();
         }
 
+        private void cb_Funcionario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Usuario.Focus();
+            }
+        }
         private void txt_Usuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -326,14 +333,6 @@ namespace Moderno.cadastross
         }
 
         private void txt_Senha_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cb_Funcionario.Focus();
-            }
-        }
-
-        private void cb_Funcionario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

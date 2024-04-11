@@ -207,8 +207,4 @@ namespace DAO
             con.FecharConexao();
         }
     }
-
-    public class Program
-    {
-    }
 }

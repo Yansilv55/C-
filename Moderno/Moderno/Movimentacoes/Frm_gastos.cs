@@ -1,4 +1,5 @@
 ﻿using DAO;
+using MODEL;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -238,7 +239,7 @@ namespace Moderno.Movimentacoes
             conn.Parameters.AddWithValue("@dinheiro", Pd);
             conn.Parameters.AddWithValue("@nota", txt_Nota.Text);
             conn.Parameters.AddWithValue("@valor_pago", Convert.ToDouble(txt_Valor.Text) * -1);
-            conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+            conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
             conn.Parameters.AddWithValue("@id_movimento", ultimoIdGasto);
             conn.Parameters.AddWithValue("@data", Convert.ToDateTime(dt_Data.Text));
             conn.ExecuteNonQuery();
@@ -304,7 +305,7 @@ namespace Moderno.Movimentacoes
             conn.Parameters.AddWithValue("@destino", txt_Favorecido.Text);
             conn.Parameters.AddWithValue("@valor", txt_Valor.Text.Replace(",", "."));
             conn.Parameters.AddWithValue("@pagto", FormaPagto);
-            conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+            conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
             conn.Parameters.AddWithValue("@nota", txt_Nota.Text);
             conn.Parameters.AddWithValue("@vencimento", Convert.ToDateTime(dt_Data.Text));
             conn.Parameters.AddWithValue("@id", id);
@@ -324,7 +325,7 @@ namespace Moderno.Movimentacoes
             conn.Parameters.AddWithValue("@dinheiro", Pd);
             conn.Parameters.AddWithValue("@nota", txt_Nota.Text);
             conn.Parameters.AddWithValue("@valor_pago", Convert.ToDouble(txt_Valor.Text) * -1);
-            conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+            conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
             conn.Parameters.AddWithValue("@data", Convert.ToDateTime(dt_Data.Text));
             conn.Parameters.AddWithValue("@id", id); //where
             conn.ExecuteNonQuery();

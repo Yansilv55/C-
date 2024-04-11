@@ -122,7 +122,19 @@ namespace DAO
         public void Salvar_usuario(UsuarioMODEL usuarioMODEL)
         {
             con.AbrirConexao();
-            sql = "INSERT INTO usuarios(nome, usuario, senha, cargo, data) VALUES(@nome, @usuario, @senha, @cargo, curDate())";
+            sql = @"INSERT INTO 
+                          usuarios(
+                                nome, 
+                                usuario, 
+                                senha, 
+                                cargo, 
+                                data) 
+                           VALUES(
+                                @nome, 
+                                @usuario, 
+                                @senha, 
+                                @cargo, 
+                                curDate())";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", usuarioMODEL.nome);
             conn.Parameters.AddWithValue("@usuario", usuarioMODEL.Usuario); // Adiciona o parâmetro @usuario
@@ -151,7 +163,15 @@ namespace DAO
         public void Editar_usuario(UsuarioMODEL usuarioMODEL)
         {
             con.AbrirConexao();
-            sql = "UPDATE usuarios SET nome = @nome, usuario = @usuario, senha = @senha, cargo = @cargo  where id = @id";
+            sql = @"UPDATE 
+                       usuarios
+                             SET
+                                nome = @nome, 
+                                usuario = @usuario, 
+                                senha = @senha,
+                                cargo = @cargo  
+                             where 
+                                cargo_id = @cargo_id";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@cargo_id", usuarioMODEL.cargo_id);
             conn.Parameters.AddWithValue("@nome", usuarioMODEL.nome);

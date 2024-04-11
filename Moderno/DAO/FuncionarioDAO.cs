@@ -101,50 +101,28 @@ namespace DAO
                 throw new Exception("Erro ao verificar", ex);
             }
         }
-        //----------------------------------------------------------------------------------------
-        public void Buscar_nome(FuncionarioMODEL funcionario, DataGridView grid)
+        //---------------------------------------------------------------------------------------
+        public List<FuncionarioMODEL> ListaBuscarFuncionario(string nome)
         {
-            try
-            {
-                con.AbrirConexao();
-                sql = "SELECT * FROM funcionario WHERE nome LIKE @nome ORDER BY nome asc";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", funcionario.buscarNome  + "%");
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = conn;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                grid.DataSource = dt;
-                con.FecharConexao();
-            }
-            catch (Exception ex)
-            {
+            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
 
-                throw new Exception("Erro ao Buscar", ex);
+            con.AbrirConexao();
+            sql = "SELECT * FROM funcionario WHERE nome LIKE @nome ORDER BY nome asc";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@nome", "%" + nome + "%");
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                    funcionario.nome = reader.GetString("nome");
+
+                    funcionarios.Add(funcionario);
+                }
             }
+            return funcionarios;
         }
         //------------------------------------------------------------------------------------------
-        public void Buscar_cpf(FuncionarioMODEL funcionario, DataGridView grid)
-        {
-            try
-            {
-                con.AbrirConexao();
-                sql = "SELECT * FROM funcionario WHERE cpf = @cpf ORDER BY nome asc";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@cpf", funcionario.buscarCpf);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = conn;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                grid.DataSource = dt;
-                con.FecharConexao();
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("Erro ao Buscar", ex);
-            }
-        }
         public List<FuncionarioMODEL> ListarFuncionario()
         {
             List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>(); 
@@ -170,26 +148,6 @@ namespace DAO
             con.FecharConexao();
             return funcionarios;
         }
-        /* public void Carregar_campo(FuncionarioMODEL funcionario)
-         {
-             try
-             {
-                 con.AbrirConexao();
-                 sql = "SELECT * FROM cargos ORDER BY cargo asc";
-                 conn = new MySqlCommand(sql, con.con);
-                 MySqlDataAdapter da = new MySqlDataAdapter();
-                 da.SelectCommand = conn;
-                 DataTable dt = new DataTable();
-                 da.Fill(dt);
-                 txt_Cargo.DataSource = dt;
-                 txt_Cargo.DisplayMember = "cargo";
-                 con.FecharConexao();
-             }
-             catch (Exception ex )
-             {
-                 throw new Exception("Erro ao editar", ex);
-             }
-         }*/
         public List<FuncionarioMODEL> Carregar_campo()
         {
             List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
@@ -214,7 +172,7 @@ namespace DAO
             try
             {
                 con.AbrirConexao();
-                sql = "UPDATE funcionario SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto WHERE id = @id";
+                sql = "UPDATE funcionario SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco WHERE funcionario_id = @funcionario_id";
                 conn = new MySqlCommand(sql, con.con);
                 conn.Parameters.AddWithValue("@funcionario_id", funcionario.funcionario_id);
                 conn.Parameters.AddWithValue("@nome", funcionario.nome);
@@ -222,6 +180,7 @@ namespace DAO
                 conn.Parameters.AddWithValue("@telefone", funcionario.celular);
                 conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
                 conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
+                conn.ExecuteNonQuery();
                 con.FecharConexao();
             }
             catch (Exception ex)
@@ -268,5 +227,6 @@ namespace DAO
                 }
             }
         }
+        
     }
 }

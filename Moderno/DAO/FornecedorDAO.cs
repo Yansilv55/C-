@@ -92,6 +92,7 @@ namespace DAO
             conn.Parameters.AddWithValue("@endereco", fornecedor.endereco);
             conn.Parameters.AddWithValue("@celular", fornecedor.celular);
             conn.Parameters.AddWithValue("@vendedor", fornecedor.vendedor);
+            conn.Parameters.AddWithValue("@vendedor", UTEIS.NomeUsuario);
             conn.ExecuteNonQuery();
             con.FecharConexao();
         }

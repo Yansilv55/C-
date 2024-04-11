@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
+using MODEL;
 
 namespace Moderno
 {
@@ -161,8 +162,8 @@ namespace Moderno
                     //extraíndo dados do login
                     while (reader.Read())
                     {
-                        Program.NomeUsuario = Convert.ToString(reader["nome"]);
-                        Program.CargoUsuario = Convert.ToString(Convert.ToString(reader["cargo"]));
+                        UTEIS.NomeUsuario = Convert.ToString(reader["nome"]);
+                        UTEIS.CargoUsuario = Convert.ToString(Convert.ToString(reader["cargo"]));
                     }
                     lbl_textoErro.Visible = false;
                     pictureErro.Visible = false;

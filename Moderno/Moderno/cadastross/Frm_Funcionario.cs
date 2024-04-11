@@ -38,64 +38,83 @@ namespace Moderno.cadastross
             txt_Celular.Text = "(00) 0 0000-0000";
         }
         //------------------------------------------------------------------------------
-        private void BuscarNome(FuncionarioMODEL Funcionario, DataGridView grid)
+        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
         {
-            FuncionarioDAO funcionario = new FuncionarioDAO();
-            funcionario.Buscar_nome(Funcionario, grid);
-            FormatarGD();
+            AtualizarListaFuncionarios();
         }
-        //------------------------------------------------------------------------------
-        private void BuscarCpf(FuncionarioMODEL Funcionario, DataGridView grid)
+        private void AtualizarListaFuncionarios()
         {
-            FuncionarioDAO funcionario = new FuncionarioDAO();
-            funcionario.Buscar_cpf(Funcionario, grid);
-            FormatarGD();
+            if (string.IsNullOrWhiteSpace(txt_BuscarNome.Text))
+            {
+                ExibirListaCompletaFuncionarios();
+            }
+            else
+            {
+                RealizarBuscaFuncionarios(txt_BuscarNome.Text);
+            }
+        }
+        private void ExibirListaCompletaFuncionarios()
+        {
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            List<FuncionarioMODEL> funcionarios = funcionarioDAO.ListaBuscarFuncionario("");
+            grid.DataSource = funcionarios;
         }
 
-        private void VerificarCampo()
+        private void RealizarBuscaFuncionarios(string nome)
         {
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            List<FuncionarioMODEL> funcionarios = funcionarioDAO.ListaBuscarFuncionario(nome);
+            grid.DataSource = funcionarios;
+        }
+        //------------------------------------------------------------------------------
+
+        private bool VerificarCampo()
+        {
+            string nome = txt_Nome.Text.Trim();
             string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
             string celular = txt_Celular.Text;
             string numerocel = new string(celular.Where(char.IsDigit).ToArray());
-
-            if (txt_Nome.Text.ToString().Trim() == "")
+            string cargo = cb_Cargo.Text;
+            string endereco = txt_Endereco.Text.Trim();
+            if (string.IsNullOrWhiteSpace(nome))
             {
-                MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Nome.Text = "";
+                MessageBox.Show("Preencha o campo Nome.", "Cadastro Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Nome.Focus();
-                return;
+                return false;
             }
             if (!CPFValidator.ValidateCPF(numeroCpf))
             {
-                MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Cpf.Focus();
-                return;
+                return false;
             }
             if (numerocel.Length != 11)
             {
-                MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Preencha o campo Telefone com 11 dígitos numéricos.", "Cadastro Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Celular.Focus();
-                return;
+                return false;
             }
-            if (cb_Cargo.Text == "Selcionar cargo")
+            if (cargo == "Selecionar cargo")
             {
-                MessageBox.Show("Por favor preencha o Campo.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um cargo.", "Cadastro Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cb_Cargo.Focus();
-                return;
+                return false;
             }
-            if (txt_Endereco.Text.ToString().Trim() == "")
+            if (string.IsNullOrWhiteSpace(endereco))
             {
-                MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Endereco.Text = "";
+                MessageBox.Show("Preencha o campo Endereço.", "Cadastro Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Endereco.Focus();
-                return;
+                return false;
             }
+            return true;
         }
-
         private void SalvarRegistrro()
         {
-            VerificarCampo();
+            if (!VerificarCampo())
+            {
+                return;
+            }
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
             funcionario.nome = txt_Nome.Text;
@@ -240,12 +259,12 @@ namespace Moderno.cadastross
             VerificarCampo();
 
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
+            funcionario.funcionario_id = int.Parse(funcionario_id);
             funcionario.nome = txt_Nome.Text;
             funcionario.cpf = txt_Cpf.Text;
             funcionario.celular = txt_Celular.Text;
             funcionario.cargo = cb_Cargo.Text;
             funcionario.endereco = txt_Endereco.Text;
-            funcionario.funcionario_id = int.Parse(funcionario_id);
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
             if (VerificarDuplicidade())
@@ -379,10 +398,7 @@ namespace Moderno.cadastross
         }
         private void cb_Cargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-          /*  cb_Cargo.DropDownStyle = ComboBoxStyle.DropDownList;
-            FuncionarioDAO funcionariodao = new FuncionarioDAO();
-            cb_Cargo.DataSource = funcionariodao.Carregar_campo();
-            cb_Cargo.DisplayMember = "cargo";*/
+          
         }
         public class CPFValidator
         {
@@ -424,22 +440,6 @@ namespace Moderno.cadastross
 
                 return true;
             }
-        }
-
-        private void rbNome_CheckedChanged(object sender, EventArgs e)
-        {
-            txt_BuscarNome.Visible = true;
-            txt_BuscarCpf.Visible = false;
-            txt_BuscarCpf.Text = "";
-            txt_BuscarNome.Text = "";
-        }
-        private void rb_Cpf_CheckedChanged(object sender, EventArgs e)
-        {
-            txt_BuscarNome.Visible = false;
-            txt_BuscarCpf.Visible = true;
-            txt_BuscarCpf.Text = "";
-            txt_BuscarNome.Text = "";
-            txt_BuscarNome.Focus();
         }
         private void btnAddCargo_Click(object sender, EventArgs e)
         {
@@ -491,5 +491,6 @@ namespace Moderno.cadastross
                 }
             }
         }
+
     }
 }
