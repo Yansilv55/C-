@@ -328,5 +328,26 @@
   <ItemGroup>
     <None Include="Resources\0_7asj1rKS8d2mead_.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_full_shopping_basket_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_payment_history_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_receipt_terminal_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_folded_booklet_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_full_shopping_basket_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Customer_Support_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Tools_16px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
