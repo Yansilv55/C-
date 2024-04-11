@@ -120,15 +120,12 @@ namespace Moderno.cadastross
             funcionario.nome = txt_Nome.Text;
             funcionario.cpf = txt_Cpf.Text;
             funcionario.celular = txt_Celular.Text;
-            funcionario.cargo = cb_Cargo.Text;
             funcionario.endereco = txt_Endereco.Text;
-
+            funcionario.cargo = cb_Cargo.Text;
             if (VerificarDuplicidade())
             {
                 return;
             }
-            
-
             try
             {
                 funcionarioDAO.Salvar_funcionario(funcionario);
@@ -141,7 +138,6 @@ namespace Moderno.cadastross
                 LimparCampos();
                 Listar();
                 funcionarioDAO.AtualizarLinhas();
-
                 DesabilitarCampos();
             }
             catch (Exception ex)
@@ -157,7 +153,6 @@ namespace Moderno.cadastross
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -186,7 +181,6 @@ namespace Moderno.cadastross
             LimparCampos();
             txt_Nome.Focus();
         }
-
         private void Listar()
         {
             FuncionarioDAO funcionario = new FuncionarioDAO();
