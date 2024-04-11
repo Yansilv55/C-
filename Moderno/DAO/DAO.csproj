@@ -46,6 +46,7 @@
     <Compile Include="AutoCompleteStringCollection.cs" />
     <Compile Include="CaixaDAO.cs" />
     <Compile Include="CargoDAO.cs" />
+    <Compile Include="ClienteDAO.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="FornecedorDAO.cs" />
     <Compile Include="FuncionarioDAO.cs" />

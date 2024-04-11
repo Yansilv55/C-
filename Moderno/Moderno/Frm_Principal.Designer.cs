@@ -1,6 +1,6 @@
 ﻿namespace Moderno
 {
-    partial class Frm_Pdv_Moderno
+    partial class Frm_Principal
     {
         /// <summary>
         /// Variável de designer necessária.

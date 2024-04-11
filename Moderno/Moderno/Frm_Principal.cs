@@ -14,14 +14,14 @@ using System.Windows.Forms;
 
 namespace Moderno
 {
-    public partial class Frm_Pdv_Moderno : Form
+    public partial class Frm_Principal : Form
     {
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activiform;
 
-        public Frm_Pdv_Moderno()
+        public Frm_Principal()
         {
             InitializeComponent();
             random = new Random();

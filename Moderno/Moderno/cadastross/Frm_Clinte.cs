@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DAO;
+using MODEL;
 using MySql.Data.MySqlClient;
 
 namespace Moderno.cadastross
@@ -15,7 +16,7 @@ namespace Moderno.cadastross
         string sql;
         MySqlCommand conn;
 
-        string id_cliente;
+        private string cliente_id;
         string cpfAntigo;
         string cliente;
         string alterouImagem = "nao";
@@ -173,7 +174,7 @@ namespace Moderno.cadastross
             con.AbrirConexao();
             MySqlCommand connVerificar;
             MySqlDataReader reader;
-            sql = "SELECT id_cliente FROM clientes ORDER BY id_cliente DESC LIMIT 1";
+            sql = "SELECT cliente_id FROM clientes ORDER BY cliente_id DESC LIMIT 1";
             connVerificar = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = connVerificar;
@@ -182,13 +183,12 @@ namespace Moderno.cadastross
             {
                 while (reader.Read())
                 {
-                    IdAnterior = Convert.ToInt32(reader["id_cliente"]);
+                    IdAnterior = Convert.ToInt32(reader["cliente_id"]);
                     idcliente = IdAnterior + 1;
                 }
             }
         }
-        
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private void VerificarCampo()
         {
             string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
@@ -220,37 +220,26 @@ namespace Moderno.cadastross
                 txt_Email.Focus();
                 return;
             }
+        }
+        private void SalvarRegistro()
+        {
+            ClienteDAO clienteDAO = new ClienteDAO();
+            ClienteMODEL cliente = new ClienteMODEL();
+            cliente.nome = txt_Nome.Text;
+            cliente.cpf = txt_Cpf.Text;
+            cliente.celular = txt_Celular.Text;
+            cliente.email = txt_Email.Text;
+            cliente.endereco = txt_Endereco.Text;
+            VerificarCampo();
             if (rb_Ativado.Checked == true)
             {
                 //botao salvar
-                con.AbrirConexao();
-                sql = "INSERT INTO clientes(nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, imagem, data) VALUES(@nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @imagem, curDate())";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                conn.Parameters.AddWithValue("@valorAberto", 0);
-                conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                conn.Parameters.AddWithValue("@desbloqueado", "Sim");
-                conn.Parameters.AddWithValue("@Inadiplente", "Não");
-                conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-               // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);          
+                clienteDAO.Salvar_registro_ativado(cliente);     
             }
             else if (rb_Ativado.Checked == false)
             {
                 //botao salvar
-                con.AbrirConexao();
-                sql = "INSERT INTO clientes(nome, cpf, valorAberto, tel, email, desbloqueado, Inadiplente, endereco, imagem, data) VALUES(@nome, @cpf, @valorAberto, @tel, @email, @desbloqueado, @Inadiplente, @endereco, @imagem, curDate())";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                conn.Parameters.AddWithValue("@valorAberto", 0);
-                conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                conn.Parameters.AddWithValue("@desbloqueado", "Não");
-                conn.Parameters.AddWithValue("@Inadiplente", "Não");
-                conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                //conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                clienteDAO.Salvar_registro_ativado(cliente);
             }
             //Verificar se cpf ja existe  
 
@@ -283,6 +272,10 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
+        }
+        
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
         }
         private void rbCpf_CheckedChanged(object sender, EventArgs e)
         {
@@ -336,13 +329,12 @@ namespace Moderno.cadastross
             }
             //botao editar
             con.AbrirConexao();
-            if (alterouImagem == "sim")
-            {
+            
                if (rb_Ativado.Checked == true)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id_cliente=@id_cliente";
+                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE cliente_id = @cliente_id";
                     conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id_clienete", id_cliente); 
+                    conn.Parameters.AddWithValue("@id_clienete", cliente_id); 
                     conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
@@ -351,13 +343,13 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Sim");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                 //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                    conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 }
                 else if (rb_Ativado.Checked == false)
                 {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE id_cliente=@id_cliente";
+                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE cliente_id=@cliente_id";
                     conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id_cliente", id_cliente);
+                    conn.Parameters.AddWithValue("@id_cliente", cliente_id);
                     conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
                     conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
                     conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
@@ -366,42 +358,8 @@ namespace Moderno.cadastross
                     conn.Parameters.AddWithValue("@desbloqueado", "Não");
                     conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
                     conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                   // conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
+                    conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
                 }
-            }
-            else if (alterouImagem == "nao")
-            {
-                if (rb_Ativado.Checked == true)
-                {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id_cliente=@id_cliente";
-                    conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id", id_cliente);
-                    conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                    conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                    conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
-                    conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                    conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                    conn.Parameters.AddWithValue("@desbloqueado", "Sim");
-                    conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
-                    conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                 //   conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                }
-                else if (rb_Ativado.Checked == false)
-                {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario WHERE id_cliente=@id_cliente";
-                    conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id", id_cliente);
-                    conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                    conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                    conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
-                    conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                    conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                    conn.Parameters.AddWithValue("@desbloqueado", "Não");
-                    conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
-                    conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-               //     conn.Parameters.AddWithValue("@funcionario", Program.NomeUsuario);
-                }
-            }
             //Verificar se cpf ja existe
             if (txt_Cpf.Text != cpfAntigo)
             {
@@ -435,18 +393,15 @@ namespace Moderno.cadastross
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
         }
-        private void btn_Excluir_Click(object sender, EventArgs e)
+        private void ExcluirRegistro()
         {
+            ClienteDAO clienteDAO = new ClienteDAO();
+            ClienteMODEL clienteMODEL = new ClienteMODEL();
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 //botao excluir
-                con.AbrirConexao();
-                sql = "DELETE FROM clientes WHERE id_cliente = @id_cliente";
-                conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@id_cliente", id_cliente);
-                conn.ExecuteNonQuery();
-                con.FecharConexao();
+                clienteDAO.Excluir_cliente(clienteMODEL);
                 btn_Salvar.Enabled = false;
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
@@ -454,6 +409,18 @@ namespace Moderno.cadastross
                 DesabilitarCampos();
                 LimparCampos();
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExcluirRegistro();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -472,7 +439,7 @@ namespace Moderno.cadastross
             {
                 campoClicado = true;
                 HabilitarCampos();
-                id_cliente = grid.CurrentRow.Cells[0].Value.ToString();
+                cliente_id = grid.CurrentRow.Cells[0].Value.ToString();
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
                 txt_Cpf.Text = grid.CurrentRow.Cells[2].Value.ToString();

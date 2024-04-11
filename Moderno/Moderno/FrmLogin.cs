@@ -172,7 +172,7 @@ namespace Moderno
                     //frm.Show();
                     //frm.FormClosed += encerraSecao;
                     //this.Hide();//oculta form
-                    Frm_Pdv_Moderno frm = new Frm_Pdv_Moderno();
+                    Frm_Principal frm = new Frm_Principal();
                     frm.ShowDialog();
 
                 }

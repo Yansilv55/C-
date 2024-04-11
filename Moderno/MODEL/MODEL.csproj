@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaixaMODEL.cs" />
+    <Compile Include="ClienteMODEL.cs" />
     <Compile Include="FornecedorMODEL.cs" />
     <Compile Include="FuncionarioMODEL.cs" />
     <Compile Include="PessoaModel.cs" />

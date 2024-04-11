@@ -9,9 +9,9 @@ namespace Moderno.cadastross
 {
     public partial class Frm_Usuario : Form
     {
-        string cargo_id;
-        string usuarioAntigo;
-        string Cargo;
+        private string cargo_id;
+        private string usuarioAntigo;
+        private string Cargo;
         private bool campoClicado = false;
         public Frm_Usuario()
         {

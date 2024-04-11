@@ -6,7 +6,6 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Func
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Servicos.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.cadastross.Frm_Usuario.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.FrmLogin.resources
-C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Frm_Pdv_Moderno.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Message.Frm_Bemvindo.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_Caixa.resources
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Movimentacoes.Frm_gastos.resources
@@ -31,3 +30,4 @@ C:\Estudos\Projetos\Csharp\Moderno\Moderno\bin\Debug\MySql.Data.xml
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.csproj.CopyComplete
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.exe
 C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.pdb
+C:\Estudos\Projetos\Csharp\Moderno\Moderno\obj\Debug\Moderno.Frm_Principal.resources
