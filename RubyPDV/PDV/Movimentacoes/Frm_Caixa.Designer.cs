@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bnt_Rel = new System.Windows.Forms.Button();
-            this.lb_Rel = new System.Windows.Forms.Label();
             this.dt_Final = new System.Windows.Forms.DateTimePicker();
             this.dt_Inicial = new System.Windows.Forms.DateTimePicker();
             this.txt_Entrada = new System.Windows.Forms.TextBox();
@@ -166,7 +165,6 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cb_Tipo);
             this.panel1.Controls.Add(this.bnt_Rel);
-            this.panel1.Controls.Add(this.lb_Rel);
             this.panel1.Controls.Add(this.dt_Final);
             this.panel1.Controls.Add(this.dt_Inicial);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
@@ -222,16 +220,6 @@
             this.bnt_Rel.TabIndex = 2;
             this.bnt_Rel.Text = "button1";
             this.bnt_Rel.UseVisualStyleBackColor = true;
-            // 
-            // lb_Rel
-            // 
-            this.lb_Rel.AutoSize = true;
-            this.lb_Rel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Rel.Location = new System.Drawing.Point(1100, 16);
-            this.lb_Rel.Name = "lb_Rel";
-            this.lb_Rel.Size = new System.Drawing.Size(73, 20);
-            this.lb_Rel.TabIndex = 3;
-            this.lb_Rel.Text = "Relatório";
             // 
             // dt_Final
             // 
@@ -1105,7 +1093,6 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox txt_Descricao;
-        private System.Windows.Forms.Label lb_Rel;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Label lbl_Entrada;
         private System.Windows.Forms.ComboBox cb_FormaPagto;

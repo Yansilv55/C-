@@ -22,6 +22,7 @@ namespace Moderno.Movimentacoes
         public Frm_gastos()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Frm_gastos_Load(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace Moderno.Movimentacoes
             txt_Favorecido.Enabled = true;
             txt_Valor.Enabled = true;
             txt_Nota.Enabled = true;
-            txt_Descricao.Focus();
+            txt_Nota.Focus();
             cb_Pagto.Enabled = true;
             dt_Data.Enabled = true;
         }
@@ -509,6 +510,46 @@ namespace Moderno.Movimentacoes
         private void dt_Final_ValueChanged(object sender, EventArgs e)
         {
             listarPeriodo();
+        }
+
+        private void txt_Nota_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dt_Data.Focus();
+            }
+        }
+
+        private void dt_Data_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Valor.Focus();
+            }
+        }
+
+        private void txt_Valor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cb_Pagto.Focus();
+            }
+        }
+
+        private void cb_Pagto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Favorecido.Focus();
+            }
+        }
+
+        private void txt_Favorecido_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Descricao.Focus();
+            }
         }
     }
 }

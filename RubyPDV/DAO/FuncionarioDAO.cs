@@ -15,16 +15,13 @@ namespace DAO
         Conexao con = new Conexao();
         string sql = string.Empty;
         MySqlCommand conn;
-        string funcionario_id;
+        //string funcionario_id;
 
         public void Salvar_funcionario(FuncionarioMODEL funcionario)
         {
             try
             {
             con.AbrirConexao();
-           // sql = "SELECT * FROM `funcionario`";
-           // conn = new MySqlCommand(sql, con.con);
-
             sql =@"INSERT INTO
                       funcionario (
                                 nome,
@@ -40,7 +37,6 @@ namespace DAO
                                 @cargo, 
                                 @endereco, 
                                 curDate())";
-
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", funcionario.nome);
             conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
@@ -74,7 +70,6 @@ namespace DAO
                 connVerificar.Parameters.AddWithValue("@funcionario_id", funcionario_id);
 
                 int count = Convert.ToInt32(connVerificar.ExecuteScalar());
-
                 return count > 0;
             }
             catch (Exception ex)

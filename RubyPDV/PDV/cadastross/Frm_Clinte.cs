@@ -17,11 +17,12 @@ namespace Moderno.cadastross
         MySqlCommand conn;
 
         private string cliente_id;
-        string cpfAntigo;
-        string cliente;
+        private string cpfAntigo;
+        private string celAntigo;
+        private string cliente;
         string alterouImagem = "nao";
         string radButton = "";
-        String desbloqueado, inadiplente;
+        private String desbloqueado, inadiplente;
         bool emailAdress = false;
         private bool campoClicado = false;
 
@@ -40,7 +41,7 @@ namespace Moderno.cadastross
         }
         private void FormatarGD()
         {
-            grid.Columns[0].HeaderText = "ID_Cliente";
+            grid.Columns[0].HeaderText = "Cliente_ID";
             grid.Columns[1].HeaderText = "Nome";
             grid.Columns[2].HeaderText = "Cpf";
             grid.Columns[3].HeaderText = "Em Aberto";
@@ -188,7 +189,7 @@ namespace Moderno.cadastross
                 }
             }
         }
-        private void VerificarCampo()
+        private bool VerificarCampo()
         {
             string cpf = txt_Cpf.Text;
             string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
@@ -200,26 +201,55 @@ namespace Moderno.cadastross
                 MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Nome.Text = "";
                 txt_Nome.Focus();
-                return;
+                return false;
             }
             if (!CPFValidator.ValidateCPF(numeroCpf))
             {
                 MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Cpf.Focus();
-                return;
+                return false;
             }
             if (numerocel.Length != 11)
             {
                 MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txt_Celular.Focus();
-                return;
+                return false;
             }
             if (emailAdress)
             {
                 MessageBox.Show("Email invalido", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Email.Focus();
-                return;
+                return false;
             }
+            return true;
+        }
+        private bool VerificarDuplicidade()
+        {
+            ClienteDAO ClienteDAO = new ClienteDAO();
+            ClienteMODEL cliente = new ClienteMODEL();
+            cliente.cpf = txt_Cpf.Text;
+            cliente.celular = txt_Celular.Text;
+            if (txt_Cpf.Text != cpfAntigo)
+            {
+                if (ClienteDAO.VerificarDuplicidadeFuncionario(cliente.cliente_id, "cpf", cliente.cpf.ToString()))
+                {
+                    MessageBox.Show("CPF já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txt_Cpf.Text = "";
+                    txt_Cpf.Focus();
+                    return true;
+                }
+            }
+            if (txt_Celular.Text != celAntigo)
+            {
+                if (ClienteDAO.VerificarDuplicidadeFuncionario(cliente.cliente_id, "telefone", cliente.celular.ToString()))
+                {
+                    MessageBox.Show("Celular já registrado.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txt_Celular.Text = "";
+                    txt_Celular.Focus();
+                    return true;
+                }
+            }
+            return false;
         }
         private void SalvarRegistro()
         {
@@ -230,7 +260,14 @@ namespace Moderno.cadastross
             cliente.celular = txt_Celular.Text;
             cliente.email = txt_Email.Text;
             cliente.endereco = txt_Endereco.Text;
-            VerificarCampo();
+            if (VerificarCampo())
+            {
+                return;
+            }
+            if (VerificarDuplicidade())
+            {
+                return;
+            }
             if (rb_Ativado.Checked == true)
             {
                 //botao salvar
@@ -239,28 +276,8 @@ namespace Moderno.cadastross
             else if (rb_Ativado.Checked == false)
             {
                 //botao salvar
-                clienteDAO.Salvar_registro_ativado(cliente);
+                clienteDAO.Salvar_registro_desativado(cliente);
             }
-            //Verificar se cpf ja existe  
-
-
-            MySqlCommand connVerificar;
-            connVerificar = new MySqlCommand("SELECT * FROM clientes WHERE cpf = @cpf", con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = connVerificar;
-            connVerificar.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                MessageBox.Show("CPF já registrado", "Cadastro de clientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                txt_Cpf.Text = "";
-                txt_Cpf.Focus();
-                return;
-            }
-            conn.Connection = con.con;
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
             Status();
             MessageBox.Show("Clientes " + txt_Nome.Text + " estar " + radButton + " e salvo com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Listar();
@@ -273,9 +290,17 @@ namespace Moderno.cadastross
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
         }
-        
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SalvarRegistro();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         private void rbCpf_CheckedChanged(object sender, EventArgs e)
         {
@@ -294,92 +319,34 @@ namespace Moderno.cadastross
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
         }
-
-        private void btn_Editar_Click(object sender, EventArgs e)
+        private void EditarRegistro()
         {
-            string cpf = txt_Cpf.Text;
-            string numeroCpf = new string(cpf.Where(char.IsDigit).ToArray());
-            string celular = txt_Celular.Text;
-            string numerocel = new string(celular.Where(char.IsDigit).ToArray());
-
-            if (txt_Nome.Text.ToString().Trim() == "")
-            {
-                MessageBox.Show("Preencha o campo nome.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Nome.Text = "";
-                txt_Nome.Focus();
-                return;
-            }
-            if (!CPFValidator.ValidateCPF(numeroCpf))
-            {
-                MessageBox.Show("Por favor, insira um CPF válido.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Cpf.Focus();
-                return;
-            }
-            if (numerocel.Length != 11)
-            {
-                MessageBox.Show("preencha o Campo Telefone.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_Celular.Focus();
-                return;
-            }
-            if (emailAdress == false)
-            {
-                MessageBox.Show("email inválido!");
-                txt_Email.Focus();
-                return;
-            }
-            //botao editar
+            ClienteDAO clienteDAO = new ClienteDAO();
+            ClienteMODEL cliente = new ClienteMODEL();
+            cliente.nome = txt_Nome.Text;
+            cliente.cpf = txt_Cpf.Text;
+            cliente.celular = txt_Celular.Text;
+            cliente.email = txt_Email.Text;
+            cliente.Inadiplente = cb_Inadiplente.Text;
+            cliente.endereco = txt_Endereco.Text;
             con.AbrirConexao();
             
-               if (rb_Ativado.Checked == true)
-                {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE cliente_id = @cliente_id";
-                    conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id_clienete", cliente_id); 
-                    conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                    conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                    conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
-                    conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                    conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                    conn.Parameters.AddWithValue("@desbloqueado", "Sim");
-                    conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
-                    conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
-                }
-                else if (rb_Ativado.Checked == false)
-                {
-                    sql = "UPDATE clientes SET nome=@nome, cpf=@cpf, valorAberto=@valorAberto, tel=@tel, email=@email, desbloqueado=@desbloqueado, Inadiplente=@Inadiplente, endereco=@endereco, funcionario=@funcionario, imagem=@imagem WHERE cliente_id=@cliente_id";
-                    conn = new MySqlCommand(sql, con.con);
-                    conn.Parameters.AddWithValue("@id_cliente", cliente_id);
-                    conn.Parameters.AddWithValue("@nome", txt_Nome.Text);
-                    conn.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                    conn.Parameters.AddWithValue("@valorAberto", Convert.ToDouble(txt_ValorAberto.Text));
-                    conn.Parameters.AddWithValue("@tel", txt_Celular.Text);
-                    conn.Parameters.AddWithValue("@email", txt_Email.Text);
-                    conn.Parameters.AddWithValue("@desbloqueado", "Não");
-                    conn.Parameters.AddWithValue("@Inadiplente", cb_Inadiplente.Text);
-                    conn.Parameters.AddWithValue("@endereco", txt_Endereco.Text);
-                    conn.Parameters.AddWithValue("@funcionario", UTEIS.NomeUsuario);
-                }
-            //Verificar se cpf ja existe
-            if (txt_Cpf.Text != cpfAntigo)
+            if (VerificarCampo())
             {
-                MySqlCommand cmdVerificar;
-                cmdVerificar = new MySqlCommand("SELECT * FROM clientes WHERE cpf = @cpf", con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = cmdVerificar;
-                cmdVerificar.Parameters.AddWithValue("@cpf", txt_Cpf.Text);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    MessageBox.Show("CPF já registrado", "Cadastro de clientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    txt_Cpf.Text = "";
-                    txt_Cpf.Focus();
-                    return;
-                }
+                return;
             }
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            if (VerificarDuplicidade())
+            {
+                return;
+            }
+            if (rb_Ativado.Checked == true)
+            {
+                    clienteDAO.Editar_cliente_ativado(cliente);
+            }
+            else if (rb_Ativado.Checked == false)
+            {
+                   clienteDAO.Editar_cliente_desativado(cliente);
+            }
             Status();
             MessageBox.Show("Registro Editado com sucesso: Clientes " + txt_Nome.Text + " " + radButton, "Cadastro Hóspedes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btn_Novo.Enabled = true;
@@ -392,6 +359,17 @@ namespace Moderno.cadastross
             btn_Novo.Enabled = true;
             btn_Editar.Enabled = false;
             btn_Excluir.Enabled = false;
+        }
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EditarRegistro();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private void ExcluirRegistro()
         {

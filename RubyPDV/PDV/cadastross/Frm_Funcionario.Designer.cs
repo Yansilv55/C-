@@ -45,7 +45,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txt_BuscarNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.rb_Nome = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -217,7 +216,6 @@
             this.panelBusca.Controls.Add(this.lblTitulo);
             this.panelBusca.Controls.Add(this.txt_BuscarNome);
             this.panelBusca.Controls.Add(this.label6);
-            this.panelBusca.Controls.Add(this.rb_Nome);
             this.panelBusca.Location = new System.Drawing.Point(1, 1);
             this.panelBusca.Name = "panelBusca";
             this.panelBusca.Size = new System.Drawing.Size(1175, 45);
@@ -251,18 +249,6 @@
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Busca";
-            // 
-            // rb_Nome
-            // 
-            this.rb_Nome.AutoSize = true;
-            this.rb_Nome.ForeColor = System.Drawing.Color.White;
-            this.rb_Nome.Location = new System.Drawing.Point(481, 16);
-            this.rb_Nome.Name = "rb_Nome";
-            this.rb_Nome.Size = new System.Drawing.Size(53, 17);
-            this.rb_Nome.TabIndex = 31;
-            this.rb_Nome.TabStop = true;
-            this.rb_Nome.Text = "Nome";
-            this.rb_Nome.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -472,7 +458,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txt_BuscarNome;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton rb_Nome;
         private System.Windows.Forms.Button btnAddCargo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

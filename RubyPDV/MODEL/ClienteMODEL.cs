@@ -14,5 +14,8 @@ namespace MODEL
         public string celular { get; set; }
         public string email { get; set; }
         public string endereco { get; set; }
+        public string valorAberto { get; set; }
+        public string Inadiplente { get; set; }
+        public string emAberto { get; set; }
     }
 }

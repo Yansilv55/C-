@@ -1,5 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MODEL;
+using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace DAO
@@ -11,6 +13,29 @@ namespace DAO
         MySqlCommand conn;
         string id_cargo;
 
+        public List<ServicoMODAL> ListarServicos()
+        {
+            List<ServicoMODAL> servicos = new List<ServicoMODAL>();
+
+            con.AbrirConexao();
+            sql = "SELECT * FROM servico ORDER BY nome asc";
+            conn = new MySqlCommand(sql, con.con);
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    ServicoMODAL servico = new ServicoMODAL();
+                    servico.servico_id = reader.GetInt32("servico_id");
+                    servico.nome = reader.GetString("nome");
+                    servico.valor = reader.GetDecimal("valor");
+
+                    servicos.Add(servico);
+                }
+            }
+
+            con.FecharConexao();
+            return servicos;
+        }
         public bool buscar_Registro_Cargo(string nome)
         {
             con.AbrirConexao();
