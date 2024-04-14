@@ -14,7 +14,7 @@ namespace DAO
         string sql;
         MySqlCommand conn;
 
-        public List<ClienteMODEL> ListaBuscarFuncionario(string nome)
+        /*public List<ClienteMODEL> ListaBuscarFuncionario(string nome)
         {
             List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
 
@@ -33,7 +33,7 @@ namespace DAO
                 }
             }
             return funcionarios;
-        }
+        }*/
         public void Excluir_cliente(ClienteMODEL clinte)
         {
             con.AbrirConexao();

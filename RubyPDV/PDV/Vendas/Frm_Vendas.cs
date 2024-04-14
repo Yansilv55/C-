@@ -85,6 +85,33 @@ namespace Moderno.Vendas
                Vendas.Frm_fechar_venda frm = new Frm_fechar_venda();
                 frm.ShowDialog();
             }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(txt_CodProduto.Text != "")
+                {
+                    VendaProduto();
+                }
+                else
+                {
+                    //
+                }
+            }
+        }
+
+        private void VendaProduto()
+        {
+            ProdutosModel produto = new ProdutosModel();
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+
+            string codBarras = txt_CodProduto.Text;
+            produto.CodBarra = codBarras;
+            produto.Nome = "COCA COLA 1L";
+            //produto = produtoDAO.BuscarProduto(codBarras);
+            if (produto != null)
+            {
+                gridDetalhes.DataSource = produtoDAO;
+            }
         }
 
         private void DesabilitarCampo()

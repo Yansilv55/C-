@@ -26,6 +26,6 @@ namespace MODEL
         public int Entrada_estoque { get; set; }
         public int Unitario { get; set; }
         public int Minimo { get; set; }
-        public int CodBarra { get; set; }
+        public String CodBarra { get; set; }
     }
 }

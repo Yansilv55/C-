@@ -4,3 +4,9 @@ C:\Estudos\Projetos\Csharp\Moderno\MODEL\obj\Debug\MODEL.csproj.AssemblyReferenc
 C:\Estudos\Projetos\Csharp\Moderno\MODEL\obj\Debug\MODEL.csproj.CoreCompileInputs.cache
 C:\Estudos\Projetos\Csharp\Moderno\MODEL\obj\Debug\MODEL.dll
 C:\Estudos\Projetos\Csharp\Moderno\MODEL\obj\Debug\MODEL.pdb
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\bin\Debug\MODEL.dll
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\bin\Debug\MODEL.pdb
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\obj\Debug\MODEL.csproj.AssemblyReference.cache
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\obj\Debug\MODEL.csproj.CoreCompileInputs.cache
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\obj\Debug\MODEL.dll
+C:\Estudos\Projetos\Csharp\RubyPDV\MODEL\obj\Debug\MODEL.pdb

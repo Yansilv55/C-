@@ -15,16 +15,18 @@ namespace DAO
         Conexao con = new Conexao();
         MySqlCommand conn;
         string produto_id;
-        public void BuscarProduto()
+        public ProdutosModel BuscarProduto(String produto)
         {
+            ProdutosModel produtoModel = new ProdutosModel();
             con.AbrirConexao();
-            sql = "SELECT * FROM fornecedor WHERE fornecedor_id = @fornecedor";
+            sql = "SELECT * FROM produto WHERE codigo_barras = @codBarras";
             conn = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = conn;
             DataTable dt = new DataTable();
             da.Fill(dt);
             con.FecharConexao();
+            return produtoModel;
         }
         public void SalvarProduto(ProdutosModel produto)
         {
