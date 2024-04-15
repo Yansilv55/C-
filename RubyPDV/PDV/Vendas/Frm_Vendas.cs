@@ -104,8 +104,8 @@ namespace Moderno.Vendas
             ProdutosModel produto = new ProdutosModel();
             ProdutoDAO produtoDAO = new ProdutoDAO();
 
-            string codBarras = txt_CodProduto.Text;
-            produto.CodBarra = codBarras;
+            string codigo_barra = txt_CodProduto.Text;
+            produto.codigo_barra = codigo_barra;
             produto.Nome = "COCA COLA 1L";
             //produto = produtoDAO.BuscarProduto(codBarras);
             if (produto != null)

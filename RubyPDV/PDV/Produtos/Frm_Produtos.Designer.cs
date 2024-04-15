@@ -77,10 +77,11 @@
             this.lblValorCompra = new System.Windows.Forms.Label();
             this.data = new System.Windows.Forms.DateTimePicker();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnIncluir = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.btnAddCargo = new System.Windows.Forms.Button();
             this.panelBusca.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -101,7 +102,7 @@
             this.panelBusca.Controls.Add(this.lblTituloProdutos);
             this.panelBusca.Location = new System.Drawing.Point(-1, 0);
             this.panelBusca.Name = "panelBusca";
-            this.panelBusca.Size = new System.Drawing.Size(1126, 53);
+            this.panelBusca.Size = new System.Drawing.Size(1043, 53);
             this.panelBusca.TabIndex = 148;
             // 
             // label11
@@ -164,7 +165,6 @@
             // 
             // txtCodBarra
             // 
-            this.txtCodBarra.Enabled = false;
             this.txtCodBarra.Location = new System.Drawing.Point(10, 83);
             this.txtCodBarra.MaxLength = 13;
             this.txtCodBarra.Name = "txtCodBarra";
@@ -187,7 +187,7 @@
             this.txtNome.Location = new System.Drawing.Point(10, 132);
             this.txtNome.MaxLength = 30;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(387, 20);
+            this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 151;
             this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown);
             // 
@@ -226,7 +226,7 @@
             // 
             // txtNota
             // 
-            this.txtNota.Location = new System.Drawing.Point(246, 190);
+            this.txtNota.Location = new System.Drawing.Point(266, 189);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(69, 20);
             this.txtNota.TabIndex = 155;
@@ -238,7 +238,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(243, 168);
+            this.label18.Location = new System.Drawing.Point(263, 167);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 156;
@@ -246,7 +246,7 @@
             // 
             // txtMinimo
             // 
-            this.txtMinimo.Location = new System.Drawing.Point(328, 189);
+            this.txtMinimo.Location = new System.Drawing.Point(370, 189);
             this.txtMinimo.Name = "txtMinimo";
             this.txtMinimo.Size = new System.Drawing.Size(69, 20);
             this.txtMinimo.TabIndex = 157;
@@ -258,7 +258,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(325, 168);
+            this.label10.Location = new System.Drawing.Point(367, 168);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 158;
@@ -266,7 +266,7 @@
             // 
             // txtEstoque
             // 
-            this.txtEstoque.Location = new System.Drawing.Point(432, 189);
+            this.txtEstoque.Location = new System.Drawing.Point(458, 189);
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(80, 20);
             this.txtEstoque.TabIndex = 159;
@@ -278,7 +278,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(429, 168);
+            this.label3.Location = new System.Drawing.Point(455, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 160;
@@ -286,7 +286,7 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(432, 132);
+            this.txtDescricao.Location = new System.Drawing.Point(458, 130);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(80, 20);
             this.txtDescricao.TabIndex = 161;
@@ -296,7 +296,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(429, 118);
+            this.label4.Location = new System.Drawing.Point(450, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 162;
@@ -315,7 +315,7 @@
             // 
             // txtCompra
             // 
-            this.txtCompra.Location = new System.Drawing.Point(112, 252);
+            this.txtCompra.Location = new System.Drawing.Point(133, 252);
             this.txtCompra.Name = "txtCompra";
             this.txtCompra.Size = new System.Drawing.Size(80, 20);
             this.txtCompra.TabIndex = 164;
@@ -326,7 +326,7 @@
             // 
             // txtUnitario
             // 
-            this.txtUnitario.Location = new System.Drawing.Point(235, 252);
+            this.txtUnitario.Location = new System.Drawing.Point(246, 252);
             this.txtUnitario.Name = "txtUnitario";
             this.txtUnitario.Size = new System.Drawing.Size(80, 20);
             this.txtUnitario.TabIndex = 165;
@@ -337,7 +337,7 @@
             // 
             // txtValorVenda
             // 
-            this.txtValorVenda.Location = new System.Drawing.Point(328, 252);
+            this.txtValorVenda.Location = new System.Drawing.Point(359, 252);
             this.txtValorVenda.Name = "txtValorVenda";
             this.txtValorVenda.Size = new System.Drawing.Size(80, 20);
             this.txtValorVenda.TabIndex = 166;
@@ -348,7 +348,7 @@
             // 
             // txtLucro
             // 
-            this.txtLucro.Location = new System.Drawing.Point(432, 252);
+            this.txtLucro.Location = new System.Drawing.Point(458, 252);
             this.txtLucro.Name = "txtLucro";
             this.txtLucro.Size = new System.Drawing.Size(80, 20);
             this.txtLucro.TabIndex = 169;
@@ -361,7 +361,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(429, 231);
+            this.label1.Location = new System.Drawing.Point(457, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 170;
@@ -371,7 +371,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(325, 231);
+            this.label7.Location = new System.Drawing.Point(358, 231);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 171;
@@ -381,7 +381,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(236, 231);
+            this.label17.Location = new System.Drawing.Point(252, 231);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(70, 13);
             this.label17.TabIndex = 172;
@@ -391,7 +391,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(109, 231);
+            this.label16.Location = new System.Drawing.Point(130, 231);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(70, 13);
             this.label16.TabIndex = 173;
@@ -595,19 +595,19 @@
             this.btnEditar.Text = "editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // btnIncluir
+            // btnSalvar
             // 
-            this.btnIncluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIncluir.FlatAppearance.BorderSize = 0;
-            this.btnIncluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
-            this.btnIncluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
-            this.btnIncluir.Location = new System.Drawing.Point(204, 545);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(58, 35);
-            this.btnIncluir.TabIndex = 194;
-            this.btnIncluir.Text = "salva";
-            this.btnIncluir.UseVisualStyleBackColor = true;
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
+            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
+            this.btnSalvar.Location = new System.Drawing.Point(204, 545);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(58, 35);
+            this.btnSalvar.TabIndex = 194;
+            this.btnSalvar.Text = "salva";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnExcluir
             // 
@@ -642,19 +642,36 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(10, 315);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(1025, 222);
+            this.grid.Size = new System.Drawing.Size(1032, 222);
             this.grid.TabIndex = 198;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
+            // 
+            // btnAddCargo
+            // 
+            this.btnAddCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.btnAddCargo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCargo.FlatAppearance.BorderSize = 0;
+            this.btnAddCargo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
+            this.btnAddCargo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
+            this.btnAddCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCargo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px;
+            this.btnAddCargo.Location = new System.Drawing.Point(219, 184);
+            this.btnAddCargo.Name = "btnAddCargo";
+            this.btnAddCargo.Size = new System.Drawing.Size(32, 32);
+            this.btnAddCargo.TabIndex = 199;
+            this.btnAddCargo.UseVisualStyleBackColor = false;
+            this.btnAddCargo.Click += new System.EventHandler(this.btnAddCargo_Click);
             // 
             // Frm_Produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(1040, 592);
+            this.ClientSize = new System.Drawing.Size(1042, 592);
+            this.Controls.Add(this.btnAddCargo);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnIncluir);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.panel5);
@@ -766,9 +783,10 @@
         private System.Windows.Forms.Label lblValorCompra;
         private System.Windows.Forms.DateTimePicker data;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.Button btnAddCargo;
     }
 }
