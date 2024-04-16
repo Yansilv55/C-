@@ -460,7 +460,7 @@
             // 
             // lbl_Cargo
             // 
-            this.lbl_Cargo.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Cargo.ForeColor = System.Drawing.Color.White;
             this.lbl_Cargo.Name = "lbl_Cargo";
             this.lbl_Cargo.Size = new System.Drawing.Size(37, 22);
             this.lbl_Cargo.Text = "cargo";
@@ -613,7 +613,7 @@
             this.cadastrarProdutoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrarProdutoToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_full_shopping_basket_24px;
             this.cadastrarProdutoToolStripMenuItem.Name = "cadastrarProdutoToolStripMenuItem";
-            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.cadastrarProdutoToolStripMenuItem.Text = "Cadastrar Produto";
             this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click);
             // 

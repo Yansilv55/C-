@@ -35,7 +35,6 @@ namespace DAO
                 con.AbrirConexao();
                 sql = @"INSERT INTO 
                                 produtos(
-                                    produto_id,
                                     codigo_barra,
                                     nome,
                                     descricao,
@@ -50,7 +49,6 @@ namespace DAO
                                     nota,
                                     lucro) 
                                 VALUES(
-                                    @produto_id, 
                                     @codigo_barra, 
                                     @nome, 
                                     @descricao, 
@@ -65,7 +63,7 @@ namespace DAO
                                     @nota, 
                                     @lucro)";
                 conn = new MySqlCommand(sql, con.con);
-                conn.Parameters.AddWithValue("@produto_id", produto.produto_id);
+                //conn.Parameters.AddWithValue("@produto_id", produto.produto_id);
                 conn.Parameters.AddWithValue("@codigo_barra", produto.codigo_barra);
                 conn.Parameters.AddWithValue("@nome", produto.Nome);
                 conn.Parameters.AddWithValue("@descricao", produto.Descricao);
