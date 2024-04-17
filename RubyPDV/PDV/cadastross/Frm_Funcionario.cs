@@ -109,7 +109,7 @@ namespace Moderno.cadastross
             }
             return true;
         }
-        private void SalvarRegistrro()
+        private void SalvarRegistro()
         {
             if (!VerificarCampo())
             {
@@ -149,7 +149,7 @@ namespace Moderno.cadastross
         {
             try
             {
-                SalvarRegistrro();
+                SalvarRegistro();
             }
             catch (Exception ex)
             {

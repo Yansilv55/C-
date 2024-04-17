@@ -118,21 +118,22 @@ namespace Moderno.cadastross
             btn_Excluir.Enabled = false;
             Listar();
         }
-        private void VerificarCampo()
+        private bool VerificarCampo()
         {
             if (txt_Nome.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo nome", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Nome.Text = "";
                 txt_Nome.Focus();
-                return;
+                return false;
             }
             if (txt_Cnpj.Text == "  .   .   /    -" || txt_Cnpj.Text.Length < 18)
             {
                 MessageBox.Show("Preencha o campo CNPJ", "Cadastro fornecedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Cnpj.Focus();
-                return;
+                return false;
             }
+            return true;
         }
         private void SalvarRegistro(FornecedorMODEL fornecedor)
         {
@@ -141,7 +142,10 @@ namespace Moderno.cadastross
         }
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
-            VerificarCampo();
+            if (!VerificarCampo())
+            {
+                return;
+            }         
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             fornecedorMODEL.nome = txt_Nome.Text;
             fornecedorMODEL.cnpj = txt_Cnpj.Text;
@@ -190,7 +194,10 @@ namespace Moderno.cadastross
         }
         private void EditarRegistro(FornecedorMODEL fornecedor)
         {
-            VerificarCampo();
+            if (!VerificarCampo())
+            {
+                return;
+            }
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             fornecedorMODEL.fornecedor_id = int.Parse(fornecedor_id);

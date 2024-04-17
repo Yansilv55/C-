@@ -376,7 +376,7 @@
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Image = global::Moderno.Properties.Resources.icons8_trash_can_26px1;
-            this.btnExcluir.Location = new System.Drawing.Point(23, 532);
+            this.btnExcluir.Location = new System.Drawing.Point(33, 532);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(45, 35);
             this.btnExcluir.TabIndex = 197;
@@ -393,7 +393,7 @@
             this.btnCancelar.Image = global::Moderno.Properties.Resources.icons8_cancel_30px;
             this.btnCancelar.Location = new System.Drawing.Point(108, 532);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(63, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(80, 35);
             this.btnCancelar.TabIndex = 196;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -450,7 +450,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(30, 570);
+            this.label8.Location = new System.Drawing.Point(40, 570);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 201;
@@ -496,7 +496,7 @@
             this.btnNovo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
             this.btnNovo.Location = new System.Drawing.Point(194, 532);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(57, 35);
+            this.btnNovo.Size = new System.Drawing.Size(70, 35);
             this.btnNovo.TabIndex = 205;
             this.btnNovo.UseVisualStyleBackColor = true;
             // 
@@ -504,7 +504,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(204, 570);
+            this.label14.Location = new System.Drawing.Point(216, 570);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 206;
