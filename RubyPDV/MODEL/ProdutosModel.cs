@@ -18,10 +18,10 @@ namespace MODEL
         public double total_compra { get; set; }
         public double Unitario { get; set; }
         public double valor_venda { get; set; }
-        public string data { get; set; }
         public int Minimo { get; set; }
         public int Nota { get; set; }
         public double lucro { get; set; }
+        public string data { get; set; }
         public double valor_compra { get; set; }
         public double eCompra { get; set; }
         public double eVenda { get; set; }

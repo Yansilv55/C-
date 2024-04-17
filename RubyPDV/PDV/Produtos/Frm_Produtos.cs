@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAO;
@@ -50,15 +52,15 @@ namespace Moderno.Produtos
             grid.Columns[7].HeaderText = "Total compra";
             grid.Columns[8].HeaderText = "Custo Unitário";
             grid.Columns[9].HeaderText = "Valor Venda";
-            grid.Columns[10].HeaderText = "Data";
-            grid.Columns[11].HeaderText = "Mínimo";
-            grid.Columns[12].HeaderText = "N.Doc";
-            grid.Columns[13].HeaderText = "Lucro";
+            grid.Columns[10].HeaderText = "Estoq. Mínimo";
+            grid.Columns[11].HeaderText = "N.Doc";
+            grid.Columns[12].HeaderText = "Lucro";
+            grid.Columns[13].HeaderText = "Data";
 
             grid.Columns[7].DefaultCellStyle.Format = "c2";
             grid.Columns[8].DefaultCellStyle.Format = "c2";
             grid.Columns[9].DefaultCellStyle.Format = "c2";
-            grid.Columns[13].DefaultCellStyle.Format = "c2";
+            grid.Columns[12].DefaultCellStyle.Format = "c2";
             grid.Columns[0].Visible = false;
             grid.Columns[14].Visible = false;
             grid.Columns[15].Visible = false;
@@ -150,8 +152,7 @@ namespace Moderno.Produtos
             txtCodBarra.Text = "";
             txtNome.Text = "";
             cb_uniMedida.Text = "";
-            txtBuscarNome.Text = "";
-            txtBuscarCod.Text = "";
+            txtBuscar.Text = "";
             txtUnitario.Text = "0";
             txtEntrada.Text = "0";
             txtCompra.Text = "0";
@@ -315,19 +316,15 @@ namespace Moderno.Produtos
                 }
                 if (grid.CurrentRow.Cells[10].Value != null)
                 {
-                    data.Text = grid.CurrentRow.Cells[10].Value.ToString();
+                    txtMinimo.Text = grid.CurrentRow.Cells[10].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[11].Value != null)
                 {
-                    txtMinimo.Text = grid.CurrentRow.Cells[11].Value.ToString();
+                    txtNota.Text = grid.CurrentRow.Cells[11].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[12].Value != null)
                 {
-                    txtNota.Text = grid.CurrentRow.Cells[12].Value.ToString();
-                }
-                if (grid.CurrentRow.Cells[13].Value != null)
-                {
-                    txtLucro.Text = grid.CurrentRow.Cells[13].Value.ToString();
+                    txtLucro.Text = grid.CurrentRow.Cells[12].Value.ToString();
                 }
             }
         }
@@ -356,12 +353,26 @@ namespace Moderno.Produtos
             produto.Entrada_estoque = txtEstoque.Text;
             produto.Fornecedor = cbFornecedor.Text;
             produto.Entrada = txtEntrada.Text;
-            produto.total_compra = double.TryParse(txtCompra.Text, out double compra) ? compra : 0.0;
+            produto.total_compra = double.Parse(txtCompra.Text);
+            produto.Unitario = double.Parse(txtUnitario.Text);
+            produto.valor_venda = double.Parse(txtValorVenda.Text);
+            produto.Minimo = int.Parse(txtMinimo.Text);
+            produto.Nota = int.Parse(txtNota.Text);
+            produto.eLucro = double.Parse(txtLucro.Text);
+            /*CultureInfo culture = new CultureInfo("en-US");
+            produto.codigo_barra = txtCodBarra.Text;
+            produto.Nome = txtNome.Text;
+            produto.uni_medida = cb_uniMedida.Text;
+            produto.Entrada_estoque = txtEstoque.Text;
+            produto.Fornecedor = cbFornecedor.Text;
+            produto.Entrada = txtEntrada.Text;
+            produto.total_compra = double.TryParse(txtCompra.Text, NumberStyles.AllowDecimalPoint, culture, out double compra) ? compra : 0.0;
+            //produto.total_compra = double.TryParse(txtCompra.Text, out double compra) ? compra : 0.0;
             produto.Unitario = double.TryParse(txtUnitario.Text, out double unitario) ? unitario : 0;
             produto.valor_venda = double.TryParse(txtValorVenda.Text, out double valorVenda) ? valorVenda : 0.0;
             produto.Minimo = int.TryParse(txtMinimo.Text, out int minimo) ? minimo : 0;
             produto.Nota = int.TryParse(txtNota.Text, out int nota) ? nota : 0;
-            produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;
+            produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;*/
             try
             {
                 produtoDAO.SalvarProduto(produto);
@@ -391,7 +402,7 @@ namespace Moderno.Produtos
             produto.Fornecedor = cbFornecedor.Text;
             produto.Entrada = txtEntrada.Text;
             produto.total_compra = double.TryParse(txtCompra.Text, out double compra) ? compra : 0.0;
-            produto.Unitario = int.TryParse(txtUnitario.Text, out int unitario) ? unitario : 0;
+            produto.Unitario = double.TryParse(txtUnitario.Text, out double unitario) ? unitario : 0;
             produto.valor_venda = double.TryParse(txtValorVenda.Text, out double valorVenda) ? valorVenda : 0.0;
             produto.Minimo = int.TryParse(txtMinimo.Text, out int minimo) ? minimo : 0;
             produto.Nota = int.TryParse(txtNota.Text, out int nota) ? nota : 0;
