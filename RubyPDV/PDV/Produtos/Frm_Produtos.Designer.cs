@@ -47,8 +47,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtEntrada = new System.Windows.Forms.TextBox();
             this.txtCompra = new System.Windows.Forms.TextBox();
             this.txtUnitario = new System.Windows.Forms.TextBox();
@@ -59,22 +57,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblLucro = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblValorVenda = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblValorUnit = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblUltimaEntrada = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblValorCompra = new System.Windows.Forms.Label();
             this.data = new System.Windows.Forms.DateTimePicker();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -82,12 +65,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grid = new System.Windows.Forms.DataGridView();
             this.btnAddCargo = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cb_uniMedida = new System.Windows.Forms.ComboBox();
             this.panelBusca.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -284,24 +264,6 @@
             this.label3.TabIndex = 160;
             this.label3.Text = "Estoque atual";
             // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(458, 130);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(80, 20);
-            this.txtDescricao.TabIndex = 161;
-            this.txtDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescricao_KeyDown);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(450, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 162;
-            this.label4.Text = "Embalagem";
-            // 
             // txtEntrada
             // 
             this.txtEntrada.Location = new System.Drawing.Point(10, 252);
@@ -363,9 +325,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(457, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 170;
-            this.label1.Text = "Lucro";
+            this.label1.Text = "Valor do Lucro";
             // 
             // label7
             // 
@@ -407,176 +369,21 @@
             this.label15.TabIndex = 174;
             this.label15.Text = "Entrada";
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(710, 237);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(143, 20);
-            this.label27.TabIndex = 186;
-            this.label27.Text = "Valor de Lucro RS:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(710, 200);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(146, 20);
-            this.label25.TabIndex = 185;
-            this.label25.Text = "Valor de venda RS:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(710, 160);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(141, 20);
-            this.label23.TabIndex = 184;
-            this.label23.Text = "Último V. Unit. RS:";
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(710, 273);
+            this.label22.Location = new System.Drawing.Point(642, 292);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(107, 20);
             this.label22.TabIndex = 183;
             this.label22.Text = "Últma compa:";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(710, 81);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(121, 20);
-            this.label21.TabIndex = 182;
-            this.label21.Text = "Última entrada :";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(710, 119);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(149, 20);
-            this.label19.TabIndex = 181;
-            this.label19.Text = "Último  V. Pago RS:";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Controls.Add(this.lblLucro);
-            this.panel5.Location = new System.Drawing.Point(914, 232);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(121, 30);
-            this.panel5.TabIndex = 192;
-            // 
-            // lblLucro
-            // 
-            this.lblLucro.AutoSize = true;
-            this.lblLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLucro.ForeColor = System.Drawing.Color.Black;
-            this.lblLucro.Location = new System.Drawing.Point(74, 10);
-            this.lblLucro.Name = "lblLucro";
-            this.lblLucro.Size = new System.Drawing.Size(44, 20);
-            this.lblLucro.TabIndex = 158;
-            this.lblLucro.Text = "0,00";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Controls.Add(this.lblValorVenda);
-            this.panel4.Location = new System.Drawing.Point(914, 195);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(121, 30);
-            this.panel4.TabIndex = 191;
-            // 
-            // lblValorVenda
-            // 
-            this.lblValorVenda.AutoSize = true;
-            this.lblValorVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorVenda.ForeColor = System.Drawing.Color.Black;
-            this.lblValorVenda.Location = new System.Drawing.Point(74, 10);
-            this.lblValorVenda.Name = "lblValorVenda";
-            this.lblValorVenda.Size = new System.Drawing.Size(44, 20);
-            this.lblValorVenda.TabIndex = 158;
-            this.lblValorVenda.Text = "0,00";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Controls.Add(this.lblValorUnit);
-            this.panel3.Location = new System.Drawing.Point(914, 159);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(121, 30);
-            this.panel3.TabIndex = 190;
-            // 
-            // lblValorUnit
-            // 
-            this.lblValorUnit.AutoSize = true;
-            this.lblValorUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorUnit.ForeColor = System.Drawing.Color.Black;
-            this.lblValorUnit.Location = new System.Drawing.Point(74, 6);
-            this.lblValorUnit.Name = "lblValorUnit";
-            this.lblValorUnit.Size = new System.Drawing.Size(44, 20);
-            this.lblValorUnit.TabIndex = 158;
-            this.lblValorUnit.Text = "0,00";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.lblUltimaEntrada);
-            this.panel2.Location = new System.Drawing.Point(914, 81);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 30);
-            this.panel2.TabIndex = 189;
-            // 
-            // lblUltimaEntrada
-            // 
-            this.lblUltimaEntrada.AutoSize = true;
-            this.lblUltimaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUltimaEntrada.ForeColor = System.Drawing.Color.Black;
-            this.lblUltimaEntrada.Location = new System.Drawing.Point(99, 10);
-            this.lblUltimaEntrada.Name = "lblUltimaEntrada";
-            this.lblUltimaEntrada.Size = new System.Drawing.Size(19, 20);
-            this.lblUltimaEntrada.TabIndex = 164;
-            this.lblUltimaEntrada.Text = "0";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.lblValorCompra);
-            this.panel1.Location = new System.Drawing.Point(914, 119);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(121, 30);
-            this.panel1.TabIndex = 188;
-            // 
-            // lblValorCompra
-            // 
-            this.lblValorCompra.AutoSize = true;
-            this.lblValorCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorCompra.ForeColor = System.Drawing.Color.Black;
-            this.lblValorCompra.Location = new System.Drawing.Point(74, 9);
-            this.lblValorCompra.Name = "lblValorCompra";
-            this.lblValorCompra.Size = new System.Drawing.Size(44, 20);
-            this.lblValorCompra.TabIndex = 158;
-            this.lblValorCompra.Text = "0,00";
-            // 
             // data
             // 
             this.data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.data.Location = new System.Drawing.Point(823, 273);
+            this.data.Location = new System.Drawing.Point(755, 289);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(121, 20);
             this.data.TabIndex = 187;
@@ -584,7 +391,6 @@
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
@@ -594,6 +400,7 @@
             this.btnEditar.TabIndex = 195;
             this.btnEditar.Text = "editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalvar
             // 
@@ -612,7 +419,6 @@
             // btnExcluir
             // 
             this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.Enabled = false;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
@@ -636,6 +442,7 @@
             this.btnCancelar.TabIndex = 196;
             this.btnCancelar.Text = "cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // grid
             // 
@@ -662,30 +469,44 @@
             this.btnAddCargo.UseVisualStyleBackColor = false;
             this.btnAddCargo.Click += new System.EventHandler(this.btnAddCargo_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(450, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 162;
+            this.label4.Text = "Unidade de Medida";
+            // 
+            // cb_uniMedida
+            // 
+            this.cb_uniMedida.FormattingEnabled = true;
+            this.cb_uniMedida.Items.AddRange(new object[] {
+            "LT",
+            "Kg",
+            "UN",
+            "MT"});
+            this.cb_uniMedida.Location = new System.Drawing.Point(460, 132);
+            this.cb_uniMedida.Name = "cb_uniMedida";
+            this.cb_uniMedida.Size = new System.Drawing.Size(90, 21);
+            this.cb_uniMedida.TabIndex = 200;
+            // 
             // Frm_Produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(1042, 592);
+            this.Controls.Add(this.cb_uniMedida);
             this.Controls.Add(this.btnAddCargo);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.data);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -697,7 +518,6 @@
             this.Controls.Add(this.txtCompra);
             this.Controls.Add(this.txtEntrada);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.label10);
@@ -716,16 +536,6 @@
             this.Load += new System.EventHandler(this.Frm_Produtos_Load);
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -753,8 +563,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEntrada;
         private System.Windows.Forms.TextBox txtCompra;
         private System.Windows.Forms.TextBox txtUnitario;
@@ -765,22 +573,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lblLucro;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblValorVenda;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblValorUnit;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblUltimaEntrada;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblValorCompra;
         private System.Windows.Forms.DateTimePicker data;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnSalvar;
@@ -788,5 +581,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.Button btnAddCargo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cb_uniMedida;
     }
 }

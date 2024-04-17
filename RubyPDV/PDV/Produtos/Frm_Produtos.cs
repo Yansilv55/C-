@@ -31,7 +31,6 @@ namespace Moderno.Produtos
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-
         private void Frm_Produtos_Load(object sender, EventArgs e)
         {
             ProdutosModel model = new ProdutosModel();
@@ -44,7 +43,7 @@ namespace Moderno.Produtos
             grid.Columns[0].HeaderText = "Produto_ID";
             grid.Columns[1].HeaderText = "Codigo de Barra";
             grid.Columns[2].HeaderText = "Produto";
-            grid.Columns[3].HeaderText = "Embalagem";
+            grid.Columns[3].HeaderText = "Uni_Medida";
             grid.Columns[4].HeaderText = "Estoque";
             grid.Columns[5].HeaderText = "Fornecedor";
             grid.Columns[6].HeaderText = "Entrada";
@@ -125,7 +124,6 @@ namespace Moderno.Produtos
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -151,7 +149,7 @@ namespace Moderno.Produtos
         {
             txtCodBarra.Text = "";
             txtNome.Text = "";
-            txtDescricao.Text = "";
+            cb_uniMedida.Text = "";
             txtBuscarNome.Text = "";
             txtBuscarCod.Text = "";
             txtUnitario.Text = "0";
@@ -163,24 +161,12 @@ namespace Moderno.Produtos
             txtNota.Text = "0";
             txtLucro.Text = "0";
             cbFornecedor.SelectedIndex = 0;
-
-            lblUltimaEntrada.Text = "0";
-            lblValorCompra.Text = "0,00";
-            lblValorVenda.Text = "0,00";
-            lblValorUnit.Text = "0,00";
-            lblLucro.Text = "0,00";
         }
         private void Cancelar()
         {
-            /* btnIncluir.Enabled = false;
-             btnEditar.Enabled = false;
-             btnExcluir.Enabled = false;
-             btnCancelar.Enabled = false;*/
             LimparCampos();
+            txtCodBarra.Focus();
         }
-
-
-
         private void txtCodBarra_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -192,7 +178,7 @@ namespace Moderno.Produtos
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtDescricao.Focus();
+               
             }
         }
         private void txtDescricao_KeyDown(object sender, KeyEventArgs e)
@@ -258,84 +244,93 @@ namespace Moderno.Produtos
                 txtLucro.Focus();
             }
         }
-        private void btnEditar_Click(object sender, EventArgs e, ProdutosModel produto)
+        private void Excluirregistro()
         {
-            Verificar_campo();
+            ProdutosModel produto = new ProdutosModel();
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            produtoDAO.EditaProduto(produto);
+            var res = MessageBox.Show("Deseja realmente excluir o registro!.", "Cadastro Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                produto.produto_id = int.Parse(produto_id);
+                produtoDAO.ExcluirProduto(produto);
+                Listar_grid();
+                MessageBox.Show("Registro Excluído com sucesso!.", "Cadastro produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+            }
         }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            ProdutoDAO produtoDAO = new ProdutoDAO();
-            produtoDAO.ExcluirProduto();
+            try
+            {
+                Excluirregistro();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 if (grid.CurrentRow.Cells[0].Value != null)
                 {
-                    produto_id = grid.CurrentRow.Cells[0].Value?.ToString();
+                    produto_id = grid.CurrentRow.Cells[0].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[1].Value != null)
                 {
-                    txtCodBarra.Text = grid.CurrentRow.Cells[1].Value?.ToString();
+                    txtCodBarra.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[2].Value != null)
                 {
-                    txtNome.Text = grid.CurrentRow.Cells[2].Value?.ToString();
+                    txtNome.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[3].Value != null)
                 {
-                    txtDescricao.Text = grid.CurrentRow.Cells[3].Value?.ToString();
+                    cb_uniMedida.Text = grid.CurrentRow.Cells[3].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[4].Value != null)
                 {
-                    txtEstoque.Text = grid.CurrentRow.Cells[4].Value?.ToString();
+                    txtEstoque.Text = grid.CurrentRow.Cells[4].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[5].Value != null)
                 {
-                    cbFornecedor.Text = grid.CurrentRow.Cells[5].Value?.ToString();
+                    cbFornecedor.Text = grid.CurrentRow.Cells[5].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[6].Value != null)
                 {
-                    txtEntrada.Text = grid.CurrentRow.Cells[6].Value?.ToString();
+                    txtEntrada.Text = grid.CurrentRow.Cells[6].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[7].Value != null)
                 {
-                    txtCompra.Text = grid.CurrentRow.Cells[7].Value?.ToString();
+                    txtCompra.Text = grid.CurrentRow.Cells[7].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[8].Value != null)
                 {
-                    txtValorVenda.Text = grid.CurrentRow.Cells[8].Value?.ToString();
+                    txtValorVenda.Text = grid.CurrentRow.Cells[8].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[9].Value != null)
                 {
-                    txtUnitario.Text = grid.CurrentRow.Cells[9].Value?.ToString();
+                    txtUnitario.Text = grid.CurrentRow.Cells[9].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[10].Value != null)
                 {
-                    data.Text = grid.CurrentRow.Cells[10].Value?.ToString();
+                    data.Text = grid.CurrentRow.Cells[10].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[11].Value != null)
                 {
-                    txtMinimo.Text = grid.CurrentRow.Cells[11].Value?.ToString();
+                    txtMinimo.Text = grid.CurrentRow.Cells[11].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[12].Value != null)
                 {
-                    txtNota.Text = grid.CurrentRow.Cells[12].Value?.ToString();
+                    txtNota.Text = grid.CurrentRow.Cells[12].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[13].Value != null)
                 {
-                    txtLucro.Text = grid.CurrentRow.Cells[13].Value?.ToString();
+                    txtLucro.Text = grid.CurrentRow.Cells[13].Value.ToString();
                 }
-
             }
         }
-
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             try
@@ -355,22 +350,43 @@ namespace Moderno.Produtos
             }
             ProdutosModel produto = new ProdutosModel();
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            /*  produto.produto_id = int.Parse(txtCodBarra.Text);
-              produto.codigo_barra = txtCodBarra.Text;
-              produto.Nome = txtNome.Text;
-              produto.Descricao = txtDescricao.Text;
-              produto.Entrada_estoque = txtEstoque.Text;
-              produto.Fornecedor = cbFornecedor.Text;
-              produto.Entrada = txtEntrada.Text;
-              produto.total_compra = double.Parse(txtCompra.Text);
-              produto.Unitario = int.Parse(txtUnitario.Text);
-              produto.valor_venda = double.Parse(txtValorVenda.Text);
-              produto.Minimo = int.Parse(txtMinimo.Text);
-              produto.Nota = int.Parse(txtNota.Text);
-              produto.eLucro = double.Parse(txtLucro.Text);*/
             produto.codigo_barra = txtCodBarra.Text;
             produto.Nome = txtNome.Text;
-            produto.Descricao = txtDescricao.Text;
+            produto.uni_medida = cb_uniMedida.Text;
+            produto.Entrada_estoque = txtEstoque.Text;
+            produto.Fornecedor = cbFornecedor.Text;
+            produto.Entrada = txtEntrada.Text;
+            produto.total_compra = double.TryParse(txtCompra.Text, out double compra) ? compra : 0.0;
+            produto.Unitario = double.TryParse(txtUnitario.Text, out double unitario) ? unitario : 0;
+            produto.valor_venda = double.TryParse(txtValorVenda.Text, out double valorVenda) ? valorVenda : 0.0;
+            produto.Minimo = int.TryParse(txtMinimo.Text, out int minimo) ? minimo : 0;
+            produto.Nota = int.TryParse(txtNota.Text, out int nota) ? nota : 0;
+            produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;
+            try
+            {
+                produtoDAO.SalvarProduto(produto);
+                MessageBox.Show("Registro salvo com sucesso!", "Cadastro produtos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Listar_grid();
+                LimparCampos();
+                HabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void EditarRegistro()
+        {
+            if (!Verificar_campo())
+            {
+                return;
+            }
+            ProdutosModel produto = new ProdutosModel();
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            produto.produto_id = int.Parse(produto_id);
+            produto.codigo_barra = txtCodBarra.Text;
+            produto.Nome = txtNome.Text;
+            produto.uni_medida = cb_uniMedida.Text;
             produto.Entrada_estoque = txtEstoque.Text;
             produto.Fornecedor = cbFornecedor.Text;
             produto.Entrada = txtEntrada.Text;
@@ -382,8 +398,22 @@ namespace Moderno.Produtos
             produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;
             try
             {
-                produtoDAO.SalvarProduto(produto);
-                MessageBox.Show("Registro salvo com sucesso!", "Cadastro produtos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                produtoDAO.EditaProduto(produto);
+                MessageBox.Show("Registro editado com sucesso!", "Cadastro produtos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Listar_grid();
+                LimparCampos();
+                HabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EditarRegistro();
             }
             catch (Exception ex)
             {
@@ -397,13 +427,11 @@ namespace Moderno.Produtos
             {
                 e.Handled = true;
             }
-
             if (e.KeyChar == ','
                 && (sender as TextBox).Text.IndexOf(',') > -2)
             {
                 e.Handled = true;
             }
-
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
             {
                 e.Handled = true;
@@ -429,91 +457,81 @@ namespace Moderno.Produtos
                 txt.Text = string.Format("{0:N}", v);
                 txt.SelectionStart = txt.Text.Length;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw ex;
             }
         }
-
         private void txtValorVenda_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtValorVenda);
         }
-
         private void txtValorVenda_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtLucro_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtLucro);
         }
-
         private void txtLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtUnitario_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtUnitario);
         }
-
         private void txtUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtCompra_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtCompra);
         }
-
         private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtEntrada_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtEntrada);
         }
-
         private void txtEntrada_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtNota_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtMinimo_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtEstoque_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtBuscarCod_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txtLucro_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
-
         private void btnAddCargo_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Fornecedores frm = new Frm_Fornecedores();
             this.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Cancelar();
         }
     }
 }

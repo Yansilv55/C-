@@ -250,7 +250,10 @@ namespace Moderno.cadastross
         }
         private void EditarRegistro()
         {
-            VerificarCampo();
+            if (!VerificarCampo())
+            {
+                return;
+            }
 
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
             funcionario.funcionario_id = int.Parse(funcionario_id);

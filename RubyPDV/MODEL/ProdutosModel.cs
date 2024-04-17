@@ -11,7 +11,7 @@ namespace MODEL
         public int produto_id {  get; set; }
         public string codigo_barra { get; set; }
         public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public string uni_medida { get; set; }
         public string Entrada_estoque { get; set; }
         public string Fornecedor { get; set; }
         public string Entrada { get; set; }

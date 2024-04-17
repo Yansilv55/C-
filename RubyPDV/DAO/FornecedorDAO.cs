@@ -84,8 +84,21 @@ namespace DAO
         }
         public void Salvar_fornecedor(FornecedorMODEL fornecedor)
         {
+            try
+            {
             con.AbrirConexao();
-            sql = "INSERT INTO fornecedor(nome, cnpj, endereco, celular, vendedor) VALUES(@nome, @cnpj, @endereco, @celular, @vendedor)";
+            sql = @"INSERT INTO fornecedor(
+                                        nome,
+                                        cnpj,
+                                        endereco,
+                                        celular,
+                                        vendedor) 
+                                VALUES(
+                                        @nome,
+                                        @cnpj,
+                                        @endereco,
+                                        @celular,
+                                        @vendedor)";
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@nome", fornecedor.nome);
             conn.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
@@ -95,6 +108,11 @@ namespace DAO
             conn.Parameters.AddWithValue("@vendedor", UTEIS.NomeUsuario);
             conn.ExecuteNonQuery();
             con.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public void Verificar_fornecedor(FornecedorMODEL fornecedor)
         {

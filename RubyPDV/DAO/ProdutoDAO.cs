@@ -37,7 +37,7 @@ namespace DAO
                                 produtos(
                                     codigo_barra,
                                     nome,
-                                    descricao,
+                                    uni_medida,
                                     estoque,
                                     fornecedor,
                                     entrada,
@@ -51,7 +51,7 @@ namespace DAO
                                 VALUES(
                                     @codigo_barra, 
                                     @nome, 
-                                    @descricao, 
+                                    @uni_medida, 
                                     @estoque, 
                                     @fornecedor, 
                                     @entrada, 
@@ -66,7 +66,7 @@ namespace DAO
                 //conn.Parameters.AddWithValue("@produto_id", produto.produto_id);
                 conn.Parameters.AddWithValue("@codigo_barra", produto.codigo_barra);
                 conn.Parameters.AddWithValue("@nome", produto.Nome);
-                conn.Parameters.AddWithValue("@descricao", produto.Descricao);
+                conn.Parameters.AddWithValue("@uni_medida", produto.uni_medida);
                 conn.Parameters.AddWithValue("@estoque", produto.Entrada_estoque);
                 conn.Parameters.AddWithValue("@fornecedor", produto.Fornecedor);
                 conn.Parameters.AddWithValue("@entrada", produto.Entrada);
@@ -86,48 +86,63 @@ namespace DAO
         }
         public void EditaProduto(ProdutosModel produto)
         {
-            con.AbrirConexao();
-            sql = @"UPDATE 
-                       produtos SET (
-                                cod = @cod,
-                                nome = @nome,
-                                descricao = @descricao,
-                                estoque = @estoque,
-                                fornecedor = @fornecedor,
-                                entrada = @entrada,
-                                total_compra = @total_compra,
-                                valor_venda = @valor_venda,
-                                valor_compra = @valor_compra,data = @data,
-                                minimo = @minimo,
-                                nota = @nota,
-                                lucro = @lucro
-                        WHERE
-                                produto_id = @produto_id)";
-                
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@produtos", produto.produto_id);
-            conn.Parameters.AddWithValue("@nome", produto.Nome);
-            conn.Parameters.AddWithValue("@descricao", produto.Descricao);
-            conn.Parameters.AddWithValue("@estoque", produto.Entrada_estoque);
-            conn.Parameters.AddWithValue("@fornecedor", produto.Fornecedor);
-            conn.Parameters.AddWithValue("@entrada", produto.Entrada);
-            conn.Parameters.AddWithValue("@total_compra", Convert.ToDouble(produto.valor_venda));
-            conn.Parameters.AddWithValue("@valor_compra", Convert.ToDouble(produto.valor_compra));
-            conn.Parameters.AddWithValue("@valor_venda", Convert.ToDouble(produto.valor_venda));
-            conn.Parameters.AddWithValue("@minimo", Convert.ToInt32(produto.Minimo));
-            conn.Parameters.AddWithValue("@nota", Convert.ToInt32(produto.Nota));
-            conn.Parameters.AddWithValue("@lucro", Convert.ToDouble(produto.valor_venda) - Convert.ToDouble(produto.Unitario));
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            try
+            {
+                con.AbrirConexao();
+                sql = @"UPDATE produtos 
+                                    SET 
+                                        codigo_barra = @codigo_barra,
+                                        nome = @nome,
+                                        uni_medida = @uni_medida,
+                                        estoque = @estoque,
+                                        fornecedor = @fornecedor,
+                                        entrada = @entrada,
+                                        total_compra = @total_compra,
+                                        valor_unitario = @valor_unitario,
+                                        valor_venda = @valor_venda,
+                                        data = CURDATE(),
+                                        minimo = @minimo,
+                                        nota = @nota,
+                                        lucro = @lucro
+                                    WHERE 
+                                         produto_id = @produto_id"; 
+                conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@produto_id", produto.produto_id);
+                conn.Parameters.AddWithValue("@codigo_barra", produto.codigo_barra);
+                conn.Parameters.AddWithValue("@nome", produto.Nome);
+                conn.Parameters.AddWithValue("@uni_medida", produto.uni_medida);
+                conn.Parameters.AddWithValue("@estoque", produto.Entrada_estoque);
+                conn.Parameters.AddWithValue("@fornecedor", produto.Fornecedor);
+                conn.Parameters.AddWithValue("@entrada", produto.Entrada);
+                conn.Parameters.AddWithValue("@total_compra", Convert.ToDouble(produto.total_compra));
+                conn.Parameters.AddWithValue("@valor_unitario", Convert.ToDouble(produto.Unitario));
+                conn.Parameters.AddWithValue("@valor_venda", Convert.ToDouble(produto.valor_venda));
+                conn.Parameters.AddWithValue("@minimo", Convert.ToInt32(produto.Minimo));
+                conn.Parameters.AddWithValue("@nota", Convert.ToInt32(produto.Nota));
+                conn.Parameters.AddWithValue("@lucro", Convert.ToDouble(produto.valor_venda) - Convert.ToDouble(produto.Unitario));
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao editar produto", ex);
+            }
         }
-        public void ExcluirProduto()
+        public void ExcluirProduto(ProdutosModel produto)
         {
-            con.AbrirConexao();
-            sql = "DELET FROM produto WHERE produto_id = @produto_id";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("produto_id", produto_id);
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+            try
+            {
+               con.AbrirConexao();
+               sql = "DELETE FROM produtos WHERE produto_id = @produto_id";
+               conn = new MySqlCommand(sql, con.con);
+               conn.Parameters.AddWithValue("@produto_id", produto.produto_id);
+               conn.ExecuteNonQuery();
+               con.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao excluir produto", ex);
+            }
         }
         public List<ProdutosModel> ListarProdutos()
         {
@@ -144,7 +159,7 @@ namespace DAO
                     produto.produto_id = reader.GetInt32("produto_id");
                     produto.codigo_barra = reader.GetString("codigo_barra");
                     produto.Nome = reader.GetString("nome");
-                    produto.Descricao = reader.GetString("descricao");
+                    produto.uni_medida = reader.GetString("uni_medida");
                     produto.Entrada_estoque = reader.GetString("estoque");
                     produto.Fornecedor = reader.GetString("fornecedor");
                     produto.Entrada = reader.GetString("entrada");
