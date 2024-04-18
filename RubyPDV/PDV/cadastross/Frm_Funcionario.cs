@@ -66,6 +66,13 @@ namespace Moderno.cadastross
             List<FuncionarioMODEL> funcionarios = funcionarioDAO.ListaBuscarFuncionario(nome);
             grid.DataSource = funcionarios;
         }
+
+        private void RealizarBuscaFuncionariosPorConsuta(string cSQL)
+        {
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            List<FuncionarioMODEL> funcionarios = funcionarioDAO.ListaBuscarFuncionarioComConsulta(cSQL);
+            grid.DataSource = funcionarios;
+        }
         //------------------------------------------------------------------------------
 
         private bool VerificarCampo()
@@ -217,7 +224,7 @@ namespace Moderno.cadastross
         private void Carregar_Campo(FuncionarioMODEL Funcionario)
         {
             FuncionarioDAO funcionario = new FuncionarioDAO();
-           //funcionario.Carregar_campo(Funcionario);
+            //funcionario.Carregar_campo(Funcionario);
 
         }
         private bool VerificarDuplicidade()
@@ -268,7 +275,7 @@ namespace Moderno.cadastross
             {
                 return;
             }
-            
+
             try
             {
                 funcionarioDAO.Editar_funcionario(funcionario);
@@ -331,7 +338,7 @@ namespace Moderno.cadastross
                 LimparCampos();
             }
         }
- 
+
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
             try
@@ -395,7 +402,7 @@ namespace Moderno.cadastross
         }
         private void cb_Cargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
         public class CPFValidator
         {
@@ -489,5 +496,42 @@ namespace Moderno.cadastross
             }
         }
 
+        private void btn_pesquisa_Click(object sender, EventArgs e)
+        {
+            string csql = "SELECT * FROM funcionario WHERE";
+            
+            //nome
+            if (txt_Nome.Text != "")
+            {
+                csql = $"{csql} nome = '{txt_Nome.Text}'";
+            }
+
+            //cpf
+            if (txt_Cpf.Text != "   ,   ,   -")
+            {
+                if (csql.Substring(Math.Max(0, csql.Length - 5)).Equals("WHERE"))
+                {
+                    csql = $"{csql} cpf = '{txt_Cpf.Text}'";
+                }
+                else
+                {
+                    csql = $"{csql} and cpf = '{txt_Cpf.Text}'";
+                }
+            }
+            //celular
+            if (txt_Celular.Text != "(  )       -")
+            {
+                if (csql.Substring(Math.Max(0, csql.Length - 5)).Equals("WHERE"))
+                {
+                    csql = $"{csql} telefone = '{txt_Celular.Text}'";
+                }
+                else
+                {
+                    csql = $"{csql} and telefone = '{txt_Celular.Text}'";
+                }
+            }
+
+            RealizarBuscaFuncionariosPorConsuta(csql);
+        }
     }
 }

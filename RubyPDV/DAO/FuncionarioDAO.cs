@@ -21,8 +21,8 @@ namespace DAO
         {
             try
             {
-            con.AbrirConexao();
-            sql =@"INSERT INTO
+                con.AbrirConexao();
+                sql = @"INSERT INTO
                       funcionario (
                                 nome,
                                 cpf, 
@@ -37,18 +37,18 @@ namespace DAO
                                 @cargo, 
                                 @endereco, 
                                 curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", funcionario.nome);
-            conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
-            conn.Parameters.AddWithValue("@telefone", funcionario.celular);
-            conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
-            conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
+                conn = new MySqlCommand(sql, con.con);
+                conn.Parameters.AddWithValue("@nome", funcionario.nome);
+                conn.Parameters.AddWithValue("@cpf", funcionario.cpf);
+                conn.Parameters.AddWithValue("@telefone", funcionario.celular);
+                conn.Parameters.AddWithValue("@cargo", funcionario.cargo);
+                conn.Parameters.AddWithValue("@endereco", funcionario.endereco);
+                conn.ExecuteNonQuery();
+                con.FecharConexao();
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro a Salvar arquivo", ex);          
+                throw new Exception("Erro a Salvar arquivo", ex);
             }
         }
         public bool VerificarDuplicidadeFuncionario(int funcionario_id, string nomeCampo, string valorCampo)
@@ -117,10 +117,34 @@ namespace DAO
             }
             return funcionarios;
         }
+        public List<FuncionarioMODEL> ListaBuscarFuncionarioComConsulta(string cSQL)
+        {
+            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+
+            con.AbrirConexao();
+            sql = $"{cSQL} ORDER BY nome asc";
+            conn = new MySqlCommand(sql, con.con);
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                    funcionario.nome = reader.GetString("nome");
+                    funcionario.cpf = reader.GetString("cpf");
+                    funcionario.celular = reader.GetString("telefone");
+                    funcionario.endereco = reader.GetString("endereco");
+                    funcionario.cargo = reader.GetString("cargo");
+                    funcionario.data = reader.GetString("data");
+
+                    funcionarios.Add(funcionario);
+                }
+            }
+            return funcionarios;
+        }
         //------------------------------------------------------------------------------------------
         public List<FuncionarioMODEL> ListarFuncionario()
         {
-            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>(); 
+            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
             con.AbrirConexao();
             sql = "SELECT * FROM funcionario ORDER BY nome asc";
             conn = new MySqlCommand(sql, con.con);
@@ -137,7 +161,7 @@ namespace DAO
                     funcionario.endereco = reader.GetString("endereco");
                     funcionario.data = reader.GetString("data");
 
-                    funcionarios.Add(funcionario); 
+                    funcionarios.Add(funcionario);
                 }
             }
             con.FecharConexao();
@@ -222,6 +246,6 @@ namespace DAO
                 }
             }
         }
-        
+
     }
 }
