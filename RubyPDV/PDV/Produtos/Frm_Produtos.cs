@@ -347,7 +347,7 @@ namespace Moderno.Produtos
             }
             ProdutosModel produto = new ProdutosModel();
             ProdutoDAO produtoDAO = new ProdutoDAO();
-           /* produto.codigo_barra = txtCodBarra.Text;
+            produto.codigo_barra = txtCodBarra.Text;
             produto.Nome = txtNome.Text;
             produto.uni_medida = cb_uniMedida.Text;
             produto.Entrada_estoque = txtEstoque.Text;
@@ -358,9 +358,8 @@ namespace Moderno.Produtos
             produto.valor_venda = double.Parse(txtValorVenda.Text);
             produto.Minimo = int.Parse(txtMinimo.Text);
             produto.Nota = int.Parse(txtNota.Text);
-            produto.eLucro = double.Parse(txtLucro.Text);*/
-            CultureInfo culture = new CultureInfo("en-US");
-            produto.codigo_barra = txtCodBarra.Text;
+            produto.eLucro = double.Parse(txtLucro.Text);
+            /*produto.codigo_barra = txtCodBarra.Text;
             produto.Nome = txtNome.Text;
             produto.uni_medida = cb_uniMedida.Text;
             produto.Entrada_estoque = txtEstoque.Text;
@@ -372,7 +371,7 @@ namespace Moderno.Produtos
             produto.valor_venda = double.TryParse(txtValorVenda.Text, out double valorVenda) ? valorVenda : 0.0;
             produto.Minimo = int.TryParse(txtMinimo.Text, out int minimo) ? minimo : 0;
             produto.Nota = int.TryParse(txtNota.Text, out int nota) ? nota : 0;
-            produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;
+            produto.eLucro = double.TryParse(txtLucro.Text, out double lucro) ? lucro : 0.0;*/
             try
             {
                 produtoDAO.SalvarProduto(produto);
