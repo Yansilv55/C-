@@ -223,29 +223,5 @@ namespace DAO
                 throw ex;
             }
         }
-        public void AtualizarLinhas()
-        {
-            using (MySqlDataReader reader = conn.ExecuteReader())
-            {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        string linha = "";
-
-                        for (int i = 0; i < reader.FieldCount; i++)
-                        {
-                            linha += reader[i].ToString() + "       \t";
-                        }
-                        if (!string.IsNullOrEmpty(linha))
-                        {
-                            linha = linha.Substring(0, linha.Length - 1);
-                        }
-                        Console.WriteLine(linha);
-                    }
-                }
-            }
-        }
-
     }
 }

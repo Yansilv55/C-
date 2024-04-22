@@ -144,7 +144,6 @@ namespace Moderno.cadastross
                 btn_Excluir.Enabled = false;
                 LimparCampos();
                 Listar();
-                funcionarioDAO.AtualizarLinhas();
                 DesabilitarCampos();
             }
             catch (Exception ex)
@@ -329,7 +328,6 @@ namespace Moderno.cadastross
                 funcionarioDAO.Excluir_Registro(funcionario);
                 MessageBox.Show("Registro Excluído com sucesso!.", "Cadastro Funciónario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Listar();
-                funcionarioDAO.AtualizarLinhas();
                 btn_Novo.Enabled = true;
                 btn_Editar.Enabled = false;
                 btn_Excluir.Enabled = false;

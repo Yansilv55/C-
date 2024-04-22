@@ -308,11 +308,11 @@ namespace Moderno.Produtos
                 }
                 if (grid.CurrentRow.Cells[8].Value != null)
                 {
-                    txtUnitario.Text = grid.CurrentRow.Cells[9].Value.ToString();
+                    txtUnitario.Text = grid.CurrentRow.Cells[8].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[9].Value != null)
                 {
-                    txtValorVenda.Text = grid.CurrentRow.Cells[8].Value.ToString();
+                    txtValorVenda.Text = grid.CurrentRow.Cells[9].Value.ToString();
                 }
                 if (grid.CurrentRow.Cells[10].Value != null)
                 {

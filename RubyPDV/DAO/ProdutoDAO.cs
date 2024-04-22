@@ -163,13 +163,13 @@ namespace DAO
                     produto.Entrada_estoque = reader.GetString("estoque");
                     produto.Fornecedor = reader.GetString("fornecedor");
                     produto.Entrada = reader.GetString("entrada");
-                    produto.total_compra = reader.GetInt32("total_compra");
-                    produto.Unitario = reader.GetInt32("valor_unitario");
-                    produto.valor_venda = reader.GetInt32("valor_venda");
+                    produto.total_compra = reader.GetDouble("total_compra");
+                    produto.Unitario = reader.GetDouble("valor_unitario");
+                    produto.valor_venda = reader.GetDouble("valor_venda");
                     produto.data = reader.GetString("data");
                     produto.Minimo = reader.GetInt32("minimo");
                     produto.Nota = reader.GetInt32("nota");
-                    produto.lucro = reader.GetInt32("lucro");
+                    produto.lucro = reader.GetDouble("lucro");
 
                     produtos.Add(produto);
                 }
