@@ -20,6 +20,7 @@ namespace Moderno.cadastross
         }
         private void Frm_Usuario_Load(object sender, EventArgs e)
         {
+            txt_Cargo.Enabled = false;
             CarregarFuncionarios();
             Listar();
             LimparCampos();
@@ -43,19 +44,12 @@ namespace Moderno.cadastross
             grid.DataSource = usuarioDAO.ListarUsuario();
             FormatarGD();
         }
-        private void BuscarNome(String txtNome)
-        {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            grid.DataSource = usuarioDAO.BuscarNome(txtNome);
-            FormatarGD();
-        }
         private void CarregarFuncionarios()
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
             cb_Funcionario.DataSource = usuarioDAO.CarregarFuncionario();
             cb_Funcionario.DisplayMember = "nome";
-            funcionario.cargo = txt_Cargo.Text;
         }
         private void HabilitarCampos()
         {
@@ -76,7 +70,6 @@ namespace Moderno.cadastross
         {
             txt_Usuario.Text = "";
             txt_Senha.Text = "";
-            txt_BuscarNome.Text = "";
             txt_Cargo.Text = "Selecione";
             cb_Funcionario.Text = "Selecione";
             cb_Funcionario.Focus();
@@ -178,10 +171,6 @@ namespace Moderno.cadastross
             UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
             EditarRegistro(usuarioMODEL);
         }
-        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
-        {
-            BuscarNome(txt_BuscarNome.Text);
-        }
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && grid.CurrentRow != null)
@@ -232,7 +221,6 @@ namespace Moderno.cadastross
                 btn_Excluir.Enabled = false;
                 cb_Funcionario.Text = "";
                 cb_Funcionario.Enabled = false;
-
                 LimparCampos();
                 Listar();
             }
@@ -241,11 +229,6 @@ namespace Moderno.cadastross
         {
             UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
             ExcluirRegistro(usuarioMODEL);
-        }
-        private void BuscarCargo(UsuarioMODEL usuarioMODEL)
-        {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.Buscar_cargo(usuarioMODEL);
         }
         private void cb_Funcionario_SelectedIndexChanged(object sender, EventArgs e)
         {

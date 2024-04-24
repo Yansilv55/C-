@@ -40,35 +40,34 @@ namespace DAO
             }
             return usuarios;
         }
-
-        public List<UsuarioMODEL> BuscarNome(String txtUsuario)
-        {
-            List<UsuarioMODEL> usuarios = new List<UsuarioMODEL>();
-
-            con.AbrirConexao();
-            sql = "SELECT * FROM usuarios WHERE nome LIKE @nome ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", $"{txtUsuario}%");
-            using (MySqlDataReader reader = conn.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    UsuarioMODEL usuario = new UsuarioMODEL();
-                    usuario.cargo = reader.GetString("cargo");
-                    usuario.nome = reader.GetString("nome");
-
-                    usuarios.Add(usuario);
-                }
-            }
-            return usuarios;
-        }
-
         public List<FuncionarioMODEL> CarregarFuncionario()
-        {
-            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+        { 
+             List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
 
-            con.AbrirConexao();
-            sql = "SELECT * FROM funcionario ORDER BY nome asc";
+             con.AbrirConexao();
+             sql = "SELECT * FROM funcionario ORDER BY nome asc";
+             conn = new MySqlCommand(sql, con.con);
+             using (MySqlDataReader reader = conn.ExecuteReader())
+             {
+                 while (reader.Read())
+                 {
+                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                     funcionario.nome = reader.GetString("nome");
+
+                     funcionario.cargo = Convert.ToString(reader["cargo"]);
+
+                     funcionarios.Add(funcionario);
+                 }
+             }
+             return funcionarios;
+        }
+           /* List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+
+          con.AbrirConexao();
+            sql = @"SELECT f.nome, c.descricao AS cargo 
+                  FROM funcionario f 
+                  inner JOIN cargo c ON f.id_cargo = c.id_cargo 
+                  ORDER BY f.nome ASC";
             conn = new MySqlCommand(sql, con.con);
             using (MySqlDataReader reader = conn.ExecuteReader())
             {
@@ -76,48 +75,11 @@ namespace DAO
                 {
                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
                     funcionario.nome = reader.GetString("nome");
-                    
-                    funcionario.cargo = Convert.ToString(reader["cargo"]);
-                    
+                    funcionario.cargo = reader.GetString("cargo");
                     funcionarios.Add(funcionario);
                 }
             }
             return funcionarios;
-        }
-        /*
-         
-         * 
-         * MySqlCommand cmdVerificar;
-            MySqlDataReader reader; //com o reader vou conseguir extrair dados da tabela e usar em outros form, neste caso quero saber se o quarto tem ocupacao
-            con.AbrirConexao();
-            cmdVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE nome = @nome", con.con);
-            cmdVerificar.Parameters.AddWithValue("@nome", cbFuncionario.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = cmdVerificar;
-            reader = cmdVerificar.ExecuteReader();
-            if (reader.HasRows)
-            {
-                //extraíndo dados da tab hospede
-                while (reader.Read())
-                {
-                    Cargo = Convert.ToString(reader["cargo"]);//                    
-                }
-                txtCargo.Text = Cargo;
-            }
-            con.FecharConexao();
-*/
-
-        /*public void Salvar_usuario(UsuarioMODEL usuarioMODEL)
-        {
-            con.AbrirConexao();
-            sql = "INSERT INTO usuarios(nome, usuario, senha, cargo, data) VALUES(@nome, @usuario, @senha, @cargo, curDate())";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", usuarioMODEL.Nome);
-            //conn.Parameters.AddWithValue("@usuario", usuarioMODEL.Usuario);
-            conn.Parameters.AddWithValue("@senha", usuarioMODEL.senha);
-            conn.Parameters.AddWithValue("@cargo", usuarioMODEL.cargo);
-            conn.ExecuteNonQuery();
-            con.FecharConexao();
         }*/
         public void Salvar_usuario(UsuarioMODEL usuarioMODEL)
         {
@@ -143,7 +105,6 @@ namespace DAO
             conn.ExecuteNonQuery();
             con.FecharConexao();
         }
-
         public bool VerificarUsuario(UsuarioMODEL usuarioMODEL)
         {
             con.AbrirConexao();
@@ -188,26 +149,6 @@ namespace DAO
             conn = new MySqlCommand(sql, con.con);
             conn.Parameters.AddWithValue("@cargo_id", usuarioMODEL.cargo_id);
             conn.ExecuteNonQuery();
-            con.FecharConexao();
-        }
-        public void Buscar_cargo(UsuarioMODEL usuarioMODEL)
-        {
-            MySqlCommand connVerificar;
-            MySqlDataReader reader;
-            con.AbrirConexao();
-            connVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE nome = @nome", con.con);
-            connVerificar.Parameters.AddWithValue("@nome", usuarioMODEL.Funcionario);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = connVerificar;
-            reader = connVerificar.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    usuarioMODEL.cargo = Convert.ToString(reader["cargo"]);
-                }
-                //usuarioMODEL.Cargo = cargo;
-            }
             con.FecharConexao();
         }
     }
