@@ -36,7 +36,6 @@ namespace Moderno.cadastross
         private void Frm_Clinte_Load(object sender, EventArgs e)
         {
             Listar();
-            rb_Nome.Checked = true;
             cb_Inadiplente.SelectedItem = 0;
         }
         private void FormatarGD()
@@ -44,16 +43,15 @@ namespace Moderno.cadastross
             grid.Columns[0].HeaderText = "Cliente_ID";
             grid.Columns[1].HeaderText = "Nome";
             grid.Columns[2].HeaderText = "Cpf";
-            grid.Columns[3].HeaderText = "Em Aberto";
-            grid.Columns[4].HeaderText = "Telefone";
+            grid.Columns[3].HeaderText = "Valor em Aberto";
+            grid.Columns[4].HeaderText = "Celular";
             grid.Columns[5].HeaderText = "Email";
             grid.Columns[6].HeaderText = "Desbloqueado";
             grid.Columns[7].HeaderText = "Status";
             grid.Columns[8].HeaderText = "Endereço";
             grid.Columns[9].HeaderText = "Fucionário";
-            grid.Columns[10].HeaderText = "igm";
-            grid.Columns[11].HeaderText = "Data";
-            grid.Columns[10].Visible = false;
+            grid.Columns[10].HeaderText = "Data";
+            grid.Columns[11].Visible = false;
             grid.Columns[4].DefaultCellStyle.Format = "c2";
         }
         private void Listar()
@@ -67,39 +65,6 @@ namespace Moderno.cadastross
             da.Fill(dt);
             grid.DataSource = dt;
 
-            FormatarGD();
-        }
-
-        private void BuscarNome()
-        {
-
-            con.AbrirConexao();
-            sql = "SELECT * FROM clientes WHERE nome LEKE @nome ORDER BY nome asc"; 
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", lb_BuscarNome.Text + "%");
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-
-            con.FecharConexao();
-            FormatarGD();
-        }
-
-        private void BuscarCpf()
-        {
-            con.AbrirConexao();
-            sql = "SELECT * FROM clientes WHERE cpf=@cpf ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@cpf", lb_BuscarCpf.Text);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-
-            con.FecharConexao();
             FormatarGD();
         }
 
@@ -302,13 +267,6 @@ namespace Moderno.cadastross
                 throw ex;
             }
         }
-        private void rbCpf_CheckedChanged(object sender, EventArgs e)
-        {
-            lb_BuscarNome.Visible = false;
-            lb_BuscarCpf.Visible = true;
-            lb_BuscarCpf.Text = "";
-            lb_BuscarNome.Text = "";
-        }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -439,42 +397,6 @@ namespace Moderno.cadastross
             }
 
         }
-        
-        private void lb_BuscarNome_TextChanged(object sender, EventArgs e)
-        {
-            if (lb_BuscarNome.TextLength > 0)
-            {
-                BuscarNome();
-            }
-            else if (lb_BuscarNome.TextLength == 0)
-            {
-                Listar();
-            }
-        }
-
-        private void lb_BuscarCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (lb_BuscarCpf.Text == "   .   .   -")
-            {
-                Listar();
-            }
-            else
-            {
-                BuscarCpf();
-            }
-        }
-        private void rb_Nome_Click(object sender, EventArgs e)
-        {
-            rb_Nome.Focus();
-            LimparCampos();
-        }
-
-        private void rb_Cpf_Click(object sender, EventArgs e)
-        {
-            rb_Cpf.Focus();
-            LimparCampos();
-        }
-
         private void lb_Email_TextChanged(object sender, EventArgs e)
         {
            verificarEmail();
@@ -573,21 +495,6 @@ namespace Moderno.cadastross
         {
             formatarTextNumero(sender, e);
         }
-
-        private void rb_Cpf_CheckedChanged(object sender, EventArgs e)
-        {
-            lb_BuscarNome.Visible = false;
-            lb_BuscarCpf.Visible = true;
-            lb_BuscarCpf.Focus();
-            lb_BuscarCpf.Enabled = true;
-        }
-
-        private void rb_Nome_CheckedChanged(object sender, EventArgs e)
-        {
-            lb_BuscarCpf.Visible = false;
-            lb_BuscarNome.Visible = true;
-        }
-
         private void lb_Nome_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)

@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lb_BuscarNome = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lb_BuscarCpf = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.cb_Inadiplente = new System.Windows.Forms.ComboBox();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,7 +41,6 @@
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Novo = new System.Windows.Forms.Button();
-            this.grid = new System.Windows.Forms.DataGridView();
             this.txt_Endereco = new System.Windows.Forms.TextBox();
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,9 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.img_Email = new System.Windows.Forms.PictureBox();
-            this.rb_Cpf = new System.Windows.Forms.RadioButton();
-            this.rb_Nome = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelBusca = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -71,51 +58,12 @@
             this.rb_Ativado = new System.Windows.Forms.RadioButton();
             this.rb_Inativado = new System.Windows.Forms.RadioButton();
             this.rbAtivado = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.grid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panelBusca.SuspendLayout();
             this.rbAtivado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lb_BuscarNome
-            // 
-            this.lb_BuscarNome.Enabled = false;
-            this.lb_BuscarNome.Location = new System.Drawing.Point(373, 12);
-            this.lb_BuscarNome.Name = "lb_BuscarNome";
-            this.lb_BuscarNome.Size = new System.Drawing.Size(244, 20);
-            this.lb_BuscarNome.TabIndex = 81;
-            this.lb_BuscarNome.TextChanged += new System.EventHandler(this.lb_BuscarNome_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.Menu;
-            this.label5.Location = new System.Drawing.Point(278, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 13);
-            this.label5.TabIndex = 80;
-            this.label5.Text = "Buscar por Nome";
-            // 
-            // lb_BuscarCpf
-            // 
-            this.lb_BuscarCpf.Enabled = false;
-            this.lb_BuscarCpf.Location = new System.Drawing.Point(708, 13);
-            this.lb_BuscarCpf.Mask = "000.000.000-00";
-            this.lb_BuscarCpf.Name = "lb_BuscarCpf";
-            this.lb_BuscarCpf.Size = new System.Drawing.Size(88, 20);
-            this.lb_BuscarCpf.TabIndex = 79;
-            this.lb_BuscarCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.lb_BuscarCpf_MaskInputRejected);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.Menu;
-            this.label10.Location = new System.Drawing.Point(623, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 13);
-            this.label10.TabIndex = 78;
-            this.label10.Text = "Buscar por CPF";
             // 
             // cb_Inadiplente
             // 
@@ -269,49 +217,6 @@
             this.btn_Novo.UseVisualStyleBackColor = true;
             this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
-            // grid
-            // 
-            this.grid.AllowUserToAddRows = false;
-            this.grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grid.DefaultCellStyle = dataGridViewCellStyle8;
-            this.grid.Location = new System.Drawing.Point(17, 221);
-            this.grid.Name = "grid";
-            this.grid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.grid.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(915, 273);
-            this.grid.TabIndex = 62;
-            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
-            // 
             // txt_Endereco
             // 
             this.txt_Endereco.Enabled = false;
@@ -379,50 +284,10 @@
             this.img_Email.TabIndex = 82;
             this.img_Email.TabStop = false;
             // 
-            // rb_Cpf
-            // 
-            this.rb_Cpf.AutoSize = true;
-            this.rb_Cpf.Location = new System.Drawing.Point(6, 3);
-            this.rb_Cpf.Name = "rb_Cpf";
-            this.rb_Cpf.Size = new System.Drawing.Size(45, 17);
-            this.rb_Cpf.TabIndex = 174;
-            this.rb_Cpf.TabStop = true;
-            this.rb_Cpf.Text = "CPF";
-            this.rb_Cpf.UseVisualStyleBackColor = true;
-            this.rb_Cpf.CheckedChanged += new System.EventHandler(this.rb_Cpf_CheckedChanged);
-            this.rb_Cpf.Click += new System.EventHandler(this.rb_Cpf_Click);
-            // 
-            // rb_Nome
-            // 
-            this.rb_Nome.AutoSize = true;
-            this.rb_Nome.Location = new System.Drawing.Point(56, 3);
-            this.rb_Nome.Name = "rb_Nome";
-            this.rb_Nome.Size = new System.Drawing.Size(53, 17);
-            this.rb_Nome.TabIndex = 175;
-            this.rb_Nome.TabStop = true;
-            this.rb_Nome.Text = "Nome";
-            this.rb_Nome.UseVisualStyleBackColor = true;
-            this.rb_Nome.CheckedChanged += new System.EventHandler(this.rb_Nome_CheckedChanged);
-            this.rb_Nome.Click += new System.EventHandler(this.rb_Nome_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rb_Cpf);
-            this.panel1.Controls.Add(this.rb_Nome);
-            this.panel1.Location = new System.Drawing.Point(819, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(116, 26);
-            this.panel1.TabIndex = 176;
-            // 
             // panelBusca
             // 
             this.panelBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panelBusca.Controls.Add(this.lblTitulo);
-            this.panelBusca.Controls.Add(this.panel1);
-            this.panelBusca.Controls.Add(this.label5);
-            this.panelBusca.Controls.Add(this.lb_BuscarNome);
-            this.panelBusca.Controls.Add(this.label10);
-            this.panelBusca.Controls.Add(this.lb_BuscarCpf);
             this.panelBusca.Location = new System.Drawing.Point(-3, 0);
             this.panelBusca.Name = "panelBusca";
             this.panelBusca.Size = new System.Drawing.Size(1278, 37);
@@ -530,12 +395,23 @@
             this.rbAtivado.TabStop = false;
             this.rbAtivado.Text = "Status do cliente?";
             // 
+            // grid
+            // 
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Location = new System.Drawing.Point(14, 172);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(918, 283);
+            this.grid.TabIndex = 183;
+            // 
             // Frm_Clinte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(949, 588);
+            this.Controls.Add(this.grid);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
@@ -557,7 +433,6 @@
             this.Controls.Add(this.btn_Excluir);
             this.Controls.Add(this.btn_Editar);
             this.Controls.Add(this.btn_Novo);
-            this.Controls.Add(this.grid);
             this.Controls.Add(this.txt_Endereco);
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label4);
@@ -570,25 +445,18 @@
             this.Text = "Cadastro de Clinte";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Frm_Clinte_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
             this.rbAtivado.ResumeLayout(false);
             this.rbAtivado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox lb_BuscarNome;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox lb_BuscarCpf;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cb_Inadiplente;
         private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.Label label9;
@@ -602,7 +470,6 @@
         private System.Windows.Forms.Button btn_Excluir;
         private System.Windows.Forms.Button btn_Editar;
         private System.Windows.Forms.Button btn_Novo;
-        private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.TextBox txt_Endereco;
         private System.Windows.Forms.TextBox txt_Nome;
         private System.Windows.Forms.Label label4;
@@ -610,9 +477,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox img_Email;
-        private System.Windows.Forms.RadioButton rb_Cpf;
-        private System.Windows.Forms.RadioButton rb_Nome;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelBusca;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label11;
@@ -623,5 +487,6 @@
         private System.Windows.Forms.RadioButton rb_Ativado;
         private System.Windows.Forms.RadioButton rb_Inativado;
         private System.Windows.Forms.GroupBox rbAtivado;
+        private System.Windows.Forms.DataGridView grid;
     }
 }
