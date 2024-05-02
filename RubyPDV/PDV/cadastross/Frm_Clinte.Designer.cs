@@ -34,20 +34,14 @@
             this.txt_ValorAberto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
             this.txt_Celular = new System.Windows.Forms.MaskedTextBox();
             this.txt_Cpf = new System.Windows.Forms.MaskedTextBox();
-            this.btn_Salvar = new System.Windows.Forms.Button();
-            this.btn_Excluir = new System.Windows.Forms.Button();
-            this.btn_Editar = new System.Windows.Forms.Button();
-            this.btn_Novo = new System.Windows.Forms.Button();
             this.txt_Endereco = new System.Windows.Forms.TextBox();
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.img_Email = new System.Windows.Forms.PictureBox();
             this.panelBusca = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,10 +53,16 @@
             this.rb_Inativado = new System.Windows.Forms.RadioButton();
             this.rbAtivado = new System.Windows.Forms.GroupBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
+            this.img_Email = new System.Windows.Forms.PictureBox();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Salvar = new System.Windows.Forms.Button();
+            this.btn_Excluir = new System.Windows.Forms.Button();
+            this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Novo = new System.Windows.Forms.Button();
             this.panelBusca.SuspendLayout();
             this.rbAtivado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Inadiplente
@@ -129,19 +129,6 @@
             this.label7.TabIndex = 70;
             this.label7.Text = "Inadiplete";
             // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Cancelar.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
-            this.btn_Cancelar.Location = new System.Drawing.Point(335, 522);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(43, 32);
-            this.btn_Cancelar.TabIndex = 67;
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
             // txt_Celular
             // 
             this.txt_Celular.Enabled = false;
@@ -161,61 +148,6 @@
             this.txt_Cpf.Size = new System.Drawing.Size(86, 20);
             this.txt_Cpf.TabIndex = 5;
             this.txt_Cpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Cpf_KeyDown);
-            // 
-            // btn_Salvar
-            // 
-            this.btn_Salvar.Enabled = false;
-            this.btn_Salvar.FlatAppearance.BorderSize = 0;
-            this.btn_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Salvar.Image = global::Moderno.Properties.Resources.icons8_save_26px1;
-            this.btn_Salvar.Location = new System.Drawing.Point(441, 522);
-            this.btn_Salvar.Name = "btn_Salvar";
-            this.btn_Salvar.Size = new System.Drawing.Size(48, 32);
-            this.btn_Salvar.TabIndex = 63;
-            this.btn_Salvar.UseVisualStyleBackColor = true;
-            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
-            // 
-            // btn_Excluir
-            // 
-            this.btn_Excluir.Enabled = false;
-            this.btn_Excluir.FlatAppearance.BorderSize = 0;
-            this.btn_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
-            this.btn_Excluir.Image = global::Moderno.Properties.Resources.icons8_trash_can_26px1;
-            this.btn_Excluir.Location = new System.Drawing.Point(45, 522);
-            this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(40, 32);
-            this.btn_Excluir.TabIndex = 66;
-            this.btn_Excluir.UseVisualStyleBackColor = true;
-            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
-            // 
-            // btn_Editar
-            // 
-            this.btn_Editar.Enabled = false;
-            this.btn_Editar.FlatAppearance.BorderSize = 0;
-            this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Editar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Editar.Image = global::Moderno.Properties.Resources.icons8_edit_property_24px;
-            this.btn_Editar.Location = new System.Drawing.Point(235, 522);
-            this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(54, 32);
-            this.btn_Editar.TabIndex = 65;
-            this.btn_Editar.UseVisualStyleBackColor = true;
-            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
-            // 
-            // btn_Novo
-            // 
-            this.btn_Novo.FlatAppearance.BorderSize = 0;
-            this.btn_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
-            this.btn_Novo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
-            this.btn_Novo.Location = new System.Drawing.Point(127, 522);
-            this.btn_Novo.Name = "btn_Novo";
-            this.btn_Novo.Size = new System.Drawing.Size(85, 32);
-            this.btn_Novo.TabIndex = 64;
-            this.btn_Novo.UseVisualStyleBackColor = true;
-            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
             // txt_Endereco
             // 
@@ -275,22 +207,13 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Nome";
             // 
-            // img_Email
-            // 
-            this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
-            this.img_Email.Location = new System.Drawing.Point(500, 97);
-            this.img_Email.Name = "img_Email";
-            this.img_Email.Size = new System.Drawing.Size(27, 31);
-            this.img_Email.TabIndex = 82;
-            this.img_Email.TabStop = false;
-            // 
             // panelBusca
             // 
             this.panelBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panelBusca.Controls.Add(this.lblTitulo);
             this.panelBusca.Location = new System.Drawing.Point(-3, 0);
             this.panelBusca.Name = "panelBusca";
-            this.panelBusca.Size = new System.Drawing.Size(1278, 37);
+            this.panelBusca.Size = new System.Drawing.Size(956, 37);
             this.panelBusca.TabIndex = 177;
             // 
             // lblTitulo
@@ -405,6 +328,83 @@
             this.grid.Size = new System.Drawing.Size(918, 283);
             this.grid.TabIndex = 183;
             // 
+            // img_Email
+            // 
+            this.img_Email.Image = global::Moderno.Properties.Resources.icons8_secure_24px;
+            this.img_Email.Location = new System.Drawing.Point(500, 97);
+            this.img_Email.Name = "img_Email";
+            this.img_Email.Size = new System.Drawing.Size(27, 31);
+            this.img_Email.TabIndex = 82;
+            this.img_Email.TabStop = false;
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Cancelar.Image = global::Moderno.Properties.Resources.icons8_multiply_26px;
+            this.btn_Cancelar.Location = new System.Drawing.Point(335, 522);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(43, 32);
+            this.btn_Cancelar.TabIndex = 67;
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // btn_Salvar
+            // 
+            this.btn_Salvar.Enabled = false;
+            this.btn_Salvar.FlatAppearance.BorderSize = 0;
+            this.btn_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Salvar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Salvar.Image = global::Moderno.Properties.Resources.icons8_save_26px1;
+            this.btn_Salvar.Location = new System.Drawing.Point(441, 522);
+            this.btn_Salvar.Name = "btn_Salvar";
+            this.btn_Salvar.Size = new System.Drawing.Size(48, 32);
+            this.btn_Salvar.TabIndex = 63;
+            this.btn_Salvar.UseVisualStyleBackColor = true;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
+            // 
+            // btn_Excluir
+            // 
+            this.btn_Excluir.Enabled = false;
+            this.btn_Excluir.FlatAppearance.BorderSize = 0;
+            this.btn_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Excluir.ForeColor = System.Drawing.Color.Black;
+            this.btn_Excluir.Image = global::Moderno.Properties.Resources.icons8_trash_can_26px1;
+            this.btn_Excluir.Location = new System.Drawing.Point(45, 522);
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(40, 32);
+            this.btn_Excluir.TabIndex = 66;
+            this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.Enabled = false;
+            this.btn_Editar.FlatAppearance.BorderSize = 0;
+            this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Editar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Editar.Image = global::Moderno.Properties.Resources.icons8_edit_property_24px;
+            this.btn_Editar.Location = new System.Drawing.Point(235, 522);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(54, 32);
+            this.btn_Editar.TabIndex = 65;
+            this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // btn_Novo
+            // 
+            this.btn_Novo.FlatAppearance.BorderSize = 0;
+            this.btn_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Novo.ForeColor = System.Drawing.Color.Black;
+            this.btn_Novo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
+            this.btn_Novo.Location = new System.Drawing.Point(127, 522);
+            this.btn_Novo.Name = "btn_Novo";
+            this.btn_Novo.Size = new System.Drawing.Size(85, 32);
+            this.btn_Novo.TabIndex = 64;
+            this.btn_Novo.UseVisualStyleBackColor = true;
+            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
+            // 
             // Frm_Clinte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,12 +445,12 @@
             this.Text = "Cadastro de Clinte";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Frm_Clinte_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
             this.rbAtivado.ResumeLayout(false);
             this.rbAtivado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_Email)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

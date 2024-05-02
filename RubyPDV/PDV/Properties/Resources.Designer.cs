@@ -133,6 +133,16 @@ namespace Moderno.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_enter_26px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_enter_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_folded_booklet_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_folded_booklet_24px", resourceCulture);
@@ -213,6 +223,16 @@ namespace Moderno.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_full_shopping_basket_24px2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_full_shopping_basket_24px2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_jewel_48px {
             get {
                 object obj = ResourceManager.GetObject("icons8_jewel_48px", resourceCulture);
@@ -276,6 +296,16 @@ namespace Moderno.Properties {
         internal static System.Drawing.Bitmap icons8_ok_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_ok_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ok_48px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_ok_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +396,16 @@ namespace Moderno.Properties {
         internal static System.Drawing.Bitmap icons8_save_26px1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_save_26px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_24px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_search_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

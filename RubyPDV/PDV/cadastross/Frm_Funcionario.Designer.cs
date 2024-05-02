@@ -43,20 +43,18 @@
             this.grid = new System.Windows.Forms.DataGridView();
             this.panelBusca = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txt_BuscarNome = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_pesquisa = new System.Windows.Forms.Button();
             this.btnAddCargo = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Novo = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btn_pesquisa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panelBusca.SuspendLayout();
             this.SuspendLayout();
@@ -66,10 +64,10 @@
             this.txt_Celular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Celular.Enabled = false;
             this.txt_Celular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Celular.Location = new System.Drawing.Point(751, 65);
+            this.txt_Celular.Location = new System.Drawing.Point(228, 101);
             this.txt_Celular.Mask = "(99) 0 0000-0000";
             this.txt_Celular.Name = "txt_Celular";
-            this.txt_Celular.Size = new System.Drawing.Size(102, 16);
+            this.txt_Celular.Size = new System.Drawing.Size(89, 16);
             this.txt_Celular.TabIndex = 28;
             this.txt_Celular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Celular_KeyDown);
             // 
@@ -78,10 +76,10 @@
             this.txt_Cpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Cpf.Enabled = false;
             this.txt_Cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cpf.Location = new System.Drawing.Point(592, 64);
+            this.txt_Cpf.Location = new System.Drawing.Point(69, 100);
             this.txt_Cpf.Mask = "000.000.000-00";
             this.txt_Cpf.Name = "txt_Cpf";
-            this.txt_Cpf.Size = new System.Drawing.Size(88, 16);
+            this.txt_Cpf.Size = new System.Drawing.Size(75, 16);
             this.txt_Cpf.TabIndex = 27;
             this.txt_Cpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Cpf_KeyDown);
             // 
@@ -94,7 +92,7 @@
             "Junior",
             "Pleno",
             "Senior"});
-            this.cb_Cargo.Location = new System.Drawing.Point(69, 151);
+            this.cb_Cargo.Location = new System.Drawing.Point(69, 177);
             this.cb_Cargo.Name = "cb_Cargo";
             this.cb_Cargo.Size = new System.Drawing.Size(219, 21);
             this.cb_Cargo.TabIndex = 29;
@@ -107,9 +105,9 @@
             this.txt_Endereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Endereco.Enabled = false;
             this.txt_Endereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Endereco.Location = new System.Drawing.Point(69, 103);
+            this.txt_Endereco.Location = new System.Drawing.Point(69, 137);
             this.txt_Endereco.Name = "txt_Endereco";
-            this.txt_Endereco.Size = new System.Drawing.Size(784, 16);
+            this.txt_Endereco.Size = new System.Drawing.Size(466, 16);
             this.txt_Endereco.TabIndex = 30;
             this.txt_Endereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb_Endereco_KeyDown);
             // 
@@ -129,7 +127,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(12, 151);
+            this.label5.Location = new System.Drawing.Point(12, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 25;
@@ -139,7 +137,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(9, 103);
+            this.label4.Location = new System.Drawing.Point(9, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 24;
@@ -149,7 +147,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(714, 68);
+            this.label3.Location = new System.Drawing.Point(178, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 23;
@@ -159,7 +157,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(559, 67);
+            this.label2.Location = new System.Drawing.Point(12, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 22;
@@ -200,7 +198,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.grid.Location = new System.Drawing.Point(15, 228);
+            this.grid.Location = new System.Drawing.Point(12, 245);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -214,12 +212,11 @@
             // panelBusca
             // 
             this.panelBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelBusca.Controls.Add(this.btn_pesquisa);
             this.panelBusca.Controls.Add(this.lblTitulo);
-            this.panelBusca.Controls.Add(this.txt_BuscarNome);
-            this.panelBusca.Controls.Add(this.label6);
             this.panelBusca.Location = new System.Drawing.Point(1, 1);
             this.panelBusca.Name = "panelBusca";
-            this.panelBusca.Size = new System.Drawing.Size(1175, 45);
+            this.panelBusca.Size = new System.Drawing.Size(695, 45);
             this.panelBusca.TabIndex = 149;
             // 
             // lblTitulo
@@ -232,24 +229,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(331, 26);
             this.lblTitulo.TabIndex = 72;
             this.lblTitulo.Text = "CADASTRO DE FUNCIONÁRIO";
-            // 
-            // txt_BuscarNome
-            // 
-            this.txt_BuscarNome.Location = new System.Drawing.Point(642, 16);
-            this.txt_BuscarNome.Name = "txt_BuscarNome";
-            this.txt_BuscarNome.Size = new System.Drawing.Size(119, 20);
-            this.txt_BuscarNome.TabIndex = 20;
-            this.txt_BuscarNome.TextChanged += new System.EventHandler(this.txt_BuscarNome_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(599, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Busca";
             // 
             // label7
             // 
@@ -295,6 +274,34 @@
             this.label10.TabIndex = 170;
             this.label10.Text = "Cancelar";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(174, 659);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 17);
+            this.label11.TabIndex = 171;
+            this.label11.Text = "Novo";
+            // 
+            // btn_pesquisa
+            // 
+            this.btn_pesquisa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_pesquisa.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_pesquisa.FlatAppearance.BorderSize = 0;
+            this.btn_pesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_pesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pesquisa.ForeColor = System.Drawing.Color.Black;
+            this.btn_pesquisa.Image = global::Moderno.Properties.Resources.icons8_search_24px;
+            this.btn_pesquisa.Location = new System.Drawing.Point(822, 6);
+            this.btn_pesquisa.Name = "btn_pesquisa";
+            this.btn_pesquisa.Size = new System.Drawing.Size(30, 36);
+            this.btn_pesquisa.TabIndex = 172;
+            this.btn_pesquisa.UseVisualStyleBackColor = true;
+            this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisa_Click);
+            // 
             // btnAddCargo
             // 
             this.btnAddCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
@@ -304,7 +311,7 @@
             this.btnAddCargo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnAddCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCargo.Image = global::Moderno.Properties.Resources.icons8_Plus_30px;
-            this.btnAddCargo.Location = new System.Drawing.Point(306, 144);
+            this.btnAddCargo.Location = new System.Drawing.Point(306, 170);
             this.btnAddCargo.Name = "btnAddCargo";
             this.btnAddCargo.Size = new System.Drawing.Size(32, 32);
             this.btnAddCargo.TabIndex = 166;
@@ -383,41 +390,12 @@
             this.btn_Novo.UseVisualStyleBackColor = true;
             this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(174, 659);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 17);
-            this.label11.TabIndex = 171;
-            this.label11.Text = "Novo";
-            // 
-            // btn_pesquisa
-            // 
-            this.btn_pesquisa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_pesquisa.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_pesquisa.FlatAppearance.BorderSize = 0;
-            this.btn_pesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_pesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pesquisa.ForeColor = System.Drawing.Color.Black;
-            this.btn_pesquisa.Image = global::Moderno.Properties.Resources.icons8_save_26px1;
-            this.btn_pesquisa.Location = new System.Drawing.Point(368, 144);
-            this.btn_pesquisa.Name = "btn_pesquisa";
-            this.btn_pesquisa.Size = new System.Drawing.Size(60, 63);
-            this.btn_pesquisa.TabIndex = 172;
-            this.btn_pesquisa.UseVisualStyleBackColor = true;
-            this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisa_Click);
-            // 
             // Frm_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(865, 732);
-            this.Controls.Add(this.btn_pesquisa);
+            this.ClientSize = new System.Drawing.Size(696, 732);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -475,8 +453,6 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.Panel panelBusca;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.TextBox txt_BuscarNome;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddCargo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

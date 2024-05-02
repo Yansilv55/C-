@@ -242,12 +242,6 @@ namespace Moderno
             cadastross.Frm_Servicos frm = new cadastross.Frm_Servicos();
             frm.ShowDialog();
         }
-        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Produtos.Frm_Produtos frm = new Produtos.Frm_Produtos();
-            frm.ShowDialog();
-        }
-
         private void Frm_Pdv_Moderno_Load(object sender, EventArgs e)
         {
             Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -255,6 +249,12 @@ namespace Moderno
 
             lbl_Usuario.Text = UTEIS.NomeUsuario;
             lbl_Cargo.Text = UTEIS.CargoUsuario;
+        }
+
+        private void cadastrarProdutoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Produtos.Frm_Produtos frm = new Produtos.Frm_Produtos();
+            frm.ShowDialog();
         }
     }
 }

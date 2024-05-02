@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelVenda = new System.Windows.Forms.Panel();
-            this.lblTituloProdutos = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.lblIdItem = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblIdPro = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblEstoque = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_CodProduto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,112 +42,21 @@
             this.lblNota = new System.Windows.Forms.Label();
             this.gridDetalhes = new System.Windows.Forms.DataGridView();
             this.panelLancamento = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_ValorUnitario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_SubTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_TotalVenda = new System.Windows.Forms.TextBox();
-            this.panelVenda.SuspendLayout();
+            this.lblTituloProdutos = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelVenda = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalhes)).BeginInit();
             this.panelLancamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelVenda.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelVenda
-            // 
-            this.panelVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.panelVenda.Controls.Add(this.pictureBox1);
-            this.panelVenda.Controls.Add(this.lblTituloProdutos);
-            this.panelVenda.Controls.Add(this.label);
-            this.panelVenda.Controls.Add(this.lblIdItem);
-            this.panelVenda.Controls.Add(this.label7);
-            this.panelVenda.Controls.Add(this.lblIdPro);
-            this.panelVenda.Controls.Add(this.label6);
-            this.panelVenda.Controls.Add(this.lblEstoque);
-            this.panelVenda.Location = new System.Drawing.Point(1, 1);
-            this.panelVenda.Name = "panelVenda";
-            this.panelVenda.Size = new System.Drawing.Size(1344, 71);
-            this.panelVenda.TabIndex = 189;
-            // 
-            // lblTituloProdutos
-            // 
-            this.lblTituloProdutos.AutoSize = true;
-            this.lblTituloProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProdutos.ForeColor = System.Drawing.Color.White;
-            this.lblTituloProdutos.Location = new System.Drawing.Point(12, 21);
-            this.lblTituloProdutos.Name = "lblTituloProdutos";
-            this.lblTituloProdutos.Size = new System.Drawing.Size(341, 26);
-            this.lblTituloProdutos.TabIndex = 252;
-            this.lblTituloProdutos.Text = "GERENCIAMENTO DE VENDAS";
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(1114, 8);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(55, 13);
-            this.label.TabIndex = 251;
-            this.label.Text = "ID do item";
-            this.label.Visible = false;
-            // 
-            // lblIdItem
-            // 
-            this.lblIdItem.AutoSize = true;
-            this.lblIdItem.ForeColor = System.Drawing.Color.Black;
-            this.lblIdItem.Location = new System.Drawing.Point(1190, 8);
-            this.lblIdItem.Name = "lblIdItem";
-            this.lblIdItem.Size = new System.Drawing.Size(13, 13);
-            this.lblIdItem.TabIndex = 250;
-            this.lblIdItem.Text = "0";
-            this.lblIdItem.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(1130, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 251;
-            this.label7.Text = "id prod";
-            this.label7.Visible = false;
-            // 
-            // lblIdPro
-            // 
-            this.lblIdPro.AutoSize = true;
-            this.lblIdPro.ForeColor = System.Drawing.Color.Black;
-            this.lblIdPro.Location = new System.Drawing.Point(1190, 21);
-            this.lblIdPro.Name = "lblIdPro";
-            this.lblIdPro.Size = new System.Drawing.Size(13, 13);
-            this.lblIdPro.TabIndex = 250;
-            this.lblIdPro.Text = "0";
-            this.lblIdPro.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1130, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 249;
-            this.label6.Text = "estoque";
-            this.label6.Visible = false;
-            // 
-            // lblEstoque
-            // 
-            this.lblEstoque.AutoSize = true;
-            this.lblEstoque.ForeColor = System.Drawing.Color.Black;
-            this.lblEstoque.Location = new System.Drawing.Point(1190, 38);
-            this.lblEstoque.Name = "lblEstoque";
-            this.lblEstoque.Size = new System.Drawing.Size(13, 13);
-            this.lblEstoque.TabIndex = 246;
-            this.lblEstoque.Text = "0";
-            this.lblEstoque.Visible = false;
             // 
             // label2
             // 
@@ -309,7 +210,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.gridDetalhes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridDetalhes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDetalhes.Size = new System.Drawing.Size(807, 474);
+            this.gridDetalhes.Size = new System.Drawing.Size(804, 477);
             this.gridDetalhes.TabIndex = 194;
             // 
             // panelLancamento
@@ -323,21 +224,10 @@
             this.panelLancamento.Controls.Add(this.label9);
             this.panelLancamento.Controls.Add(this.txt_SubTotal);
             this.panelLancamento.Controls.Add(this.label11);
-            this.panelLancamento.Location = new System.Drawing.Point(814, 78);
+            this.panelLancamento.Location = new System.Drawing.Point(805, 75);
             this.panelLancamento.Name = "panelLancamento";
-            this.panelLancamento.Size = new System.Drawing.Size(528, 507);
+            this.panelLancamento.Size = new System.Drawing.Size(537, 510);
             this.panelLancamento.TabIndex = 304;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::Moderno.Properties.Resources._0_7asj1rKS8d2mead_;
-            this.pictureBox1.Location = new System.Drawing.Point(1269, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 249;
-            this.pictureBox1.TabStop = false;
             // 
             // txt_ValorUnitario
             // 
@@ -404,11 +294,43 @@
             this.txt_TotalVenda.Location = new System.Drawing.Point(9, 652);
             this.txt_TotalVenda.Name = "txt_TotalVenda";
             this.txt_TotalVenda.ReadOnly = true;
-            this.txt_TotalVenda.Size = new System.Drawing.Size(724, 68);
+            this.txt_TotalVenda.Size = new System.Drawing.Size(796, 68);
             this.txt_TotalVenda.TabIndex = 11;
             this.txt_TotalVenda.Text = "0,00";
             this.txt_TotalVenda.TextChanged += new System.EventHandler(this.txt_TotalVenda_TextChanged);
             this.txt_TotalVenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TotalVenda_KeyDown);
+            // 
+            // lblTituloProdutos
+            // 
+            this.lblTituloProdutos.AutoSize = true;
+            this.lblTituloProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloProdutos.ForeColor = System.Drawing.Color.White;
+            this.lblTituloProdutos.Location = new System.Drawing.Point(12, 21);
+            this.lblTituloProdutos.Name = "lblTituloProdutos";
+            this.lblTituloProdutos.Size = new System.Drawing.Size(341, 26);
+            this.lblTituloProdutos.TabIndex = 252;
+            this.lblTituloProdutos.Text = "GERENCIAMENTO DE VENDAS";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::Moderno.Properties.Resources._0_7asj1rKS8d2mead_;
+            this.pictureBox1.Location = new System.Drawing.Point(1269, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 249;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelVenda
+            // 
+            this.panelVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelVenda.Controls.Add(this.pictureBox1);
+            this.panelVenda.Controls.Add(this.lblTituloProdutos);
+            this.panelVenda.Location = new System.Drawing.Point(1, 1);
+            this.panelVenda.Name = "panelVenda";
+            this.panelVenda.Size = new System.Drawing.Size(1344, 71);
+            this.panelVenda.TabIndex = 189;
             // 
             // Frm_Vendas
             // 
@@ -426,28 +348,20 @@
             this.Text = "Frm_Vendas";
             this.Load += new System.EventHandler(this.Frm_Vendas_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Vendas_KeyDown);
-            this.panelVenda.ResumeLayout(false);
-            this.panelVenda.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalhes)).EndInit();
             this.panelLancamento.ResumeLayout(false);
             this.panelLancamento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelVenda.ResumeLayout(false);
+            this.panelVenda.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelVenda;
-        private System.Windows.Forms.Label label;
-        private System.Windows.Forms.Label lblIdItem;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblIdPro;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblEstoque;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_CodProduto;
         private System.Windows.Forms.Label label4;
@@ -466,5 +380,6 @@
         private System.Windows.Forms.TextBox txt_ValorUnitario;
         private System.Windows.Forms.Label lblTituloProdutos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelVenda;
     }
 }

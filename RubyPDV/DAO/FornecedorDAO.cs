@@ -42,46 +42,6 @@ namespace DAO
             con.FecharConexao();
             return fornecedores;
         }
-        public List<FornecedorMODEL> Buscar_nome()
-        {
-            List<FornecedorMODEL> Fornecedores = new List<FornecedorMODEL>();
-
-            con.AbrirConexao();
-            sql = "SELECT * FROM fornecedor WHERE nome LIKE @nome ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-
-            using (MySqlDataReader reader = conn.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    FornecedorMODEL Fornecedor = new FornecedorMODEL();
-                    Fornecedor.buscarNome = reader.GetString("nome");
-
-                    Fornecedores.Add(Fornecedor);
-                }
-            }
-            return Fornecedores;
-        }
-        public List<FornecedorMODEL> Buscar_cnpj()
-        {
-            List<FornecedorMODEL> Fornecedores = new List<FornecedorMODEL>();
-
-            con.AbrirConexao();
-            sql = "SELECT * FROM fornecedor WHERE cnpj = @cnpj ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-
-            using (MySqlDataReader reader = conn.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    FornecedorMODEL Fornecedor = new FornecedorMODEL();
-                    Fornecedor.buscarCnpj = reader.GetInt32("cnpj");
-
-                    Fornecedores.Add(Fornecedor);
-                }
-            }
-            return Fornecedores;
-        }
         public void Salvar_fornecedor(FornecedorMODEL fornecedor)
         {
             try

@@ -59,9 +59,9 @@
             // 
             this.cb_Funcionario.FormattingEnabled = true;
             this.cb_Funcionario.ItemHeight = 13;
-            this.cb_Funcionario.Location = new System.Drawing.Point(106, 65);
+            this.cb_Funcionario.Location = new System.Drawing.Point(76, 65);
             this.cb_Funcionario.Name = "cb_Funcionario";
-            this.cb_Funcionario.Size = new System.Drawing.Size(309, 21);
+            this.cb_Funcionario.Size = new System.Drawing.Size(369, 21);
             this.cb_Funcionario.TabIndex = 3;
             this.cb_Funcionario.SelectedIndexChanged += new System.EventHandler(this.cb_Funcionario_SelectedIndexChanged);
             this.cb_Funcionario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_Funcionario_KeyDown);
@@ -80,11 +80,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.grid.Location = new System.Drawing.Point(15, 191);
+            this.grid.Location = new System.Drawing.Point(5, 191);
             this.grid.Name = "grid";
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.grid.Size = new System.Drawing.Size(505, 291);
+            this.grid.Size = new System.Drawing.Size(534, 291);
             this.grid.TabIndex = 1;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
@@ -92,7 +92,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(59, 131);
+            this.label1.Location = new System.Drawing.Point(17, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
@@ -100,9 +100,9 @@
             // 
             // txt_Senha
             // 
-            this.txt_Senha.Location = new System.Drawing.Point(108, 131);
+            this.txt_Senha.Location = new System.Drawing.Point(76, 128);
             this.txt_Senha.Name = "txt_Senha";
-            this.txt_Senha.Size = new System.Drawing.Size(118, 20);
+            this.txt_Senha.Size = new System.Drawing.Size(159, 20);
             this.txt_Senha.TabIndex = 2;
             this.txt_Senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Senha_KeyDown);
             // 
@@ -110,7 +110,7 @@
             // 
             this.txt_Cargo.Location = new System.Drawing.Point(282, 131);
             this.txt_Cargo.Name = "txt_Cargo";
-            this.txt_Cargo.Size = new System.Drawing.Size(133, 20);
+            this.txt_Cargo.Size = new System.Drawing.Size(163, 20);
             this.txt_Cargo.TabIndex = 20;
             this.txt_Cargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cargo_KeyPress);
             // 
@@ -128,7 +128,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(59, 104);
+            this.label4.Location = new System.Drawing.Point(12, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 8;
@@ -136,9 +136,9 @@
             // 
             // txt_Usuario
             // 
-            this.txt_Usuario.Location = new System.Drawing.Point(108, 97);
+            this.txt_Usuario.Location = new System.Drawing.Point(76, 97);
             this.txt_Usuario.Name = "txt_Usuario";
-            this.txt_Usuario.Size = new System.Drawing.Size(307, 20);
+            this.txt_Usuario.Size = new System.Drawing.Size(369, 20);
             this.txt_Usuario.TabIndex = 1;
             this.txt_Usuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Usuario_KeyDown);
             // 
@@ -214,7 +214,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(40, 65);
+            this.label5.Location = new System.Drawing.Point(12, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 44;

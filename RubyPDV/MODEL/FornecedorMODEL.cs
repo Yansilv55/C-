@@ -15,7 +15,5 @@ namespace MODEL
         public string celular { get; set; }
         public string vendedor { get; set; }
         public string data { get; set; }
-        public string buscarNome { get; set; }
-        public int buscarCnpj { get; set; }
     }
 }

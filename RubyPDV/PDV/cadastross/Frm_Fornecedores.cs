@@ -37,29 +37,14 @@ namespace Moderno.cadastross
 
             grid.Columns[0].Visible = false;
             grid.Columns[6].Visible = false;
-            grid.Columns[7].Visible = false;
-            grid.Columns[8].Visible = false;
+            //grid.Columns[7].Visible = false;
+            //grid.Columns[8].Visible = false;
 
         }
         private void Listar()
         {
             FornecedorDAO FornecedorDAO = new FornecedorDAO();
             grid.DataSource = FornecedorDAO.ListarFornecedores();
-            FormatarGD();
-        }
-        private void BuscarNome(FornecedorMODEL fornecedor)
-        {
-           FornecedorDAO fornecedorDAO = new FornecedorDAO();
-           fornecedorDAO.Buscar_nome();
-           grid.DataSource = fornecedorDAO.Buscar_nome();
-           FormatarGD();
-        }
-        private void BuscarCnpj(FornecedorMODEL fornecedor)
-        {
-            FornecedorDAO fornecedordao = new FornecedorDAO();
-            fornecedordao.Buscar_cnpj();
-            grid.DataSource = fornecedordao.Buscar_cnpj();
-            fornecedor.buscarCnpj = int.Parse(txt_BuscarCnpj.Text);
             FormatarGD();
         }
         private void HabilitarCampos()
@@ -88,25 +73,6 @@ namespace Moderno.cadastross
             txt_Celular.Text = "";
             txt_Vendedor.Text = "";
         }
-
-        private void rb_Nome_CheckedChanged(object sender, EventArgs e)
-        {
-            txt_BuscarNome.Visible = true;
-            txt_BuscarCnpj.Visible = false;
-            txt_BuscarCnpj.Text = "";
-            txt_BuscarNome.Text = "";
-            txt_BuscarNome.Focus();
-        }
-
-        private void rb_Cnpj_CheckedChanged(object sender, EventArgs e)
-        {
-            txt_BuscarNome.Visible = false;
-            txt_BuscarCnpj.Visible = true;
-            txt_BuscarCnpj.Text = "";
-            txt_BuscarNome.Text = "";
-            txt_BuscarCnpj.Focus();
-        }
-
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             cnpj = true;
@@ -251,21 +217,6 @@ namespace Moderno.cadastross
         {
             FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
             ExcluirRegistro(fornecedorMODEL);
-        }
-
-        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
-        {
-            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
-            BuscarNome(fornecedorMODEL);
-        }
-        private void txt_BuscarCnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            FornecedorMODEL fornecedorMODEL = new FornecedorMODEL();
-            if (txt_BuscarCnpj.Text == "  .   .   /    -")
-            {
-                Listar();
-            }
-            else { BuscarCnpj(fornecedorMODEL); }
         }
         private void txt_Cnpj_Leave(object sender, EventArgs e)
         {

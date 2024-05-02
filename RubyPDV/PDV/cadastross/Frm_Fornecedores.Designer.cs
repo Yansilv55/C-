@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.rb_Nome = new System.Windows.Forms.RadioButton();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.btn_Excluir = new System.Windows.Forms.Button();
@@ -42,13 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Endereco = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rb_Cnpj = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_BuscarCnpj = new System.Windows.Forms.MaskedTextBox();
             this.txt = new System.Windows.Forms.Label();
             this.txt_Vendedor = new System.Windows.Forms.TextBox();
-            this.txt_BuscarNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,21 +54,8 @@
             this.txt_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.txt_Celular = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panelBusca.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // rb_Nome
-            // 
-            this.rb_Nome.AutoSize = true;
-            this.rb_Nome.Location = new System.Drawing.Point(3, 3);
-            this.rb_Nome.Name = "rb_Nome";
-            this.rb_Nome.Size = new System.Drawing.Size(53, 17);
-            this.rb_Nome.TabIndex = 1;
-            this.rb_Nome.TabStop = true;
-            this.rb_Nome.Text = "Nome";
-            this.rb_Nome.UseVisualStyleBackColor = true;
-            this.rb_Nome.CheckedChanged += new System.EventHandler(this.rb_Nome_CheckedChanged);
             // 
             // btn_Cancelar
             // 
@@ -154,7 +136,7 @@
             this.grid.Name = "grid";
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.grid.Size = new System.Drawing.Size(790, 238);
+            this.grid.Size = new System.Drawing.Size(546, 238);
             this.grid.TabIndex = 48;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
@@ -170,7 +152,7 @@
             // 
             // txt_Nome
             // 
-            this.txt_Nome.Location = new System.Drawing.Point(74, 60);
+            this.txt_Nome.Location = new System.Drawing.Point(93, 57);
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(286, 20);
             this.txt_Nome.TabIndex = 1;
@@ -180,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(272, 107);
+            this.label3.Location = new System.Drawing.Point(291, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 51;
@@ -188,7 +170,7 @@
             // 
             // txt_Endereco
             // 
-            this.txt_Endereco.Location = new System.Drawing.Point(74, 143);
+            this.txt_Endereco.Location = new System.Drawing.Point(93, 140);
             this.txt_Endereco.Name = "txt_Endereco";
             this.txt_Endereco.Size = new System.Drawing.Size(445, 20);
             this.txt_Endereco.TabIndex = 8;
@@ -204,44 +186,15 @@
             this.label19.TabIndex = 53;
             this.label19.Text = "Endereço";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.rb_Nome);
-            this.flowLayoutPanel1.Controls.Add(this.rb_Cnpj);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(416, 8);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(168, 27);
-            this.flowLayoutPanel1.TabIndex = 57;
-            // 
-            // rb_Cnpj
-            // 
-            this.rb_Cnpj.AutoSize = true;
-            this.rb_Cnpj.Location = new System.Drawing.Point(62, 3);
-            this.rb_Cnpj.Name = "rb_Cnpj";
-            this.rb_Cnpj.Size = new System.Drawing.Size(52, 17);
-            this.rb_Cnpj.TabIndex = 2;
-            this.rb_Cnpj.TabStop = true;
-            this.rb_Cnpj.Text = "CNPJ";
-            this.rb_Cnpj.UseVisualStyleBackColor = true;
-            this.rb_Cnpj.CheckedChanged += new System.EventHandler(this.rb_Cnpj_CheckedChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(366, 67);
+            this.label8.Location = new System.Drawing.Point(385, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 67;
             this.label8.Text = "CNPJ";
-            // 
-            // txt_BuscarCnpj
-            // 
-            this.txt_BuscarCnpj.Location = new System.Drawing.Point(703, 10);
-            this.txt_BuscarCnpj.Name = "txt_BuscarCnpj";
-            this.txt_BuscarCnpj.Size = new System.Drawing.Size(100, 20);
-            this.txt_BuscarCnpj.TabIndex = 70;
-            this.txt_BuscarCnpj.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_BuscarCnpj_MaskInputRejected);
             // 
             // txt
             // 
@@ -255,19 +208,11 @@
             // 
             // txt_Vendedor
             // 
-            this.txt_Vendedor.Location = new System.Drawing.Point(74, 100);
+            this.txt_Vendedor.Location = new System.Drawing.Point(93, 97);
             this.txt_Vendedor.Name = "txt_Vendedor";
             this.txt_Vendedor.Size = new System.Drawing.Size(165, 20);
             this.txt_Vendedor.TabIndex = 4;
             this.txt_Vendedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Vendedor_KeyDown);
-            // 
-            // txt_BuscarNome
-            // 
-            this.txt_BuscarNome.Location = new System.Drawing.Point(598, 8);
-            this.txt_BuscarNome.Name = "txt_BuscarNome";
-            this.txt_BuscarNome.Size = new System.Drawing.Size(89, 20);
-            this.txt_BuscarNome.TabIndex = 73;
-            this.txt_BuscarNome.TextChanged += new System.EventHandler(this.txt_BuscarNome_TextChanged);
             // 
             // label11
             // 
@@ -328,12 +273,9 @@
             // 
             this.panelBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panelBusca.Controls.Add(this.lblTitulo);
-            this.panelBusca.Controls.Add(this.flowLayoutPanel1);
-            this.panelBusca.Controls.Add(this.txt_BuscarNome);
-            this.panelBusca.Controls.Add(this.txt_BuscarCnpj);
             this.panelBusca.Location = new System.Drawing.Point(-1, 0);
             this.panelBusca.Name = "panelBusca";
-            this.panelBusca.Size = new System.Drawing.Size(1145, 47);
+            this.panelBusca.Size = new System.Drawing.Size(559, 47);
             this.panelBusca.TabIndex = 178;
             // 
             // lblTitulo
@@ -350,7 +292,7 @@
             // txt_Cnpj
             // 
             this.txt_Cnpj.Enabled = false;
-            this.txt_Cnpj.Location = new System.Drawing.Point(406, 61);
+            this.txt_Cnpj.Location = new System.Drawing.Point(425, 58);
             this.txt_Cnpj.Mask = "00,000,000/0000-00";
             this.txt_Cnpj.Name = "txt_Cnpj";
             this.txt_Cnpj.Size = new System.Drawing.Size(113, 20);
@@ -362,7 +304,7 @@
             this.txt_Celular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Celular.Enabled = false;
             this.txt_Celular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Celular.Location = new System.Drawing.Point(316, 100);
+            this.txt_Celular.Location = new System.Drawing.Point(335, 97);
             this.txt_Celular.Mask = "(99) 0 0000-0000";
             this.txt_Celular.Name = "txt_Celular";
             this.txt_Celular.Size = new System.Drawing.Size(102, 23);
@@ -374,7 +316,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(832, 569);
+            this.ClientSize = new System.Drawing.Size(557, 569);
             this.Controls.Add(this.txt_Celular);
             this.Controls.Add(this.txt_Cnpj);
             this.Controls.Add(this.panelBusca);
@@ -401,8 +343,6 @@
             this.Text = "Frm_Fornecedores";
             this.Load += new System.EventHandler(this.Frm_Fornecedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.panelBusca.ResumeLayout(false);
             this.panelBusca.PerformLayout();
             this.ResumeLayout(false);
@@ -411,7 +351,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton rb_Nome;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Salvar;
         private System.Windows.Forms.Button btn_Excluir;
@@ -423,13 +362,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_Endereco;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox txt_BuscarCnpj;
         private System.Windows.Forms.Label txt;
         private System.Windows.Forms.TextBox txt_Vendedor;
-        private System.Windows.Forms.RadioButton rb_Cnpj;
-        private System.Windows.Forms.TextBox txt_BuscarNome;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;

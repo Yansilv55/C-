@@ -38,21 +38,6 @@ namespace Moderno.cadastross
             txt_Celular.Text = "(00) 0 0000-0000";
         }
         //------------------------------------------------------------------------------
-        private void txt_BuscarNome_TextChanged(object sender, EventArgs e)
-        {
-            AtualizarListaFuncionarios();
-        }
-        private void AtualizarListaFuncionarios()
-        {
-            if (string.IsNullOrWhiteSpace(txt_BuscarNome.Text))
-            {
-                ExibirListaCompletaFuncionarios();
-            }
-            else
-            {
-                RealizarBuscaFuncionarios(txt_BuscarNome.Text);
-            }
-        }
         private void ExibirListaCompletaFuncionarios()
         {
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();

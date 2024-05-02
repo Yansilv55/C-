@@ -68,11 +68,11 @@
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarProdutoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -498,7 +498,8 @@
             this.cargoToolStripMenuItem,
             this.fornecedoresToolStripMenuItem,
             this.usuárioToolStripMenuItem,
-            this.serviçosToolStripMenuItem});
+            this.serviçosToolStripMenuItem,
+            this.cadastrarProdutoToolStripMenuItem1});
             this.cadastroToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastroToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_Plus_30px1;
             this.cadastroToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
@@ -566,6 +567,16 @@
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
+            // cadastrarProdutoToolStripMenuItem1
+            // 
+            this.cadastrarProdutoToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.cadastrarProdutoToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.cadastrarProdutoToolStripMenuItem1.Image = global::Moderno.Properties.Resources.icons8_full_shopping_basket_24px2;
+            this.cadastrarProdutoToolStripMenuItem1.Name = "cadastrarProdutoToolStripMenuItem1";
+            this.cadastrarProdutoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarProdutoToolStripMenuItem1.Text = " Produto";
+            this.cadastrarProdutoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem1_Click);
+            // 
             // movimentaçõesToolStripMenuItem
             // 
             this.movimentaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -583,7 +594,7 @@
             this.gastosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.gastosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_payment_history_50px;
             this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.gastosToolStripMenuItem.Text = "Gastos";
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
@@ -593,29 +604,17 @@
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Image = global::Moderno.Properties.Resources.icons8_receipt_terminal_50px;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
             this.toolStripMenuItem2.Text = "Caixa";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.caixaToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
-            this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarProdutoToolStripMenuItem});
             this.produtosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.produtosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_full_shopping_basket_24px1;
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.produtosToolStripMenuItem.Text = "Produtos";
-            // 
-            // cadastrarProdutoToolStripMenuItem
-            // 
-            this.cadastrarProdutoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.cadastrarProdutoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.cadastrarProdutoToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_full_shopping_basket_24px;
-            this.cadastrarProdutoToolStripMenuItem.Name = "cadastrarProdutoToolStripMenuItem";
-            this.cadastrarProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarProdutoToolStripMenuItem.Text = "Cadastrar Produto";
-            this.cadastrarProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem_Click);
             // 
             // suporteToolStripMenuItem
             // 
@@ -715,11 +714,11 @@
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarProdutoToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem suporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarProdutoToolStripMenuItem1;
     }
 }
 

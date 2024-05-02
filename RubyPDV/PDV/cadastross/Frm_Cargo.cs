@@ -273,7 +273,6 @@ namespace Moderno.cadastross
                 MessageBox.Show($"Erro ao editar o registro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             lb_Nome.Enabled = true;
@@ -281,12 +280,5 @@ namespace Moderno.cadastross
             lb_Nome.Text = "";
             lb_Nome.Focus();
         }
-
-        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
     }
 }
