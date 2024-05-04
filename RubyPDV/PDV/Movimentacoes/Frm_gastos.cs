@@ -125,7 +125,6 @@ namespace Moderno.Movimentacoes
             con.FecharConexao();
             FormatarGD();
         }
-
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -151,7 +150,6 @@ namespace Moderno.Movimentacoes
                 return;
             }
         }
-
         private void btn_Novo_Click(object sender, EventArgs e)
         {
             btn_Salvar.Enabled = true;
@@ -180,7 +178,6 @@ namespace Moderno.Movimentacoes
                 MessageBox.Show("Preencher campo valor !!!", "Cadastro de Gastos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             //dt = Convert.ToString(dtData.Text);
 
             //botao salvar
@@ -203,7 +200,6 @@ namespace Moderno.Movimentacoes
             {
                 MessageBox.Show("ERRO", "Cadastro Gastos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             //recuperar ultimo id do GASTO
             con.AbrirConexao();
             MySqlCommand cmdVerificar;
@@ -255,7 +251,6 @@ namespace Moderno.Movimentacoes
             Listar();
             MessageBox.Show("Registro Salvo com sucesso!", "Cadastro Gastos", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
         private void btn_Editar_Click(object sender, EventArgs e)
         {
             if (txt_Descricao.Text.ToString().Trim() == "")
@@ -341,7 +336,6 @@ namespace Moderno.Movimentacoes
             Listar();
             MessageBox.Show("Registro Editado com sucesso!", "Cadastro gastos", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Cadastro gastos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -376,7 +370,6 @@ namespace Moderno.Movimentacoes
                 MessageBox.Show("Registro Excluído com sucesso!", "Cadastro gastos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void dt_Buscar_ValueChanged(object sender, EventArgs e)
         {
             BuscarData();
@@ -393,7 +386,6 @@ namespace Moderno.Movimentacoes
             }
             lbl_Total.Text = Convert.ToDouble(total).ToString("C2");
         }
-
         private void formatarTextNumero(object sender, KeyPressEventArgs e)
         {
             try
@@ -403,7 +395,6 @@ namespace Moderno.Movimentacoes
                 {
                     e.Handled = true;
                 }
-
 
                 if (e.KeyChar == ','
                     && (sender as TextBox).Text.IndexOf(',') > -2)
@@ -421,7 +412,6 @@ namespace Moderno.Movimentacoes
 
             }
         }
-
         //TextBox ao digitar apresenta no formato moeda
         public static void Moeda(ref TextBox txt)
         {
@@ -447,23 +437,19 @@ namespace Moderno.Movimentacoes
             {
             }
         }
-
         private void txt_Nota_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void txt_Valor_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_Valor);
             Pd = Convert.ToDouble(txt_Valor.Text) * -1;
         }
-
         private void txt_Valor_KeyPress(object sender, KeyPressEventArgs e)
         {
             formatarTextNumero(sender, e);
         }
-
         private void cb_Pagto_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -499,19 +485,15 @@ namespace Moderno.Movimentacoes
                 // Aqui você pode imprimir detalhes sobre a exceção para depuração, se necessário
                 Console.WriteLine(ex.Message);
             }
-
         }
-
         private void dt_Inicial_ValueChanged(object sender, EventArgs e)
         {
             listarPeriodo();
         }
-
         private void dt_Final_ValueChanged(object sender, EventArgs e)
         {
             listarPeriodo();
         }
-
         private void txt_Nota_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -519,7 +501,6 @@ namespace Moderno.Movimentacoes
                 dt_Data.Focus();
             }
         }
-
         private void dt_Data_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -527,7 +508,6 @@ namespace Moderno.Movimentacoes
                 txt_Valor.Focus();
             }
         }
-
         private void txt_Valor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -535,7 +515,6 @@ namespace Moderno.Movimentacoes
                 cb_Pagto.Focus();
             }
         }
-
         private void cb_Pagto_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -543,7 +522,6 @@ namespace Moderno.Movimentacoes
                 txt_Favorecido.Focus();
             }
         }
-
         private void txt_Favorecido_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

@@ -513,7 +513,7 @@
             this.funcionariosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.funcionariosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_management_16px;
             this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.funcionariosToolStripMenuItem.Text = "Funcionários";
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
@@ -523,7 +523,7 @@
             this.clienteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.clienteToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_conference_24px;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.clienteToolStripMenuItem.Text = "Clientes";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
@@ -533,7 +533,7 @@
             this.cargoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cargoToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_office_16px;
             this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.cargoToolStripMenuItem.Text = "Cargos";
             this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
@@ -543,7 +543,7 @@
             this.fornecedoresToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fornecedoresToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_supplier_16px;
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
@@ -553,7 +553,7 @@
             this.usuárioToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.usuárioToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_user_16px;
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.usuárioToolStripMenuItem.Text = "Usuário";
             this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
@@ -563,7 +563,7 @@
             this.serviçosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.serviçosToolStripMenuItem.Image = global::Moderno.Properties.Resources.icons8_service_16px;
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
@@ -573,7 +573,7 @@
             this.cadastrarProdutoToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.cadastrarProdutoToolStripMenuItem1.Image = global::Moderno.Properties.Resources.icons8_full_shopping_basket_24px2;
             this.cadastrarProdutoToolStripMenuItem1.Name = "cadastrarProdutoToolStripMenuItem1";
-            this.cadastrarProdutoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarProdutoToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.cadastrarProdutoToolStripMenuItem1.Text = " Produto";
             this.cadastrarProdutoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarProdutoToolStripMenuItem1_Click);
             // 

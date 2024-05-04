@@ -179,7 +179,6 @@ namespace Moderno
                 this.WindowState = FormWindowState.Normal;
             }
         }
-
         private void btn_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -190,12 +189,6 @@ namespace Moderno
             Status_Data.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Status_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
-
-        private void Frm_Pdv_Moderno_Load(object sender, EventArgs e, Program Program)
-        {
-
-        }
-
         private void caixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Movimentacoes.Frm_Caixa frm = new Frm_Caixa();
@@ -212,31 +205,26 @@ namespace Moderno
             cadastross.Frm_Funcionario frm = new cadastross.Frm_Funcionario();
             frm.ShowDialog();
         }
-
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Clinte frm = new cadastross.Frm_Clinte();
             frm.ShowDialog();
         }
-
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Cargo frm = new cadastross.Frm_Cargo();
             frm.ShowDialog();
         }
-
         private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Usuario frm = new cadastross.Frm_Usuario();
             frm.ShowDialog();
         }
-
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Fornecedores frm = new cadastross.Frm_Fornecedores();
             frm.ShowDialog();
         }
-
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cadastross.Frm_Servicos frm = new cadastross.Frm_Servicos();
@@ -250,7 +238,6 @@ namespace Moderno
             lbl_Usuario.Text = UTEIS.NomeUsuario;
             lbl_Cargo.Text = UTEIS.CargoUsuario;
         }
-
         private void cadastrarProdutoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Produtos.Frm_Produtos frm = new Produtos.Frm_Produtos();

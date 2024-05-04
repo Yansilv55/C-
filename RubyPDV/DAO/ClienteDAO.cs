@@ -14,7 +14,7 @@ namespace DAO
         string sql;
         MySqlCommand conn;
 
-        public List<ClienteMODEL> ListarFuncionario()
+        public List<ClienteMODEL> ListarCliente()
         {
             List<ClienteMODEL> clientes = new List<ClienteMODEL>();
             con.AbrirConexao();
@@ -32,7 +32,7 @@ namespace DAO
                     cliente.celular = reader.GetString("celular");
                     cliente.email = reader.GetString("email");
                     cliente.desbloqueado = reader.GetString("desbloqueado");
-                    cliente.status = reader.GetString("tinadiplente");
+                    cliente.status = reader.GetString("inadiplente");
                     cliente.endereco = reader.GetString("endereco");
                     cliente.funcionario = UTEIS.NomeUsuario;
                     cliente.data = reader.GetString("data");
@@ -43,26 +43,6 @@ namespace DAO
             con.FecharConexao();
             return clientes;
         }
-        /*public List<ClienteMODEL> ListaBuscarFuncionario(string nome)
-        {
-            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
-
-            con.AbrirConexao();
-            sql = "SELECT * FROM funcionario WHERE nome LIKE @nome ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            conn.Parameters.AddWithValue("@nome", "%" + nome + "%");
-            using (MySqlDataReader reader = conn.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    FuncionarioMODEL funcionario = new FuncionarioMODEL();
-                    funcionario.nome = reader.GetString("nome");
-
-                    funcionarios.Add(funcionario);
-                }
-            }
-            return funcionarios;
-        }*/
         public void Excluir_cliente(ClienteMODEL clinte)
         {
             con.AbrirConexao();

@@ -32,7 +32,6 @@ namespace Moderno.cadastross
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-
         private void Frm_Clinte_Load(object sender, EventArgs e)
         {
             Listar();
@@ -56,18 +55,11 @@ namespace Moderno.cadastross
         }
         private void Listar()
         {
-            con.AbrirConexao();
-            sql = "SELECT * FROM clientes ORDER BY nome asc";
-            conn = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = conn;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
+            ClienteDAO clienteDAO = new ClienteDAO();
+            grid.DataSource = clienteDAO.ListarCliente();
 
             FormatarGD();
         }
-
         private void HabilitarCampos()
         {
             txt_Nome.Enabled = true;
@@ -79,7 +71,6 @@ namespace Moderno.cadastross
             txt_ValorAberto.Enabled = true;
             txt_Nome.Focus();
         }
-       
         private void DesabilitarCampos()
         {
             txt_Nome.Enabled = false;
@@ -262,8 +253,7 @@ namespace Moderno.cadastross
                 SalvarRegistro();
             }
             catch (Exception ex)
-            {
-
+            { 
                 throw ex;
             }
         }
