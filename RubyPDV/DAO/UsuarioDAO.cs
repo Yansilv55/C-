@@ -16,7 +16,7 @@ namespace DAO
         string sql;
         MySqlCommand conn;
 
-        
+
         public List<UsuarioMODEL> ListarUsuario()
         {
             List<UsuarioMODEL> usuarios = new List<UsuarioMODEL>();
@@ -40,34 +40,12 @@ namespace DAO
             }
             return usuarios;
         }
-        public List<FuncionarioMODEL> CarregarFuncionario()
-        { 
-             List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+        public List<FuncionarioMODEL> ListarFuncionarios()
+        {
+            List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
 
-             con.AbrirConexao();
-             sql = "SELECT * FROM funcionario ORDER BY nome asc";
-             conn = new MySqlCommand(sql, con.con);
-             using (MySqlDataReader reader = conn.ExecuteReader())
-             {
-                 while (reader.Read())
-                 {
-                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
-                     funcionario.nome = reader.GetString("nome");
-
-                     funcionario.cargo = Convert.ToString(reader["cargo"]);
-
-                     funcionarios.Add(funcionario);
-                 }
-             }
-             return funcionarios;
-        }
-           /* List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
-
-          con.AbrirConexao();
-            sql = @"SELECT f.nome, c.descricao AS cargo 
-                  FROM funcionario f 
-                  inner JOIN cargo c ON f.id_cargo = c.id_cargo 
-                  ORDER BY f.nome ASC";
+            con.AbrirConexao();
+            sql = "SELECT * FROM funcionario ORDER BY nome asc";
             conn = new MySqlCommand(sql, con.con);
             using (MySqlDataReader reader = conn.ExecuteReader())
             {
@@ -75,12 +53,36 @@ namespace DAO
                 {
                     FuncionarioMODEL funcionario = new FuncionarioMODEL();
                     funcionario.nome = reader.GetString("nome");
-                    funcionario.cargo = reader.GetString("cargo");
+
+                    funcionario.cargo = Convert.ToString(reader["cargo"]);
+
                     funcionarios.Add(funcionario);
                 }
             }
             return funcionarios;
-        }*/
+        }
+
+
+        /* List<FuncionarioMODEL> funcionarios = new List<FuncionarioMODEL>();
+
+       con.AbrirConexao();
+         sql = @"SELECT f.nome, c.descricao AS cargo 
+               FROM funcionario f 
+               inner JOIN cargo c ON f.id_cargo = c.id_cargo 
+               ORDER BY f.nome ASC";
+         conn = new MySqlCommand(sql, con.con);
+         using (MySqlDataReader reader = conn.ExecuteReader())
+         {
+             while (reader.Read())
+             {
+                 FuncionarioMODEL funcionario = new FuncionarioMODEL();
+                 funcionario.nome = reader.GetString("nome");
+                 funcionario.cargo = reader.GetString("cargo");
+                 funcionarios.Add(funcionario);
+             }
+         }
+         return funcionarios;
+     }*/
         public void Salvar_usuario(UsuarioMODEL usuarioMODEL)
         {
             con.AbrirConexao();

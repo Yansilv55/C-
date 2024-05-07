@@ -48,7 +48,7 @@ namespace Moderno.cadastross
         {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             FuncionarioMODEL funcionario = new FuncionarioMODEL();
-            cb_Funcionario.DataSource = usuarioDAO.CarregarFuncionario();
+            cb_Funcionario.DataSource = usuarioDAO.ListarFuncionarios();
             cb_Funcionario.DisplayMember = "nome";
         }
         private void HabilitarCampos()
@@ -70,7 +70,7 @@ namespace Moderno.cadastross
         {
             txt_Usuario.Text = "";
             txt_Senha.Text = "";
-            txt_Cargo.Text = "Selecione";
+            txt_Cargo.Text = "";
             cb_Funcionario.Text = "Selecione";
             cb_Funcionario.Focus();
         }
@@ -145,7 +145,7 @@ namespace Moderno.cadastross
         }
         private void EditarRegistro(UsuarioMODEL usuarioMODEL)
         {
-            UsuarioDAO usuarioDAO= new UsuarioDAO();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
             VerificarCampo();
             //botao editar
             usuarioMODEL.nome = cb_Funcionario.Text;
@@ -232,9 +232,17 @@ namespace Moderno.cadastross
         }
         private void cb_Funcionario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            UsuarioMODEL usuarioMODEL = new UsuarioMODEL();
-            usuarioDAO.CarregarFuncionario();
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            FuncionarioMODEL funcionarioMODEL = new FuncionarioMODEL();
+            funcionarioMODEL = funcionarioDAO.BuscarFuncionario(163);
+
+            if (!funcionarioMODEL.nome.Equals(null))
+            {
+                cb_Funcionario.Text = funcionarioMODEL.nome;
+                txt_Cargo.Text = funcionarioMODEL.cargo;
+            }
+
+
         }
 
         private void cb_Funcionario_KeyPress(object sender, KeyPressEventArgs e)
@@ -244,7 +252,7 @@ namespace Moderno.cadastross
 
         private void txt_Cargo_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {

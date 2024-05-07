@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using DAO;
 using MODEL;
 using Moderno.Movimentacoes;
+using Newtonsoft.Json;
 
 namespace Moderno.Vendas
 {
@@ -106,7 +107,12 @@ namespace Moderno.Vendas
 
             string codigo_barra = txt_CodProduto.Text;
             produto.codigo_barra = codigo_barra;
-            produto.Nome = "COCA COLA 1L";
+
+            produtoDAO.BuscarProduto(codigo_barra);
+
+            string requestBody = JsonConvert.SerializeObject(requestBodyObj);
+
+
             //produto = produtoDAO.BuscarProduto(codBarras);
             if (produto != null)
             {

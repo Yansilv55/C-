@@ -223,5 +223,24 @@ namespace DAO
                 throw ex;
             }
         }
+
+        public FuncionarioMODEL BuscarFuncionario(int idFuncioanrio)
+        {
+            FuncionarioMODEL funcionario = new FuncionarioMODEL();
+
+            con.AbrirConexao();
+            sql = "SELECT * FROM funcionario WHERE funcionario_id = @funcionarioID";
+            conn = new MySqlCommand(sql, con.con);
+            conn.Parameters.AddWithValue("@funcionarioID", idFuncioanrio);
+            using (MySqlDataReader reader = conn.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    funcionario.nome = reader.GetString("nome");
+                    funcionario.cargo = Convert.ToString(reader["cargo"]);
+                }
+            }
+            return funcionario;
+        }
     }
 }
