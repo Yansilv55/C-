@@ -108,10 +108,9 @@ namespace Moderno.Vendas
             string codigo_barra = txt_CodProduto.Text;
             produto.codigo_barra = codigo_barra;
 
-            produtoDAO.BuscarProduto(codigo_barra);
+            produto = produtoDAO.BuscarProduto(codigo_barra);
 
-            string requestBody = JsonConvert.SerializeObject(requestBodyObj);
-
+            string arquivoJson = JsonConvert.SerializeObject(produto);
 
             //produto = produtoDAO.BuscarProduto(codBarras);
             if (produto != null)
@@ -119,7 +118,6 @@ namespace Moderno.Vendas
                 gridDetalhes.DataSource = produtoDAO;
             }
         }
-
         private void DesabilitarCampo()
         {
             txt_Quantidade.Enabled = false;
@@ -127,12 +125,10 @@ namespace Moderno.Vendas
             txt_TotalVenda.Enabled = false;
             txt_ValorUnitario.Enabled = false;
         }
-
         private void txt_ValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
-
         private void txt_ValorUnitario_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_ValorUnitario);
@@ -161,15 +157,60 @@ namespace Moderno.Vendas
             {
             }
         }
-
         private void txt_SubTotal_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_SubTotal);
         }
-
         private void txt_TotalVenda_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_TotalVenda);
         }
+        static void Main(string[] args)
+        {
+            // Caminho do arquivo JSON
+            string caminhoArquivo = "itens.json";
+
+            // Ler os itens existentes do arquivo JSON (se existir)
+            List<Item> itensExistente = LerItensDeArquivo(caminhoArquivo);
+
+            // Adicionar novos itens
+            itensExistente.Add(new Item { Nome = "Novo Item 1", Quantidade = 20 });
+            itensExistente.Add(new Item { Nome = "Novo Item 2", Quantidade = 30 });
+
+            // Salvar a lista atualizada de volta no arquivo JSON
+            SalvarItensEmArquivo(itensExistente, caminhoArquivo);
+
+            Console.WriteLine("Novos itens adicionados e arquivo JSON atualizado com sucesso.");
+        }
+        static List<Item> LerItensDeArquivo(string caminhoArquivo)
+        {
+            // Verificar se o arquivo existe
+            if (File.Exists(caminhoArquivo))
+            {
+                // Ler o conteúdo do arquivo JSON
+                string json = File.ReadAllText(caminhoArquivo);
+
+                // Desserializar o JSON para uma lista de itens
+                return JsonConvert.DeserializeObject<List<Item>>(json);
+            }
+            else
+            {
+                // Se o arquivo não existir, retornar uma nova lista vazia
+                return new List<Item>();
+            }
+        }
+        static void SalvarItensEmArquivo(List<Item> itens, string caminhoArquivo)
+        {
+            // Serializa a lista de itens para formato JSON
+            string json = JsonConvert.SerializeObject(itens, Formatting.Indented);
+
+            // Escreve o JSON no arquivo
+            File.WriteAllText(caminhoArquivo, json);
+        }
+    }
+    public class Item
+    {
+        public string Nome { get; set; }
+        public int Quantidade { get; set; }
     }
 }
