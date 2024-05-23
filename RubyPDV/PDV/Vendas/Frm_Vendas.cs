@@ -125,10 +125,6 @@ namespace Moderno.Vendas
             txt_TotalVenda.Enabled = false;
             txt_ValorUnitario.Enabled = false;
         }
-        private void txt_ValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
         private void txt_ValorUnitario_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txt_ValorUnitario);
@@ -165,7 +161,7 @@ namespace Moderno.Vendas
         {
             Moeda(ref txt_TotalVenda);
         }
-        static void Main(string[] args)
+      /*  static void Main(string[] args)
         {
             // Caminho do arquivo JSON
             string caminhoArquivo = "itens.json";
@@ -185,7 +181,7 @@ namespace Moderno.Vendas
         static List<Item> LerItensDeArquivo(string caminhoArquivo)
         {
             // Verificar se o arquivo existe
-            if (File.Exists(caminhoArquivo))
+           /* if (File.Exists(caminhoArquivo))
             {
                 // Ler o conteúdo do arquivo JSON
                 string json = File.ReadAllText(caminhoArquivo);
@@ -206,7 +202,7 @@ namespace Moderno.Vendas
 
             // Escreve o JSON no arquivo
             File.WriteAllText(caminhoArquivo, json);
-        }
+        }*/
     }
     public class Item
     {

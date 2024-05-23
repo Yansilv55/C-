@@ -240,7 +240,6 @@
             this.txt_ValorUnitario.TabIndex = 4;
             this.txt_ValorUnitario.Text = "0,00";
             this.txt_ValorUnitario.TextChanged += new System.EventHandler(this.txt_ValorUnitario_TextChanged);
-            this.txt_ValorUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ValorUnitario_KeyPress);
             // 
             // label9
             // 
