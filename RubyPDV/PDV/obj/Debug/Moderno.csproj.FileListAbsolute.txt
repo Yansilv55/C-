@@ -61,8 +61,8 @@ C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.Vendas.Frm_fechar_venda
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.Vendas.Frm_Vendas.resources
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.csproj.GenerateResource.cache
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.csproj.CoreCompileInputs.cache
-C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.csproj.CopyComplete
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.exe
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.pdb
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\bin\Debug\Newtonsoft.Json.dll
 C:\Estudos\Projetos\Csharp\RubyPDV\PDV\bin\Debug\Newtonsoft.Json.xml
+C:\Estudos\Projetos\Csharp\RubyPDV\PDV\obj\Debug\Moderno.csproj.Up2Date

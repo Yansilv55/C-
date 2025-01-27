@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}|Moderno.csproj|c:\\estudos\\projetos\\csharp\\rubypdv\\pdv\\cadastross\\frm_funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}|Moderno.csproj|solutionrelative:cadastross\\frm_funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D934615-06A0-4212-91EB-668D223FF1C6}|..\\DAO\\DAO.csproj|c:\\estudos\\projetos\\csharp\\rubypdv\\dao\\caixadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}|Moderno.csproj|C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\movimentacoes\\frm_caixa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C338C105-BB9F-4B7D-BF8E-F99B13249CD3}|Moderno.csproj|solutionrelative:movimentacoes\\frm_caixa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 345,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Frm_Funcionario.cs",
+              "DocumentMoniker": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\cadastross\\Frm_Funcionario.cs",
+              "RelativeDocumentMoniker": "cadastross\\Frm_Funcionario.cs",
+              "ToolTip": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\cadastross\\Frm_Funcionario.cs",
+              "RelativeToolTip": "cadastross\\Frm_Funcionario.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAQwH0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T20:20:11.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CaixaDAO.cs",
+              "DocumentMoniker": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\DAO\\CaixaDAO.cs",
+              "RelativeDocumentMoniker": "..\\DAO\\CaixaDAO.cs",
+              "ToolTip": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\DAO\\CaixaDAO.cs",
+              "RelativeToolTip": "..\\DAO\\CaixaDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T18:35:23.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Frm_Caixa.cs [Design]",
+              "DocumentMoniker": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\Movimentacoes\\Frm_Caixa.cs",
+              "RelativeDocumentMoniker": "Movimentacoes\\Frm_Caixa.cs",
+              "ToolTip": "C:\\Estudos\\Projetos\\Csharp\\RubyPDV\\PDV\\Movimentacoes\\Frm_Caixa.cs [Design]",
+              "RelativeToolTip": "Movimentacoes\\Frm_Caixa.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-05-21T18:00:01.682Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

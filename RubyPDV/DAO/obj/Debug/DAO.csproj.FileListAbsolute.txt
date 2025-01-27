@@ -21,6 +21,6 @@ C:\Estudos\Projetos\Csharp\RubyPDV\DAO\bin\Debug\MODEL.pdb
 C:\Estudos\Projetos\Csharp\RubyPDV\DAO\bin\Debug\MySql.Data.xml
 C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
 C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
-C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.csproj.CopyComplete
 C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.dll
 C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.pdb
+C:\Estudos\Projetos\Csharp\RubyPDV\DAO\obj\Debug\DAO.csproj.Up2Date
